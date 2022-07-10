@@ -1,0 +1,157 @@
+:root{
+    --g-txt-clr: #E6ECFF;
+    --g-bg-clr:#25272E;
+
+    --overview-show-w:400px;
+    --overview-hide-w:64px;
+
+    --overview-bg-clr:#41444D;
+    --overview-txt-clr :#E6ECFF;
+    --overview-tags-clr :#B1B7C8;
+
+    --document-bg-clr:#25272E;
+    --document-txt-clr :#E6ECFF;
+    --document-subtitle-clr :#8c909a;
+    --document-a-clr:#C8BE67;
+    --document-a-clr-hover:#dcd6a3;
+    
+    --document-h1-h:64px;
+    --document-h2-h:28px;
+    --document-h3-h:18px;
+    --document-a-h: 18px;
+
+    --document-h3-fw:400;
+    --document-a-fw: 400;
+}
+
+/*
+    global
+*/
+
+html {
+    font-size: 18px;
+    line-height: 20px;
+    font-family: "GeneralSans", Helvetica, arial, sans-serif;
+    font-weight: 200;
+    color:var(--g-txt-clr);
+    background-color: var(--g-bg-clr);
+
+    background-attachment: fixed;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height:100%;
+    overflow: hidden;
+    margin:0;
+}
+
+body {
+    height:100%;
+    margin:0;
+}
+
+h1 {
+    margin: 24px 0 4px 0;
+}
+
+h5 {
+    margin:0;
+    font-size: 18px;
+}
+
+.ow {
+    margin-left: 24px;
+}
+
+.hide > * {
+    display:none;
+}
+
+.f_ow_container {
+    display:flex;
+    align-items: center;
+}
+
+.ow_wrapper {
+    margin-left:24px;
+    font-weight:200px;
+}
+
+.f_ow_container > h3 {
+    margin: 0 0 0 4px;
+    font-weight: 200;
+    line-height: 18px;
+}
+
+.f_ow_container > h4 {
+    margin: 2px 0 0 4px;
+    font-weight: 200;
+    line-height: 16px;
+    font-size:16px;
+}
+
+/*
+    flex layout
+*/
+
+.container {
+    height:100%;
+    display: grid; 
+    grid-template-columns: var(--overview-show-w) 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: "ow doc"; 
+}
+
+/*
+    overview
+*/
+
+.c_overview {
+    grid-area:ow;
+    background-color: var(--overview-bg-clr);
+    box-shadow: 0 6px 24px #000000;
+}
+
+/*
+    document
+*/
+
+.c_document {
+    grid-area: doc;
+    overflow: auto;
+}
+
+.document_txt_area {
+    margin-left:24px;
+}
+
+.sub_title {
+    color: var(--document-subtitle-clr);
+}
+
+.description p {
+    width:90%;
+}
+
+.doc_link {
+    color: var(--document-a-clr);
+    text-decoration: underline;
+
+}
+
+.doc_link:hover {
+    color: var(--document-a-clr-hover);
+}
+
+.req_list {
+    margin: 0 0 0 24px;
+}
+
+.req_header {
+    font-size: 18px;
+}
+
+.paragraph {
+    margin-left: 24px;
+}

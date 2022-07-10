@@ -1,0 +1,34 @@
+{
+    "rare_encounters":{
+        "arceus":{
+                "hall_of_origin":{
+                    "Title":"Hall of origin void route",
+                    "Description":
+                    "This route will allow you to fight Arceus in the Hall of Origin, or Jubilife City. Both of them are infinitely obtainable, and you can do run-away encounters between them for shinyhunting purposes. The Arceus obtained with location 'Hall of Origin' can be used to unlock the Sinjoh Ruins event in Heartgold and Soulsilver. For transferring up to newer games, please refer to ${convertLink(transferring pokemon,'')}.\n\nNote:\nIf you have already progressed to Spear Pillar do not perform this route, as it will softlocks you and recovering the game is very tedious. In this case, please refer to ${convertLink(this void route,'')} that will work regardless of story progression.",
+                    "Requirements":{"items:":{},"Story Progression:":{}},
+                    "Void route":""
+                }
+            },
+        "darkrai":{
+
+        },
+        "shaymin":{
+
+        },
+        "cresselia":{
+
+        },
+    "wild_encounters":{
+        "route_227":{},
+        "route_226":{}
+    }
+    },
+    "locations":{
+        "fly_points":{
+
+        }
+    }
+
+
+
+}
