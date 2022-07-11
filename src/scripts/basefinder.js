@@ -89,9 +89,13 @@ const suggestAslr = function() {
     let pokemon = "";
     let pokemonIds = ""
 
-    for (let pokemonId of currentSuggestedPokemonIds) {
-        if (pokemonId < 493) {pokemon += `${pokemonNames[pokemonId]}, `; pokemonIds += `${pokemonId}, `}
-        
+    if (currentSuggestedPokemonIds.length) {
+        for (let pokemonId of currentSuggestedPokemonIds.sort((a, b) => a - b)) {
+            if (pokemonId < 493) {pokemon += `${pokemonNames[pokemonId]}, `; pokemonIds += `${pokemonId}, `}
+            
+        }
+        pokemon = pokemon.substring(0,pokemon.length -2)
+        pokemonIds = pokemonIds.substring(0,pokemonIds.length -2)
     }
 
     document.querySelector(".pokemon").textContent = pokemon
@@ -113,6 +117,8 @@ const displayAslr = function (ptrData,tile) {
 }
 
 const updateAslrSuggestion = function () {
+    if (potentialAslr.length === 1) return;
+
     let tiles = [document.getElementById("tile1").value,document.getElementById("tile2").value];
     let currentChunkData;
 
@@ -139,6 +145,7 @@ const updateAslrSuggestion = function () {
 
     suggestAslr()
     document.querySelector(".aslrcount").textContent = potentialAslr.length;
+    if (potentialAslr.length === 1) {document.querySelector(".aslr").textContent = potentialAslr[0].toString(16).padStart(2,"0");}
 }
 
 const addEventListeners = function() {

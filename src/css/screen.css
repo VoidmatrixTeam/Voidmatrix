@@ -8,8 +8,9 @@
 }
 
 .app div {
+    width: 800px;
     display: flex;
-    max-width:fit-content;
+    max-width: fit-content;
 }
 
 .app div *:first-child {
@@ -17,7 +18,7 @@
 }
 
 .pokemonids {
-    max-width: 800px;
+    overflow:hidden;
 }
 
 .img {
