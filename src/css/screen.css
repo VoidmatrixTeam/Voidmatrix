@@ -16,6 +16,10 @@
     padding-right: 20px;
 }
 
+.pokemonids {
+    max-width: 800px;
+}
+
 .img {
     width:848px;
     height:345px;

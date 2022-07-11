@@ -61,19 +61,17 @@ let pokemonNames =  ["-----", "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", 
     "Dusknoir", "Froslass", "Rotom", "Uxie", "Mesprit", "Azelf", "Dialga", "Palkia", "Heatran",
     "Regigigas", "Giratina", "Cresselia", "Phione", "Manaphy", "Darkrai", "Shaymin", "Arceus",]
 
-let checkableMaps = [11,28,41,45,47,67,86,88,113,116,117,119,120,121,122,125,132,133,157,165,167,177,205,206,220,223,224,249,251,253,256,262,263,266,268,274,278,289,295,306,311,320,321,322,323,324,327,357,409,410]
+// let checkableMaps = [11,28,41,45,47,67,86,88,113,116,117,119,120,121,122,125,132,133,157,165,167,177,205,206,220,223,224,249,251,253,256,262,263,266,268,274,278,289,295,306,311,320,321,322,323,324,327,357,409,410]
 let tileMapping;
 let textureData;
 let potentialAslr = (() => {let bases = []; for (let i = 0; i < 65; i++) {bases.push(0x226D260+i*4);} return bases;})();
 let currentSuggestedPokemonIds = [];
 
 const suggestAslr = function() {
-    // get highest amount of varying bases/usable ptrs
     let topSuggestion = ["",0]
     let suggestionCount;
     let currentChunkData;
 
-    console.log("suggesting ASLR")
     for (let textureSet of textureData) {
         currentChunkData = textureSet["chunks"][`Chunk ${document.getElementById("chunk").value}`] // only doing current chunk
         suggestionCount = 0;
@@ -86,37 +84,54 @@ const suggestAslr = function() {
         }
         if (suggestionCount > topSuggestion[1]) {topSuggestion[0] = textureSet.map_ids; topSuggestion[1] = suggestionCount;}
     }
-    console.log(topSuggestion)
+
     currentSuggestedPokemonIds = topSuggestion[0];
     let pokemon = "";
+    let pokemonIds = ""
 
     for (let pokemonId of currentSuggestedPokemonIds) {
-        if (pokemonId < 493) pokemon += `${pokemonNames[pokemonId]}, `;
+        if (pokemonId < 493) {pokemon += `${pokemonNames[pokemonId]}, `; pokemonIds += `${pokemonId}, `}
+        
     }
+
     document.querySelector(".pokemon").textContent = pokemon
+    document.querySelector(".pokemonids").textContent = `${currentSuggestedPokemonIds}`;
+}
 
-
+const displayAslr = function (ptrData,tile) {
+    for (const ptrValues of ptrData) {
+        if (tile === parseInt(ptrValues.tile)) {
+            if (parseInt(ptrValues.base)%0x100 === 0x60) {
+                document.querySelector(".aslrcount").textContent = 2;
+                document.querySelector(".aslr").textContent = "0x226D260 or 0x226D360";
+            }
+            document.querySelector(".aslrcount").textContent = 1;
+            document.querySelector(".aslr").textContent = ptrValues.base;
+            break;
+        }
+    }
 }
 
 const updateAslrSuggestion = function () {
-    let tiles = [document.getElementById("tile1").value,document.getElementById("tile2").value]
+    let tiles = [document.getElementById("tile1").value,document.getElementById("tile2").value];
     let currentChunkData;
 
     for (let textureSet of textureData) {
         if (textureSet.map_ids.indexOf(currentSuggestedPokemonIds[0]) !== -1) {
-            currentChunkData = textureSet["chunks"][`Chunk ${document.getElementById("chunk").value}`]
-            //console.log(currentChunkData)
+            currentChunkData = textureSet["chunks"][`Chunk ${document.getElementById("chunk").value}`];
         }
     }
 
-    let ptr;
     for (let i=0; i<tiles.length;i++) {
-        if (tiles[i] !== "blank") {console.log("found aslr");break;}
+        if (tiles[i] !== "blank") {
+            displayAslr(currentChunkData[`ptr ${i+1}`],parseInt(tiles[i]));
+            return;
+        }
         for (const tile of [0x4C,0xE0,0xE4]) {
             for (const ptrValues of currentChunkData[`ptr ${i+1}`]) {
                 if (tile === parseInt(ptrValues.tile)) {
                     // console.log(`filtering: ${ptrValues.base}`)
-                    potentialAslr = potentialAslr.filter(function(f) {return f !== parseInt(ptrValues.base)}) 
+                    potentialAslr = potentialAslr.filter(function(f) {return f !== parseInt(ptrValues.base);}) 
                 }
             }
         }
@@ -124,7 +139,6 @@ const updateAslrSuggestion = function () {
 
     suggestAslr()
     document.querySelector(".aslrcount").textContent = potentialAslr.length;
-    console.log(potentialAslr)
 }
 
 const addEventListeners = function() {
