@@ -105,12 +105,13 @@ const suggestAslr = function() {
 const displayAslr = function (ptrData,tile) {
     for (const ptrValues of ptrData) {
         if (tile === parseInt(ptrValues.tile)) {
+            console.log(parseInt(ptrValues.base)%0x100)
+            document.querySelector(".aslrcount").textContent = 1;
+            document.querySelector(".aslr").textContent = ptrValues.base;
             if (parseInt(ptrValues.base)%0x100 === 0x60) {
                 document.querySelector(".aslrcount").textContent = 2;
                 document.querySelector(".aslr").textContent = "0x226D260 or 0x226D360";
             }
-            document.querySelector(".aslrcount").textContent = 1;
-            document.querySelector(".aslr").textContent = ptrValues.base;
             break;
         }
     }
