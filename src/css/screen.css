@@ -2,6 +2,10 @@
     font-family: 'Courier', monospace;
 }
 
+body {
+    background: #eeeeff;
+}
+
 .container {
     display: flex;
     justify-content: center;
