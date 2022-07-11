@@ -1,0 +1,22 @@
+* {
+    font-family: 'Courier', monospace;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.app div {
+    display: flex;
+    max-width:fit-content;
+}
+
+.app div *:first-child {
+    padding-right: 20px;
+}
+
+.img {
+    width:848px;
+    height:345px;
+}
