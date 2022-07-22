@@ -69,7 +69,7 @@ let bannedMaps = [
 let tileMapping;
 let textureData;
 let checkableTiles =  [0x4C,0xE0,0xE4,0xE8];
-let potentialAslr = (() => {let bases = []; for (let i = 0; i < 65; i++) {bases.push(0x226D260+i*4);} return bases;})();
+let potentialAslr = (() => {let bases = []; for (let i = 0; i < 64; i++) {bases.push(0x226D260+i*4);} return bases;})();
 let currentSuggestedPokemonIds = [];
 
 const suggestAslr = function() {
@@ -161,7 +161,7 @@ const updateAslrSuggestion = function () {
 
     suggestAslr()
     document.querySelector(".aslrcount").textContent = potentialAslr.length;
-    if (potentialAslr.length === 1) {displayAslr(potentialAslr[0])}
+    if (potentialAslr.length === 1) {displayAslr( "0x" + potentialAslr[0].toString(16).padStart(2, "0"))}
 }
 
 const addEventListeners = function() {

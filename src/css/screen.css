@@ -41,10 +41,6 @@ body {
     width: 180px;
 }
 
-select {
-    max-width: 80px;
-}
-
 .img {
     width:848px;
     height:345px;
