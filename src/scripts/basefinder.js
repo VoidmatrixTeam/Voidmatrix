@@ -78,7 +78,7 @@ const suggestAslr = function() {
     let currentChunkData;
 
     for (const textureSet of textureData) {
-        currentChunkData = textureSet["chunks"][`Chunk ${document.getElementById("chunk").value}`] // only doing current chunk
+        currentChunkData = textureSet["chunks"][`Chunk 2`] // only doing current chunk
         suggestionCount = 0;
         for (const ptr in currentChunkData) {
             for (const ptrValues of currentChunkData[ptr]) {
@@ -98,17 +98,29 @@ const suggestAslr = function() {
     let pokemon = "";
     let pokemonIds = ""
 
+    let pokesuggestions = "";
     if (currentSuggestedPokemonIds.length) {
         for (const pokemonId of currentSuggestedPokemonIds.sort((a, b) => a - b)) {
             if (bannedMaps.indexOf(pokemonId) !== -1) {continue;}
-            if (pokemonId < 493) {pokemon += `${pokemonNames[pokemonId]}, `; pokemonIds += `${pokemonId}, `}
+            if (pokemonId < 493) {
+                pokesuggestions += `<div class="pokesuggestion"><img class="pokeimg" src="/src/images/pokemon/${pokemonId}.png"><p class="pokeid">${String(pokemonId).padStart(3, '0')}</p><p class="pokename">${pokemonNames[pokemonId]}</p></div>`;
+            }
         }
-        pokemon = pokemon.substring(0,pokemon.length -2)
-        pokemonIds = pokemonIds.substring(0,pokemonIds.length -2)
     }
+    document.querySelector(".pokesuggestions").innerHTML = pokesuggestions;
+    //<div class="pokesuggestion"><img class="pokeimg" src="/src/images/pokemon/63.png"><p class="pokeid">063</p><p class="pokename">Abra</p></div>    
+    
+    // if (currentSuggestedPokemonIds.length) {
+    //     for (const pokemonId of currentSuggestedPokemonIds.sort((a, b) => a - b)) {
+    //         if (bannedMaps.indexOf(pokemonId) !== -1) {continue;}
+    //         if (pokemonId < 493) {pokemon += `${pokemonNames[pokemonId]}, `; pokemonIds += `${pokemonId}, `}
+    //     }
+    //     pokemon = pokemon.substring(0,pokemon.length -2)
+    //     pokemonIds = pokemonIds.substring(0,pokemonIds.length -2)
+    // }
 
-    document.querySelector(".pokemon").textContent = pokemon
-    document.querySelector(".pokemonids").textContent = `${pokemonIds}`;
+    //document.querySelector(".pokemon").textContent = pokemon
+    //document.querySelector(".pokemonids").textContent = `${pokemonIds}`;
 }
 
 const getAndDisplayAslr = function (ptrData,tile) {
@@ -140,7 +152,7 @@ const updateAslrSuggestion = function () {
 
     for (let textureSet of textureData) {
         if (textureSet.map_ids.indexOf(currentSuggestedPokemonIds[0]) !== -1) {
-            currentChunkData = textureSet["chunks"][`Chunk ${document.getElementById("chunk").value}`];
+            currentChunkData = textureSet["chunks"][`Chunk 2`];
         }
     }
 

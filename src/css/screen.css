@@ -1,14 +1,16 @@
 * {
     font-family: 'Courier', monospace;
-}
-
-p, div {
-    margin:2px;
-    padding:0;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 body {
-    background: #eeeeff;
+    background-color:#161318;
+}
+
+p, div {
+    margin:0;
+    padding:0;
 }
 
 .container {
@@ -16,36 +18,134 @@ body {
     justify-content: center;
 }
 
-.app div {
-    width: 800px;
-    display: flex;
+.app {
+    width:1220px;
+    height:880px;
+    background-image:url("/src/images/Pokedex.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.app div *:first-child {
-    padding-right: 10px;
+.topscreen,.bottomscreen {
+    margin:auto;
+    width:424px;
+    height:312px;
 }
 
-.pokemon_wrapper {
-    height:140px;
+.topscreen {
+    margin-top:48px;
 }
 
-.pokemonids_wrapper{
-    height:100px;
+.search_wrapper{
+    height:52px;
 }
 
-.pokemon,.pokemonids {
-    width:630px;
+.searchsetting {
+    padding-top:12px;
+    padding-left:20px;
+    text-align: center;
+    width:260px;
 }
 
-.fieldname {
-    width: 180px;
+.pokesuggestions {
+    width:424px;
+    height:260px;
+    overflow-y:auto;
 }
 
-.img {
-    width:848px;
-    height:345px;
+.pokesuggestion {
+    background-image: url("/src/images/summary.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:380px;
+    height:102px;
+    min-width: 188px;
+    display:flex;
+    margin: 6px 10px 0px 10px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.pokeimg {
+    width:102px;
+    height:102px;
+}
+
+.pokeid {
+    margin:auto 10px auto 60px;
+}
+
+.pokename {
+    margin:auto 0px;
+}
+
+.bottomscreen {
+    margin-top:160px;
+}
+
+.bottomscreen div {
+    margin-left:10px;
+    display:flex;
+}
+
+.tile1_wrapper {
+    padding-top:64px;
+}
+
+.tile2_wrapper {
+    padding-top:28px;
+}
+
+.tilelabel {
+    text-align: center;
+    width:100px;
+    padding-right:20px
+}
+
+select {
+    width:280px;
+    background:none;
+    border: none;
 }
 
 .submitbutton {
-    margin-top:20px;
+    padding-top:36px;
+    width:424px;
+    background:none;
+    border: none;
 }
+
+.aslrcount_wrapper {
+    padding-top:38px;
+}
+
+.aslrcount_text {
+    text-align: center;
+    width:236px;
+    padding-right:10px;
+}
+
+.aslrcount {
+    text-align: center;
+    width:60px;
+}
+
+.aslr_wrapper {
+    padding-top:28px;
+}
+
+.aslr_text {
+    text-align: center;
+    width:108px;
+    padding-right:10px;
+}
+
+.aslr {
+    text-align: center;
+    width: 188px;
+}
+

@@ -12,43 +12,37 @@
 <body>
     <div class="container">
         <div class="app">
-            <img src="logo.png" alt="Logo with text saying base finder" class="center">
-            <div><p>Potential ASLR layouts:</p><p class="aslrcount">65</p></div>
-            <div><p>Your ASLR:</p><p class="aslr">working on it...</p></div>
-            <div class="pokemon_wrapper"><p class="fieldname">Suggested Pokémon:</p><p class="pokemon">-----, Bulbasaur</p></div>
-            <div class="pokemonids_wrapper"><p class="fieldname">Pokédex indexes:</p><p class="pokemonids">0, 1</p></div>
+            <div class="topscreen">
+                <div class="search_wrapper"><p class="searchsetting">suggested pokémon</p></div>
 
-            <div>
-                <label for="chunk">Chunk used: (if you don't know, leave this on 2)</label>
-                <select name="chunk" id="chunk">
-                    <option value="1">1</option>
-                    <option value="2" selected="">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-
+                <div class="pokesuggestions">
+                </div>
+            </div>
+            <div class="bottomscreen">
+                <div class="tile1_wrapper tile_wrapper">
+                    <label class="tilelabel" for="tile1">Tile 1</label>
+                    <select name="tile1" id="tile1">
+                        <option value="blank">Blank</option>
+                        <option value="0x4c">The wall is very rocky... (...)</option>
+                        <option value="0xe0">It's lined with Pokémon picture books.</option>
+                        <option value="0xe4">The trash can is empty.</option>
+                        <option value="0xe8">The shelves brim with all sorts of Pokémon merchandise.</option>
                     </select>
+                </div>
+                <div class="tile2_wrapper tile_wrapper">
+                    <label class="tilelabel" for="tile2">Tile 2</label>
+                    <select name="tile2" id="tile2">
+                        <option value="blank">Blank</option>
+                        <option value="0x4c">The wall is very rocky...</option>
+                        <option value="0xe0">It's lined with Pokémon picture books.</option>
+                        <option value="0xe4">The trash can is empty.</option>
+                        <option value="0xe8">The shelves brim with all sorts of Pokémon merchandise.</option>
+                    </select>
+                </div>
+                <button class="submitbutton j-submit">Submit tiles</button>
+                <div class="aslrcount_wrapper"><p class="aslrcount_text">Remaining ASLR</p><p class="aslrcount">65</p></div>
+                <div class="aslr_wrapper"><p class="aslr_text">Your ASLR</p><p class="aslr">working on it...</p></div>
             </div>
-
-            <div>
-                <label class="fieldname" for="tile1">Tile 1 text:</label>
-                <select name="tile1" id="tile1">
-                    <option value="blank">Blank</option>
-                    <option value="0x4c">The wall is very rocky... (...)</option>
-                    <option value="0xe0">It's lined with Pokémon picture books</option>
-                    <option value="0xe4">The trash can is empty.</option>
-                    <option value="0xe8">The shelves brim with all sorts of Pokémon merchandise.</option>
-                </select>
-            </div>
-            <div><label class="fieldname" for="tile2">Tile 2 text:</label>
-                <select name="tile2" id="tile2">
-                    <option value="blank">Blank</option>
-                    <option value="0x4c">The wall is very rocky...</option>
-                    <option value="0xe0">It's lined with Pokémon picture books</option>
-                    <option value="0xe4">The trash can is empty.</option>
-                    <option value="0xe8">The shelves brim with all sorts of Pokémon merchandise.</option>
-                </select>
-            </div>
-            <button class="submitbutton j-submit">Submit tiles</button>
         </div>
     </div>
 </body>
