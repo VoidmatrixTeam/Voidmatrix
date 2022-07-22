@@ -61,9 +61,14 @@ let pokemonNames =  ["-----", "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", 
     "Dusknoir", "Froslass", "Rotom", "Uxie", "Mesprit", "Azelf", "Dialga", "Palkia", "Heatran",
     "Regigigas", "Giratina", "Cresselia", "Phione", "Manaphy", "Darkrai", "Shaymin", "Arceus",]
 
-// let checkableMaps = [11,28,41,45,47,67,86,88,113,116,117,119,120,121,122,125,132,133,157,165,167,177,205,206,220,223,224,249,251,253,256,262,263,266,268,274,278,289,295,306,311,320,321,322,323,324,327,357,409,410]
+let bannedMaps = [
+    117, 192, 393, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483,484, 485, 486, 487, 488, 489, 490, 496, //movement
+    35, 88, 93, 95, 122, 133, 154, 155, 156, 176, 178, 180, 182, 184, 185, 291, 293, 504, 505, 506, 507, 508, 509,  //BSOD
+    150, 188, 295 // soft lock
+]
 let tileMapping;
 let textureData;
+let checkableTiles =  [0x4C,0xE0,0xE4,0xE8];
 let potentialAslr = (() => {let bases = []; for (let i = 0; i < 65; i++) {bases.push(0x226D260+i*4);} return bases;})();
 let currentSuggestedPokemonIds = [];
 
@@ -72,13 +77,17 @@ const suggestAslr = function() {
     let suggestionCount;
     let currentChunkData;
 
-    for (let textureSet of textureData) {
+    for (const textureSet of textureData) {
         currentChunkData = textureSet["chunks"][`Chunk ${document.getElementById("chunk").value}`] // only doing current chunk
         suggestionCount = 0;
-        for (let ptr in currentChunkData) {
+        for (const ptr in currentChunkData) {
             for (const ptrValues of currentChunkData[ptr]) {
-                if (potentialAslr.indexOf(parseInt(ptrValues.base)) !== -1) {
-                    suggestionCount +=1;
+                for (const tile of checkableTiles) {
+                    if (tile === parseInt(ptrValues.tile)) {
+                        if (potentialAslr.indexOf(parseInt(ptrValues.base)) !== -1) {
+                            suggestionCount +=1;
+                        }
+                    }
                 }
             }
         }
@@ -90,35 +99,41 @@ const suggestAslr = function() {
     let pokemonIds = ""
 
     if (currentSuggestedPokemonIds.length) {
-        for (let pokemonId of currentSuggestedPokemonIds.sort((a, b) => a - b)) {
+        for (const pokemonId of currentSuggestedPokemonIds.sort((a, b) => a - b)) {
+            if (bannedMaps.indexOf(pokemonId) !== -1) {continue;}
             if (pokemonId < 493) {pokemon += `${pokemonNames[pokemonId]}, `; pokemonIds += `${pokemonId}, `}
-            
         }
         pokemon = pokemon.substring(0,pokemon.length -2)
         pokemonIds = pokemonIds.substring(0,pokemonIds.length -2)
     }
 
     document.querySelector(".pokemon").textContent = pokemon
-    document.querySelector(".pokemonids").textContent = `${currentSuggestedPokemonIds}`;
+    document.querySelector(".pokemonids").textContent = `${pokemonIds}`;
 }
 
-const displayAslr = function (ptrData,tile) {
+const getAndDisplayAslr = function (ptrData,tile) {
     for (const ptrValues of ptrData) {
         if (tile === parseInt(ptrValues.tile)) {
-            console.log(parseInt(ptrValues.base)%0x100)
-            document.querySelector(".aslrcount").textContent = 1;
-            document.querySelector(".aslr").textContent = ptrValues.base;
-            if (parseInt(ptrValues.base)%0x100 === 0x60) {
-                document.querySelector(".aslrcount").textContent = 2;
-                document.querySelector(".aslr").textContent = "0x226D260 or 0x226D360";
-            }
+            displayAslr(ptrValues.base)
             break;
         }
     }
 }
 
+const displayAslr =  function (base) {
+    console.log(parseInt(base)%0x100)
+    if (parseInt(base)%0x100 === 0x60) {
+        document.querySelector(".aslrcount").textContent = 2;
+        document.querySelector(".aslr").textContent = "0x226D260 or 0x226D360";
+        return;
+    }
+    document.querySelector(".aslrcount").textContent = 1;
+    document.querySelector(".aslr").textContent = base;
+}
+
 const updateAslrSuggestion = function () {
     if (potentialAslr.length === 1) return;
+    document.querySelector(".aslr").textContent = "working on it...";
 
     let tiles = [document.getElementById("tile1").value,document.getElementById("tile2").value];
     let currentChunkData;
@@ -131,10 +146,10 @@ const updateAslrSuggestion = function () {
 
     for (let i=0; i<tiles.length;i++) {
         if (tiles[i] !== "blank") {
-            displayAslr(currentChunkData[`ptr ${i+1}`],parseInt(tiles[i]));
+            getAndDisplayAslr(currentChunkData[`ptr ${i+1}`],parseInt(tiles[i]));
             return;
         }
-        for (const tile of [0x4C,0xE0,0xE4]) {
+        for (const tile of checkableTiles) {
             for (const ptrValues of currentChunkData[`ptr ${i+1}`]) {
                 if (tile === parseInt(ptrValues.tile)) {
                     // console.log(`filtering: ${ptrValues.base}`)
@@ -146,7 +161,7 @@ const updateAslrSuggestion = function () {
 
     suggestAslr()
     document.querySelector(".aslrcount").textContent = potentialAslr.length;
-    if (potentialAslr.length === 1) {document.querySelector(".aslr").textContent = potentialAslr[0].toString(16).padStart(2,"0");}
+    if (potentialAslr.length === 1) {displayAslr(potentialAslr[0])}
 }
 
 const addEventListeners = function() {
@@ -169,7 +184,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     tileMapping = await getJsonFromUrl(`data/tiledata.json`);
     textureData = await getJsonFromUrl(`data/aslrdata.json`);
     suggestAslr();
-    console.log(tileMapping);
-    console.log(textureData);
+    // console.log(tileMapping);
+    // console.log(textureData);
     addEventListeners();
 });
