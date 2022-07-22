@@ -14,8 +14,9 @@
         <div class="app">
             <img src="logo.png" alt="Logo with text saying base finder" class="center">
             <div><p>Potential ASLR layouts:</p><p class="aslrcount">65</p></div>
-            <div><p>Suggested Pokémon:</p><p class="pokemon">-----, Bulbasaur</p></div>
-            <div><p>Pokédex indexes:</p><p class="pokemonids">0, 1</p></div>
+            <div><p>Your ASLR:</p><p class="aslr">working on it...</p></div>
+            <div class="pokemon_wrapper"><p class="fieldname">Suggested Pokémon:</p><p class="pokemon">-----, Bulbasaur</p></div>
+            <div class="pokemonids_wrapper"><p class="fieldname">Pokédex indexes:</p><p class="pokemonids">0, 1</p></div>
 
             <div>
                 <label for="chunk">Chunk used: (if you don't know, leave this on 2)</label>
@@ -29,7 +30,7 @@
             </div>
 
             <div>
-                <label for="tile1">Tile 1 text:</label>
+                <label class="fieldname" for="tile1">Tile 1 text:</label>
                 <select name="tile1" id="tile1">
                     <option value="blank">Blank</option>
                     <option value="0x4c">The wall is very rocky... (...)</option>
@@ -38,7 +39,7 @@
                     <option value="0xe8">The shelves brim with all sorts of Pokémon merchandise.</option>
                 </select>
             </div>
-            <div><label for="tile2">Tile 2 text:</label>
+            <div><label class="fieldname" for="tile2">Tile 2 text:</label>
                 <select name="tile2" id="tile2">
                     <option value="blank">Blank</option>
                     <option value="0x4c">The wall is very rocky...</option>
@@ -47,8 +48,7 @@
                     <option value="0xe8">The shelves brim with all sorts of Pokémon merchandise.</option>
                 </select>
             </div>
-            <button class="wide j-submit">Submit</button>
-            <div><p>Your ASLR:</p><p class="aslr">working on it...</p></div>
+            <button class="submitbutton j-submit">Submit tiles</button>
         </div>
     </div>
 </body>
