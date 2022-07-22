@@ -21,7 +21,7 @@ p, div {
 .app {
     width:1220px;
     height:880px;
-    background-image:url("/src/images/Pokedex.png");
+    background-image:url("../images/Pokedex.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -55,7 +55,7 @@ p, div {
 }
 
 .pokesuggestion {
-    background-image: url("/src/images/summary.png");
+    background-image: url("../images/summary.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -71,8 +71,10 @@ p, div {
 }
 
 .pokeimg {
-    width:102px;
-    height:102px;
+    width:80px;
+    height:80px;
+    margin:auto 11px auto 11px;
+
 }
 
 .pokeid {

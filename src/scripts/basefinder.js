@@ -103,7 +103,7 @@ const suggestAslr = function() {
         for (const pokemonId of currentSuggestedPokemonIds.sort((a, b) => a - b)) {
             if (bannedMaps.indexOf(pokemonId) !== -1) {continue;}
             if (pokemonId < 493) {
-                pokesuggestions += `<div class="pokesuggestion"><img class="pokeimg" src="/src/images/pokemon/${pokemonId}.png"><p class="pokeid">${String(pokemonId).padStart(3, '0')}</p><p class="pokename">${pokemonNames[pokemonId]}</p></div>`;
+                pokesuggestions += `<div class="pokesuggestion"><img class="pokeimg" src="./images/pokemon/${pokemonId}.png"><p class="pokeid">${String(pokemonId).padStart(3, '0')}</p><p class="pokename">${pokemonNames[pokemonId]}</p></div>`;
             }
         }
     }
