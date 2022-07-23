@@ -95,9 +95,6 @@ const suggestAslr = function() {
     }
 
     currentSuggestedPokemonIds = topSuggestion[0];
-    let pokemon = "";
-    let pokemonIds = ""
-
     let pokesuggestions = "";
     if (currentSuggestedPokemonIds.length) {
         for (const pokemonId of currentSuggestedPokemonIds.sort((a, b) => a - b)) {
@@ -107,20 +104,8 @@ const suggestAslr = function() {
             }
         }
     }
-    document.querySelector(".pokesuggestions").innerHTML = pokesuggestions;
-    //<div class="pokesuggestion"><img class="pokeimg" src="/src/images/pokemon/63.png"><p class="pokeid">063</p><p class="pokename">Abra</p></div>    
-    
-    // if (currentSuggestedPokemonIds.length) {
-    //     for (const pokemonId of currentSuggestedPokemonIds.sort((a, b) => a - b)) {
-    //         if (bannedMaps.indexOf(pokemonId) !== -1) {continue;}
-    //         if (pokemonId < 493) {pokemon += `${pokemonNames[pokemonId]}, `; pokemonIds += `${pokemonId}, `}
-    //     }
-    //     pokemon = pokemon.substring(0,pokemon.length -2)
-    //     pokemonIds = pokemonIds.substring(0,pokemonIds.length -2)
-    // }
 
-    //document.querySelector(".pokemon").textContent = pokemon
-    //document.querySelector(".pokemonids").textContent = `${pokemonIds}`;
+    document.querySelector(".pokesuggestions").innerHTML = pokesuggestions;
 }
 
 const getAndDisplayAslr = function (ptrData,tile) {
@@ -196,7 +181,5 @@ document.addEventListener("DOMContentLoaded", async function () {
     tileMapping = await getJsonFromUrl(`data/tiledata.json`);
     textureData = await getJsonFromUrl(`data/aslrdata.json`);
     suggestAslr();
-    // console.log(tileMapping);
-    // console.log(textureData);
     addEventListeners();
 });
