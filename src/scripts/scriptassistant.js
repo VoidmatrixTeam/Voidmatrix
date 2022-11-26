@@ -111,7 +111,9 @@ const convertPayload = function(text) {
         }
         bytes = bytes.concat(payload);
         debugHexLog(payload);
-        convertedCalculatorPayload += `${convertToCalculatorPayload(payload)}\n`;
+        const convertedPayload = convertToCalculatorPayload(payload);
+        // convert to string, with every 3 digits separated by a comma using regex
+        convertedCalculatorPayload += convertedPayload.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"\n";
     }
     calculatorOutput.innerText = convertedCalculatorPayload;
     updateDotArtist(bytes)
