@@ -1,0 +1,121 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #000;
+    background-color: #313131;
+    /* remove scrollbars */
+    overflow: hidden;
+}
+
+h1,h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: auto 20px auto 0;
+}
+
+p,textarea {
+    font-family: Monospace, Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.base {
+    width: 80px;
+    padding: 4px;
+    border: 4px solid black;
+    border-radius: 10px;
+    background-color: #73B573;
+}
+
+.payload_area {
+    width:400px;
+    height:600px;
+}
+
+.calculator_converter {
+    padding: 0px 20px;
+}
+
+.container {
+    display: flex;
+}
+
+.grid-container {  
+    display: grid;
+    grid-template-columns: 1.2fr 0.6fr 1fr;
+    grid-template-rows: 0.2fr 4fr 1.8fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "payload_input_header calculator_output_header dotartist_output_header"
+      "payload_input_wrapper calculator_output_wrapper dotartist_output_wrapper"
+      "payload_input_wrapper calculator_output_wrapper .";
+    grid-gap:0px 30px;
+  }
+  
+.payload_input_header { grid-area: payload_input_header;}  
+.calculator_output_header { grid-area: calculator_output_header;}  
+.dotartist_output_header { grid-area: dotartist_output_header;} 
+
+.payload_input_wrapper { grid-area: payload_input_wrapper;}
+.calculator_output_wrapper { grid-area: calculator_output_wrapper;}
+.dotartist_output_wrapper { grid-area: dotartist_output_wrapper;}
+  
+.io-grid-item {
+    padding:0;
+    margin:0;
+    background-color: #73B573;
+    border:none;
+    border: 5px solid black;
+    border-radius: 10px;
+}
+
+.payload_input, .calculator_output{
+    width:100%;
+    height:100%;
+}
+
+.dotartist {
+    width:100%;
+    height:100%;
+    aspect-ratio: 1.2;
+}
+
+.row {
+    height:calc(100%/20);
+    display:grid;
+    grid-template-columns: repeat(24,calc(100%/24));
+}
+
+.dot {
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgb(158, 212, 159);
+}
+
+.row:first-child .dot:first-child {
+    border-top-left-radius: 10px;
+}
+
+.row:first-child .dot:last-child {
+    border-top-right-radius: 10px;
+}
+
+.row:last-child .dot:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.row:last-child .dot:last-child {
+    border-bottom-right-radius: 10px;
+}
+

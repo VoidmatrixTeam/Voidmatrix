@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Gen 4 Arbitrary Script Execution Payload converter</title>
+
+    <script src="./scripts/bignumber.js"></script>
+    <script src="./scripts/scriptassistant.js"></script>
+    <link rel="stylesheet" href="./css/scriptassistant.css">
+</head>
+<body>
+    <div class="calculator_converter">
+        <h1>Payload converter</h1>
+        <div class="container"><h2>Base pointer</h2><input class="base" type="text" value="0x22xxxxx" maxlength="10" pattern="[0-9a-fA-F]+"></div>
+        <div class="grid-container payload_container">
+            <div class="payload_input_header"><h1>Payload</h1></div>
+            <div class="calculator_output_header"><h1>Calculator</h1></div>
+            <div class="dotartist_output_header"><h1>Dot Artist</h1></div>
+            <div class="payload_input_wrapper"><textarea class="io-grid-item payload_input"></textarea></div>
+            <div class="calculator_output_wrapper"><p class="io-grid-item calculator_output"></p></div>
+            <div class="dotartist_output_wrapper"><div class="io-grid-item dotartist_output"></div>
+          </div>
+    </div>
+</body>
+</html>
+
