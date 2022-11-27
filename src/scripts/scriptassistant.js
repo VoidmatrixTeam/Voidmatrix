@@ -1,4 +1,15 @@
 let scriptData;
+let globalAddresses = { 
+    "EN":{"base_address":0x02106FC0,"collision_address":0x2056C06,"menupatch_address":0x203506D},
+    "JP":{"base_address":0x02108818,"collision_address":0x20593E0},
+    "DE":{"base_address":0x02107100,"collision_address":0x2056C76},
+    "FR":{"base_address":0x02107140,"collision_address":0x2056C76},
+    "IT":{"base_address":0x021070A0,"collision_address":0x2056C76},
+    "SP":{"base_address":0x02107160,"collision_address":0x2056C76,"menupatch_address":0x020350B5},
+    "KO":{"base_address":0x021045C0,"collision_address":0x20570DE},
+};
+
+let language = "EN";
 let base;
 
 // DEBUG
@@ -28,13 +39,9 @@ const debugHexLog = function (value) {
 }
 
 const updateDotArtist = function(payload) {
-    //let payload = [0x07,0x0,0x24,0x29,0x26,0x2,0x46]
     const formattedPayload = formatPayload(payload);
-    // get 'dotartist-output' with querySelector
     let dotArtistWrapper = document.querySelector(".dotartist_output");
-    // clear dotArtistWrapper
     dotArtistWrapper.innerHTML = "";
-    // add empty div with class 'dotartist' containing 20 divs with class "row" containing 24 divs with class "dot"
     let dotArtist = document.createElement("div");
     dotArtist.classList.add("dotartist");
 
@@ -50,7 +57,7 @@ const updateDotArtist = function(payload) {
             let rgb = 115-b*(115/4) <<16 | 181-b*(180/4) <<8 |115-b*(115/4)
             dot.style.backgroundColor = `#${hexToStr(rgb,6)}`
             //addMouseEventsForDot(dot,rgb);
-            enableDotEditing(dot,b);
+            // enableDotEditing(dot,b);
             
             row.appendChild(dot);
         }
@@ -61,6 +68,16 @@ const updateDotArtist = function(payload) {
 }
 
 const formatPayload = function(payload) {
+    // After dotartist data in memory 6 bytes are 0s. this allows us to remove up to 6 bytes from the end of the payload
+    // later we also need to account for even or odd number of bytes
+    for (let i=0;i<6;i++) {
+        if (payload[payload.length-1] === 0) {
+            payload.pop();
+            continue;
+        }
+        break;
+    }
+
     let formattedPayload = new Array((24*20)).fill(0);
     const startPayload = formattedPayload.length-payload.length*4;
     for (let i=0;i<payload.length;i++) {
@@ -110,7 +127,7 @@ const convertPayload = function(text) {
             convertedCalculatorPayload += "invalid\n"; continue;
         }
         bytes = bytes.concat(payload);
-        debugHexLog(payload);
+        // debugHexLog(payload);
         const convertedPayload = convertToCalculatorPayload(payload);
         // convert to string, with every 3 digits separated by a comma using regex
         convertedCalculatorPayload += convertedPayload.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"\n";
@@ -166,11 +183,18 @@ const getPayload = function(incomingData) {
 const formatParameter = function(data) {
     let formattedData = data.split(":")[1];
     // if data contains [base] replace with base
-    if (!base & formattedData.includes("[base]")) {
-        alert("Please enter a base address first")
+    for (let b of ["[base]","[base_address]"]) {
+        if (formattedData.includes(b)) {
+            if (!base) {alert("Please enter a base address first"); return -1;}
+            // replace [base] with base value
+            formattedData = formattedData.replaceAll(b,`0x${hexToStr(base)}`);
+        }
     }
-    // replace [base] with base value
-    formattedData = formattedData.replaceAll("[base]",`0x${hexToStr(base)}`);
+
+    for (const addr of Object.keys(globalAddresses[language])){
+        formattedData = formattedData.replaceAll(addr,`0x${hexToStr(globalAddresses[language][addr])}`);
+    }
+
     let splitData = formattedData.replaceAll(" ","").split("+");
     // add all values together
     let sum = 0;
@@ -200,8 +224,13 @@ const isHexadecimal = str => str.replace("0x",'').split('').every(c => '01234567
 const addEventListeners = function() {
     let baseInput = document.querySelector(".base");
     let payloadInput = document.querySelector('.payload_input');
+    // select language dropdown menu through id
+    let languageSelect = document.getElementById("language_select");
+     
     baseInput.addEventListener('input',function() {if (isHexadecimal(baseInput.value)) {base = strToHex(baseInput.value); convertPayload(payloadInput.value)}})
     payloadInput.addEventListener('input',function () {convertPayload(payloadInput.value);})
+    languageSelect.addEventListener('change',function() {language = languageSelect.value; convertPayload(payloadInput.value);})
+
 
 }
 
