@@ -113,9 +113,21 @@ const addMouseEventsForDot = function(dot,rgb) {
     })
 }
 
+const convertToRawByteString = function(bytes) {
+    let byteString = "";
+    for (let i=0;i<bytes.length;i++) {
+        byteString += `0x${hexToStr(bytes[i],2)},`;
+    }
+    // remove last comma
+    byteString = byteString.slice(0,-1);
+    return byteString;
+}
+
 const convertPayload = function(text) {
     let calculatorOutput = document.querySelector(".calculator_output");
-    let convertedCalculatorPayload = "";
+    let rawByteOutput = document.querySelector(".raw_bytes");
+    let calculatorStr = ""
+    let rawByteStr = "";
     let bytes = []
     for (let line of text.split("\n")) {
         let payload = getPayload(line.split("-"));
@@ -124,16 +136,18 @@ const convertPayload = function(text) {
                 bytes.push(0x0);
                 break;
             }
-            convertedCalculatorPayload += "invalid\n"; continue;
+            calculatorStr += "invalid\n"; continue;
         }
         bytes = bytes.concat(payload);
-        // debugHexLog(payload);
         const convertedPayload = convertToCalculatorPayload(payload);
         // convert to string, with every 3 digits separated by a comma using regex
-        convertedCalculatorPayload += convertedPayload.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"\n";
+        calculatorStr += convertedPayload.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"\n";
+        rawByteStr += convertToRawByteString(payload)+"\n";
     }
-    calculatorOutput.innerText = convertedCalculatorPayload;
+    calculatorOutput.innerText = calculatorStr;
+    rawByteOutput.innerText = rawByteStr;
     updateDotArtist(bytes)
+    updateRawBytes(bytes);
 }
 
 // it may look odd to not use bit shifting here, but javascript doesn't support large numbers
@@ -154,10 +168,9 @@ const convertToCalculatorPayload = function(payload) {
 
 const getPayload = function(incomingData) {
     if (!incomingData[0].startsWith("cmd:")) { return -1}
-    let scriptCommand = incomingData[0].replaceAll(' ','').slice(4);
+    let scriptCommand = incomingData[0].replaceAll(' ','').slice(4).toLowerCase();
     let scriptCommandData = scriptData[scriptCommand]
     if (!scriptCommandData) {return -1}
-    // console.log(scriptCommandData)
 
     let bytes = new Array(2+scriptCommandData.parameters.length).fill(0);
     for (let i=0;i<2;i++) {
