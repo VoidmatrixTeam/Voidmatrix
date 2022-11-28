@@ -11,6 +11,8 @@ let globalAddresses = {
 
 let language = "EN";
 let base;
+let byteAllignment = 0; // allignment may be 0 or 1 for even or add bytes
+let selectedScript = 0;
 
 // DEBUG
 const debugHexLog = function (value) {
@@ -48,23 +50,26 @@ const updateDotArtist = function(payload) {
     for (let i=0;i<20;i++) {
         let row = document.createElement("div");
         row.classList.add("row");
-        for (let j=0;j<24;j++) {
-            let dot = document.createElement("div");
-            dot.classList.add("dot");
-
-            // set background color of dot based on value in payload
-            let b = formattedPayload[i*24+j];
-            let rgb = 115-b*(115/4) <<16 | 181-b*(180/4) <<8 |115-b*(115/4)
-            dot.style.backgroundColor = `#${hexToStr(rgb,6)}`
-            //addMouseEventsForDot(dot,rgb);
-            // enableDotEditing(dot,b);
-            
-            row.appendChild(dot);
+        for (let j=0;j<24;j++) {  
+            let b = formattedPayload[i*24+j];          
+            row.appendChild(createDot(b));
         }
         dotArtist.appendChild(row);
     }
 
     dotArtistWrapper.appendChild(dotArtist);
+}
+
+const createDot = function(b) {
+    let dot = document.createElement("div");
+    dot.classList.add("dot");
+
+    // set background color of dot based on value in payload
+    let rgb = 115-b*(115/4) <<16 | 181-b*(180/4) <<8 |115-b*(115/4)
+    dot.style.backgroundColor = `#${hexToStr(rgb,6)}`
+    //addMouseEventsForDot(dot,rgb);
+    // enableDotEditing(dot,b);
+    return dot;
 }
 
 const formatPayload = function(payload) {
@@ -113,7 +118,23 @@ const addMouseEventsForDot = function(dot,rgb) {
     })
 }
 
-const convertToRawByteString = function(bytes) {
+const updateRawBytes = function(payload) {
+    let rawBytesOutput = document.querySelector(".raw_bytes_output");
+    rawBytesOutput.innerHTML = "";
+    for (let i=0;i<payload.length;i++) {
+        let rawByteStringParagraph = document.createElement("p");
+        rawByteStringParagraph.classList.add("raw_byte_string");
+        rawByteStringParagraph.innerHTML = rawByteString(payload[i]) + "\n";
+
+        if (i === selectedScript) {
+            rawByteStringParagraph.classList.add("selected_script");
+        }
+
+        rawBytesOutput.appendChild(rawByteStringParagraph);     
+    }
+}
+
+const rawByteString = function(bytes) {
     let byteString = "";
     for (let i=0;i<bytes.length;i++) {
         byteString += `0x${hexToStr(bytes[i],2)},`;
@@ -123,43 +144,67 @@ const convertToRawByteString = function(bytes) {
     return byteString;
 }
 
-const convertPayload = function(text) {
+const updateCalculator = function(payload) {
     let calculatorOutput = document.querySelector(".calculator_output");
-    let rawByteOutput = document.querySelector(".raw_bytes");
-    let calculatorStr = ""
-    let rawByteStr = "";
-    let bytes = []
-    for (let line of text.split("\n")) {
-        let payload = getPayload(line.split("-"));
-        if (payload === -1) {
-            if (text.split("\n").length === 1) {
-                bytes.push(0x0);
-                break;
-            }
-            calculatorStr += "invalid\n"; continue;
+    calculatorOutput.innerHTML = "";
+
+    for (let i=0;i<payload.length;i++) {
+        let calculatorLine = document.createElement("p");
+        calculatorLine.classList.add("calculator_line");
+        calculatorLine.innerHTML = rawCalculatorString(payload[i]).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"\n";
+        // if i is selectedScript, add red text
+        if (i === selectedScript) {
+            calculatorLine.classList.add("selected_script");
         }
-        bytes = bytes.concat(payload);
-        const convertedPayload = convertToCalculatorPayload(payload);
-        // convert to string, with every 3 digits separated by a comma using regex
-        calculatorStr += convertedPayload.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"\n";
-        rawByteStr += convertToRawByteString(payload)+"\n";
+        calculatorOutput.appendChild(calculatorLine);     
     }
-    calculatorOutput.innerText = calculatorStr;
-    rawByteOutput.innerText = rawByteStr;
-    updateDotArtist(bytes)
-    updateRawBytes(bytes);
+
 }
 
 // it may look odd to not use bit shifting here, but javascript doesn't support large numbers
 // instead we can use the BigInt library to handle large numbers created through string concatenation
-const convertToCalculatorPayload = function(payload) {
+const rawCalculatorString = function(bytes) {
     let convertedLine = "";
     // for loop is backwards because of endianness
-    for (let i=payload.length-1;i>=0;i--) {
-        convertedLine += hexToStr(payload[i],2);
+    for (let i=bytes.length-1;i>=0;i--) {
+        convertedLine += hexToStr(bytes[i],2);
     }
+
     let bigNum = BigInt("0x"+convertedLine,16);
     return bigNum
+}
+
+const convertPayload = function(input) {
+    let payload = convPayloadRawBytes(input);
+    updateCalculator(payload);
+    updateDotArtist(payload[selectedScript]);
+    updateRawBytes(payload);
+}
+
+const convPayloadRawBytes = function(input) {
+    //let bytes = (input.split("\n").map(line => getPayload(line.split("-")))); // this didn't allow consecutive lines to be combined, even though it's cleaner
+    let bytes = []
+    // if the line starts with 'concat:n', concat the next n lines as a single payload, and skip n lines
+    // otherwise, we just push the converted payload to the bytes array
+    let i = 0;
+    while (i < input.split("\n").length) {
+        let line = input.split("\n")[i];
+        if (line.startsWith("concat:")) {
+            let n = parseInt(line.split(":")[1]);
+            let payload = [];
+            for (let j=0;j<n;j++) {
+                payload = payload.concat(getPayload(input.split("\n")[i+j+1].split("-")));
+            }
+            bytes.push(payload);
+            i += n+1;
+            continue;
+        }
+        bytes.push(getPayload(line.split("-")));
+        i++;
+    }
+    console.log(bytes);
+    return bytes;
+
 }
 
 // test data
@@ -182,9 +227,7 @@ const getPayload = function(incomingData) {
         const param = incomingData[i].split(":")[0];
         const paramValue = formatParameter(incomingData[i]);
         const paramCount = params.filter(p => p==param).length;
-        
         if (paramCount == 0) {return -1;}
-        // console.log(paramValue)
         for (let j=0;j<paramCount;j++) {
             bytes[2+index] = (paramValue >> (j*8)) & 0xFF;
             index++;
