@@ -13,6 +13,8 @@ let language = "EN";
 let base;
 let byteAllignment = 0; // allignment may be 0 or 1 for even or add bytes
 let selectedScript = 0;
+let bytesToRemove = 6; // default to 6, the amount of bytes that are 0s after the dotartist data
+
 
 // DEBUG
 const debugHexLog = function (value) {
@@ -73,16 +75,6 @@ const createDot = function(b) {
 }
 
 const formatPayload = function(payload) {
-    // After dotartist data in memory 6 bytes are 0s. this allows us to remove up to 6 bytes from the end of the payload
-    // later we also need to account for even or odd number of bytes
-    for (let i=0;i<6;i++) {
-        if (payload[payload.length-1] === 0) {
-            payload.pop();
-            continue;
-        }
-        break;
-    }
-
     let formattedPayload = new Array((24*20)).fill(0);
     const startPayload = formattedPayload.length-payload.length*4;
     for (let i=0;i<payload.length;i++) {
@@ -169,7 +161,9 @@ const rawCalculatorString = function(bytes) {
     for (let i=bytes.length-1;i>=0;i--) {
         convertedLine += hexToStr(bytes[i],2);
     }
-
+    if (convertedLine === "") {
+        return "--";
+    }
     let bigNum = BigInt("0x"+convertedLine,16);
     return bigNum
 }
@@ -184,38 +178,105 @@ const convertPayload = function(input) {
 const convPayloadRawBytes = function(input) {
     //let bytes = (input.split("\n").map(line => getPayload(line.split("-")))); // this didn't allow consecutive lines to be combined, even though it's cleaner
     let bytes = []
-    // if the line starts with 'concat:n', concat the next n lines as a single payload, and skip n lines
-    // otherwise, we just push the converted payload to the bytes array
     let i = 0;
-    while (i < input.split("\n").length) {
-        let line = input.split("\n")[i];
-        if (line.startsWith("concat:")) {
-            let n = parseInt(line.split(":")[1]);
-            let payload = [];
-            for (let j=0;j<n;j++) {
-                payload = payload.concat(getPayload(input.split("\n")[i+j+1].split("-")));
-            }
-            bytes.push(payload);
-            i += n+1;
+    let splitInput = input.split("\n");
+    bytesToRemove = 6;
+    while (i < splitInput.length) {
+        let line = splitInput[i];
+        let tempBytes = []
+
+        if (line.split(":")[0] === "bytesToRemove") {
+            bytesToRemove = parseInt(line.split(":")[1]);
+            console.log("bytesToRemove: "+ bytesToRemove);
+            i++;
             continue;
         }
-        bytes.push(getPayload(line.split("-")));
+
+        if (line.startsWith("concat:")) {
+            let n = parseInt(line.split(":")[1]);
+            tempBytes = getConcatedPayload(n,splitInput,i);
+            i += n;
+        } else {
+            const payload = getPayload(line.split("-"));
+            tempBytes = payload;
+        }
+
+        tempBytes = removeEndPadding(tempBytes,bytesToRemove);
+        bytes.push(tempBytes);
         i++;
     }
-    console.log(bytes);
     return bytes;
+}
 
+const getConcatedPayload = function(n,splitInput,i) {
+    let tempBytes = [];
+    for (let j=0;j<n;j++) {
+        if (splitInput[i+j+1].split(":")[0] === "bytesToRemove") {
+            bytesToRemove = parseInt(splitInput[i+j+1].split(":")[1]);
+            continue;
+        }
+        const payload = getPayload(splitInput[i+j+1].split("-"));
+        tempBytes = tempBytes.concat(payload);
+    }
+    return tempBytes;
+}
+
+const removeEndPadding = function(payload,bytesToRemove) {
+    for (let i=0;i<bytesToRemove;i++) {
+        if (payload[payload.length-1] === 0) {
+            payload.pop();
+            continue;
+        }
+        break;
+    }
+    return payload;
 }
 
 // test data
 // cmd: 0x7 -adr:[base] + 0x2EAF0 -val: 0xB0
 // cmd: 0x96 -sp: 0x1EA -lv: 0x50 -itm: 0x20 -wk: 0x10 
 
+// concat:2
+// pad: 1 -val: 0x0
+// cmd: 0x7 -adr: + 0x2EAF0 -val: 0xB0
+// cmd: 0x96 -sp: 0x1EA -lv: 0x50 -itm: 0x20 -wk: 0x10 
+
+// concat:3
+// cmd: 0x7 -adr: + 0x2EAF0 -val: 0xB0
+// pad: 1 -val: 0x0
+// bytesToRemove: 1
+// cmd: 0x96 -sp: 0x1EA -lv: 0x50 -itm: 0x20 -wk: 0x10 
+
 const getPayload = function(incomingData) {
-    if (!incomingData[0].startsWith("cmd:")) { return -1}
+    if (incomingData[0].startsWith("pad:") || incomingData[0].startsWith("padding:")) { 
+        let padAmount = parseInt(incomingData[0].split(":")[1]);
+        // you can define an optional byte value with -val:0xXX, otherwise it defaults to 0x00
+        let padding = new Array();
+        let paddingValue = 0x00;
+        if (incomingData.length > 1) {
+            if (incomingData[1].startsWith("val:")) {
+                paddingValue = formatParameter(incomingData[1]);
+
+            }
+        }
+
+        for (let i=0;i<padAmount;i++) {
+            let tempVal = paddingValue;
+            if (tempVal === 0) {
+                padding.push(0);
+            }
+            while (tempVal > 0) {
+                padding.push(tempVal & 0xFF);
+                tempVal >>= 8;
+            }
+        }
+
+        return padding
+    }
+    if (!incomingData[0].startsWith("cmd:")) { return []}
     let scriptCommand = incomingData[0].replaceAll(' ','').slice(4).toLowerCase();
     let scriptCommandData = scriptData[scriptCommand]
-    if (!scriptCommandData) {return -1}
+    if (!scriptCommandData) {return []}
 
     let bytes = new Array(2+scriptCommandData.parameters.length).fill(0);
     for (let i=0;i<2;i++) {
@@ -227,7 +288,7 @@ const getPayload = function(incomingData) {
         const param = incomingData[i].split(":")[0];
         const paramValue = formatParameter(incomingData[i]);
         const paramCount = params.filter(p => p==param).length;
-        if (paramCount == 0) {return -1;}
+        if (paramCount == 0) {return [];}
         for (let j=0;j<paramCount;j++) {
             bytes[2+index] = (paramValue >> (j*8)) & 0xFF;
             index++;
@@ -241,7 +302,7 @@ const formatParameter = function(data) {
     // if data contains [base] replace with base
     for (let b of ["[base]","[base_address]"]) {
         if (formattedData.includes(b)) {
-            if (!base) {alert("Please enter a base address first"); return -1;}
+            if (!base) {alert("Please enter a base address first"); return [];}
             // replace [base] with base value
             formattedData = formattedData.replaceAll(b,`0x${hexToStr(base)}`);
         }
