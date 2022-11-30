@@ -280,7 +280,7 @@ const getPayload = function(incomingData) {
 
     let bytes = new Array(2+scriptCommandData.parameters.length).fill(0);
     for (let i=0;i<2;i++) {
-        bytes[i] = scriptCommand >> (i*8);
+        bytes[i] = (scriptCommand >> (i*8)) & 0xFF;
     }
     let params = scriptCommandData.parameters;
     let index = 0;
