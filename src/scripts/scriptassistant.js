@@ -179,10 +179,12 @@ const formatInputAsPayload = function(input) {
     //let bytes = (input.split("\n").map(line => getPayload(line.split("-")))); // this didn't allow consecutive lines to be combined, even though it's cleaner
     let bytes = []
     let i = 0;
-    let splitInput = input.split("\n");
+    // split into lines and remove everything after // (comments)
+    let splitInput = input.split("\n").map(line => line.split("//")[0]);
     bytesToRemove = 6;
     while (i < splitInput.length) {
-        let line = splitInput[i].split("//")[0];
+        let line = splitInput[i]; 
+        console.log(line);
         let tempBytes = []
 
         if (line.split(":")[0] === "bytesToRemove") {
