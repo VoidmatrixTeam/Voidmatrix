@@ -169,20 +169,20 @@ const rawCalculatorString = function(bytes) {
 }
 
 const convertPayload = function(input) {
-    let payload = convPayloadRawBytes(input);
+    let payload = formatInputAsPayload(input);
     updateCalculator(payload);
     updateDotArtist(payload[selectedScript]);
     updateRawBytes(payload);
 }
 
-const convPayloadRawBytes = function(input) {
+const formatInputAsPayload = function(input) {
     //let bytes = (input.split("\n").map(line => getPayload(line.split("-")))); // this didn't allow consecutive lines to be combined, even though it's cleaner
     let bytes = []
     let i = 0;
     let splitInput = input.split("\n");
     bytesToRemove = 6;
     while (i < splitInput.length) {
-        let line = splitInput[i];
+        let line = splitInput[i].split("//")[0];
         let tempBytes = []
 
         if (line.split(":")[0] === "bytesToRemove") {
