@@ -1,12 +1,12 @@
 let scriptData;
 let globalAddresses = { 
-    "EN":{"base_address":0x02106FC0,"collision_address":0x2056C06,"menupatch_address":0x203506D},
-    "JP":{"base_address":0x02108818,"collision_address":0x20593E0},
-    "DE":{"base_address":0x02107100,"collision_address":0x2056C76},
-    "FR":{"base_address":0x02107140,"collision_address":0x2056C76},
-    "IT":{"base_address":0x021070A0,"collision_address":0x2056C76},
-    "SP":{"base_address":0x02107160,"collision_address":0x2056C76,"menupatch_address":0x020350B5},
-    "KO":{"base_address":0x021045C0,"collision_address":0x20570DE},
+    "EN":{"base_address":0x02106FC0,"collision_address":0x2056C06,"menupatch_address":0x203506D,"min_base":0x226D260,"RNG":0x021C4D48},
+    "JP":{"base_address":0x02108818,"collision_address":0x20593E0,"min_base":0x2271940},
+    "DE":{"base_address":0x02107100,"collision_address":0x2056C76,"min_base":0x226D4A0},
+    "FR":{"base_address":0x02107140,"collision_address":0x2056C76,"min_base":0x226D5E0},
+    "IT":{"base_address":0x021070A0,"collision_address":0x2056C76,"min_base":0x226D440},
+    "SP":{"base_address":0x02107160,"collision_address":0x2056C76,"menupatch_address":0x020350B5,"min_base":0x226D600},
+    "KO":{"base_address":0x021045C0,"collision_address":0x20570DE,"min_base":0x2274B00},
 };
 
 let language = "EN";
@@ -176,7 +176,7 @@ const convertPayload = function(input) {
 }
 
 const formatInputAsPayload = function(input) {
-    //let bytes = (input.split("\n").map(line => getPayload(line.split("-")))); // this didn't allow consecutive lines to be combined, even though it's cleaner
+    //let bytes = (input.split("\n").map(line => getPayload(line.split("|")))); // this didn't allow consecutive lines to be combined, even though it's cleaner
     let bytes = []
     let i = 0;
     // split into lines and remove everything after // (comments)
@@ -184,10 +184,9 @@ const formatInputAsPayload = function(input) {
     bytesToRemove = 6;
     while (i < splitInput.length) {
         let line = splitInput[i]; 
-        console.log(line);
         let tempBytes = []
 
-        if (line.split(":")[0] === "bytesToRemove") {
+        if (line.split(":")[0].toLowerCase() === "bytestoremove") {
             bytesToRemove = parseInt(line.split(":")[1]);
             console.log("bytesToRemove: "+ bytesToRemove);
             i++;
@@ -199,7 +198,7 @@ const formatInputAsPayload = function(input) {
             tempBytes = getConcatedPayload(n,splitInput,i);
             i += n;
         } else {
-            const payload = getPayload(line.split("-"));
+            const payload = getPayload(line.split("|"));
             tempBytes = payload;
         }
 
@@ -213,11 +212,12 @@ const formatInputAsPayload = function(input) {
 const getConcatedPayload = function(n,splitInput,i) {
     let tempBytes = [];
     for (let j=0;j<n;j++) {
+        if (i+j >= splitInput.length) { break; }
         if (splitInput[i+j+1].split(":")[0] === "bytesToRemove") {
             bytesToRemove = parseInt(splitInput[i+j+1].split(":")[1]);
             continue;
         }
-        const payload = getPayload(splitInput[i+j+1].split("-"));
+        const payload = getPayload(splitInput[i+j+1].split("|"));
         tempBytes = tempBytes.concat(payload);
     }
     return tempBytes;
@@ -314,15 +314,31 @@ const formatParameter = function(data) {
         formattedData = formattedData.replaceAll(addr,`0x${hexToStr(globalAddresses[language][addr])}`);
     }
 
-    let splitData = formattedData.replaceAll(" ","").split("+");
-    // add all values together
-    let sum = 0;
-    for (let i=0;i<splitData.length;i++) {
-        if (isHexadecimal(splitData[i])) {
-            sum += parseInt(splitData[i],16);
+    return unsafeCalc(formattedData);
+}
+
+const unsafeCalc = function(data) {
+    // perform +,-,*,/ operations in a proffesional manner using the eval function
+    // to prevent any malicious code from being executed, only allow the following characters
+    // first replace all spaces with nothing
+    data = data.replaceAll(" ","");
+    // then, convert all hex values to decimal
+    data = data.replaceAll(/0x[0-9a-fA-F]+/g, (match) => {
+        return parseInt(match,16);
+    });
+
+    const allowedChars = "0123456789+-*/()";
+    for (let i=0;i<data.length;i++) {
+        if (!allowedChars.includes(data[i])) {
+            if (isHexadecimal(data[i])) {
+                console.log("non allowed char found: " + data[i]);
+                return parseInt(data[i],16);
+            }
+            return 0;
         }
     }
-    return sum;
+    // perform the calculation
+    return eval(data); // what could possibly go wrong?
 }
 
 const strToHexStr = function (value) {
