@@ -13,7 +13,7 @@ let language = "EN";
 let base;
 let byteAllignment = 0; // allignment may be 0 or 1 for even or add bytes
 let selectedScript = 0;
-let bytesToRemove = 6; // default to 6, the amount of bytes that are 0s after the dotartist data
+let bytesToRemove = 0; // default to 6, the amount of bytes that are 0s after the dotartist data
 
 
 // DEBUG
