@@ -15,7 +15,6 @@ let byteAllignment = 0; // allignment may be 0 or 1 for even or add bytes
 let selectedScript = 0;
 let bytesToRemove = 0; // default to 6, the amount of bytes that are 0s after the dotartist data
 
-
 // DEBUG
 const debugHexLog = function (value) {
     // if type of value is array or list
@@ -186,7 +185,7 @@ const formatInputAsPayload = function(input) {
     let i = 0;
     // split into lines and remove everything after // (comments)
     let splitInput = input.split("\n").map(line => line.split("//")[0]);
-    bytesToRemove = 6;
+    bytesToRemove = 0;
     while (i < splitInput.length) {
         let line = splitInput[i]; 
         let tempBytes = []
