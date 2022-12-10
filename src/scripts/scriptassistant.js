@@ -332,7 +332,7 @@ const unsafeCalc = function(data) {
         return parseInt(match,16);
     });
 
-    const allowedChars = "0123456789+-*/()";
+    const allowedChars = "0123456789+-*/()><&";
     for (let i=0;i<data.length;i++) {
         if (!allowedChars.includes(data[i])) {
             if (isHexadecimal(data[i])) {
