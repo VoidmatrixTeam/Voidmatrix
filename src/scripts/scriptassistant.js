@@ -69,7 +69,7 @@ const createDot = function(b) {
     // set background color of dot based on value in payload
     let rgb = 115-b*(115/4) <<16 | 181-b*(180/4) <<8 |115-b*(115/4)
     dot.style.backgroundColor = `#${hexToStr(rgb,6)}`
-    //addMouseEventsForDot(dot,rgb);
+    addMouseEventsForDot(dot,rgb,b);
     // enableDotEditing(dot,b);
     return dot;
 }
@@ -98,16 +98,21 @@ const enableDotEditing = function(dot,b) {
 }
 
 // disabled by default
-const addMouseEventsForDot = function(dot,rgb) {
+const addMouseEventsForDot = function(dot,rgb,b) {
     dot.addEventListener("mouseover",function() {
 
-        dot.style.backgroundColor = `#${hexToStr(rgb-0x303030,6)}`
+        //dot.style.backgroundColor = `#${hexToStr(rgb-0x303030,6)}`
+        // set innerText of dot to 'b'
+        dot.innerText = b;
     })
     // if you unhover over a dot, remove the value of the dot
     dot.addEventListener("mouseout",function() {
         // set background color of dot based on value in payload
-        dot.style.backgroundColor = `#${hexToStr(rgb,6)}`
+        //dot.style.backgroundColor = `#${hexToStr(rgb,6)}`
+        // remove innerText of dot
+        dot.innerText = "";
     })
+
 }
 
 const updateRawBytes = function(payload) {
