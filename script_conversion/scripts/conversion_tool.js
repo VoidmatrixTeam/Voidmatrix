@@ -1,5 +1,9 @@
 // Global variables
 let commandData = null;
+let speciesData = null;
+let itemData = null;
+let mapData = null;
+
 let scriptHandler = null;
 
 
@@ -68,10 +72,10 @@ class DataList {
 
     // function to set the datalist options
     setDataListOptions(parent, dataListOptions) {
-        for (let i = 0; i < dataListOptions.length; i++) {
+        for (let option of dataListOptions) {
             const optionElement = document.createElement('option');
-            optionElement.innerText = dataListOptions[i];
-            optionElement.value = dataListOptions[i];
+            optionElement.innerText = option;
+            optionElement.value = option;
             parent.appendChild(optionElement);
         }
     }
@@ -82,7 +86,7 @@ class DataList {
 class CommandDataList extends DataList {
     // constructor
     constructor(parent, commandData) {
-        super(parent, 'command-selection');
+        super(parent, 'datalist-commands');
         this.setDataListOptions(this.dataListElement, this.getCommandOptions(commandData));
     }
 
@@ -100,16 +104,58 @@ class CommandDataList extends DataList {
             (...)
         }
         */
+
+        const options = [];
+        for (const commandId in commandData) {
+            const command = commandData[commandId];
+            const commandName = command.command_name;
+            const aliases = command.aliases || [];
+
+            options.push({value: commandName, text: commandName});
+
+            for (const alias of aliases) {
+                options.push({ value: commandName, text: alias});
+            }
+        }
+        return options;
+    }
+
+    // function to set the datalist options
+    setDataListOptions(parent, dataListOptions) {
+        for (const option of dataListOptions) {
+            const optionElement = document.createElement('option');
+            optionElement.value = option.value;
+            optionElement.innerText = option.text;
+            parent.appendChild(optionElement);
+        }
     }
 }
 
-// CommandInput: this class will be used to store the command input data
+// SpeciesDataList: this class will be used to store the species selection data
+
+class SpeciesDataList extends DataList {
+    // constructor
+    constructor(parent, speciesData) {
+        super(parent, 'datalist-species', speciesData);
+    }
+}
+
+// ItemDataList: this class will be used to store the item selection data
+
+class ItemDataList extends DataList {
+    // constructor
+    constructor(parent, itemData) {
+        super(parent, 'datalist-items', itemData);
+    }
+}
+
+// CommandInput: this class handles multiple commands
 
 class CommandInput {
     // variables
     commandInputElement = null;
     command = null;
-    params = {};
+    paramElements = {};
 
     // constructor
     constructor(parent) {
@@ -140,16 +186,111 @@ class CommandInput {
     setCommandOptions(parent) {
         const commandSelection = document.createElement('input');
 
-        commandSelection.setAttribute('list', 'command-selection');
+        commandSelection.setAttribute('list', 'datalist-commands');
         commandSelection.autocomplete = 'on';
         commandSelection.placeholder = 'Command';
-        
+
+        // Add event listener for input selection
+        commandSelection.addEventListener('input', this.handleCommandSelection.bind(this));
         parent.appendChild(commandSelection);
     }
 
-    // function to get the command parameters
-    getCommandParams(command) {
+    // function to handle command selection
+    handleCommandSelection(event) {
+        const selectedCommand = event.target.value;
+        const commandId = this.commandNameToId(selectedCommand);
+        if (commandId === null) { return; }
+
+        // Clear previous command parameters
+        this.clearCommandParams();
+
+        // Add command parameters based on selection
+        this.command = commandData[commandId];
+        const parameters = this.command.parameters || [];
+
+        for (let i = 0; i < parameters.length; i++) {
+            const parameter = parameters[i];
+            this.addCommandParameter(parameter, i);
+        }
     }
+
+    // function to convert a command name to a command id
+    commandNameToId(commandName) {
+        for (const commandId in commandData) {
+            const command = commandData[commandId];
+            if (command.command_name === commandName) {
+                return commandId;
+            }
+        }
+        return null;
+    }
+
+    // function to clear command parameters
+    clearCommandParams() {
+        for (const paramName in this.paramElements) {
+            const paramElement = this.paramElements[paramName];
+            console.log(paramElement)
+            paramElement.remove();
+        }
+        this.paramElements = {};
+    }
+
+  // function to add a command parameter
+    addCommandParameter(parameter, index) {
+        const paramName = parameter.name;
+        const paramSize = parameter.size;
+        const paramType = parameter.type || "number";
+        const paramDescription = parameter.description || "No description available";
+        
+
+        const paramContainer = document.createElement('div');
+        paramContainer.classList.add('command-input-param');
+        paramContainer.classList.add(`param-${index}`)
+        paramContainer.setAttribute('param_name', paramName);
+        paramContainer.setAttribute('description', paramDescription);
+
+        if (paramType === 'options') {
+            const datalistName = parameter.datalist_name;
+            const paramInput = document.createElement('input');
+            paramInput.setAttribute('autoComplete', 'on');
+            paramInput.setAttribute('list', datalistName);
+            paramInput.placeholder = paramName;
+            paramContainer.appendChild(paramInput);
+
+        } else if (paramType === 'number') {
+            const paramInput = document.createElement('input');
+            paramInput.type = 'text'; // Change the input type to 'text' to allow hexadecimal input
+            paramInput.placeholder = paramName;
+            paramContainer.appendChild(paramInput);
+            
+            paramInput.addEventListener('input', function() {
+              const value = paramInput.value;
+              let parsedValue;
+              
+              // Check if the input is a valid decimal or hexadecimal number
+              if (/^[\d]+$/.test(value)) {
+                parsedValue = parseInt(value, 10); // Parse decimal value
+              } else if (/^0x[\da-fA-F]+$/.test(value)) {
+                parsedValue = parseInt(value, 16); // Parse hexadecimal value
+              } else {
+                return; // Invalid input, do nothing
+              }
+              
+              // Check if the parsed value exceeds the maximum allowed value
+              const maxValue = Math.pow(2, parseInt(paramSize.slice(1))) - 1;
+              console.log(maxValue);
+              const maxValueDecimals = maxValue.toString(10).length;
+              const parsedValueDecimals = parsedValue.toString(10).length;
+              
+              if (parsedValueDecimals > maxValueDecimals) {
+                paramInput.value = paramInput.value.slice(0, -1); // Remove the last character
+              }
+            });            
+        }
+
+        this.paramElements[paramName] = paramContainer;
+        this.commandInputElement.appendChild(paramContainer);
+  }
 
 }
 
@@ -357,8 +498,6 @@ class ScriptHandler {
     ingameVariables = {};
     scripts = [];
     dotArtistConverter = new DotArtistConverter();
-    // set command data list global, to document
-    commandDataList = new CommandDataList(document.documentElement, commandData);
 
     // function to select a script and deselect the other scripts
     selectScript(script) {
@@ -417,6 +556,14 @@ const getJsonFromUrl = async function(url) {
 
 document.addEventListener("DOMContentLoaded", async function () {
     commandData = await getJsonFromUrl(`data/command_data.json`);
+    speciesData = await getJsonFromUrl(`data/species_data.json`);
+    itemData = await getJsonFromUrl(`data/item_data.json`);
+
+    // add data lists to the document
+    commandDataList = new CommandDataList(document.documentElement, commandData);
+    speciesDataList = new SpeciesDataList(document.documentElement, speciesData);
+    itemDataList = new ItemDataList(document.documentElement, itemData);
+
 
     // initialize the script handler
     scriptHandler = new ScriptHandler();
