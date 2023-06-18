@@ -1,0 +1,190 @@
+:root {
+    --body-background : #1A1A1A;
+    --gray-1 : #343434;
+    --gray-2 : #242424;
+    --light-color: white;
+
+    --command-border: 1px solid rgb(200, 200, 200);
+
+    --dot-artist-background : rgb(115, 181, 115);
+    --dark0-filter : brightness(1);
+    --dark1-filter : brightness(0.8);
+    --dark2-filter : brightness(0.6);
+    --dark3-filter : brightness(0.3);
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--light-color);
+}
+
+body {
+    background-color: var(--body-background);
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.left-side {
+    width: 1134px;
+    margin: 20px;
+}
+
+.script-area-wrapper {
+    width: 1094px;
+    height: 824px;
+    background-color: var(--gray-1);
+    border: var(--command-border);
+}
+
+.option-bar {
+    width: 1094px;
+    height: 40px;
+    display: flex;
+    /* put items on the left side */
+    justify-content: flex-start;
+    align-items: center;
+    /* space between items */
+    background-color: var(--gray-2);
+}
+
+.option-bar > * {
+    padding-left: 16px;
+  }
+
+.plus-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--light-color);
+}
+
+.script {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.selected {
+    border: 1px solid rgb(var(--main-color));
+    filter: brightness(1.2);
+}
+  
+.script-group {
+    width: 40px;
+    height: inherit;
+    background-color: rgb(var(--main-color));
+    border: var(--command-border);
+}
+
+.script-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.script-title {
+    height: 40px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(var(--main-color),0.2);
+    border-top: var(--command-border);
+}
+
+.script-title > h4 {
+    color: var(--light-color);
+}
+  
+/* .script-commands {
+
+} */
+
+.command {
+    width: 100%;
+    border-top: var(--command-border);
+}
+
+.command-output, .command-input {
+    height: 36px;
+    width: 100%;
+    background-color: rgba(var(--main-color),0.2);
+    /* flex */
+    display: flex;
+}  
+
+.command-create {
+    height: 36px;
+    width: 100%;
+    background-color: rgba(var(--main-color), 0.1);
+    border-top: var(--command-border);
+    border-bottom: var(--command-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.command-create > .button {
+    fill: var(--light-color);
+}
+
+/* Right side */
+
+.right-side {
+    width: 600px;
+}
+
+.description {
+    width: 100%;
+    background-color: var(--gray-1);
+    color: var(--light-color);
+    padding-bottom: 1px;
+    margin: 20px 0 20px 0;
+}
+
+.description > h3 {
+    padding: 8px 8px 0 8px;
+    margin:0;
+}
+
+.description > p {
+    padding: 0px 8px 0 8px;
+    margin-left: 8px;
+}
+
+.dot-artist-application {
+    /* Styles for dot-artist-application */
+    width: 100%;
+    height: 500px;
+    background-color: var(--dot-artist-background);
+}
+
+.dot-artist-application .pixel.dark0 {
+    background-color: var(--dark0-filter);
+}
+
+.dot-artist-application .pixel.dark1 {
+    background-color: var(--dark1-filter);
+}
+
+.dot-artist-application .pixel.dark2 {
+    background-color: var(--dark2-filter);
+}
+
+.dot-artist-application .pixel.dark3 {
+    background-color: var(--dark3-filter);
+}
+
+
+.options {
+/* Styles for options */
+}

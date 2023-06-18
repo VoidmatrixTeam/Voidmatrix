@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/conversion_tool.css">
+  <script src="scripts/conversion_tool.js"></script>
+  <title>ECCT - Event Command Conversion Tool</title>
+</head>
+
+<!-- <datalist id="command-selection">
+	<option value="AddTamago">AddEgg</option>
+	<option value="AddTamago">AddTamago</option>
+	<option value="AddWazza">AddMove</option>
+	<option value="AddWazza">AddWazza</option>
+</datalist> -->
+
+<body>
+  <div class="container">
+
+    <div class="left-side">
+      <div class="script-area-wrapper">
+        <div class="option-bar">
+			<!-- Add the path to your plus.svg file -->
+			<img class="button create-script" src="assets/add.svg" alt="plus icon">
+          	<span>New Script</span>
+        </div>
+        <!-- Other script area content goes here -->
+		<div class="script-area">
+			<!-- Content of the script-components wrapper goes here -->
+
+			<!-- <div class="script" style="--main-color: 180,115,180;">
+				<div class="script-group"></div>
+				<div class="script-info">
+				  <div class="script-title"><h4>Script Title</h4></div>
+				  <div class="script-commands">
+					<div class="command">
+						<div class="command-input">
+							<div class="command-input-cmd">
+								<datalist id="command-selection">
+									<option value="AddTamago">AddEgg</option>
+									<option value="AddTamago">AddTamago</option>
+									<option value="AddWazza">AddMove</option>
+									<option value="AddWazza">AddWazza</option>
+								</datalist>
+								<input autoComplete="on" list="command-selection" placeholder="Command"/> 
+							</div>
+
+							<div class="command-input-param param0" param_name="species" type="options">
+								<datalist id="param-selection">
+									<option value="Bulbasaur">Bulbasaur</option>
+									<option value="Ivysaur">Ivysaur</option>
+									<option value="Venusaur">Venusaur</option>
+									<option value="Charmander">Charmander</option>
+									<option value="Charmeleon">Charmeleon</option>
+									<option value="Charizard">Charizard</option>
+									<option value="Squirtle">Squirtle</option>
+									<option value="Wartortle">Wartortle</option>
+									<option value="Blastoise">Blastoise</option>
+									<option value="Caterpie">Caterpie</option>
+									<option value="Metapod">Metapod</option>
+									<option value="Butterfree">Butterfree</option>
+								</datalist>
+								<input autoComplete="on" list="param-selection" placeholder="Species"/> 
+							</div>
+
+							<div class="command-input-param param1" param_name="species" type="uint8">
+								<input type="number" min="0" max="256" step="1" placeholder="level"/>
+							</div>
+						</div>
+						<div class="command-output">
+							<p>output</p>
+							<div class="command-output-cmd">
+								
+							</div>
+						</div>
+					</div>
+				  </div>
+				  <div class="command-create">
+					<img class="button create-command" src="assets/add.svg" alt="plus icon">
+				  </div>
+				</div>
+			</div> -->
+
+			<!-- 
+			<div class="script" style="--main-color: 220,220,90;">
+				<div class="script-group"></div>
+				<div class="script-info">
+				  <div class="script-title"><h4>Script Title</h4></div>
+				  <div class="script-commands">
+					<div class="command">
+						<div class="command-input"></div>
+						<div class="command-output"></div>
+					</div>
+				  </div>
+				  <div class="command-create">
+					<img class="button" src="assets/add.svg" alt="plus icon">
+				  </div>
+				</div>
+			</div>
+
+
+			<div class="script" style="--main-color: 115,180,115;">
+				<div class="script-group"></div>
+				<div class="script-info">
+				  <div class="script-title"><h4>Script Title</h4></div>
+				  <div class="script-commands">
+					<div class="command">
+						<div class="command-input"></div>
+						<div class="command-output"></div>
+					</div>
+					<div class="command">
+						<div class="command-input"></div>
+						<div class="command-output"></div>
+					</div>
+				  </div>
+				  <div class="command-create">
+					<img class="button" src="assets/add.svg" alt="plus icon">
+				  </div>
+				</div>
+			</div> -->
+
+		</div>
+      </div>
+    </div>
+
+    <div class="right-side">
+      <div class="description">
+        <h3>Event Command Conversion Tool</h3>
+		<p>
+			1. Create a new script and assign it a color.<br>
+			2. Add commands to the script.<br>
+			3. Select a script to convert, the Dot Artist updates automatically.<br>
+			4. Copy the output from the Dot Artist into your game.<br>
+        </p>
+      </div>
+      <div class="dot-artist-application-wrapper">
+		<!-- Content of the dot-artist-application wrapper goes here -->
+			<div class="dot-artist-application"></div>
+      </div>
+      <div class="options">
+        <!-- Content of the options wrapper goes here -->
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
