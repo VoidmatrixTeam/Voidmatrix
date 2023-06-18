@@ -1,0 +1,2214 @@
+{
+    "0x1": {
+        "mapCode": "NOTHING",
+        "mapName": "NOTHING"
+    },
+    "0x2": {
+        "mapCode": "UG",
+        "mapName": "UG"
+    },
+    "0x3": {
+        "mapCode": "C01",
+        "mapName": "Jubilife City"
+    },
+    "0x4": {
+        "mapCode": "C01FS0101",
+        "mapName": "Jubilife City Mart"
+    },
+    "0x5": {
+        "mapCode": "C01GYM0101",
+        "mapName": "Jubilife City GYM"
+    },
+    "0x6": {
+        "mapCode": "C01PC0101",
+        "mapName": "Jubilife City Pokémon Center"
+    },
+    "0x7": {
+        "mapCode": "C01PC0102",
+        "mapName": "Jubilife City Pokémon Center Top Floor"
+    },
+    "0x8": {
+        "mapCode": "C01R0101",
+        "mapName": "Jubilife City Pokétch Co"
+    },
+    "0x9": {
+        "mapCode": "C01R0102",
+        "mapName": "Jubilife City Pokétch Co"
+    },
+    "0xa": {
+        "mapCode": "C01R0103",
+        "mapName": "Jubilife City Pokétch Co"
+    },
+    "0xb": {
+        "mapCode": "C01R0201",
+        "mapName": "Jubilife City Jubilife TV"
+    },
+    "0xc": {
+        "mapCode": "C01R0202",
+        "mapName": "Jubilife City Jubilife TV"
+    },
+    "0xd": {
+        "mapCode": "C01R0203",
+        "mapName": "Jubilife City Jubilife TV"
+    },
+    "0xe": {
+        "mapCode": "C01R0204",
+        "mapName": "Jubilife City Jubilife TV"
+    },
+    "0xf": {
+        "mapCode": "C01R0205",
+        "mapName": "Jubilife City Jubilife TV"
+    },
+    "0x10": {
+        "mapCode": "C01R0206",
+        "mapName": "Jubilife City Jubilife TV"
+    },
+    "0x11": {
+        "mapCode": "C01R0207",
+        "mapName": "Jubilife City Jubilife TV"
+    },
+    "0x12": {
+        "mapCode": "C01R0208",
+        "mapName": "Jubilife City Jubilife TV"
+    },
+    "0x13": {
+        "mapCode": "C01R0301",
+        "mapName": "Jubilife City R3"
+    },
+    "0x14": {
+        "mapCode": "C01R0302",
+        "mapName": "Jubilife City R3"
+    },
+    "0x15": {
+        "mapCode": "C01R0303",
+        "mapName": "Jubilife City R3"
+    },
+    "0x16": {
+        "mapCode": "C01R0304",
+        "mapName": "Jubilife City R3"
+    },
+    "0x17": {
+        "mapCode": "C01R0401",
+        "mapName": "Jubilife City R4"
+    },
+    "0x18": {
+        "mapCode": "C01R0501",
+        "mapName": "Jubilife City R5"
+    },
+    "0x19": {
+        "mapCode": "C01R0502",
+        "mapName": "Jubilife City R5"
+    },
+    "0x1a": {
+        "mapCode": "C01R0503",
+        "mapName": "Jubilife City R5"
+    },
+    "0x1b": {
+        "mapCode": "C01R0504",
+        "mapName": "Jubilife City R5"
+    },
+    "0x1c": {
+        "mapCode": "C01R0601",
+        "mapName": "Jubilife City GTS"
+    },
+    "0x1d": {
+        "mapCode": "C01R0701",
+        "mapName": "Jubilife City Trainers"
+    },
+    "0x1e": {
+        "mapCode": "C01R0801",
+        "mapName": "Jubilife City R8"
+    },
+    "0x1f": {
+        "mapCode": "C01R0901",
+        "mapName": "Jubilife City R9"
+    },
+    "0x20": {
+        "mapCode": "C01R1001",
+        "mapName": "Jubilife City R10"
+    },
+    "0x21": {
+        "mapCode": "C02",
+        "mapName": "Canalave City"
+    },
+    "0x22": {
+        "mapCode": "C02FS0101",
+        "mapName": "Canalave City Mart"
+    },
+    "0x23": {
+        "mapCode": "C02GYM0101",
+        "mapName": "Canalave City GYM"
+    },
+    "0x24": {
+        "mapCode": "C02PC0101",
+        "mapName": "Canalave City Pokémon Center"
+    },
+    "0x25": {
+        "mapCode": "C02PC0102",
+        "mapName": "Canalave City Pokémon Center Top Floor"
+    },
+    "0x26": {
+        "mapCode": "C02R0101",
+        "mapName": "Canalave City Canalave Library"
+    },
+    "0x27": {
+        "mapCode": "C02R0102",
+        "mapName": "Canalave City Canalave Library"
+    },
+    "0x28": {
+        "mapCode": "C02R0103",
+        "mapName": "Canalave City Canalave Library"
+    },
+    "0x29": {
+        "mapCode": "C02R0201",
+        "mapName": "Canalave City R2"
+    },
+    "0x2a": {
+        "mapCode": "C02R0301",
+        "mapName": "Canalave City R3"
+    },
+    "0x2b": {
+        "mapCode": "C02R0401",
+        "mapName": "Canalave City R4"
+    },
+    "0x2c": {
+        "mapCode": "C02R0501",
+        "mapName": "Canalave City R5"
+    },
+    "0x2d": {
+        "mapCode": "C03",
+        "mapName": "Oreburgh City"
+    },
+    "0x2e": {
+        "mapCode": "C03FS0101",
+        "mapName": "Oreburgh City Mart"
+    },
+    "0x2f": {
+        "mapCode": "C03GYM0101",
+        "mapName": "Oreburgh City GYM"
+    },
+    "0x30": {
+        "mapCode": "C03PC0101",
+        "mapName": "Oreburgh City Pokémon Center"
+    },
+    "0x31": {
+        "mapCode": "C03PC0102",
+        "mapName": "Oreburgh City Pokémon Center Top Floor"
+    },
+    "0x32": {
+        "mapCode": "C03R0101",
+        "mapName": "Oreburgh City R1"
+    },
+    "0x33": {
+        "mapCode": "C03R0102",
+        "mapName": "Oreburgh City R1"
+    },
+    "0x34": {
+        "mapCode": "C03R0103",
+        "mapName": "Oreburgh City R1"
+    },
+    "0x35": {
+        "mapCode": "C03R0104",
+        "mapName": "Oreburgh City R1"
+    },
+    "0x36": {
+        "mapCode": "C03R0201",
+        "mapName": "Oreburgh City R2"
+    },
+    "0x37": {
+        "mapCode": "C03R0202",
+        "mapName": "Oreburgh City R2"
+    },
+    "0x38": {
+        "mapCode": "C03R0203",
+        "mapName": "Oreburgh City R2"
+    },
+    "0x39": {
+        "mapCode": "C03R0204",
+        "mapName": "Oreburgh City R2"
+    },
+    "0x3a": {
+        "mapCode": "C03R0301",
+        "mapName": "Oreburgh City R3"
+    },
+    "0x3b": {
+        "mapCode": "C03R0401",
+        "mapName": "Oreburgh City Mining Museum"
+    },
+    "0x3c": {
+        "mapCode": "C03R0501",
+        "mapName": "Oreburgh City R5"
+    },
+    "0x3d": {
+        "mapCode": "C03R0601",
+        "mapName": "Oreburgh City R6"
+    },
+    "0x3e": {
+        "mapCode": "C03R0602",
+        "mapName": "Oreburgh City R6"
+    },
+    "0x3f": {
+        "mapCode": "C03R0603",
+        "mapName": "Oreburgh City R6"
+    },
+    "0x40": {
+        "mapCode": "C03R0701",
+        "mapName": "Oreburgh City R7"
+    },
+    "0x41": {
+        "mapCode": "C04",
+        "mapName": "Eterna City"
+    },
+    "0x42": {
+        "mapCode": "C04FS0101",
+        "mapName": "Eterna City Mart"
+    },
+    "0x43": {
+        "mapCode": "C04GYM0101",
+        "mapName": "Eterna City GYM"
+    },
+    "0x44": {
+        "mapCode": "C04GYM0102",
+        "mapName": "Eterna City GYM"
+    },
+    "0x45": {
+        "mapCode": "C04PC0101",
+        "mapName": "Eterna City Pokémon Center"
+    },
+    "0x46": {
+        "mapCode": "C04PC0102",
+        "mapName": "Eterna City Pokémon Center Top Floor"
+    },
+    "0x47": {
+        "mapCode": "C04R0101",
+        "mapName": "Eterna City Cycle Shop"
+    },
+    "0x48": {
+        "mapCode": "C04R0201",
+        "mapName": "Eterna City R2"
+    },
+    "0x49": {
+        "mapCode": "C04R0202",
+        "mapName": "Eterna City R2"
+    },
+    "0x4a": {
+        "mapCode": "C04R0203",
+        "mapName": "Eterna City R2"
+    },
+    "0x4b": {
+        "mapCode": "C04R0204",
+        "mapName": "Eterna City R2"
+    },
+    "0x4c": {
+        "mapCode": "C04R0301",
+        "mapName": "Eterna City R3"
+    },
+    "0x4d": {
+        "mapCode": "C04R0302",
+        "mapName": "Eterna City R3"
+    },
+    "0x4e": {
+        "mapCode": "C04R0303",
+        "mapName": "Eterna City R3"
+    },
+    "0x4f": {
+        "mapCode": "C04R0304",
+        "mapName": "Eterna City R3"
+    },
+    "0x50": {
+        "mapCode": "C04R0401",
+        "mapName": "Eterna City R4"
+    },
+    "0x52": {
+        "mapCode": "C04R0601",
+        "mapName": "Eterna City R6"
+    },
+    "0x53": {
+        "mapCode": "C04R0701",
+        "mapName": "Eterna City R7"
+    },
+    "0x55": {
+        "mapCode": "C04R0901",
+        "mapName": "Eterna City R9"
+    },
+    "0x56": {
+        "mapCode": "C05",
+        "mapName": "Hearthome City"
+    },
+    "0x57": {
+        "mapCode": "C05FS0101",
+        "mapName": "Hearthome City Mart"
+    },
+    "0x58": {
+        "mapCode": "C05GYM0101",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x59": {
+        "mapCode": "C05GYM0102",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x5a": {
+        "mapCode": "C05GYM0103",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x5b": {
+        "mapCode": "C05GYM0104",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x5c": {
+        "mapCode": "C05GYM0105",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x5d": {
+        "mapCode": "C05GYM0106",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x5e": {
+        "mapCode": "C05GYM0107",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x5f": {
+        "mapCode": "C05GYM0108",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x60": {
+        "mapCode": "C05GYM0109",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x61": {
+        "mapCode": "C05GYM0110",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x62": {
+        "mapCode": "C05GYM0111",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x63": {
+        "mapCode": "C05GYM0112",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x64": {
+        "mapCode": "C05GYM0113",
+        "mapName": "Hearthome City GYM"
+    },
+    "0x65": {
+        "mapCode": "C05PC0101",
+        "mapName": "Hearthome City Pokémon Center"
+    },
+    "0x66": {
+        "mapCode": "C05PC0102",
+        "mapName": "Hearthome City Pokémon Center Top Floor"
+    },
+    "0x67": {
+        "mapCode": "C05R0101",
+        "mapName": "Hearthome City R1"
+    },
+    "0x68": {
+        "mapCode": "C05R0102",
+        "mapName": "Hearthome City R1"
+    },
+    "0x69": {
+        "mapCode": "C05R0103",
+        "mapName": "Hearthome City R1"
+    },
+    "0x6a": {
+        "mapCode": "C05R0201",
+        "mapName": "Hearthome City R2"
+    },
+    "0x6b": {
+        "mapCode": "C05R0301",
+        "mapName": "Hearthome City R3"
+    },
+    "0x6c": {
+        "mapCode": "C05R0401",
+        "mapName": "Hearthome City R4"
+    },
+    "0x6d": {
+        "mapCode": "C05R0501",
+        "mapName": "Hearthome City R5"
+    },
+    "0x6e": {
+        "mapCode": "C05R0601",
+        "mapName": "Hearthome City R6"
+    },
+    "0x6f": {
+        "mapCode": "C05R0701",
+        "mapName": "Hearthome City R7"
+    },
+    "0x70": {
+        "mapCode": "C05R0801",
+        "mapName": "Hearthome City R8"
+    },
+    "0x71": {
+        "mapCode": "C05R0802",
+        "mapName": "Hearthome City R8"
+    },
+    "0x72": {
+        "mapCode": "C05R0803",
+        "mapName": "Hearthome City R8"
+    },
+    "0x73": {
+        "mapCode": "C05R0901",
+        "mapName": "Hearthome City R9"
+    },
+    "0x74": {
+        "mapCode": "C05R1001",
+        "mapName": "Hearthome City R10"
+    },
+    "0x75": {
+        "mapCode": "C05R1101",
+        "mapName": "Hearthome City R11"
+    },
+    "0x76": {
+        "mapCode": "C05R1102",
+        "mapName": "Hearthome City R11"
+    },
+    "0x77": {
+        "mapCode": "C05R1201",
+        "mapName": "Hearthome City R12"
+    },
+    "0x78": {
+        "mapCode": "C06",
+        "mapName": "Pastoria City"
+    },
+    "0x79": {
+        "mapCode": "C06FS0101",
+        "mapName": "Pastoria City Mart"
+    },
+    "0x7a": {
+        "mapCode": "C06GYM0101",
+        "mapName": "Pastoria City GYM"
+    },
+    "0x7b": {
+        "mapCode": "C06PC0101",
+        "mapName": "Pastoria City Pokémon Center"
+    },
+    "0x7c": {
+        "mapCode": "C06PC0102",
+        "mapName": "Pastoria City Pokémon Center Top Floor"
+    },
+    "0x7d": {
+        "mapCode": "C06R0101",
+        "mapName": "Pastoria City R1"
+    },
+    "0x7e": {
+        "mapCode": "C06R0102",
+        "mapName": "Pastoria City R1"
+    },
+    "0x7f": {
+        "mapCode": "C06R0201",
+        "mapName": "Pastoria City R2"
+    },
+    "0x80": {
+        "mapCode": "C06R0301",
+        "mapName": "Pastoria City R3"
+    },
+    "0x81": {
+        "mapCode": "C06R0401",
+        "mapName": "Pastoria City R4"
+    },
+    "0x83": {
+        "mapCode": "C06R0601",
+        "mapName": "Pastoria City R6"
+    },
+    "0x84": {
+        "mapCode": "C07",
+        "mapName": "Veilstone City"
+    },
+    "0x85": {
+        "mapCode": "C07GYM0101",
+        "mapName": "Veilstone City GYM"
+    },
+    "0x86": {
+        "mapCode": "C07PC0101",
+        "mapName": "Veilstone City Pokémon Center"
+    },
+    "0x87": {
+        "mapCode": "C07PC0102",
+        "mapName": "Veilstone City Pokémon Center Top Floor"
+    },
+    "0x88": {
+        "mapCode": "C07R0101",
+        "mapName": "Veilstone City R1"
+    },
+    "0x89": {
+        "mapCode": "C07R0201",
+        "mapName": "Veilstone City R2"
+    },
+    "0x8a": {
+        "mapCode": "C07R0202",
+        "mapName": "Veilstone City R2"
+    },
+    "0x8b": {
+        "mapCode": "C07R0203",
+        "mapName": "Veilstone City R2"
+    },
+    "0x8c": {
+        "mapCode": "C07R0204",
+        "mapName": "Veilstone City R2"
+    },
+    "0x8d": {
+        "mapCode": "C07R0205",
+        "mapName": "Veilstone City R2"
+    },
+    "0x8e": {
+        "mapCode": "C07R0206",
+        "mapName": "Veilstone City R2"
+    },
+    "0x90": {
+        "mapCode": "C07R0401",
+        "mapName": "Veilstone City R4"
+    },
+    "0x91": {
+        "mapCode": "C07R0501",
+        "mapName": "Veilstone City R5"
+    },
+    "0x92": {
+        "mapCode": "C07R0601",
+        "mapName": "Veilstone City R6"
+    },
+    "0x93": {
+        "mapCode": "C07R0701",
+        "mapName": "Veilstone City R7"
+    },
+    "0x94": {
+        "mapCode": "C07R0801",
+        "mapName": "Veilstone City R8"
+    },
+    "0x95": {
+        "mapCode": "C07R0901",
+        "mapName": "Veilstone City R9"
+    },
+    "0x96": {
+        "mapCode": "C08",
+        "mapName": "Sunyshore City"
+    },
+    "0x97": {
+        "mapCode": "C08PC0101",
+        "mapName": "Sunyshore City Pokémon Center"
+    },
+    "0x98": {
+        "mapCode": "C08PC0102",
+        "mapName": "Sunyshore City Pokémon Center Top Floor"
+    },
+    "0x99": {
+        "mapCode": "C08FS0101",
+        "mapName": "Sunyshore City Mart"
+    },
+    "0x9a": {
+        "mapCode": "C08GYM0101",
+        "mapName": "Sunyshore City GYM"
+    },
+    "0x9b": {
+        "mapCode": "C08GYM0102",
+        "mapName": "Sunyshore City GYM"
+    },
+    "0x9c": {
+        "mapCode": "C08GYM0103",
+        "mapName": "Sunyshore City GYM"
+    },
+    "0x9d": {
+        "mapCode": "C08R0101",
+        "mapName": "Sunyshore City R1"
+    },
+    "0x9e": {
+        "mapCode": "C08R0201",
+        "mapName": "Sunyshore City R2"
+    },
+    "0x9f": {
+        "mapCode": "C08R0301",
+        "mapName": "Sunyshore City R3"
+    },
+    "0xa0": {
+        "mapCode": "C08R0401",
+        "mapName": "Sunyshore City R4"
+    },
+    "0xa1": {
+        "mapCode": "C08R0501",
+        "mapName": "Sunyshore City R5"
+    },
+    "0xa2": {
+        "mapCode": "C08R0601",
+        "mapName": "Sunyshore City R6"
+    },
+    "0xa3": {
+        "mapCode": "C08R0701",
+        "mapName": "Sunyshore City R7"
+    },
+    "0xa4": {
+        "mapCode": "C08R0801",
+        "mapName": "Sunyshore City R8"
+    },
+    "0xa5": {
+        "mapCode": "C09",
+        "mapName": "Snowpoint City"
+    },
+    "0xa6": {
+        "mapCode": "C09FS0101",
+        "mapName": "Snowpoint City Mart"
+    },
+    "0xa7": {
+        "mapCode": "C09GYM0101",
+        "mapName": "Snowpoint City GYM"
+    },
+    "0xa8": {
+        "mapCode": "C09PC0101",
+        "mapName": "Snowpoint City Pokémon Center"
+    },
+    "0xa9": {
+        "mapCode": "C09PC0102",
+        "mapName": "Snowpoint City Pokémon Center Top Floor"
+    },
+    "0xaa": {
+        "mapCode": "C09R0101",
+        "mapName": "Snowpoint City R1"
+    },
+    "0xab": {
+        "mapCode": "C09R0201",
+        "mapName": "Snowpoint City R2"
+    },
+    "0xac": {
+        "mapCode": "C10",
+        "mapName": "Pokémon League"
+    },
+    "0xad": {
+        "mapCode": "C10PC0101",
+        "mapName": "Pokémon League Pokémon Center"
+    },
+    "0xae": {
+        "mapCode": "C10PC0102",
+        "mapName": "Pokémon League Pokémon Center Top Floor"
+    },
+    "0xaf": {
+        "mapCode": "C10R0101",
+        "mapName": "Pokémon League R1 Pokémon Center"
+    },
+    "0xb0": {
+        "mapCode": "C10R0102",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb1": {
+        "mapCode": "C10R0103",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb2": {
+        "mapCode": "C10R0104",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb3": {
+        "mapCode": "C10R0105",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb4": {
+        "mapCode": "C10R0106",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb5": {
+        "mapCode": "C10R0107",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb6": {
+        "mapCode": "C10R0108",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb7": {
+        "mapCode": "C10R0109",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb8": {
+        "mapCode": "C10R0110",
+        "mapName": "Pokémon League R1"
+    },
+    "0xb9": {
+        "mapCode": "C10R0111",
+        "mapName": "Pokémon League R1"
+    },
+    "0xba": {
+        "mapCode": "C10R0112",
+        "mapName": "Pokémon League R1"
+    },
+    "0xbb": {
+        "mapCode": "C10R0113",
+        "mapName": "Pokémon League R1"
+    },
+    "0xbc": {
+        "mapCode": "C11",
+        "mapName": "Fight Area"
+    },
+    "0xbd": {
+        "mapCode": "C11PC0101",
+        "mapName": "Fight Area Pokémon Center"
+    },
+    "0xbe": {
+        "mapCode": "C11PC0102",
+        "mapName": "Fight Area Pokémon Center Top Floor"
+    },
+    "0xbf": {
+        "mapCode": "C11FS0101",
+        "mapName": "Fight Area Mart"
+    },
+    "0xc0": {
+        "mapCode": "C11R0101",
+        "mapName": "Fight Area R1"
+    },
+    "0xc1": {
+        "mapCode": "C11R0201",
+        "mapName": "Fight Area R2"
+    },
+    "0xc2": {
+        "mapCode": "C11R0301",
+        "mapName": "Fight Area R3"
+    },
+    "0xc3": {
+        "mapCode": "C11R0401",
+        "mapName": "Fight Area R4"
+    },
+    "0xc4": {
+        "mapCode": "C11R0501",
+        "mapName": "Fight Area R5"
+    },
+    "0xc5": {
+        "mapCode": "D01",
+        "mapName": "Oreburgh Mine"
+    },
+    "0xc6": {
+        "mapCode": "D01R0101",
+        "mapName": "Oreburgh Mine R1"
+    },
+    "0xc7": {
+        "mapCode": "D01R0102",
+        "mapName": "Oreburgh Mine R1"
+    },
+    "0xc8": {
+        "mapCode": "D02",
+        "mapName": "Valley Windworks"
+    },
+    "0xc9": {
+        "mapCode": "D02R0101",
+        "mapName": "Valley Windworks R1"
+    },
+    "0xca": {
+        "mapCode": "D03",
+        "mapName": "Eterna Forest"
+    },
+    "0xcb": {
+        "mapCode": "D03R0101",
+        "mapName": "Eterna Forest R1"
+    },
+    "0xcc": {
+        "mapCode": "D04",
+        "mapName": "Fuego Ironworks"
+    },
+    "0xcd": {
+        "mapCode": "D04R0101",
+        "mapName": "Fuego Ironworks R1"
+    },
+    "0xce": {
+        "mapCode": "D05",
+        "mapName": "Mt"
+    },
+    "0xcf": {
+        "mapCode": "D05R0101",
+        "mapName": "Mt"
+    },
+    "0xd0": {
+        "mapCode": "D05R0102",
+        "mapName": "Mt"
+    },
+    "0xd1": {
+        "mapCode": "D05R0103",
+        "mapName": "Mt"
+    },
+    "0xd2": {
+        "mapCode": "D05R0104",
+        "mapName": "Mt"
+    },
+    "0xd3": {
+        "mapCode": "D05R0105",
+        "mapName": "Mt"
+    },
+    "0xd4": {
+        "mapCode": "D05R0106",
+        "mapName": "Mt"
+    },
+    "0xd5": {
+        "mapCode": "D05R0107",
+        "mapName": "Mt"
+    },
+    "0xd6": {
+        "mapCode": "D05R0108",
+        "mapName": "Mt"
+    },
+    "0xd7": {
+        "mapCode": "D05R0109",
+        "mapName": "Mt"
+    },
+    "0xd8": {
+        "mapCode": "D05R0110",
+        "mapName": "Mt"
+    },
+    "0xd9": {
+        "mapCode": "D05R0111",
+        "mapName": "Mt"
+    },
+    "0xda": {
+        "mapCode": "D05R0112",
+        "mapName": "Mt"
+    },
+    "0xdb": {
+        "mapCode": "D05R0113",
+        "mapName": "Mt"
+    },
+    "0xdc": {
+        "mapCode": "D05R0114",
+        "mapName": "Mt"
+    },
+    "0xdd": {
+        "mapCode": "D05R0115",
+        "mapName": "Mt"
+    },
+    "0xde": {
+        "mapCode": "D06",
+        "mapName": "Great Marsh"
+    },
+    "0xdf": {
+        "mapCode": "D06R0101",
+        "mapName": "Great Marsh R1"
+    },
+    "0xe0": {
+        "mapCode": "D07",
+        "mapName": "Solaceon Ruins"
+    },
+    "0xe1": {
+        "mapCode": "D07R0101",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xe2": {
+        "mapCode": "D07R0102",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xe3": {
+        "mapCode": "D07R0103",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xe4": {
+        "mapCode": "D07R0104",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xe5": {
+        "mapCode": "D07R0105",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xe6": {
+        "mapCode": "D07R0106",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xe7": {
+        "mapCode": "D07R0107",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xe8": {
+        "mapCode": "D07R0108",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xe9": {
+        "mapCode": "D07R0109",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xea": {
+        "mapCode": "D07R0110",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xeb": {
+        "mapCode": "D07R0111",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xec": {
+        "mapCode": "D07R0112",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xed": {
+        "mapCode": "D07R0113",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xee": {
+        "mapCode": "D07R0114",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xef": {
+        "mapCode": "D07R0115",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xf0": {
+        "mapCode": "D07R0116",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xf1": {
+        "mapCode": "D07R0117",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xf2": {
+        "mapCode": "D07R0118",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0xf3": {
+        "mapCode": "D09",
+        "mapName": "Victory Road"
+    },
+    "0xf4": {
+        "mapCode": "D09R0101",
+        "mapName": "Victory Road R1"
+    },
+    "0xf5": {
+        "mapCode": "D09R0102",
+        "mapName": "Victory Road R1"
+    },
+    "0xf6": {
+        "mapCode": "D09R0103",
+        "mapName": "Victory Road R1"
+    },
+    "0xf7": {
+        "mapCode": "D09R0104",
+        "mapName": "Victory Road R1"
+    },
+    "0xf8": {
+        "mapCode": "D09R0105",
+        "mapName": "Victory Road R1"
+    },
+    "0xf9": {
+        "mapCode": "D09R0106",
+        "mapName": "Victory Road R1"
+    },
+    "0xfa": {
+        "mapCode": "D10",
+        "mapName": "Pal Park"
+    },
+    "0xfb": {
+        "mapCode": "D10R0101",
+        "mapName": "Pal Park R1"
+    },
+    "0xfc": {
+        "mapCode": "D11",
+        "mapName": "Amity Square"
+    },
+    "0xfd": {
+        "mapCode": "D11R0101",
+        "mapName": "Amity Square R1"
+    },
+    "0xfe": {
+        "mapCode": "D12R0101",
+        "mapName": "Ravaged Path R1"
+    },
+    "0xff": {
+        "mapCode": "D13",
+        "mapName": "Floaroma Meadow"
+    },
+    "0x100": {
+        "mapCode": "D13R0101",
+        "mapName": "Floaroma Meadow R1"
+    },
+    "0x101": {
+        "mapCode": "D13R0102",
+        "mapName": "Floaroma Meadow R1"
+    },
+    "0x102": {
+        "mapCode": "D14R0101",
+        "mapName": "Oreburgh Gate R1"
+    },
+    "0x103": {
+        "mapCode": "D14R0102",
+        "mapName": "Oreburgh Gate R1"
+    },
+    "0x104": {
+        "mapCode": "D15",
+        "mapName": "Fullmoon Island"
+    },
+    "0x105": {
+        "mapCode": "D15R0101",
+        "mapName": "Fullmoon Island R1"
+    },
+    "0x106": {
+        "mapCode": "D16",
+        "mapName": "Stark Mountain"
+    },
+    "0x107": {
+        "mapCode": "D16R0101",
+        "mapName": "Stark Mountain R1"
+    },
+    "0x108": {
+        "mapCode": "D16R0102",
+        "mapName": "Stark Mountain R1"
+    },
+    "0x109": {
+        "mapCode": "D16R0103",
+        "mapName": "Stark Mountain R1"
+    },
+    "0x10a": {
+        "mapCode": "D17",
+        "mapName": "Sendoff Spring"
+    },
+    "0x10b": {
+        "mapCode": "D17R0101",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x10d": {
+        "mapCode": "D17R0103",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x10e": {
+        "mapCode": "D17R0104",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x10f": {
+        "mapCode": "D17R0105",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x110": {
+        "mapCode": "D17R0106",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x111": {
+        "mapCode": "D17R0107",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x112": {
+        "mapCode": "D18",
+        "mapName": "Flower Paradise"
+    },
+    "0x113": {
+        "mapCode": "D18R0101",
+        "mapName": "Flower Paradise R1"
+    },
+    "0x114": {
+        "mapCode": "D19A",
+        "mapName": "D19A"
+    },
+    "0x115": {
+        "mapCode": "D19B",
+        "mapName": "D19B"
+    },
+    "0x116": {
+        "mapCode": "D20R0101",
+        "mapName": "Snowpoint Temple R1"
+    },
+    "0x117": {
+        "mapCode": "D20R0102",
+        "mapName": "Snowpoint Temple R1"
+    },
+    "0x118": {
+        "mapCode": "D20R0103",
+        "mapName": "Snowpoint Temple R1"
+    },
+    "0x119": {
+        "mapCode": "D20R0104",
+        "mapName": "Snowpoint Temple R1"
+    },
+    "0x11a": {
+        "mapCode": "D20R0105",
+        "mapName": "Snowpoint Temple R1"
+    },
+    "0x11b": {
+        "mapCode": "D20R0106",
+        "mapName": "Snowpoint Temple R1"
+    },
+    "0x11c": {
+        "mapCode": "D21R0101",
+        "mapName": "Wayward Cave R1"
+    },
+    "0x11d": {
+        "mapCode": "D21R0102",
+        "mapName": "Wayward Cave R1"
+    },
+    "0x11e": {
+        "mapCode": "D22R0101",
+        "mapName": "Ruin Maniac Cave R1"
+    },
+    "0x11f": {
+        "mapCode": "D23R0101",
+        "mapName": "Trophy Garden R1"
+    },
+    "0x120": {
+        "mapCode": "D24",
+        "mapName": "Iron Island"
+    },
+    "0x121": {
+        "mapCode": "D24R0101",
+        "mapName": "Iron Island R1"
+    },
+    "0x122": {
+        "mapCode": "D24R0102",
+        "mapName": "Iron Island R1"
+    },
+    "0x123": {
+        "mapCode": "D24R0103",
+        "mapName": "Iron Island R1"
+    },
+    "0x124": {
+        "mapCode": "D24R0104",
+        "mapName": "Iron Island R1"
+    },
+    "0x125": {
+        "mapCode": "D24R0105",
+        "mapName": "Iron Island R1"
+    },
+    "0x126": {
+        "mapCode": "D24R0106",
+        "mapName": "Iron Island R1"
+    },
+    "0x127": {
+        "mapCode": "D25R0101",
+        "mapName": "Old Chateau R1"
+    },
+    "0x128": {
+        "mapCode": "D25R0102",
+        "mapName": "Old Chateau R1"
+    },
+    "0x129": {
+        "mapCode": "D25R0103",
+        "mapName": "Old Chateau R1"
+    },
+    "0x12a": {
+        "mapCode": "D25R0104",
+        "mapName": "Old Chateau R1"
+    },
+    "0x12b": {
+        "mapCode": "D25R0105",
+        "mapName": "Old Chateau R1"
+    },
+    "0x12c": {
+        "mapCode": "D25R0106",
+        "mapName": "Old Chateau R1"
+    },
+    "0x12d": {
+        "mapCode": "D25R0107",
+        "mapName": "Old Chateau R1"
+    },
+    "0x12e": {
+        "mapCode": "D25R0108",
+        "mapName": "Old Chateau R1"
+    },
+    "0x12f": {
+        "mapCode": "D25R0109",
+        "mapName": "Old Chateau R1"
+    },
+    "0x130": {
+        "mapCode": "D25R1001",
+        "mapName": "Old Chateau R10"
+    },
+    "0x131": {
+        "mapCode": "D26R0101",
+        "mapName": "Galactic HQ R1"
+    },
+    "0x132": {
+        "mapCode": "D26R0102",
+        "mapName": "Galactic HQ R1"
+    },
+    "0x133": {
+        "mapCode": "D26R0103",
+        "mapName": "Galactic HQ R1"
+    },
+    "0x134": {
+        "mapCode": "D26R0104",
+        "mapName": "Galactic HQ R1"
+    },
+    "0x135": {
+        "mapCode": "D26R0105",
+        "mapName": "Galactic HQ R1"
+    },
+    "0x136": {
+        "mapCode": "D26R0106",
+        "mapName": "Galactic HQ R1"
+    },
+    "0x137": {
+        "mapCode": "D27R0101",
+        "mapName": "Lake Verity R1"
+    },
+    "0x138": {
+        "mapCode": "D27R0102",
+        "mapName": "Lake Verity R1"
+    },
+    "0x139": {
+        "mapCode": "D27R0103",
+        "mapName": "Lake Verity R1"
+    },
+    "0x13a": {
+        "mapCode": "D28R0101",
+        "mapName": "Lake Valor R1"
+    },
+    "0x13b": {
+        "mapCode": "D28R0102",
+        "mapName": "Lake Valor R1"
+    },
+    "0x13c": {
+        "mapCode": "D28R0103",
+        "mapName": "Lake Valor R1"
+    },
+    "0x13d": {
+        "mapCode": "D29R0101",
+        "mapName": "Lake Acuity R1"
+    },
+    "0x13e": {
+        "mapCode": "D29R0102",
+        "mapName": "Lake Acuity R1"
+    },
+    "0x13f": {
+        "mapCode": "D29R0103",
+        "mapName": "Lake Acuity R1"
+    },
+    "0x140": {
+        "mapCode": "D30",
+        "mapName": "Newmoon Island"
+    },
+    "0x141": {
+        "mapCode": "D30R0101",
+        "mapName": "Newmoon Island R1"
+    },
+    "0x142": {
+        "mapCode": "D31",
+        "mapName": "Battle Tower"
+    },
+    "0x143": {
+        "mapCode": "D31R0101",
+        "mapName": "Battle Tower R1"
+    },
+    "0x144": {
+        "mapCode": "D31R0102",
+        "mapName": "Battle Tower R1"
+    },
+    "0x145": {
+        "mapCode": "D31R0103",
+        "mapName": "Battle Tower R1"
+    },
+    "0x146": {
+        "mapCode": "D31R0201",
+        "mapName": "Battle Tower R2"
+    },
+    "0x147": {
+        "mapCode": "D31R0202",
+        "mapName": "Battle Tower R2"
+    },
+    "0x148": {
+        "mapCode": "D31R0203",
+        "mapName": "Battle Tower R2"
+    },
+    "0x149": {
+        "mapCode": "D31R0204",
+        "mapName": "Battle Tower R2"
+    },
+    "0x14a": {
+        "mapCode": "D31R0205",
+        "mapName": "Battle Tower R2"
+    },
+    "0x14b": {
+        "mapCode": "D31R0206",
+        "mapName": "Battle Tower R2"
+    },
+    "0x14c": {
+        "mapCode": "DIRECT2",
+        "mapName": "DIRECT2"
+    },
+    "0x14d": {
+        "mapCode": "DIRECT4",
+        "mapName": "DIRECT4"
+    },
+    "0x14e": {
+        "mapCode": "L01",
+        "mapName": "Verity Lakefront"
+    },
+    "0x14f": {
+        "mapCode": "L01R0101",
+        "mapName": "Verity Lakefront R1"
+    },
+    "0x150": {
+        "mapCode": "L02",
+        "mapName": "Valor Lakefront"
+    },
+    "0x151": {
+        "mapCode": "L02R0101",
+        "mapName": "Valor Lakefront Restaurant"
+    },
+    "0x152": {
+        "mapCode": "L02R0201",
+        "mapName": "Valor Lakefront R2"
+    },
+    "0x153": {
+        "mapCode": "L02R0301",
+        "mapName": "Valor Lakefront R3"
+    },
+    "0x154": {
+        "mapCode": "L03",
+        "mapName": "Acuity Lakefront"
+    },
+    "0x155": {
+        "mapCode": "L04",
+        "mapName": "L04"
+    },
+    "0x156": {
+        "mapCode": "R201",
+        "mapName": "Route 201"
+    },
+    "0x157": {
+        "mapCode": "R202",
+        "mapName": "Route 202"
+    },
+    "0x158": {
+        "mapCode": "R203",
+        "mapName": "Route 203"
+    },
+    "0x159": {
+        "mapCode": "R204A",
+        "mapName": "Route 204"
+    },
+    "0x15a": {
+        "mapCode": "R204B",
+        "mapName": "Route 204"
+    },
+    "0x15b": {
+        "mapCode": "R205A",
+        "mapName": "Route 205"
+    },
+    "0x15c": {
+        "mapCode": "R205AR0101",
+        "mapName": "Route 205 A R1"
+    },
+    "0x15d": {
+        "mapCode": "R205B",
+        "mapName": "Route 205"
+    },
+    "0x15e": {
+        "mapCode": "R206",
+        "mapName": "Route 206"
+    },
+    "0x15f": {
+        "mapCode": "R206R0101",
+        "mapName": "Route 206 R1"
+    },
+    "0x160": {
+        "mapCode": "R206R0201",
+        "mapName": "Route 206 R2"
+    },
+    "0x161": {
+        "mapCode": "R207",
+        "mapName": "Route 207"
+    },
+    "0x162": {
+        "mapCode": "R208",
+        "mapName": "Route 208"
+    },
+    "0x163": {
+        "mapCode": "R208R0101",
+        "mapName": "Route 208 R1"
+    },
+    "0x164": {
+        "mapCode": "R209",
+        "mapName": "Route 209"
+    },
+    "0x165": {
+        "mapCode": "R209R0101",
+        "mapName": "Route 209 R1"
+    },
+    "0x166": {
+        "mapCode": "R209R0102",
+        "mapName": "Route 209 R1"
+    },
+    "0x167": {
+        "mapCode": "R209R0103",
+        "mapName": "Route 209 R1"
+    },
+    "0x168": {
+        "mapCode": "R209R0104",
+        "mapName": "Route 209 R1"
+    },
+    "0x169": {
+        "mapCode": "R209R0105",
+        "mapName": "Route 209 R1"
+    },
+    "0x16a": {
+        "mapCode": "R210A",
+        "mapName": "Route 210"
+    },
+    "0x16b": {
+        "mapCode": "R210B",
+        "mapName": "Route 210"
+    },
+    "0x16c": {
+        "mapCode": "R210BR0101",
+        "mapName": "Route 210 B R1"
+    },
+    "0x16d": {
+        "mapCode": "R211A",
+        "mapName": "Route 211"
+    },
+    "0x16e": {
+        "mapCode": "R211B",
+        "mapName": "Route 211"
+    },
+    "0x16f": {
+        "mapCode": "R212A",
+        "mapName": "Route 212"
+    },
+    "0x170": {
+        "mapCode": "R212AR0101",
+        "mapName": "Route 212 A R1"
+    },
+    "0x171": {
+        "mapCode": "R212AR0102",
+        "mapName": "Route 212 A R1"
+    },
+    "0x172": {
+        "mapCode": "R212AR0103",
+        "mapName": "Route 212 A R1"
+    },
+    "0x173": {
+        "mapCode": "R212B",
+        "mapName": "Route 212"
+    },
+    "0x174": {
+        "mapCode": "R212BR0101",
+        "mapName": "Route 212 B R1"
+    },
+    "0x175": {
+        "mapCode": "R213",
+        "mapName": "Route 213"
+    },
+    "0x176": {
+        "mapCode": "R213R0101",
+        "mapName": "Route 213 R1"
+    },
+    "0x177": {
+        "mapCode": "R213R0201",
+        "mapName": "Route 213 R2"
+    },
+    "0x178": {
+        "mapCode": "R213R0301",
+        "mapName": "Route 213 R3"
+    },
+    "0x179": {
+        "mapCode": "R213R0401",
+        "mapName": "Route 213 R4"
+    },
+    "0x17a": {
+        "mapCode": "R213R0501",
+        "mapName": "Route 213 R5"
+    },
+    "0x17b": {
+        "mapCode": "R213R0601",
+        "mapName": "Route 213 R6"
+    },
+    "0x17c": {
+        "mapCode": "R214",
+        "mapName": "Route 214"
+    },
+    "0x17d": {
+        "mapCode": "R214R0101",
+        "mapName": "Route 214 R1"
+    },
+    "0x17e": {
+        "mapCode": "R215",
+        "mapName": "Route 215"
+    },
+    "0x17f": {
+        "mapCode": "R216",
+        "mapName": "Route 216"
+    },
+    "0x180": {
+        "mapCode": "R216R0101",
+        "mapName": "Route 216 R1"
+    },
+    "0x181": {
+        "mapCode": "R217",
+        "mapName": "Route 217"
+    },
+    "0x182": {
+        "mapCode": "R217R0101",
+        "mapName": "Route 217 R1"
+    },
+    "0x183": {
+        "mapCode": "R217R0201",
+        "mapName": "Route 217 R2"
+    },
+    "0x184": {
+        "mapCode": "R218",
+        "mapName": "Route 218"
+    },
+    "0x185": {
+        "mapCode": "R218R0101",
+        "mapName": "Route 218 R1"
+    },
+    "0x186": {
+        "mapCode": "R218R0201",
+        "mapName": "Route 218 R2"
+    },
+    "0x187": {
+        "mapCode": "R219",
+        "mapName": "Route 219"
+    },
+    "0x188": {
+        "mapCode": "R221",
+        "mapName": "Route 221"
+    },
+    "0x189": {
+        "mapCode": "R221R0101",
+        "mapName": "Route 221 R1"
+    },
+    "0x18a": {
+        "mapCode": "R221R0201",
+        "mapName": "Route 221 R2"
+    },
+    "0x18b": {
+        "mapCode": "R222",
+        "mapName": "Route 222"
+    },
+    "0x18c": {
+        "mapCode": "R222R0101",
+        "mapName": "Route 222 R1"
+    },
+    "0x18d": {
+        "mapCode": "R222R0201",
+        "mapName": "Route 222 R2"
+    },
+    "0x18e": {
+        "mapCode": "R222R0301",
+        "mapName": "Route 222 R3"
+    },
+    "0x18f": {
+        "mapCode": "R224",
+        "mapName": "Route 224"
+    },
+    "0x190": {
+        "mapCode": "R225",
+        "mapName": "Route 225"
+    },
+    "0x191": {
+        "mapCode": "R226A",
+        "mapName": "Route 226"
+    },
+    "0x192": {
+        "mapCode": "R226B",
+        "mapName": "Route 226"
+    },
+    "0x193": {
+        "mapCode": "R227",
+        "mapName": "Route 227"
+    },
+    "0x194": {
+        "mapCode": "R227A",
+        "mapName": "Route 227"
+    },
+    "0x195": {
+        "mapCode": "R227B",
+        "mapName": "Route 227"
+    },
+    "0x196": {
+        "mapCode": "R228",
+        "mapName": "Route 228"
+    },
+    "0x197": {
+        "mapCode": "R229",
+        "mapName": "Route 229"
+    },
+    "0x198": {
+        "mapCode": "R230",
+        "mapName": "Route 230"
+    },
+    "0x199": {
+        "mapCode": "R232",
+        "mapName": "R232"
+    },
+    "0x19a": {
+        "mapCode": "RECORD",
+        "mapName": "RECORD"
+    },
+    "0x19b": {
+        "mapCode": "T01",
+        "mapName": "Twinleaf Town"
+    },
+    "0x19c": {
+        "mapCode": "T01R0101",
+        "mapName": "Twinleaf Town R1"
+    },
+    "0x19d": {
+        "mapCode": "T01R0102",
+        "mapName": "Twinleaf Town R1"
+    },
+    "0x19e": {
+        "mapCode": "T01R0201",
+        "mapName": "Twinleaf Town R2"
+    },
+    "0x19f": {
+        "mapCode": "T01R0202",
+        "mapName": "Twinleaf Town R2"
+    },
+    "0x1a0": {
+        "mapCode": "T01R0301",
+        "mapName": "Twinleaf Town R3"
+    },
+    "0x1a1": {
+        "mapCode": "T01R0401",
+        "mapName": "Twinleaf Town R4"
+    },
+    "0x1a2": {
+        "mapCode": "T02",
+        "mapName": "Sandgem Town"
+    },
+    "0x1a3": {
+        "mapCode": "T02FS0101",
+        "mapName": "Sandgem Town Mart"
+    },
+    "0x1a4": {
+        "mapCode": "T02PC0101",
+        "mapName": "Sandgem Town Pokémon Center"
+    },
+    "0x1a5": {
+        "mapCode": "T02PC0102",
+        "mapName": "Sandgem Town Pokémon Center Top Floor"
+    },
+    "0x1a6": {
+        "mapCode": "T02R0101",
+        "mapName": "Sandgem Town R1"
+    },
+    "0x1a7": {
+        "mapCode": "T02R0201",
+        "mapName": "Sandgem Town R2"
+    },
+    "0x1a8": {
+        "mapCode": "T02R0202",
+        "mapName": "Sandgem Town R2"
+    },
+    "0x1a9": {
+        "mapCode": "T02R0301",
+        "mapName": "Sandgem Town R3"
+    },
+    "0x1aa": {
+        "mapCode": "T03",
+        "mapName": "Floaroma Town"
+    },
+    "0x1ab": {
+        "mapCode": "T03FS0101",
+        "mapName": "Floaroma Town Mart"
+    },
+    "0x1ac": {
+        "mapCode": "T03PC0101",
+        "mapName": "Floaroma Town Pokémon Center"
+    },
+    "0x1ad": {
+        "mapCode": "T03PC0102",
+        "mapName": "Floaroma Town Pokémon Center Top Floor"
+    },
+    "0x1ae": {
+        "mapCode": "T03R0101",
+        "mapName": "Floaroma Town R1"
+    },
+    "0x1af": {
+        "mapCode": "T03R0201",
+        "mapName": "Floaroma Town R2"
+    },
+    "0x1b0": {
+        "mapCode": "T03R0301",
+        "mapName": "Floaroma Town R3"
+    },
+    "0x1b1": {
+        "mapCode": "T04",
+        "mapName": "Solaceon Town"
+    },
+    "0x1b2": {
+        "mapCode": "T04FS0101",
+        "mapName": "Solaceon Town Mart"
+    },
+    "0x1b3": {
+        "mapCode": "T04PC0101",
+        "mapName": "Solaceon Town Pokémon Center"
+    },
+    "0x1b4": {
+        "mapCode": "T04PC0102",
+        "mapName": "Solaceon Town Pokémon Center Top Floor"
+    },
+    "0x1b5": {
+        "mapCode": "T04R0101",
+        "mapName": "Solaceon Town R1"
+    },
+    "0x1b6": {
+        "mapCode": "T04R0201",
+        "mapName": "Solaceon Town R2"
+    },
+    "0x1b7": {
+        "mapCode": "T04R0301",
+        "mapName": "Solaceon Town R3"
+    },
+    "0x1b8": {
+        "mapCode": "T04R0401",
+        "mapName": "Solaceon Town R4"
+    },
+    "0x1b9": {
+        "mapCode": "T04R0501",
+        "mapName": "Solaceon Town R5"
+    },
+    "0x1ba": {
+        "mapCode": "T05",
+        "mapName": "Celestic Town"
+    },
+    "0x1bb": {
+        "mapCode": "T05PC0101",
+        "mapName": "Celestic Town Pokémon Center"
+    },
+    "0x1bc": {
+        "mapCode": "T05PC0102",
+        "mapName": "Celestic Town Pokémon Center Top Floor"
+    },
+    "0x1bd": {
+        "mapCode": "T05R0101",
+        "mapName": "Celestic Town R1"
+    },
+    "0x1be": {
+        "mapCode": "T05R0201",
+        "mapName": "Celestic Town R2"
+    },
+    "0x1bf": {
+        "mapCode": "T05R0301",
+        "mapName": "Celestic Town R3"
+    },
+    "0x1c0": {
+        "mapCode": "T05R0401",
+        "mapName": "Celestic Town R4"
+    },
+    "0x1c1": {
+        "mapCode": "T05R0501",
+        "mapName": "Celestic Town R5"
+    },
+    "0x1c2": {
+        "mapCode": "T06",
+        "mapName": "Survival Area"
+    },
+    "0x1c3": {
+        "mapCode": "T06FS0101",
+        "mapName": "Survival Area Mart"
+    },
+    "0x1c4": {
+        "mapCode": "T06PC0101",
+        "mapName": "Survival Area Pokémon Center"
+    },
+    "0x1c5": {
+        "mapCode": "T06PC0102",
+        "mapName": "Survival Area Pokémon Center Top Floor"
+    },
+    "0x1c6": {
+        "mapCode": "T06R0101",
+        "mapName": "Survival Area R1"
+    },
+    "0x1c7": {
+        "mapCode": "T06R0201",
+        "mapName": "Survival Area R2"
+    },
+    "0x1c8": {
+        "mapCode": "T06R0301",
+        "mapName": "Survival Area R3"
+    },
+    "0x1c9": {
+        "mapCode": "T07",
+        "mapName": "Resort Area"
+    },
+    "0x1ca": {
+        "mapCode": "T07FS0101",
+        "mapName": "Resort Area Mart"
+    },
+    "0x1cb": {
+        "mapCode": "T07PC0101",
+        "mapName": "Resort Area Pokémon Center"
+    },
+    "0x1cc": {
+        "mapCode": "T07PC0102",
+        "mapName": "Resort Area Pokémon Center Top Floor"
+    },
+    "0x1cd": {
+        "mapCode": "T07R0101",
+        "mapName": "Resort Area R1"
+    },
+    "0x1ce": {
+        "mapCode": "T07R0102",
+        "mapName": "Resort Area R1"
+    },
+    "0x1cf": {
+        "mapCode": "T07R0103",
+        "mapName": "Resort Area R1"
+    },
+    "0x1d0": {
+        "mapCode": "T07R0201",
+        "mapName": "Resort Area R2"
+    },
+    "0x1d1": {
+        "mapCode": "T07R0301",
+        "mapName": "Resort Area R3"
+    },
+    "0x1d2": {
+        "mapCode": "UNION",
+        "mapName": "UNION"
+    },
+    "0x1d3": {
+        "mapCode": "W220",
+        "mapName": "Route 220"
+    },
+    "0x1d4": {
+        "mapCode": "W223",
+        "mapName": "Route 223"
+    },
+    "0x1d5": {
+        "mapCode": "W226",
+        "mapName": "Route 226"
+    },
+    "0x1d6": {
+        "mapCode": "W229",
+        "mapName": "Route 229"
+    },
+    "0x1d7": {
+        "mapCode": "W230",
+        "mapName": "Route 230"
+    },
+    "0x1d8": {
+        "mapCode": "W231",
+        "mapName": "W231"
+    },
+    "0x1d9": {
+        "mapCode": "W233",
+        "mapName": "W233"
+    },
+    "0x1da": {
+        "mapCode": "C01PC0103",
+        "mapName": "Jubilife City Pokémon Center Bottom Floor"
+    },
+    "0x1db": {
+        "mapCode": "C02PC0103",
+        "mapName": "Canalave City Pokémon Center Bottom Floor"
+    },
+    "0x1dc": {
+        "mapCode": "C03PC0103",
+        "mapName": "Oreburgh City Pokémon Center Bottom Floor"
+    },
+    "0x1dd": {
+        "mapCode": "C04PC0103",
+        "mapName": "Eterna City Pokémon Center Bottom Floor"
+    },
+    "0x1de": {
+        "mapCode": "C05PC0103",
+        "mapName": "Hearthome City Pokémon Center Bottom Floor"
+    },
+    "0x1df": {
+        "mapCode": "C06PC0103",
+        "mapName": "Pastoria City Pokémon Center Bottom Floor"
+    },
+    "0x1e0": {
+        "mapCode": "C07PC0103",
+        "mapName": "Veilstone City Pokémon Center Bottom Floor"
+    },
+    "0x1e1": {
+        "mapCode": "C08PC0103",
+        "mapName": "Sunyshore City Pokémon Center Bottom Floor"
+    },
+    "0x1e2": {
+        "mapCode": "C09PC0103",
+        "mapName": "Snowpoint City Pokémon Center Bottom Floor"
+    },
+    "0x1e3": {
+        "mapCode": "C10PC0103",
+        "mapName": "Pokémon League Pokémon Center Bottom Floor"
+    },
+    "0x1e4": {
+        "mapCode": "C11PC0103",
+        "mapName": "Fight Area Pokémon Center Bottom Floor"
+    },
+    "0x1e5": {
+        "mapCode": "T02PC0103",
+        "mapName": "Sandgem Town Pokémon Center Bottom Floor"
+    },
+    "0x1e6": {
+        "mapCode": "T03PC0103",
+        "mapName": "Floaroma Town Pokémon Center Bottom Floor"
+    },
+    "0x1e7": {
+        "mapCode": "T04PC0103",
+        "mapName": "Solaceon Town Pokémon Center Bottom Floor"
+    },
+    "0x1e8": {
+        "mapCode": "T05PC0103",
+        "mapName": "Celestic Town Pokémon Center Bottom Floor"
+    },
+    "0x1e9": {
+        "mapCode": "T06PC0103",
+        "mapName": "Survival Area Pokémon Center Bottom Floor"
+    },
+    "0x1ea": {
+        "mapCode": "T07PC0103",
+        "mapName": "Resort Area Pokémon Center Bottom Floor"
+    },
+    "0x1eb": {
+        "mapCode": "C02R0601",
+        "mapName": "Canalave City R6"
+    },
+    "0x1ec": {
+        "mapCode": "R210AR0101",
+        "mapName": "Route 210 A R1"
+    },
+    "0x1ed": {
+        "mapCode": "D31R0207",
+        "mapName": "Battle Tower R2"
+    },
+    "0x1ee": {
+        "mapCode": "D26R0107",
+        "mapName": "Galactic HQ R1"
+    },
+    "0x1ef": {
+        "mapCode": "C10R0114",
+        "mapName": "Pokémon League R1 Pokémon Center Top Floor"
+    },
+    "0x1f0": {
+        "mapCode": "C10R0115",
+        "mapName": "Pokémon League R1 Pokémon Center Bottom Floor"
+    },
+    "0x1f1": {
+        "mapCode": "D26R0108",
+        "mapName": "Galactic HQ R1"
+    },
+    "0x1f2": {
+        "mapCode": "R225R0101",
+        "mapName": "Route 225 R1"
+    },
+    "0x1f3": {
+        "mapCode": "W226R0101",
+        "mapName": "Route 226 R1"
+    },
+    "0x1f4": {
+        "mapCode": "R227R0101",
+        "mapName": "Route 227 R1"
+    },
+    "0x1f5": {
+        "mapCode": "R228R0101",
+        "mapName": "Route 228 R1"
+    },
+    "0x1f6": {
+        "mapCode": "R228R0201",
+        "mapName": "Route 228 R2"
+    },
+    "0x1f7": {
+        "mapCode": "R228R0301",
+        "mapName": "Route 228 R3"
+    },
+    "0x1f8": {
+        "mapCode": "D06R0201",
+        "mapName": "Great Marsh R2"
+    },
+    "0x1f9": {
+        "mapCode": "D06R0202",
+        "mapName": "Great Marsh R2"
+    },
+    "0x1fa": {
+        "mapCode": "D06R0203",
+        "mapName": "Great Marsh R2"
+    },
+    "0x1fb": {
+        "mapCode": "D06R0204",
+        "mapName": "Great Marsh R2"
+    },
+    "0x1fc": {
+        "mapCode": "D06R0205",
+        "mapName": "Great Marsh R2"
+    },
+    "0x1fd": {
+        "mapCode": "D06R0206",
+        "mapName": "Great Marsh R2"
+    },
+    "0x1fe": {
+        "mapCode": "D05R0116",
+        "mapName": "Mt"
+    },
+    "0x1ff": {
+        "mapCode": "D05R0117",
+        "mapName": "Mt"
+    },
+    "0x200": {
+        "mapCode": "D22R0102",
+        "mapName": "Ruin Maniac Cave R1"
+    },
+    "0x201": {
+        "mapCode": "D22R0103",
+        "mapName": "Ruin Maniac Cave R1"
+    },
+    "0x202": {
+        "mapCode": "D24R0201",
+        "mapName": "Iron Island R2"
+    },
+    "0x203": {
+        "mapCode": "D07R0119",
+        "mapName": "Solaceon Ruins R1"
+    },
+    "0x204": {
+        "mapCode": "C08R0802",
+        "mapName": "Sunyshore City R8"
+    },
+    "0x205": {
+        "mapCode": "C01R0802",
+        "mapName": "Jubilife City R8"
+    },
+    "0x206": {
+        "mapCode": "D17R0108",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x207": {
+        "mapCode": "D17R0109",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x208": {
+        "mapCode": "D17R0110",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x209": {
+        "mapCode": "D17R0111",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x20a": {
+        "mapCode": "D17R0112",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x20b": {
+        "mapCode": "D17R0113",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x20c": {
+        "mapCode": "D17R0114",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x20d": {
+        "mapCode": "D17R0115",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x20e": {
+        "mapCode": "D17R0116",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x20f": {
+        "mapCode": "D17R0117",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x210": {
+        "mapCode": "D17R0118",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x211": {
+        "mapCode": "D17R0119",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x212": {
+        "mapCode": "D17R0120",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x213": {
+        "mapCode": "D17R0121",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x214": {
+        "mapCode": "D17R0122",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x215": {
+        "mapCode": "D17R0123",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x216": {
+        "mapCode": "D17R0124",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x217": {
+        "mapCode": "D17R0125",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x218": {
+        "mapCode": "D17R0126",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x219": {
+        "mapCode": "D17R0127",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x21a": {
+        "mapCode": "D17R0128",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x21b": {
+        "mapCode": "D17R0129",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x21c": {
+        "mapCode": "D17R0130",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x21d": {
+        "mapCode": "D17R0131",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x21e": {
+        "mapCode": "D17R0132",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x21f": {
+        "mapCode": "D17R0133",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x220": {
+        "mapCode": "D17R0134",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x221": {
+        "mapCode": "D17R0135",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x222": {
+        "mapCode": "D17R0136",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x223": {
+        "mapCode": "D17R0137",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x224": {
+        "mapCode": "D17R0138",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x225": {
+        "mapCode": "D17R0139",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x226": {
+        "mapCode": "D17R0140",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x227": {
+        "mapCode": "D17R0141",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x228": {
+        "mapCode": "D17R0142",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x229": {
+        "mapCode": "D17R0143",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x22a": {
+        "mapCode": "D17R0144",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x22b": {
+        "mapCode": "D17R0145",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x22c": {
+        "mapCode": "D17R0146",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x22d": {
+        "mapCode": "D17R0147",
+        "mapName": "Sendoff Spring Turnback Cave"
+    },
+    "0x22e": {
+        "mapCode": "C05R1103",
+        "mapName": "Hearthome City R11"
+    }
+}
