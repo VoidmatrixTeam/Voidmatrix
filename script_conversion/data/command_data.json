@@ -551,7 +551,9 @@
             },
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "work",
@@ -568,7 +570,9 @@
             },
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             }
         ]
     },
@@ -1983,7 +1987,9 @@
         "parameters": [
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "door",
@@ -2038,7 +2044,9 @@
         "parameters": [
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "x pos",
@@ -2380,7 +2388,9 @@
             },
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             }
         ]
     },
@@ -2389,7 +2399,9 @@
         "parameters": [
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "species",
@@ -2900,7 +2912,9 @@
         "parameters": [
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "door",
@@ -5167,7 +5181,9 @@
         "parameters": [
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "door",
@@ -5736,7 +5752,9 @@
             },
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "x pos",
@@ -6237,7 +6255,9 @@
         "parameters": [
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "flag",
@@ -6979,7 +6999,9 @@
         "parameters": [
             {
                 "name": "map",
-                "size": "u16"
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
             },
             {
                 "name": "x pos",
