@@ -46,6 +46,29 @@ p {
     height: 824px;
     background-color: var(--gray-1);
     border: var(--command-border);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Scrollbar */
+.script-area-wrapper::-webkit-scrollbar {
+    width: 16px;
+    background-color: var(--gray-2);
+    border: var(--command-border);
+}
+
+/* Scrollbar Track */
+
+.script-area-wrapper::-webkit-scrollbar-track {
+    background-color: var(--gray-2);
+    border: var(--command-border);
+}
+
+/* Scrollbar Handle */
+
+.script-area-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--gray-1);
+    border: var(--command-border);
 }
 
 .option-bar {
@@ -87,6 +110,7 @@ p {
 }
 
 .script-info {
+    width: 0px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -94,16 +118,46 @@ p {
 
 .script-title {
     height: 40px;
-    padding-left: 20px;
+    padding-left: 10px;
     display: flex;
     align-items: center;
     background-color: rgba(var(--main-color),0.2);
     border-top: var(--command-border);
 }
 
-.script-title > h4 {
+.script-language {
+    width: 100px;
+    height: 20px;
+    margin-left: auto;
+    margin-right: 10px;
+    color: var(--light-color);
+    background-color: rgba(0,0,0,0.5);
+    border:None;
+}
+
+.script-language::placeholder {
     color: var(--light-color);
 }
+
+.script-language:focus, .script-language:active {
+    border: transparent;
+    outline: none;
+    text-shadow: none;
+}
+
+
+.title-text {
+    width: 400px;
+    color: var(--light-color);
+    background-color: transparent;
+    border:None;
+    padding: 4px;
+}
+
+.title-text::placeholder {
+    color: var(--light-color);
+}
+
   
 /* .script-commands {
 
@@ -121,6 +175,29 @@ p {
     /* flex */
     display: flex;
 }  
+
+.command-input > * {
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+.command-input > * > input {
+    width: 150px;
+    color: var(--light-color);
+    background-color: rgba(0,0,0,0.5);
+    border:None;
+    padding: 4px;
+}
+
+.command-input > * > input::placeholder {
+    color: var(--light-color);
+}
+
+input:focus, input:active {
+    border: transparent;
+    outline: none;
+    text-shadow: none;
+}
 
 .command-create {
     height: 36px;
@@ -143,23 +220,97 @@ p {
     width: 600px;
 }
 
-.description {
+.variable-container {
     width: 100%;
     background-color: var(--gray-1);
+    border: var(--command-border);
     color: var(--light-color);
     padding-bottom: 1px;
     margin: 20px 0 20px 0;
 }
 
-.description > h3 {
-    padding: 8px 8px 0 8px;
-    margin:0;
+.variable-wrapper-title {
+    height: 36px;
+    background-color: var(--gray-2);
+    border: var(--command-border);
+    display: flex;
+    align-items: center;
 }
 
-.description > p {
-    padding: 0px 8px 0 8px;
-    margin-left: 8px;
+.variable-wrapper-title > h4 {
+    margin:0;
+    margin-left: 16px;
 }
+
+.variable-wrapper {
+    height:265px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.variable-wrapper::-webkit-scrollbar {
+    width: 16px;
+    background-color: var(--gray-2);
+    border: var(--command-border);
+}
+
+/* Scrollbar Track */
+
+.variable-wrapper::-webkit-scrollbar-track {
+    background-color: var(--gray-2);
+    border: var(--command-border);
+}
+
+/* Scrollbar Handle */
+
+.variable-wrapper::-webkit-scrollbar-thumb {
+    background-color: var(--gray-1);
+    border: var(--command-border);
+}
+
+.variable-title {
+    height: 28px;
+    background-color: var(--gray-1);
+    border-top: var(--command-border);
+    border-bottom: var(--command-border);
+    display: flex;
+    align-items: center;
+}
+
+.variable-title > h4 {
+    /* remove bold */
+    font-weight: normal;
+    margin:0;
+    margin-left: 16px;
+}
+
+.create-variable {
+    width: 18px;
+    margin-right: 16px;
+    margin-left: auto;
+}
+
+.variable {
+    height: 36px;
+    border-bottom: var(--command-border);
+    display: flex;
+    align-items: center;
+}
+
+.variable > div > input {
+    margin-left: 16px;
+    color: var(--light-color);
+    background-color: rgba(0,0,0,0.3);
+    border:None;
+    padding: 4px;
+}
+
+.variable > div > input::placeholder {
+    color: var(--light-color);
+}
+
+
+
 
 .dot-artist-application {
     /* Styles for dot-artist-application */
