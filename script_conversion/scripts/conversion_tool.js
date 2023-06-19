@@ -1,9 +1,7 @@
 // Global variables
-let commandData = null;
-let speciesData = null;
-let itemData = null;
-let mapData = null;
+let datalists = {};
 
+let variableWrapper = null;
 let scriptHandler = null;
 
 
@@ -28,8 +26,34 @@ class Converter {
 
     // function to convert a script to byte code
     convertScriptToByteCode(script) {
+        const scriptElement = script.scriptElement;
         let byteCode = [];
         // TODO: convert the script to byte code
+        let commandElements = scriptElement.querySelectorAll(".command");
+        for (let commandElement of commandElements) {
+            let commandInput = commandElement.querySelector(".command-input");
+            // get all input elements
+            let inputElements = commandInput.querySelectorAll("input");
+            for (let inputElement of inputElements) {
+                // get the input type, datalist, and value
+                const conversionType = inputElement.conversionType;
+                console.log(conversionType);
+                if (conversionType == 'options'){
+                    const datalistName = inputElement.getAttribute('list');
+                    console.log(datalistName)
+                    const datalist = datalists[datalistName].json;
+                    // Errorhandling later
+
+                    let inputValue = inputElement.value;
+                    let inputOption = datalist[inputValue];
+                    console.log(inputOption);
+
+                }
+                
+                let inputValue = inputElement.value;
+            }
+
+        }
         return byteCode;
     }
 
@@ -54,20 +78,29 @@ class DotArtistConverter extends Converter {
 
 class DataList {
     // variables
+    json = null;
     dataListElement = null;
 
     // constructor
     constructor(parent, dataListId, dataListOptions=[]) {
+        this.json = dataListOptions;
         this.createDataListElement(parent, dataListId, dataListOptions);
     }
 
     // function to create the datalist element
     createDataListElement(parent, dataListId, dataListOptions) {
         const dataListElement = document.createElement('datalist');
-        dataListElement.id = dataListId;    
+        dataListElement.id = dataListId;
+        dataListOptions = this.prepareDataListOptions(dataListOptions);
         this.setDataListOptions(dataListElement, dataListOptions);
         parent.appendChild(dataListElement);
         this.dataListElement = dataListElement;
+    }
+
+    // prepare the datalist options
+    prepareDataListOptions(dataListOptions) {
+        // This should be overwritten by the child class
+        return dataListOptions;
     }
 
     // function to set the datalist options
@@ -79,19 +112,31 @@ class DataList {
             parent.appendChild(optionElement);
         }
     }
+
+    // function to get an option by name
+    getOptionByName(optionName) {
+        // This should be overwritten by the child class, if needed
+        return this.json[optionName];
+    }
+
+    // function to get the id of an option by name
+    getOptionIdByName(optionName) {
+        // This should be overwritten by the child class, if needed
+        return optionName;
+    }
+
 }
 
 // CommandSelection: this class will be used to store the command selection data
 
 class CommandDataList extends DataList {
     // constructor
-    constructor(parent, commandData) {
-        super(parent, 'datalist-commands');
-        this.setDataListOptions(this.dataListElement, this.getCommandOptions(commandData));
+    constructor(parent, dataListOptions) {
+        super(parent, 'datalist-commands', dataListOptions);
     }
 
-    // function to get the command options
-    getCommandOptions(commandData) {
+    // prepare the datalist options (overwrite)
+    prepareDataListOptions(dataListOptions) {
         /* command data is of format: 
         {
             commandId: {
@@ -106,8 +151,8 @@ class CommandDataList extends DataList {
         */
 
         const options = [];
-        for (const commandId in commandData) {
-            const command = commandData[commandId];
+        for (const commandId in dataListOptions) {
+            const command = dataListOptions[commandId];
             const commandName = command.command_name;
             const aliases = command.aliases || [];
 
@@ -129,6 +174,46 @@ class CommandDataList extends DataList {
             parent.appendChild(optionElement);
         }
     }
+
+    // function to get an option by name
+    getOptionByName(optionName) {
+        for (const commandId in this.json) {
+            const command = this.json[commandId];
+            const commandName = command.command_name;
+            const aliases = command.aliases || [];
+
+            if (commandName == optionName) {
+                return command;
+            }
+
+            for (const alias of aliases) {
+                if (alias == optionName) {
+                    return command;
+                }
+            }
+        }
+        return null;
+    }
+
+    // function to get the id of an option by name
+    getOptionIdByName(optionName) {
+        for (const commandId in this.json) {
+            const command = this.json[commandId];
+            const commandName = command.command_name;
+            const aliases = command.aliases || [];
+
+            if (commandName == optionName) {
+                return commandId;
+            }
+
+            for (const alias of aliases) {
+                if (alias == optionName) {
+                    return commandId;
+                }
+            }
+        }
+        return null;
+    }
 }
 
 // SpeciesDataList: this class will be used to store the species selection data
@@ -147,6 +232,159 @@ class ItemDataList extends DataList {
     constructor(parent, itemData) {
         super(parent, 'datalist-items', itemData);
     }
+}
+
+// MapDataList: this class will be used to store the map selection data
+
+class MapDataList extends DataList {
+    // constructor
+    constructor(parent, dataListOptions) {
+        super(parent, 'datalist-maps', dataListOptions);
+    }
+
+    // prepare the datalist options (overwrite)
+    prepareDataListOptions(dataListOptions) {
+        /* map data is of format:
+            {
+                mapId: {
+                    "map_code": "",                                 -> code of the map, use as alias
+                    "map_name": "",                                 -> name of the map
+                }
+
+            } 
+        */
+        const options = [];
+        for (const mapId in dataListOptions) {
+            const map = dataListOptions[mapId];
+            const mapName = map.map_name;
+            const mapCode = map.map_code;
+
+            options.push({value: mapCode, text: `${mapCode} ${mapName}`});
+        }
+
+        return options;
+    }
+
+    // function to set the datalist options
+    setDataListOptions(parent, dataListOptions) {
+        for (const option of dataListOptions) {
+            const optionElement = document.createElement('option');
+            optionElement.value = option.value;
+            optionElement.innerText = option.text;
+            parent.appendChild(optionElement);
+        }
+    }
+
+}
+
+// VariableGroup: this class will be used to store variables
+
+class VariableGroup {
+    // variables
+    variableElements = [];
+    titleElement
+  
+    // constructor
+    constructor(parent, scriptTitle) {
+        this.createVariableGroup(parent, scriptTitle);
+    }
+  
+    // function to create the variable group
+    createVariableGroup(parent, title) {
+        const variableGroupElement = document.createElement('div');
+        variableGroupElement.classList.add('variable-group');
+    
+        const variableTitleElement = document.createElement('div');
+        variableTitleElement.classList.add('variable-title');
+    
+        const titleHeadingElement = document.createElement('h4');
+        titleHeadingElement.innerText = title;
+        variableTitleElement.appendChild(titleHeadingElement);
+        this.titleElement = titleHeadingElement;
+    
+        const addButtonElement = document.createElement('img');
+        addButtonElement.classList.add('button', 'create-variable');
+        addButtonElement.src = 'assets/add.svg';
+        addButtonElement.alt = 'plus icon';
+        addButtonElement.addEventListener('click', () => {
+            this.addVariableElement(variableGroupElement);
+        });
+
+        variableTitleElement.appendChild(addButtonElement);
+    
+        variableGroupElement.appendChild(variableTitleElement);
+    
+        parent.appendChild(variableGroupElement);
+    }
+  
+    // function to add a variable element
+    addVariableElement(parent) {
+        const variableElement = document.createElement('div');
+        variableElement.classList.add('variable');
+    
+        const languageElement = document.createElement('div');
+        languageElement.classList.add('variable-language');
+
+        const languageInputElement = document.createElement('input');
+        languageInputElement.setAttribute('autocomplete', 'on');
+        languageInputElement.setAttribute('list', 'datalist-languages');
+        languageInputElement.placeholder = 'language';
+        languageElement.appendChild(languageInputElement);
+    
+        const variableNameElement = document.createElement('div');
+        const variableNameInputElement = document.createElement('input');
+        variableNameInputElement.setAttribute('type', 'text');
+        variableNameInputElement.placeholder = 'Variable Name';
+        variableNameElement.appendChild(variableNameInputElement);
+
+        const variableValueElement = document.createElement('div');
+        const variableValueInputElement = document.createElement('input');
+        variableValueInputElement.setAttribute('type', 'text');
+        variableValueInputElement.placeholder = 'Variable Value';
+        variableValueElement.appendChild(variableValueInputElement);
+
+        variableElement.appendChild(languageElement);
+        variableElement.appendChild(variableNameElement);
+        variableElement.appendChild(variableValueElement);
+    
+        parent.appendChild(variableElement);
+    }
+
+    // function to update the title
+    updateTitle(title) {
+        this.titleElement.innerText = title;
+    }
+
+  }
+  
+// VariableWrapper: this class will be used to store variable groups
+
+class VariableWrapper {
+    // variables
+    variableWrapperElement = null;
+    variableGroups = [];
+
+    // constructor
+    constructor() {
+        this.createVariableWrapper();
+    }
+
+    // function to create the variable wrapper
+    createVariableWrapper() {
+        // the variable wrapper is already created in the html file, tag with id 'variable-wrapper'
+        this.variableWrapperElement = document.querySelector('.variable-wrapper');
+    }
+
+    // function to add a variable group
+    addVariableGroup(scriptTitle) {
+        const variableGroup = new VariableGroup(this.variableWrapperElement, "Script Title");
+        scriptTitle.titleElement.firstElementChild.addEventListener('input', () => {
+            variableGroup.updateTitle(scriptTitle.titleElement.firstElementChild.value);
+        });
+        this.variableGroups.push(variableGroup);
+        return variableGroup;
+    }
+
 }
 
 // CommandInput: this class handles multiple commands
@@ -189,6 +427,7 @@ class CommandInput {
         commandSelection.setAttribute('list', 'datalist-commands');
         commandSelection.autocomplete = 'on';
         commandSelection.placeholder = 'Command';
+        commandSelection.conversionType = 'options';
 
         // Add event listener for input selection
         commandSelection.addEventListener('input', this.handleCommandSelection.bind(this));
@@ -198,14 +437,13 @@ class CommandInput {
     // function to handle command selection
     handleCommandSelection(event) {
         const selectedCommand = event.target.value;
-        const commandId = this.commandNameToId(selectedCommand);
-        if (commandId === null) { return; }
-
+        const commandId = datalists["datalist-commands"].getOptionIdByName(selectedCommand);
+        if (commandId === null) {return; }
         // Clear previous command parameters
         this.clearCommandParams();
 
         // Add command parameters based on selection
-        this.command = commandData[commandId];
+        this.command = datalists["datalist-commands"].json[commandId];
         const parameters = this.command.parameters || [];
 
         for (let i = 0; i < parameters.length; i++) {
@@ -214,22 +452,10 @@ class CommandInput {
         }
     }
 
-    // function to convert a command name to a command id
-    commandNameToId(commandName) {
-        for (const commandId in commandData) {
-            const command = commandData[commandId];
-            if (command.command_name === commandName) {
-                return commandId;
-            }
-        }
-        return null;
-    }
-
     // function to clear command parameters
     clearCommandParams() {
         for (const paramName in this.paramElements) {
             const paramElement = this.paramElements[paramName];
-            console.log(paramElement)
             paramElement.remove();
         }
         this.paramElements = {};
@@ -249,45 +475,23 @@ class CommandInput {
         paramContainer.setAttribute('param_name', paramName);
         paramContainer.setAttribute('description', paramDescription);
 
+        const paramInput = document.createElement('input');
         if (paramType === 'options') {
             const datalistName = parameter.datalist_name;
-            const paramInput = document.createElement('input');
             paramInput.setAttribute('autoComplete', 'on');
             paramInput.setAttribute('list', datalistName);
             paramInput.placeholder = paramName;
-            paramContainer.appendChild(paramInput);
 
         } else if (paramType === 'number') {
-            const paramInput = document.createElement('input');
             paramInput.type = 'text'; // Change the input type to 'text' to allow hexadecimal input
             paramInput.placeholder = paramName;
-            paramContainer.appendChild(paramInput);
-            
-            paramInput.addEventListener('input', function() {
-              const value = paramInput.value;
-              let parsedValue;
-              
-              // Check if the input is a valid decimal or hexadecimal number
-              if (/^[\d]+$/.test(value)) {
-                parsedValue = parseInt(value, 10); // Parse decimal value
-              } else if (/^0x[\da-fA-F]+$/.test(value)) {
-                parsedValue = parseInt(value, 16); // Parse hexadecimal value
-              } else {
-                return; // Invalid input, do nothing
-              }
-              
-              // Check if the parsed value exceeds the maximum allowed value
-              const maxValue = Math.pow(2, parseInt(paramSize.slice(1))) - 1;
-              console.log(maxValue);
-              const maxValueDecimals = maxValue.toString(10).length;
-              const parsedValueDecimals = parsedValue.toString(10).length;
-              
-              if (parsedValueDecimals > maxValueDecimals) {
-                paramInput.value = paramInput.value.slice(0, -1); // Remove the last character
-              }
-            });            
+         
+        } else {
+            console.log(`Unsupported parameter type: ${paramType}`); return;
         }
 
+        paramInput.conversionType = paramType;
+        paramContainer.appendChild(paramInput);
         this.paramElements[paramName] = paramContainer;
         this.commandInputElement.appendChild(paramContainer);
   }
@@ -381,7 +585,7 @@ class CommandCreate {
 
 class ScriptTitle {
     // variables
-    titleElement = null;
+    titleElement = "test";
 
     // constructor
     constructor(parent) {
@@ -397,6 +601,13 @@ class ScriptTitle {
         titleText.classList.add('title-text');
         titleText.placeholder = 'Script Title';
         scriptTitleElement.appendChild(titleText);
+
+        const scriptLanguage = document.createElement('input');
+        scriptLanguage.classList.add('script-language');
+        scriptLanguage.placeholder = 'Language';
+        scriptLanguage.setAttribute('list', 'datalist-languages');
+
+        scriptTitleElement.appendChild(scriptLanguage);
         parent.appendChild(scriptTitleElement);
         this.titleElement = scriptTitleElement;
     }
@@ -412,10 +623,14 @@ class Script {
     title = null;
     commandCreate = null;
 
+    variableGroupElement = null;
+
     // constructor
     constructor(color = '180, 180, 180') {
       this.color = color;
       this.createScriptElement();
+      this.variableGroupElement = variableWrapper.addVariableGroup(this.title);
+      //this.updateVariableGroup();
     }
 
     // function to add command create
@@ -508,6 +723,7 @@ class ScriptHandler {
 
         // set script as selected
         script.setSelection(true);
+        this.dotArtistConverter.convertScriptToDotArtist(script);
 
         // update the dot artist converter
         // TODO: update the dot artist converter
@@ -555,14 +771,18 @@ const getJsonFromUrl = async function(url) {
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-    commandData = await getJsonFromUrl(`data/command_data.json`);
-    speciesData = await getJsonFromUrl(`data/species_data.json`);
-    itemData = await getJsonFromUrl(`data/item_data.json`);
-
     // add data lists to the document
-    commandDataList = new CommandDataList(document.documentElement, commandData);
-    speciesDataList = new SpeciesDataList(document.documentElement, speciesData);
-    itemDataList = new ItemDataList(document.documentElement, itemData);
+    const commands = await getJsonFromUrl(`data/command_data.json`);
+    datalists["datalist-commands"] = new CommandDataList(document.documentElement, commands);
+    const species = await getJsonFromUrl(`data/species_data.json`);
+    datalists["datalist-species"] = new SpeciesDataList(document.documentElement, species);
+    const items = await getJsonFromUrl(`data/item_data.json`);
+    datalists["datalist-items"] = new ItemDataList(document.documentElement, items);
+    const maps = await getJsonFromUrl(`data/map_data.json`);
+    datalists["datalist-maps"] = new MapDataList(document.documentElement, maps);
+
+    // global VariableWrapper
+    variableWrapper = new VariableWrapper();
 
 
     // initialize the script handler
