@@ -229,8 +229,6 @@ class Converter {
             }
 
         }
-        // // print as hex
-        // console.log(byteCode.map(x => x.toString(16).padStart(2, '0')).join(' '));
         return byteCode;
     }
 
@@ -300,7 +298,7 @@ class DotArtistConverter extends Converter {
     // function to convert bytecode to binary
     convertByteCodeToBinary(byteCode) {
         let binaryCode = new Array((24*20)).fill(0);
-        const byteCodeIndex = binaryCode.length - byteCode.length*4;
+        const byteCodeIndex = 0x0 // binaryCode.length - byteCode.length*4;
         for (let i=0;i<byteCode.length;i++) {
             for (let j=0;j<4;j++) {
                 binaryCode[byteCodeIndex+i*4+j] = ((byteCode[i] >> (j*2)) & 0x3)
