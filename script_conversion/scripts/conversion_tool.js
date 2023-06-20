@@ -24,9 +24,32 @@ class Converter {
         return script;
     }
 
+    // function to sanitize input
+    sanitizeInput(inputValue, variableGroup, language) {
+        const splitInput = this.splitString(inputValue);
+        const variables = this.getVariables(variableGroup);
+        console.log(language);
+    }
+
+    // function to split a string into an array of tokens
+    splitString(input) {
+        const regex = /(0x[\da-fA-F]+|\d+|[+\-*/]|\[[^\]]+\])/g;
+        return input.match(regex);
+    }
+
+    // function to get all variables from a variable group
+    getVariables(variableGroup) {
+        const variables = [];
+        for (let variableElement of variableGroup.variableElements) {
+            console.log(variableElement);
+        }
+    }
+
     // function to convert a script to byte code
     convertScriptToByteCode(script) {
         const scriptElement = script.scriptElement;
+        const variableGroup = script.variableGroup;
+        const language = scriptElement.querySelector('.script-language').value || 'English';
         let byteCode = [];
         // TODO: convert the script to byte code
         let commandElements = scriptElement.querySelectorAll(".command");
@@ -37,20 +60,20 @@ class Converter {
             for (let inputElement of inputElements) {
                 // get the input type, datalist, and value
                 const conversionType = inputElement.conversionType;
-                console.log(conversionType);
-                if (conversionType == 'options'){
+                const dataSizeBits = parseInt(inputElement.dataSize.substring(1));
+                const dataSize = Math.pow(2, dataSizeBits);
+                let inputValue = inputElement.value || "";
+                let sanitizedValue = null;
+
+                if (conversionType === 'options'){
                     const datalistName = inputElement.getAttribute('list');
-                    console.log(datalistName)
-                    const datalist = datalists[datalistName].json;
+                    const datalist = datalists[datalistName]
                     // Errorhandling later
-
-                    let inputValue = inputElement.value;
-                    let inputOption = datalist[inputValue];
-                    console.log(inputOption);
-
+                    let inputOptionId = datalist.getOptionIdByName(inputValue) || 0x0;
+                    sanitizedValue = inputOptionId;
+                } else {
+                    sanitizedValue = this.sanitizeInput(inputValue, variableGroup, language);
                 }
-                
-                let inputValue = inputElement.value;
             }
 
         }
@@ -122,7 +145,12 @@ class DataList {
     // function to get the id of an option by name
     getOptionIdByName(optionName) {
         // This should be overwritten by the child class, if needed
-        return optionName;
+        // get the index of the option
+        const optionIndex = this.json.indexOf(optionName);
+        if (optionIndex == -1) {
+            return null;
+        }
+        return optionIndex;
     }
 
 }
@@ -196,19 +224,19 @@ class CommandDataList extends DataList {
     }
 
     // function to get the id of an option by name
-    getOptionIdByName(optionName) {
+    getOptionIdByName(optionName, asNumber=true) {
         for (const commandId in this.json) {
             const command = this.json[commandId];
             const commandName = command.command_name;
             const aliases = command.aliases || [];
 
             if (commandName == optionName) {
-                return commandId;
+                return asNumber ? parseInt(commandId) : commandId;
             }
 
             for (const alias of aliases) {
                 if (alias == optionName) {
-                    return commandId;
+                    return asNumber ? parseInt(commandId) : commandId;
                 }
             }
         }
@@ -348,6 +376,7 @@ class VariableGroup {
         variableElement.appendChild(variableValueElement);
     
         parent.appendChild(variableElement);
+        this.variableElements.push(variableElement);
     }
 
     // function to update the title
@@ -428,6 +457,7 @@ class CommandInput {
         commandSelection.autocomplete = 'on';
         commandSelection.placeholder = 'Command';
         commandSelection.conversionType = 'options';
+        commandSelection.dataSize = "u16";
 
         // Add event listener for input selection
         commandSelection.addEventListener('input', this.handleCommandSelection.bind(this));
@@ -437,7 +467,7 @@ class CommandInput {
     // function to handle command selection
     handleCommandSelection(event) {
         const selectedCommand = event.target.value;
-        const commandId = datalists["datalist-commands"].getOptionIdByName(selectedCommand);
+        const commandId = datalists["datalist-commands"].getOptionIdByName(selectedCommand, false);
         if (commandId === null) {return; }
         // Clear previous command parameters
         this.clearCommandParams();
@@ -471,7 +501,6 @@ class CommandInput {
 
         const paramContainer = document.createElement('div');
         paramContainer.classList.add('command-input-param');
-        paramContainer.classList.add(`param-${index}`)
         paramContainer.setAttribute('param_name', paramName);
         paramContainer.setAttribute('description', paramDescription);
 
@@ -490,6 +519,7 @@ class CommandInput {
             console.log(`Unsupported parameter type: ${paramType}`); return;
         }
 
+        paramInput.dataSize = paramSize;
         paramInput.conversionType = paramType;
         paramContainer.appendChild(paramInput);
         this.paramElements[paramName] = paramContainer;
@@ -623,13 +653,13 @@ class Script {
     title = null;
     commandCreate = null;
 
-    variableGroupElement = null;
+    variableGroup = null;
 
     // constructor
     constructor(color = '180, 180, 180') {
       this.color = color;
       this.createScriptElement();
-      this.variableGroupElement = variableWrapper.addVariableGroup(this.title);
+      this.variableGroup = variableWrapper.addVariableGroup(this.title);
       //this.updateVariableGroup();
     }
 
