@@ -316,12 +316,9 @@ class DotArtistConverter extends Converter {
 
     // reset the dot artist
     resetDotArtist() {
-        console.log(this.dotArtistElement)
-        console.log("resetting dot artist")
         const byteCode = [];
         this.convertByteCodeToDotArtist(byteCode);
         this.changeDotArtistBackgroundColor(`rgb(180, 180, 180)`);
-        console.log(this.dotArtistElement)
     }
 }
 
@@ -1028,7 +1025,6 @@ class ScriptHandler {
 
     // function to select a script and deselect the other scripts
     selectScript(script) {
-        console.log("also here")
         const scriptElement = script.scriptElement;
         // unselect the other scripts
         const scriptElements = document.querySelectorAll('.script-area .script');
@@ -1047,7 +1043,6 @@ class ScriptHandler {
 
     // function to reset the selection
     resetSelection = () => {
-        console.log("here")
         // unselect the other scripts
         const scriptElements = document.querySelectorAll('.script-area .script');
         if (scriptElements.length === 0) {
