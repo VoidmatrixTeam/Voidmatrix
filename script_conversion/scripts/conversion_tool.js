@@ -24,12 +24,56 @@ class Converter {
         return script;
     }
 
+    // function to safely evaluate the input
+    safeEval(input, variables) {
+        // Sanitize the input
+        const sanitizedInput = this.sanitizeInput(input, variables);
+        if (sanitizedInput === null) {
+            return null;
+        }
+        let value = 0;
+        let operator = '+';
+      
+        for (let i = 0; i < sanitizedInput.length; i++) {
+            const component = sanitizedInput[i];
+      
+            if (typeof component === 'string') {
+                // If the component is a string, check if it's an operator, otherwise ignore it
+                if (component.match(/^[+\-*/]$/)) {
+                    operator = component;
+                }
+            } else if (typeof component === 'number') {
+                // If the component is a number, perform the operation
+                switch (operator) {
+                    case '+':
+                        value += component;
+                        break;
+                    case '-':
+                        value -= component;
+                        break;
+                    case '*':
+                        value *= component;
+                        break;
+                    case '/':
+                        value /= component;
+                        break;
+                }
+            }
+        }
+      
+        return value;
+    }    
+
     // function to sanitize input
-    sanitizeInput(inputValue, variableGroup, language) {
+    sanitizeInput(inputValue, variables) {
         const splitInput = this.splitString(inputValue);
-        const variables = this.getVariables(variableGroup);
-        console.log(language);
-    }
+        if (splitInput === null) {
+          return null;
+        }
+        const processedInput = this.processInput(splitInput, variables);
+        console.log(processedInput);
+        return processedInput;
+      }
 
     // function to split a string into an array of tokens
     splitString(input) {
@@ -41,7 +85,73 @@ class Converter {
     getVariables(variableGroup) {
         const variables = [];
         for (let variableElement of variableGroup.variableElements) {
-            console.log(variableElement);
+            const language = variableElement.querySelector('.variable-language').value || 'All';
+            const variableName = variableElement.querySelector('.variable-name').value;
+            const variableValue = variableElement.querySelector('.variable-value').value;
+            variables.push({
+                language: language,
+                name: variableName,
+                value: variableValue
+            });
+        }
+        return variables;
+    }
+
+    // function to get all variables from a variable group where the language matches
+    getVariablesByLanguage(variableGroup, language) {
+        const variables = [];
+        for (let variableElement of variableGroup.variableElements) {
+            const variableLanguage = variableElement.querySelector('.variable-language').value || 'All';
+            if ((variableLanguage === language) || (variableLanguage === 'All')) {
+                const variableName = variableElement.querySelector('.variable-name').value;
+                const variableValue = variableElement.querySelector('.variable-value').value;
+                variables.push({
+                    language: variableLanguage,
+                    name: variableName,
+                    value: variableValue
+                });
+            }
+        }
+        return variables;
+    }
+
+    processInput(splitInput, variables) {
+        const processedInput = [];
+      
+        for (const component of splitInput) {
+          if (typeof component === 'string' && component.startsWith('[') && component.endsWith(']')) {
+            // Extract variable name from component
+            const variableName = component.slice(1, -1);
+      
+            // Find variable by name in the variables array
+            const variable = variables.find(function(varItem) {
+                return varItem.name === variableName;
+            });
+      
+            if (variable && !(typeof variable.value === 'string')) {
+              // Extend the processed input with the variable value, which is an array
+              processedInput.push(...variable.value);
+            } else {
+              // Variable not found, keep the original component
+              processedInput.push(component);
+            }
+          } else if (!isNaN(component)) {
+            // Convert numeric strings to integers
+            processedInput.push(parseInt(component));
+          } else {
+            // Keep other components as they are
+            processedInput.push(component);
+          }
+        }
+      
+        return processedInput;
+      }
+
+    // function to sanitize variable values
+    sanitizeVariableValues(variables) {
+        for (const variable of variables) {
+            const sanitizedValue = this.sanitizeInput(variable.value, variables, variable.language);
+            variable.value = sanitizedValue;
         }
     }
 
@@ -50,6 +160,11 @@ class Converter {
         const scriptElement = script.scriptElement;
         const variableGroup = script.variableGroup;
         const language = scriptElement.querySelector('.script-language').value || 'English';
+
+        // get all variables, then sanitize them
+        const variables = this.getVariablesByLanguage(variableGroup);
+        this.sanitizeVariableValues(variables);
+
         let byteCode = [];
         // TODO: convert the script to byte code
         let commandElements = scriptElement.querySelectorAll(".command");
@@ -68,12 +183,15 @@ class Converter {
                 if (conversionType === 'options'){
                     const datalistName = inputElement.getAttribute('list');
                     const datalist = datalists[datalistName]
-                    // Errorhandling later
                     let inputOptionId = datalist.getOptionIdByName(inputValue) || 0x0;
                     sanitizedValue = inputOptionId;
                 } else {
-                    sanitizedValue = this.sanitizeInput(inputValue, variableGroup, language);
+                    sanitizedValue = this.safeEval(inputValue, variables);
+                    console.log(sanitizedValue)
                 }
+
+                // add the value to the byte code
+                byteCode.push(sanitizedValue);
             }
 
         }
@@ -351,9 +469,8 @@ class VariableGroup {
         variableElement.classList.add('variable');
     
         const languageElement = document.createElement('div');
-        languageElement.classList.add('variable-language');
-
         const languageInputElement = document.createElement('input');
+        languageInputElement.classList.add('variable-language');
         languageInputElement.setAttribute('autocomplete', 'on');
         languageInputElement.setAttribute('list', 'datalist-languages');
         languageInputElement.placeholder = 'language';
@@ -361,12 +478,14 @@ class VariableGroup {
     
         const variableNameElement = document.createElement('div');
         const variableNameInputElement = document.createElement('input');
+        variableNameInputElement.classList.add('variable-name');
         variableNameInputElement.setAttribute('type', 'text');
         variableNameInputElement.placeholder = 'Variable Name';
         variableNameElement.appendChild(variableNameInputElement);
 
         const variableValueElement = document.createElement('div');
         const variableValueInputElement = document.createElement('input');
+        variableValueInputElement.classList.add('variable-value');
         variableValueInputElement.setAttribute('type', 'text');
         variableValueInputElement.placeholder = 'Variable Value';
         variableValueElement.appendChild(variableValueInputElement);
