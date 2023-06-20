@@ -173,13 +173,30 @@ input[type="color"]::-webkit-color-swatch {
 }
 
   
-/* .script-commands {
-
-} */
+.script-delete {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: var(--light-color);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .command {
     width: 100%;
     border-top: var(--command-border);
+    position: relative;
+}
+
+.command-delete {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: var(--light-color);
+    position: absolute;
+    top: 4px;
+    right: 0;
 }
 
 .command-output, .command-input {

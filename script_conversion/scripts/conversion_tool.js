@@ -4,6 +4,28 @@ let datalists = {};
 let variableWrapper = null;
 let scriptHandler = null;
 
+class IconFactory {
+    // function that returns a delete icon
+    static getDeleteIcon(tag, parent=null, message=null,  eventListener=true) {
+        // create the delete icon
+        const deleteIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        deleteIcon.classList.add('button', tag);
+        deleteIcon.innerHTML = '<path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>';
+        if (eventListener) {
+            deleteIcon.addEventListener('click', () => {
+                const confirmDelete = confirm(message);
+                if (confirmDelete) {
+                parent.remove();
+                }
+            });
+        }
+        // return the delete icon
+        return deleteIcon;
+    }
+}
+
+
+
 
 // Converter: this class will convert the input scripts to byte code
 
@@ -507,8 +529,9 @@ class MapDataList extends DataList {
 
 class VariableGroup {
     // variables
+    variableGroupElement = null;
     variableElements = [];
-    titleElement
+    titleElement = null;
   
     // constructor
     constructor(parent, scriptTitle) {
@@ -541,6 +564,7 @@ class VariableGroup {
         variableGroupElement.appendChild(variableTitleElement);
     
         parent.appendChild(variableGroupElement);
+        this.variableGroupElement = variableGroupElement;
     }
   
     // function to add a variable element
@@ -743,6 +767,9 @@ class Command {
         const commandElement = document.createElement('div');
         commandElement.classList.add('command');
 
+        const commandInputDeleteButton = IconFactory.getDeleteIcon("command-delete", commandElement, 'Would you like to delete this command?');
+        commandElement.appendChild(commandInputDeleteButton);        
+
         new CommandInput(commandElement);
 
         const commandOutputElement = document.createElement('div');
@@ -769,6 +796,7 @@ class CommandWrapper {
     createCommandWrapperElement(parent) {
         const commandWrapperElement = document.createElement('div');
         commandWrapperElement.classList.add('script-commands');
+
         parent.appendChild(commandWrapperElement);
         this.commandWrapperElement = commandWrapperElement;
     }
@@ -815,14 +843,15 @@ class CommandCreate {
 class ScriptTitle {
     // variables
     titleElement = "test";
+    deleteButton = null;
 
     // constructor
-    constructor(parent) {
-        this.createScriptTitleElement(parent);
+    constructor(parent, scriptElement) {
+        this.createScriptTitleElement(parent, scriptElement);
     }
 
     // function to create the script title element
-    createScriptTitleElement(parent) {
+    createScriptTitleElement(parent, scriptElement) {
         const scriptTitleElement = document.createElement('div');
         scriptTitleElement.classList.add('script-title');
     
@@ -835,8 +864,12 @@ class ScriptTitle {
         scriptLanguage.classList.add('script-language');
         scriptLanguage.placeholder = 'Language';
         scriptLanguage.setAttribute('list', 'datalist-languages');
-
         scriptTitleElement.appendChild(scriptLanguage);
+
+        const scriptDeleteButton = IconFactory.getDeleteIcon("script-delete", scriptElement, 'Would you like to delete this script?' , false);
+        scriptTitleElement.appendChild(scriptDeleteButton);  
+        this.deleteButton = scriptDeleteButton;
+  
         parent.appendChild(scriptTitleElement);
         this.titleElement = scriptTitleElement;
     }
@@ -860,6 +893,7 @@ class Script {
         this.color = `${color[0]}, ${color[1]}, ${color[2]}`;
         this.createScriptElement(color, dotArtist);
         this.variableGroup = variableWrapper.addVariableGroup(this.title);
+        this.addDeleteButtonEventListener(this.title.deleteButton, this.scriptElement, this.variableGroup);
     }
 
     // function to add command create
@@ -883,9 +917,6 @@ class Script {
         const scriptElement = document.createElement('div');
         scriptElement.classList.add('script');
         scriptElement.style.setProperty('--main-color', this.color);
-
-        // Set the script id as the element id
-        scriptElement.id = this.id;
 
         // Create the script group element
         const colorSwatchElement = document.createElement('input');
@@ -912,7 +943,7 @@ class Script {
         scriptElement.appendChild(scriptInfoElement);
 
         // Create the script title element
-        this.title = new ScriptTitle(scriptInfoElement);
+        this.title = new ScriptTitle(scriptInfoElement, scriptElement);
 
         // Create the script commands element
         this.commandWrapper = new CommandWrapper(scriptInfoElement);
@@ -927,7 +958,19 @@ class Script {
 
         // add event listener for any change to the script element or its children
         scriptElement.addEventListener('change', () => {
-            dotArtist.convertScriptToDotArtist(this);
+            if (this.scriptElement) {
+                dotArtist.convertScriptToDotArtist(this);
+            }
+        });
+    }
+
+    // add event listener to delete the script and variable group associated with it
+    addDeleteButtonEventListener(button, scriptElement, variableGroup) {
+        button.addEventListener('click', () => {
+            // remove the script element
+            scriptElement.remove();
+            // remove the variable group
+            variableGroup.variableGroupElement.remove();
         });
     }
 
@@ -959,22 +1002,22 @@ class Script {
 class ScriptHandler {
     // variables
     ingameVariables = {};
-    scripts = [];
     dotArtistConverter = new DotArtistConverter();
 
     // function to select a script and deselect the other scripts
     selectScript(script) {
+        const scriptElement = script.scriptElement;
         // unselect the other scripts
-        this.scripts.forEach((script) => {
-            script.setSelection(false);
+        const scriptElements = document.querySelectorAll('.script-area .script');
+        scriptElements.forEach((element) => {
+          element.classList.remove('selected');
         });
-
-        // set script as selected
-        script.setSelection(true);
-        this.dotArtistConverter.convertScriptToDotArtist(script);
-
-        // update the dot artist converter
-        // TODO: update the dot artist converter
+      
+        if (scriptElement) {
+          // set script as selected
+          scriptElement.classList.add('selected');
+          this.dotArtistConverter.convertScriptToDotArtist(script);
+        }
     }
 
     // function to add an empty script element
@@ -989,9 +1032,6 @@ class ScriptHandler {
             // select the script
             this.selectScript(script);
         });
-
-        // add the script element to the script elements
-        this.scripts.push(script);
     }
 
         // function to add event listeners
