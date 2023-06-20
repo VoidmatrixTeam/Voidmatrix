@@ -120,7 +120,6 @@ class Converter {
 
     // function to get all variables from a variable group where the language matches
     getVariablesByLanguage(variableGroup, language) {
-        console.log(language)
         const variables = [];
         for (let variableElement of variableGroup.variableElements) {
             const variableLanguage = variableElement.querySelector('.variable-language').value || 'All';
