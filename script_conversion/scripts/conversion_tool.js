@@ -71,7 +71,6 @@ class Converter {
           return null;
         }
         const processedInput = this.processInput(splitInput, variables);
-        console.log(processedInput);
         return processedInput;
       }
 
@@ -155,6 +154,19 @@ class Converter {
         }
     }
 
+    // function to convert a value to a byte array
+    convertValueToByteArray(value, bitCount) {
+        const byteArray = [];
+      
+        for (let i = 0; i < bitCount; i += 8) {
+          const byte = (value >> i) & 0xFF;
+          byteArray.push(byte);
+        }
+      
+        return byteArray;
+    }
+
+
     // function to convert a script to byte code
     convertScriptToByteCode(script) {
         const scriptElement = script.scriptElement;
@@ -175,8 +187,7 @@ class Converter {
             for (let inputElement of inputElements) {
                 // get the input type, datalist, and value
                 const conversionType = inputElement.conversionType;
-                const dataSizeBits = parseInt(inputElement.dataSize.substring(1));
-                const dataSize = Math.pow(2, dataSizeBits);
+                const bitCount = parseInt(inputElement.bitSize.substring(1));
                 let inputValue = inputElement.value || "";
                 let sanitizedValue = null;
 
@@ -186,15 +197,17 @@ class Converter {
                     let inputOptionId = datalist.getOptionIdByName(inputValue) || 0x0;
                     sanitizedValue = inputOptionId;
                 } else {
-                    sanitizedValue = this.safeEval(inputValue, variables);
-                    console.log(sanitizedValue)
+                    sanitizedValue = this.safeEval(inputValue, variables) || 0x0;
                 }
+                const sanitizedValueArray = this.convertValueToByteArray(sanitizedValue, bitCount);
 
-                // add the value to the byte code
-                byteCode.push(sanitizedValue);
+                // add the sanitized values to the byte code
+                byteCode.push(...sanitizedValueArray);
             }
 
         }
+        // // print as hex
+        // console.log(byteCode.map(x => x.toString(16).padStart(2, '0')).join(' '));
         return byteCode;
     }
 
@@ -203,15 +216,82 @@ class Converter {
 // DotArtistConverter: this class will convert the input scripts to byte code, then convert the byte code to a dot artist image
 
 class DotArtistConverter extends Converter {
+    // variables
+    dotArtistElement = null;
+    dotArtistGridElement = null;
+
+    // constructor
+    constructor() {
+        super();
+        this.dotArtistElement = document.querySelector('.dot-artist-application');
+        this.dotArtistGridElement = document.createElement("div");
+        this.dotArtistGridElement.classList.add("canvas");
+        this.dotArtistElement.appendChild(this.dotArtistGridElement);
+        this.convertByteCodeToDotArtist([0x00]);
+    }
+
+    // function to clear the dot artist
+    clearDotArtist() {
+        this.dotArtistGridElement.innerHTML = "";
+    }
+
     // function to convert a script to byte code
     convertByteCodeToDotArtist(byteCode) {
-        // TODO: convert the byte code to a dot artist image
+        this.clearDotArtist();
+        const binaryCode = this.convertByteCodeToBinary(byteCode);
+    
+        for (let i=0;i<20;i++) {
+            let row = document.createElement("div");
+            row.classList.add("row");
+            for (let j=0;j<24;j++) {  
+                let bit = binaryCode[i*24+j];          
+                row.appendChild(this.createPixelElement(bit));
+            }
+            this.dotArtistGridElement.appendChild(row);
+        };
+    }
+
+    // function to create a dot element
+    createPixelElement(bit) {
+        let dotElement = document.createElement("div");
+        dotElement.classList.add("pixel");
+        dotElement.classList.add(`bit-${bit}`);
+        // TODO: add a hover event to show the bit value with text
+        dotElement.addEventListener("mouseover", function() {
+            dotElement.classList.add("show-bit");
+            dotElement.innerHTML = bit;
+        });
+        dotElement.addEventListener("mouseout", function() {
+            dotElement.classList.remove("show-bit");
+            dotElement.innerHTML = "";
+        });
+        return dotElement;
+    }
+
+    // function to change the dot artist background color
+    changeDotArtistBackgroundColor(color) {
+        // change the root variable of the dot artist background color
+        this.dotArtistElement.style.setProperty('--dot-artist-background', color);
+    }
+
+    // function to convert bytecode to binary
+    convertByteCodeToBinary(byteCode) {
+        let binaryCode = new Array((24*20)).fill(0);
+        const byteCodeIndex = binaryCode.length - byteCode.length*4;
+        for (let i=0;i<byteCode.length;i++) {
+            for (let j=0;j<4;j++) {
+                binaryCode[byteCodeIndex+i*4+j] = ((byteCode[i] >> (j*2)) & 0x3)
+            }
+        }
+        return binaryCode;
     }
 
     // function to convert a script to DotArtist
     convertScriptToDotArtist(script) {
+        this.changeDotArtistBackgroundColor(`rgb(${script.color})`);
         let byteCode = this.convertScriptToByteCode(script);
         this.convertByteCodeToDotArtist(byteCode);
+        
     }
 }
 
@@ -576,7 +656,7 @@ class CommandInput {
         commandSelection.autocomplete = 'on';
         commandSelection.placeholder = 'Command';
         commandSelection.conversionType = 'options';
-        commandSelection.dataSize = "u16";
+        commandSelection.bitSize = "u16";
 
         // Add event listener for input selection
         commandSelection.addEventListener('input', this.handleCommandSelection.bind(this));
@@ -638,7 +718,7 @@ class CommandInput {
             console.log(`Unsupported parameter type: ${paramType}`); return;
         }
 
-        paramInput.dataSize = paramSize;
+        paramInput.bitSize = paramSize;
         paramInput.conversionType = paramType;
         paramContainer.appendChild(paramInput);
         this.paramElements[paramName] = paramContainer;
@@ -768,6 +848,7 @@ class Script {
     // variables
     color = null;
     scriptElement = null;
+    colorSwatchElement = null;
     commandWrapper = null;
     title = null;
     commandCreate = null;
@@ -775,11 +856,10 @@ class Script {
     variableGroup = null;
 
     // constructor
-    constructor(color = '180, 180, 180') {
-      this.color = color;
-      this.createScriptElement();
-      this.variableGroup = variableWrapper.addVariableGroup(this.title);
-      //this.updateVariableGroup();
+    constructor(dotArtist, color = [180, 180, 180]) {
+        this.color = `${color[0]}, ${color[1]}, ${color[2]}`;
+        this.createScriptElement(color, dotArtist);
+        this.variableGroup = variableWrapper.addVariableGroup(this.title);
     }
 
     // function to add command create
@@ -796,7 +876,7 @@ class Script {
     }
 
     // function to create the script element
-    createScriptElement() {
+    createScriptElement(color, dotArtist) {
         const scriptContainer = document.querySelector('.script-area');
 
         // Create the script element
@@ -808,9 +888,23 @@ class Script {
         scriptElement.id = this.id;
 
         // Create the script group element
-        const scriptGroupElement = document.createElement('div');
-        scriptGroupElement.classList.add('script-group');
-        scriptElement.appendChild(scriptGroupElement);
+        const colorSwatchElement = document.createElement('input');
+        colorSwatchElement.type = 'color';
+        colorSwatchElement.value = `#${color[0].toString(16)}${color[1].toString(16)}${color[2].toString(16)}`
+        colorSwatchElement.classList.add('script-group');
+
+        colorSwatchElement.addEventListener('input', () => {
+            const colorCode = colorSwatchElement.value;
+            const colorArray = colorCode.match(/[A-Za-z0-9]{2}/g).map(val => parseInt(val, 16));
+            const color = `${colorArray[0]}, ${colorArray[1]}, ${colorArray[2]}`;
+            this.changeScriptColor(color);
+            dotArtist.changeDotArtistBackgroundColor(`rgb(${color}`);
+        });
+
+
+        scriptElement.appendChild(colorSwatchElement);
+        this.colorSwatchElement = colorSwatchElement;
+
 
         // Create the script info element
         const scriptInfoElement = document.createElement('div');
@@ -830,6 +924,11 @@ class Script {
         // Append the script element to the script container
         scriptContainer.appendChild(scriptElement);
         this.scriptElement = scriptElement;
+
+        // add event listener for any change to the script element or its children
+        scriptElement.addEventListener('change', () => {
+            dotArtist.convertScriptToDotArtist(this);
+        });
     }
 
     // function to change the script color
@@ -881,7 +980,7 @@ class ScriptHandler {
     // function to add an empty script element
     addScriptElement() {
         // create a new script element
-        const script = new Script();
+        const script = new Script(this.dotArtistConverter);
         // select the script
         this.selectScript(script);
         
