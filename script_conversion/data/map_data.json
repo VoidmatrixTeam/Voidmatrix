@@ -861,11 +861,11 @@
     },
     "0xdc": {
         "map_code": "D05R0114",
-        "map_name": "Mt"
+        "map_name": "Spear Pillar"
     },
     "0xdd": {
         "map_code": "D05R0115",
-        "map_name": "Mt"
+        "map_name": "Spear Pillar [dummy]"
     },
     "0xde": {
         "map_code": "D06",
@@ -2017,11 +2017,11 @@
     },
     "0x1fe": {
         "map_code": "D05R0116",
-        "map_name": "Mt"
+        "map_name": "Hall of Origin"
     },
     "0x1ff": {
         "map_code": "D05R0117",
-        "map_name": "Mt"
+        "map_name": "Hall of Origin [dummy]"
     },
     "0x200": {
         "map_code": "D22R0102",

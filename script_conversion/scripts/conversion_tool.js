@@ -528,6 +528,32 @@ class MapDataList extends DataList {
         }
     }
 
+    // function to get an option by name
+    getOptionByName(optionName) {
+        for (const mapId in this.json) {
+            const map = this.json[mapId];
+            const mapCode = map.map_code;
+
+            if (mapCode == optionName) {
+                return map;
+            }
+        }
+        return null;
+    }
+
+    // function to get the id of an option by name
+    getOptionIdByName(optionName, asNumber=true) {
+        for (const mapId in this.json) {
+            const map = this.json[mapId];
+            const mapCode = map.map_code;
+
+            if (mapCode == optionName) {
+                return asNumber ? parseInt(mapId) : mapId;
+            }
+        }
+        return null;
+    }
+
 }
 
 // LanguageDataList: this class will be used to store the language selection data
