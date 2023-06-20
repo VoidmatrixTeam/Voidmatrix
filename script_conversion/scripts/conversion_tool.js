@@ -120,6 +120,7 @@ class Converter {
 
     // function to get all variables from a variable group where the language matches
     getVariablesByLanguage(variableGroup, language) {
+        console.log(language)
         const variables = [];
         for (let variableElement of variableGroup.variableElements) {
             const variableLanguage = variableElement.querySelector('.variable-language').value || 'All';
@@ -196,7 +197,7 @@ class Converter {
         const language = scriptElement.querySelector('.script-language').value || 'English';
 
         // get all variables, then sanitize them
-        const variables = this.getVariablesByLanguage(variableGroup);
+        const variables = this.getVariablesByLanguage(variableGroup, language);
         this.sanitizeVariableValues(variables);
 
         let byteCode = [];
@@ -525,6 +526,15 @@ class MapDataList extends DataList {
 
 }
 
+// LanguageDataList: this class will be used to store the language selection data
+
+class LanguageDataList extends DataList {
+    // constructor
+    constructor(parent, dataListOptions) {
+        super(parent, 'datalist-languages', dataListOptions);
+    }
+}
+
 // VariableGroup: this class will be used to store variables
 
 class VariableGroup {
@@ -767,7 +777,7 @@ class Command {
         const commandElement = document.createElement('div');
         commandElement.classList.add('command');
 
-        const commandInputDeleteButton = IconFactory.getDeleteIcon("command-delete", commandElement, 'Would you like to delete this command?');
+        const commandInputDeleteButton = IconFactory.getDeleteIcon("command-delete", commandElement, 'Are you sure you want to to delete this command?');
         commandElement.appendChild(commandInputDeleteButton);        
 
         new CommandInput(commandElement);
@@ -967,6 +977,10 @@ class Script {
     // add event listener to delete the script and variable group associated with it
     addDeleteButtonEventListener(button, scriptElement, variableGroup) {
         button.addEventListener('click', () => {
+            // confirm the delete
+            if (!confirm('Are you sure you want to delete this script?')) {
+                return;
+            }
             // remove the script element
             scriptElement.remove();
             // remove the variable group
@@ -1068,6 +1082,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     datalists["datalist-items"] = new ItemDataList(document.documentElement, items);
     const maps = await getJsonFromUrl(`data/map_data.json`);
     datalists["datalist-maps"] = new MapDataList(document.documentElement, maps);
+    const languages = ["All", "English", "Japanese", "French", "Italian", "German", "Spanish", "Korean"];
+    datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
 
     // global VariableWrapper
     variableWrapper = new VariableWrapper();
