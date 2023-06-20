@@ -313,6 +313,16 @@ class DotArtistConverter extends Converter {
         this.convertByteCodeToDotArtist(byteCode);
         
     }
+
+    // reset the dot artist
+    resetDotArtist() {
+        console.log(this.dotArtistElement)
+        console.log("resetting dot artist")
+        const byteCode = [];
+        this.convertByteCodeToDotArtist(byteCode);
+        this.changeDotArtistBackgroundColor(`rgb(180, 180, 180)`);
+        console.log(this.dotArtistElement)
+    }
 }
 
 // DataList: this class adds a datalist to a parent element
@@ -892,15 +902,14 @@ class Script {
     commandWrapper = null;
     title = null;
     commandCreate = null;
-
     variableGroup = null;
 
     // constructor
-    constructor(dotArtist, color = [180, 180, 180]) {
+    constructor(dotArtist, selectionCallback, color = [180, 180, 180]) {
         this.color = `${color[0]}, ${color[1]}, ${color[2]}`;
         this.createScriptElement(color, dotArtist);
         this.variableGroup = variableWrapper.addVariableGroup(this.title);
-        this.addDeleteButtonEventListener(this.title.deleteButton, this.scriptElement, this.variableGroup);
+        this.addDeleteButtonEventListener(this.title.deleteButton, this.scriptElement, this.variableGroup, selectionCallback);
     }
 
     // function to add command create
@@ -936,7 +945,7 @@ class Script {
             const colorArray = colorCode.match(/[A-Za-z0-9]{2}/g).map(val => parseInt(val, 16));
             const color = `${colorArray[0]}, ${colorArray[1]}, ${colorArray[2]}`;
             this.changeScriptColor(color);
-            dotArtist.changeDotArtistBackgroundColor(`rgb(${color}`);
+            dotArtist.changeDotArtistBackgroundColor(`rgb(${color})`);
         });
 
 
@@ -972,7 +981,7 @@ class Script {
     }
 
     // add event listener to delete the script and variable group associated with it
-    addDeleteButtonEventListener(button, scriptElement, variableGroup) {
+    addDeleteButtonEventListener(button, scriptElement, variableGroup, selectionCallback) {
         button.addEventListener('click', () => {
             // confirm the delete
             if (!confirm('Are you sure you want to delete this script?')) {
@@ -982,6 +991,8 @@ class Script {
             scriptElement.remove();
             // remove the variable group
             variableGroup.variableGroupElement.remove();
+            // call the selection callback
+            selectionCallback();
         });
     }
 
@@ -1017,6 +1028,7 @@ class ScriptHandler {
 
     // function to select a script and deselect the other scripts
     selectScript(script) {
+        console.log("also here")
         const scriptElement = script.scriptElement;
         // unselect the other scripts
         const scriptElements = document.querySelectorAll('.script-area .script');
@@ -1024,17 +1036,42 @@ class ScriptHandler {
           element.classList.remove('selected');
         });
       
-        if (scriptElement) {
-          // set script as selected
-          scriptElement.classList.add('selected');
-          this.dotArtistConverter.convertScriptToDotArtist(script);
+        // check if script.scriptElement is inside scriptElements
+        const scriptElementArray = [...scriptElements];
+        if (!scriptElementArray.includes(scriptElement)) {
+            return;
         }
+        scriptElement.classList.add('selected');
+        this.dotArtistConverter.convertScriptToDotArtist(script);
+    }
+
+    // function to reset the selection
+    resetSelection = () => {
+        console.log("here")
+        // unselect the other scripts
+        const scriptElements = document.querySelectorAll('.script-area .script');
+        if (scriptElements.length === 0) {
+            this.dotArtistConverter.resetDotArtist();
+            return;
+        }
+
+        scriptElements.forEach((element) => {
+            element.classList.remove('selected');
+        });
+
+        // select the first script
+        const firstScript = scriptElements[0];
+       
+
+        // dispatch a click event, because callbacks are a pain due to the structure of the code
+        const clickEvent = new Event('click');
+        firstScript.dispatchEvent(clickEvent);
     }
 
     // function to add an empty script element
     addScriptElement() {
         // create a new script element
-        const script = new Script(this.dotArtistConverter);
+        const script = new Script(this.dotArtistConverter, this.resetSelection);
         // select the script
         this.selectScript(script);
         
