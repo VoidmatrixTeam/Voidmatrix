@@ -966,7 +966,54 @@ class RawBytes {
         rawBytesElement.appendChild(rawBytesContainer);
         this.rawBytesElement = rawBytesElement;
         parent.appendChild(rawBytesElement);
+        this.addDragandDrop(parent, rawBytesElement);
     }
+
+    // function to add drag and drop functionality
+    addDragandDrop(parent, rawBytes) { 
+        // Drag start event listener
+        function handleDragStart(event) {
+            currentDrag = this;
+            console.log(currentDrag)
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/html', this.innerHTML);
+        }
+    
+        // Drag over event listener
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+    
+        // Drop event listener
+        function handleDrop(event) {
+            if (currentDrag && currentDrag !== this) {
+                const targetRect = this.getBoundingClientRect();
+                const halfwayPoint = targetRect.top + targetRect.height / 2;
+    
+                if (event.clientY < halfwayPoint) {
+                    parent.insertBefore(currentDrag, this);
+                } else {
+                    const nextSibling = this.nextElementSibling;
+                    if (nextSibling) {
+                        parent.insertBefore(currentDrag, nextSibling);
+                    } else {
+                        parent.appendChild(currentDrag);
+                    }
+                }
+            }
+
+            event.stopPropagation();
+            return false;
+        }
+
+        rawBytes.setAttribute('draggable', true);
+        rawBytes.addEventListener('dragstart', handleDragStart, false);
+        rawBytes.addEventListener('dragover', handleDragOver, false);
+        rawBytes.addEventListener('drop', handleDrop, false);
+    }
+
 }
 
 // CommandWrapper: this class will be used to store the commands
