@@ -3,6 +3,7 @@ let datalists = {};
 
 let variableWrapper = null;
 let scriptHandler = null;
+let currentDrag = null;
 
 class IconFactory {
     // function that returns a delete icon
@@ -877,7 +878,55 @@ class Command {
         commandElement.appendChild(commandOutputElement);
         parent.appendChild(commandElement);
         this.commandElement = commandElement;
+
+        this.addDragandDrop(parent, commandElement);
     }
+
+    addDragandDrop(parent, commandElement) { 
+        // Drag start event listener
+        function handleDragStart(event) {
+            currentDrag = this;
+            console.log(currentDrag)
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/html', this.innerHTML);
+        }
+    
+        // Drag over event listener
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+    
+        // Drop event listener
+        function handleDrop(event) {
+            if (currentDrag && currentDrag !== this) {
+                const targetRect = this.getBoundingClientRect();
+                const halfwayPoint = targetRect.top + targetRect.height / 2;
+    
+                if (event.clientY < halfwayPoint) {
+                    parent.insertBefore(currentDrag, this);
+                } else {
+                    const nextSibling = this.nextElementSibling;
+                    if (nextSibling) {
+                        parent.insertBefore(currentDrag, nextSibling);
+                    } else {
+                        parent.appendChild(currentDrag);
+                    }
+                }
+            }
+
+            event.stopPropagation();
+            return false;
+        }
+
+        commandElement.setAttribute('draggable', true);
+        commandElement.addEventListener('dragstart', handleDragStart, false);
+        commandElement.addEventListener('dragover', handleDragOver, false);
+        commandElement.addEventListener('drop', handleDrop, false);
+    }
+    
+
 }
 
 // RawBytes: this class will be used to store the raw bytes data
