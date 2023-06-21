@@ -3,12 +3,15 @@ let datalists = {};
 
 let variableWrapper = null;
 let scriptHandler = null;
+let currentDrag = null;
 
 class IconFactory {
     // function that returns a delete icon
     static getDeleteIcon(tag, parent=null, message=null,  eventListener=true) {
         // create the delete icon
         const deleteIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        deleteIcon.setAttribute('viewBox', '0 0 24 24');
+        deleteIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
         deleteIcon.classList.add('button', tag);
         deleteIcon.innerHTML = '<path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>';
         if (eventListener) {
@@ -22,10 +25,20 @@ class IconFactory {
         // return the delete icon
         return deleteIcon;
     }
+
+    // function that returns a add icon
+    static getPlusIcon(tag) {
+        // create the add icon
+        const addIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        addIcon.setAttribute('viewBox', '0 0 24 24');
+        addIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
+        addIcon.classList.add('button', tag);
+        addIcon.innerHTML = `<path d="M10.8,22.8V13.2H1.2a1.2,1.2,0,0,1,0-2.4h9.6V1.2a1.2,1.2,0,1,1,2.4,0v9.6h9.6a1.2,1.2,0,1,1,0,2.4H13.2v9.6a1.2,1.2,0,0,1-2.4,0Z"></path>`;
+        // return the add icon
+        return addIcon;
+    }
+
 }
-
-
-
 
 // Converter: this class will convert the input scripts to byte code
 
@@ -176,7 +189,7 @@ class Converter {
         }
     }
 
-    // function to convert a value to a byte array
+    // function to convert a value to a byte array, given the bit count
     convertValueToByteArray(value, bitCount) {
         const byteArray = [];
       
@@ -188,6 +201,69 @@ class Converter {
         return byteArray;
     }
 
+    // function to convert a value to a byte array, no bit count
+    convertValueToByteArrayNoBitCount(value) {
+        if (value === 0) { return [0];}
+        const byteArray = [];
+        
+        // Iterate over each byte
+        while (value > 0) {
+            byteArray.unshift(value & 0xff); // Extract the least significant byte
+            value >>= 8; // Shift the value right by 8 bits
+        }
+
+        return byteArray;
+    }
+
+
+    // function to convert command element to byte code
+    convertCommandToByteCode(commandElement, variables) {
+        const byteCode = [];
+
+        let commandInput = commandElement.querySelector(".command-input");
+        let inputElements = commandInput.querySelectorAll("input");
+        for (let inputElement of inputElements) {
+            // get the input type, datalist, and value
+            const conversionType = inputElement.conversionType;
+            const bitCount = parseInt(inputElement.bitSize.substring(1));
+            let inputValue = inputElement.value || "";
+            let sanitizedValue = null;
+
+            if (conversionType === 'options'){
+                const datalistName = inputElement.getAttribute('list');
+                const datalist = datalists[datalistName]
+                let inputOptionId = datalist.getOptionIdByName(inputValue) || 0x0;
+                sanitizedValue = inputOptionId;
+            } else {
+                sanitizedValue = this.safeEval(inputValue, variables) || 0x0;
+            }
+            const sanitizedValueArray = this.convertValueToByteArray(sanitizedValue, bitCount);
+
+            // add the sanitized values to the byte code
+            byteCode.push(...sanitizedValueArray);
+        }
+        return byteCode;
+    }
+
+    // function to convert raw bytes element to byte code
+    convertRawBytesToByteArray(rawBytesElement, variables) {
+        // get the raw bytes
+        const rawBytesInput = rawBytesElement.querySelector(".raw-bytes-input")
+        const sanitizedRawBytes = this.safeEval(rawBytesInput.value, variables) || 0x0;
+        const rawBytesArray = this.convertValueToByteArrayNoBitCount(sanitizedRawBytes);
+
+        // get the repitition count
+        const rawBytesRepeatInput = rawBytesElement.querySelector(".raw-bytes-repeat-input");
+        const sanitizedRawBytesRepeat = this.safeEval(rawBytesRepeatInput.value, variables) || 0x0;
+        
+        // repeat the raw bytes
+        const byteArray = [];
+
+        for (let i = 0; i < sanitizedRawBytesRepeat; i++) {
+            byteArray.push(...rawBytesArray);
+        }
+        return byteArray;
+    }
 
     // function to convert a script to byte code
     convertScriptToByteCode(script) {
@@ -201,30 +277,17 @@ class Converter {
 
         let byteCode = [];
         // TODO: convert the script to byte code
-        let commandElements = scriptElement.querySelectorAll(".command");
-        for (let commandElement of commandElements) {
-            let commandInput = commandElement.querySelector(".command-input");
-            // get all input elements
-            let inputElements = commandInput.querySelectorAll("input");
-            for (let inputElement of inputElements) {
-                // get the input type, datalist, and value
-                const conversionType = inputElement.conversionType;
-                const bitCount = parseInt(inputElement.bitSize.substring(1));
-                let inputValue = inputElement.value || "";
-                let sanitizedValue = null;
-
-                if (conversionType === 'options'){
-                    const datalistName = inputElement.getAttribute('list');
-                    const datalist = datalists[datalistName]
-                    let inputOptionId = datalist.getOptionIdByName(inputValue) || 0x0;
-                    sanitizedValue = inputOptionId;
-                } else {
-                    sanitizedValue = this.safeEval(inputValue, variables) || 0x0;
-                }
-                const sanitizedValueArray = this.convertValueToByteArray(sanitizedValue, bitCount);
-
-                // add the sanitized values to the byte code
-                byteCode.push(...sanitizedValueArray);
+        let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes");
+        for (let scriptElement of scriptElements) {
+            switch (scriptElement.className) {
+                case 'command':
+                    // process the command
+                    byteCode.push(...this.convertCommandToByteCode(scriptElement, variables));
+                    break;
+                case 'raw-bytes':
+                    // process the raw bytes
+                    byteCode.push(...this.convertRawBytesToByteArray(scriptElement, variables));
+                    break;            
             }
 
         }
@@ -591,9 +654,7 @@ class VariableGroup {
         variableTitleElement.appendChild(titleHeadingElement);
         this.titleElement = titleHeadingElement;
     
-        const addButtonElement = document.createElement('img');
-        addButtonElement.classList.add('button', 'create-variable');
-        addButtonElement.src = 'assets/add.svg';
+        const addButtonElement = IconFactory.getPlusIcon('create-variable');
         addButtonElement.alt = 'plus icon';
         addButtonElement.addEventListener('click', () => {
             this.addVariableElement(variableGroupElement);
@@ -817,7 +878,142 @@ class Command {
         commandElement.appendChild(commandOutputElement);
         parent.appendChild(commandElement);
         this.commandElement = commandElement;
+
+        this.addDragandDrop(parent, commandElement);
     }
+
+    addDragandDrop(parent, commandElement) { 
+        // Drag start event listener
+        function handleDragStart(event) {
+            currentDrag = this;
+            console.log(currentDrag)
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/html', this.innerHTML);
+        }
+    
+        // Drag over event listener
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+    
+        // Drop event listener
+        function handleDrop(event) {
+            if (currentDrag && currentDrag !== this) {
+                const targetRect = this.getBoundingClientRect();
+                const halfwayPoint = targetRect.top + targetRect.height / 2;
+    
+                if (event.clientY < halfwayPoint) {
+                    parent.insertBefore(currentDrag, this);
+                } else {
+                    const nextSibling = this.nextElementSibling;
+                    if (nextSibling) {
+                        parent.insertBefore(currentDrag, nextSibling);
+                    } else {
+                        parent.appendChild(currentDrag);
+                    }
+                }
+            }
+
+            event.stopPropagation();
+            return false;
+        }
+
+        commandElement.setAttribute('draggable', true);
+        commandElement.addEventListener('dragstart', handleDragStart, false);
+        commandElement.addEventListener('dragover', handleDragOver, false);
+        commandElement.addEventListener('drop', handleDrop, false);
+    }
+    
+
+}
+
+// RawBytes: this class will be used to store the raw bytes data
+
+class RawBytes {
+    // variables
+    rawBytesElement = null;
+
+    // constructor
+    constructor(parent) {
+        this.createRawBytesElement(parent);
+    }
+
+    // function to create the raw bytes element
+    createRawBytesElement(parent) {
+        const rawBytesElement = document.createElement('div');
+        rawBytesElement.classList.add('raw-bytes');
+
+        const rawBytesContainer = document.createElement('div');
+        rawBytesContainer.classList.add('raw-bytes-container');
+
+        const rawBytesDeleteButton = IconFactory.getDeleteIcon("raw-bytes-delete", rawBytesElement, 'Are you sure you want to to delete this element?');
+        rawBytesElement.appendChild(rawBytesDeleteButton);
+
+        const rawBytesInput = document.createElement('input');
+        rawBytesInput.type = 'text';
+        rawBytesInput.placeholder = 'Raw bytes';
+        rawBytesInput.classList.add('raw-bytes-input');
+        rawBytesContainer.appendChild(rawBytesInput);
+
+        const rawBytesRepeatInput = document.createElement('input');
+        rawBytesRepeatInput.type = 'text';
+        rawBytesRepeatInput.placeholder = 'Repetitions';
+        rawBytesRepeatInput.classList.add('raw-bytes-repeat-input');
+        rawBytesContainer.appendChild(rawBytesRepeatInput);
+
+        rawBytesElement.appendChild(rawBytesContainer);
+        this.rawBytesElement = rawBytesElement;
+        parent.appendChild(rawBytesElement);
+        this.addDragandDrop(parent, rawBytesElement);
+    }
+
+    // function to add drag and drop functionality
+    addDragandDrop(parent, rawBytes) { 
+        // Drag start event listener
+        function handleDragStart(event) {
+            currentDrag = this;
+            console.log(currentDrag)
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/html', this.innerHTML);
+        }
+    
+        // Drag over event listener
+        function handleDragOver(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+    
+        // Drop event listener
+        function handleDrop(event) {
+            if (currentDrag && currentDrag !== this) {
+                const targetRect = this.getBoundingClientRect();
+                const halfwayPoint = targetRect.top + targetRect.height / 2;
+    
+                if (event.clientY < halfwayPoint) {
+                    parent.insertBefore(currentDrag, this);
+                } else {
+                    const nextSibling = this.nextElementSibling;
+                    if (nextSibling) {
+                        parent.insertBefore(currentDrag, nextSibling);
+                    } else {
+                        parent.appendChild(currentDrag);
+                    }
+                }
+            }
+
+            event.stopPropagation();
+            return false;
+        }
+
+        rawBytes.setAttribute('draggable', true);
+        rawBytes.addEventListener('dragstart', handleDragStart, false);
+        rawBytes.addEventListener('dragover', handleDragOver, false);
+        rawBytes.addEventListener('drop', handleDrop, false);
+    }
+
 }
 
 // CommandWrapper: this class will be used to store the commands
@@ -848,33 +1044,66 @@ class CommandWrapper {
         // add the command to the commands
         this.commands.push(command);
     }
+
+    // function to add raw bytes
+    addRawBytes() {
+        // create a new command
+        const rawBytes = new RawBytes(this.commandWrapperElement);
+        // add the command to the commands
+        this.commands.push(rawBytes);
+    }
 }
 
 // CommandCreate: this class will be used to store the command create data
 
 class CommandCreate {
     // variables
-    commandCreateElement = null;
-    addButtonElement = null;
+    addInputWrapperElement = null;
+    addCommandButtonElement = null;
+    addRawBytesButtonElement = null;
 
     // constructor
     constructor(parent) {
-        this.createCommandCreateElement(parent);
+        this.createInputAdders(parent);
     }
 
     // function to create the command create element
-    createCommandCreateElement(parent) {
-        const commandCreateElement = document.createElement('div');
-        commandCreateElement.classList.add('command-create');
+    createInputAdders(parent) {
+        const addInputWrapperElement = document.createElement('div');
+        addInputWrapperElement.classList.add('command-create-wrapper');
 
-        const addButtonElement = document.createElement('img');
-        addButtonElement.classList.add('button');
-        addButtonElement.src = 'assets/add.svg';
-        addButtonElement.alt = 'add icon';
-        commandCreateElement.appendChild(addButtonElement);
-        parent.appendChild(commandCreateElement);
-        this.addButtonElement = addButtonElement;
-        this.commandCreateElement = commandCreateElement;
+        // Command adder
+        const addCommandWrapperElement = document.createElement('div');
+        addCommandWrapperElement.classList.add('command-create');
+
+        const addCommandButtonElement = IconFactory.getPlusIcon("command-add");
+        addCommandButtonElement.alt = 'add icon';
+        addCommandWrapperElement.appendChild(addCommandButtonElement);
+
+        const addCommandTextElement = document.createElement('span');
+        addCommandTextElement.classList.add('command-add-text');
+        addCommandTextElement.innerText = 'Add Command';
+        addCommandWrapperElement.appendChild(addCommandTextElement);
+        addInputWrapperElement.appendChild(addCommandWrapperElement);
+
+        // Raw bytes adder
+        const addRawBytesWrapperElement = document.createElement('div');
+        addRawBytesWrapperElement.classList.add('raw-bytes-create');
+
+        const addRawBytesButtonElement = IconFactory.getPlusIcon("raw-bytes-add");
+        addRawBytesButtonElement.alt = 'add icon';
+        addRawBytesWrapperElement.appendChild(addRawBytesButtonElement);
+
+        const addRawBytesTextElement = document.createElement('span');
+        addRawBytesTextElement.classList.add('raw-bytes-add-text');
+        addRawBytesTextElement.innerText = 'Add Raw Bytes';
+        addRawBytesWrapperElement.appendChild(addRawBytesTextElement);
+        addInputWrapperElement.appendChild(addRawBytesWrapperElement);
+
+        parent.appendChild(addInputWrapperElement);
+        this.addCommandButtonElement = addCommandButtonElement;
+        this.addRawBytesButtonElement = addRawBytesButtonElement;
+        this.addInputWrapperElement = addInputWrapperElement;
     }
 }
 
@@ -940,9 +1169,14 @@ class Script {
         // create a command create element
         const commandCreate = new CommandCreate(parent);
         // add event listener to the add button
-        commandCreate.addButtonElement.addEventListener('click', () => {
+        commandCreate.addCommandButtonElement.addEventListener('click', () => {
             // create a new command
             this.commandWrapper.addCommand();
+        });
+
+        commandCreate.addRawBytesButtonElement.addEventListener('click', () => {
+            // create a new command
+            this.commandWrapper.addRawBytes();
         });
         // set the add command create element
         this.commandCreate = commandCreate;
@@ -1149,6 +1383,3 @@ document.addEventListener("DOMContentLoaded", async function () {
     scriptHandler.addEventListeners();
     scriptHandler.addScriptElement(); // add a default first script element
 });
-
-
-
