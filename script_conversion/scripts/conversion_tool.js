@@ -886,7 +886,6 @@ class Command {
         // Drag start event listener
         function handleDragStart(event) {
             currentDrag = this;
-            console.log(currentDrag)
             event.dataTransfer.effectAllowed = 'move';
             event.dataTransfer.setData('text/html', this.innerHTML);
         }
@@ -917,6 +916,9 @@ class Command {
             }
 
             event.stopPropagation();
+            const changeEvent = new Event('change', { bubbles: true });
+            this.dispatchEvent(changeEvent);
+
             return false;
         }
 
@@ -974,7 +976,6 @@ class RawBytes {
         // Drag start event listener
         function handleDragStart(event) {
             currentDrag = this;
-            console.log(currentDrag)
             event.dataTransfer.effectAllowed = 'move';
             event.dataTransfer.setData('text/html', this.innerHTML);
         }
@@ -1005,6 +1006,8 @@ class RawBytes {
             }
 
             event.stopPropagation();
+            const changeEvent = new Event('change', { bubbles: true });
+            this.dispatchEvent(changeEvent);
             return false;
         }
 
@@ -1231,6 +1234,7 @@ class Script {
 
         // add event listener for any change to the script element or its children
         scriptElement.addEventListener('change', () => {
+            console.log('change')
             if (this.scriptElement) {
                 dotArtist.convertScriptToDotArtist(this);
             }
