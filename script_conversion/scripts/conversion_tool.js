@@ -1234,7 +1234,6 @@ class Script {
 
         // add event listener for any change to the script element or its children
         scriptElement.addEventListener('change', () => {
-            console.log('change')
             if (this.scriptElement) {
                 dotArtist.convertScriptToDotArtist(this);
             }
