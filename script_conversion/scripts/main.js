@@ -742,7 +742,6 @@ class Script {
 
         // Create the script commands element
         this.commandWrapper = new CommandWrapper(scriptInfoElement);
-        this.commandWrapper.addCommand();
 
         // Create the command create element
         this.addCommandCreate(scriptInfoElement);
@@ -866,10 +865,12 @@ class ScriptHandler {
     }
 
     // function to add an empty script element
-    addScriptElement(color=undefined, select=true) {
+    addScriptElement(color=undefined, select=true, addDefaultCommand=true) {
         // create a new script element
         const script = new Script(this.dotArtistConverter, this.resetSelection, color);
-        
+        if (addDefaultCommand) {
+            script.commandWrapper.addCommand();
+        }
         // add event handler so if the script is clicked, it will be selected, and the other scripts will be deselected
         script.scriptElement.addEventListener('click', () => {
             // select the script
@@ -906,7 +907,7 @@ class ScriptHandler {
             json.color = '180, 180, 180';
         }
         const color = json.color.split(',').map(val => parseInt(val));
-        const script = this.addScriptElement(color);
+        const script = this.addScriptElement(color, true, false);
         // set the title
         script.title.titleElement.firstElementChild.value = json.title;
         // set the commands & raw bytes
