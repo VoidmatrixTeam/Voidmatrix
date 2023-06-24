@@ -1025,6 +1025,3 @@ document.addEventListener("DOMContentLoaded", async function () {
     scriptHandler.addScriptElement(); // add a default first script element
     scriptHandler.addImportExportButtons();
 });
-
-
-
