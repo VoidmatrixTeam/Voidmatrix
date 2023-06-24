@@ -145,6 +145,21 @@ input[type="color"]::-webkit-color-swatch {
     font-weight: 500;
 }
 
+.import, .export {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    fill: rgb(var(--main-color));
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    fill: var(--light-color);
+}
+
+.import {
+    margin-left: auto;
+}
+
 
 .script-language {
     width: 100px;

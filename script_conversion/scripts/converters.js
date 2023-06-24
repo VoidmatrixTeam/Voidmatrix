@@ -2,22 +2,6 @@
 // Converter: this class will convert the input scripts to byte code
 
 class Converter {
-    // function to get all script elements
-    getScripts() {
-        // get all script elements
-        let scripts = document.getElementsByTagName("script");
-        // return the scripts
-        return scripts;
-    }
-
-    // function to get specific script element
-    getScript(scriptName) {
-        // get script element
-        let script = document.getElementById(scriptName);
-        // return the script
-        return script;
-    }
-
     // function to safely evaluate the input
     safeEval(input, variables) {
         // Sanitize the input
@@ -174,6 +158,18 @@ class Converter {
         return byteArray;
     }
 
+    // function to return sanitized value for 'options' type
+    sanitizeOptionsValue(inputElement, variables) {
+        const datalistName = inputElement.getAttribute('list');
+        const datalist = datalists[datalistName]
+        let inputOptionId = datalist.getOptionIdByName(inputElement.value) || this.safeEval(inputElement.value, variables) || 0x0; // first try to get the option id by name, then try to evaluate the value, then default to 0x0
+        return inputOptionId;
+    }
+
+    // function to return sanitized value for other types
+    sanitizeOtherValue(inputElement, variables) {
+        return this.safeEval(inputElement.value, variables) || 0x0;
+    }
 
     // function to convert command element to byte code
     convertCommandToByteCode(commandElement, variables) {
@@ -185,16 +181,14 @@ class Converter {
             // get the input type, datalist, and value
             const conversionType = inputElement.conversionType;
             const bitCount = parseInt(inputElement.bitSize.substring(1));
-            let inputValue = inputElement.value || "";
             let sanitizedValue = null;
 
             if (conversionType === 'options'){
-                const datalistName = inputElement.getAttribute('list');
-                const datalist = datalists[datalistName]
-                let inputOptionId = datalist.getOptionIdByName(inputValue) || 0x0;
-                sanitizedValue = inputOptionId;
+                // sanitize the value
+                sanitizedValue = this.sanitizeOptionsValue(inputElement, variables);
             } else {
-                sanitizedValue = this.safeEval(inputValue, variables) || 0x0;
+                // sanitize the value
+                sanitizedValue = this.sanitizeOtherValue(inputElement, variables);
             }
             const sanitizedValueArray = this.convertValueToByteArray(sanitizedValue, bitCount);
 
@@ -228,14 +222,13 @@ class Converter {
     convertScriptToByteCode(script) {
         const scriptElement = script.scriptElement;
         const variableGroup = script.variableGroup;
-        const language = scriptElement.querySelector('.script-language').value || 'English';
+        const language = scriptElement.querySelector('.script-language').value || 'Any';
 
         // get all variables, then sanitize them
         const variables = this.getVariablesByLanguage(variableGroup, language);
         this.sanitizeVariableValues(variables);
 
         let byteCode = [];
-        // TODO: convert the script to byte code
         let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes");
         for (let scriptElement of scriptElements) {
             switch (scriptElement.className) {
@@ -298,7 +291,7 @@ class DotArtistConverter extends Converter {
         let dotElement = document.createElement("div");
         dotElement.classList.add("pixel");
         dotElement.classList.add(`bit-${bit}`);
-        // TODO: add a hover event to show the bit value with text
+
         dotElement.addEventListener("mouseover", function() {
             dotElement.classList.add("show-bit");
             dotElement.innerHTML = bit;
@@ -341,5 +334,86 @@ class DotArtistConverter extends Converter {
         const byteCode = [];
         this.convertByteCodeToDotArtist(byteCode);
         this.changeDotArtistBackgroundColor(`rgb(180, 180, 180)`);
+    }
+}
+
+class JsonExporter extends Converter {
+    // function to convert a script to byte code
+    convertScriptToJson(script) {
+      const scriptElement = script.scriptElement;
+      const variableGroup = script.variableGroup;
+      const language = scriptElement.querySelector('.script-language').value || 'Any';
+       
+      let json = {
+        'title': script.title.titleElement.firstElementChild.value,
+        'color': script.color,
+        'language': language,
+        'input_fields': [],
+        'variables': this.getVariables(variableGroup)
+      };
+  
+      let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes");
+      for (let scriptElement of scriptElements) {
+        switch (scriptElement.className) {
+          case 'command':
+            // process the command
+            json.input_fields.push(this.convertCommandToJson(scriptElement));
+            break;
+          case 'raw-bytes':
+            // process the raw bytes
+            json.input_fields.push(this.convertRawBytesToJson(scriptElement));
+            break;
+        }
+      }
+      return json;
+    }
+  
+    convertCommandToJson(commandElement) {
+      let commandInput = commandElement.querySelector(".command-input");
+      let selectedCommand = commandInput.querySelector(".command-input-cmd").firstElementChild;
+      let paramElements = commandInput.querySelectorAll("input");
+
+      const command = {
+        'type': 'command',
+        'name': selectedCommand.value,
+        'parameters': []
+      };
+
+      for (let i = 1; i < paramElements.length; i++) {
+        // skip the first element, which is the command name
+        const paramElement = paramElements[i];
+        const paramInfo = {
+            'name': paramElement.placeholder,
+            'type': paramElement.type,
+            'value': paramElement.value
+        }
+        command.parameters.push(paramInfo);
+      }
+      return command;
+    }
+  
+    convertRawBytesToJson(rawBytesElement) {
+      const rawBytes = {
+        'type': 'raw_bytes',
+      };
+  
+      // process raw bytes details
+      const rawBytesInput = rawBytesElement.querySelector('.raw-bytes-input');
+      rawBytes.raw_bytes = rawBytesInput.value;
+  
+      // process repetitions
+      const rawBytesRepeatInput = rawBytesElement.querySelector('.raw-bytes-repeat-input');
+      rawBytes.repetitions = rawBytesRepeatInput.value;
+  
+      return rawBytes;
+    }
+  
+    exportScripts(scripts) {
+        const convertedScripts = [];
+        for (let script of scripts) {
+            const convertedScript = this.convertScriptToJson(script);
+            convertedScripts.push(convertedScript);
+        }
+        return convertedScripts;
     }
 }

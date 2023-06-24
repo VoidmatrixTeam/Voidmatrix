@@ -38,6 +38,28 @@ class IconFactory {
         return addIcon;
     }
 
+    static getUploadIcon(tag) {
+        // create the upload icon
+        const uploadIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        uploadIcon.setAttribute('viewBox', '0 0 24 24');
+        uploadIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
+        uploadIcon.classList.add('button', tag);
+        uploadIcon.innerHTML = `<path d="M0 0h24v24H0z" fill="none"/><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>`;
+        // return the upload icon
+        return uploadIcon;
+    }
+
+    static getDownloadIcon(tag) {
+        // create the download icon
+        const downloadIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        downloadIcon.setAttribute('viewBox', '0 0 24 24');
+        downloadIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
+        downloadIcon.classList.add('button', tag);
+        downloadIcon.innerHTML = `<path d="M0 0h24v24H0z" fill="none"/><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>`;
+        // return the download icon
+        return downloadIcon;
+    }
+
 }
 
 // VariableGroup: this class will be used to store variables
@@ -113,11 +135,23 @@ class VariableGroup {
     
         parent.appendChild(variableElement);
         this.variableElements.push(variableElement);
+        return variableElement;
     }
 
     // function to update the title
     updateTitle(title) {
+        if (title == "" || title == null) { title = "Script Title" }
         this.titleElement.innerText = title;
+    }
+
+    // function to update the variable group from json
+    updateVariableGroupFromJson(variableGroupJson) {
+        for (const variableJson of variableGroupJson) {
+            const variableElement = this.addVariableElement(this.variableGroupElement);
+            variableElement.querySelector('.variable-language').value = variableJson.language;
+            variableElement.querySelector('.variable-name').value = variableJson.name;
+            variableElement.querySelector('.variable-value').value = variableJson.value;
+        }
     }
 
   }
@@ -141,8 +175,8 @@ class VariableWrapper {
     }
 
     // function to add a variable group
-    addVariableGroup(scriptTitle) {
-        const variableGroup = new VariableGroup(this.variableWrapperElement, "Script Title");
+    addVariableGroup(scriptTitle, placeholderTitle = "Script Title") {
+        const variableGroup = new VariableGroup(this.variableWrapperElement, scriptTitle.titleElement.firstElementChild.value || placeholderTitle);
         scriptTitle.titleElement.firstElementChild.addEventListener('input', () => {
             variableGroup.updateTitle(scriptTitle.titleElement.firstElementChild.value);
         });
@@ -260,8 +294,26 @@ class CommandInput {
         paramContainer.appendChild(paramInput);
         this.paramElements[paramName] = paramContainer;
         this.commandInputElement.appendChild(paramContainer);
-  }
+    }
 
+    // function to set the commandName
+    setCommandName(commandName) {
+        this.commandInputElement.firstElementChild.firstElementChild.value = commandName;
+        // Trigger the input event to update the command parameters
+        this.commandInputElement.firstElementChild.firstElementChild.dispatchEvent(new Event('input'));
+    }
+
+    // function to set the command parameters
+    setCommandParameters(commandParams) {
+        for (let commandParam of commandParams) {
+            const paramName = commandParam.name;
+            const paramValue = commandParam.value;
+            const paramElement = this.paramElements[paramName];
+            if (!paramElement) {continue; }
+            const paramInputElement = paramElement.firstElementChild;
+            paramInputElement.value = paramValue;
+        }
+    }
 }
 
 // Command: this class will be used to store the command data
@@ -269,6 +321,7 @@ class CommandInput {
 class Command {
     // variables
     commandElement = null;
+    commandInput = null;
 
     // constructor
     constructor(parent) {
@@ -283,7 +336,8 @@ class Command {
         const commandInputDeleteButton = IconFactory.getDeleteIcon("command-delete", commandElement, 'Are you sure you want to to delete this command?');
         commandElement.appendChild(commandInputDeleteButton);        
 
-        new CommandInput(commandElement);
+        const commandInput = new CommandInput(commandElement);
+        this.commandInput = commandInput;
 
         const commandOutputElement = document.createElement('div');
         commandOutputElement.classList.add('command-output');
@@ -339,7 +393,16 @@ class Command {
         commandElement.addEventListener('dragover', handleDragOver, false);
         commandElement.addEventListener('drop', handleDrop, false);
     }
-    
+
+    // function to set the command name
+    setCommandName(commandName) {
+        this.commandInput.setCommandName(commandName);
+    }
+
+    // function to set the command parameters
+    setCommandParameters(commandParameters) {
+        this.commandInput.setCommandParameters(commandParameters);
+    }
 
 }
 
@@ -429,6 +492,22 @@ class RawBytes {
         rawBytes.addEventListener('drop', handleDrop, false);
     }
 
+    // function to set the raw bytes
+    setRawBytes(rawBytes) {
+        this.rawBytesElement.querySelector('.raw-bytes-input').value = rawBytes;
+    }
+
+    // function to set the repetitions
+    setRepetitions(repetitions) {
+        this.rawBytesElement.querySelector('.raw-bytes-repeat-input').value = repetitions;
+    }
+
+    // function to set both the raw bytes and the repetitions
+    setRawBytesAndRepetitions(rawBytes, repetitions) {
+        this.setRawBytes(rawBytes);
+        this.setRepetitions(repetitions);
+    }
+
 }
 
 // CommandWrapper: this class will be used to store the commands
@@ -436,7 +515,7 @@ class RawBytes {
 class CommandWrapper {
     // variables
     commandWrapperElement = null;
-    commands = [];
+    inputElements = [];
 
     // constructor
     constructor(parent) {
@@ -453,20 +532,49 @@ class CommandWrapper {
     }
 
     // function to add command
-    addCommand() {
+    addCommand(commandName=undefined, params=undefined) {
         // create a new command
         const command = new Command(this.commandWrapperElement);
+        if (commandName) {
+            // add the command to the commands
+            command.setCommandName(commandName);
+        }
+        if (params) {
+            // set the params
+            command.setCommandParameters(params);
+        }
         // add the command to the commands
-        this.commands.push(command);
+        this.inputElements.push(command);
+        return command;
     }
 
     // function to add raw bytes
-    addRawBytes() {
+    addRawBytes(bytes=undefined, repetitions=undefined) {
         // create a new command
         const rawBytes = new RawBytes(this.commandWrapperElement);
+        if (bytes) {
+            rawBytes.setRawBytes(bytes);
+        }
+        if (repetitions) {
+            rawBytes.setRepetitions(repetitions);
+        }
         // add the command to the commands
-        this.commands.push(rawBytes);
+        this.inputElements.push(rawBytes);
+        return rawBytes;
     }
+
+    // function to add input field from json
+    addInputFieldFromJson(inputFieldJson) {
+        switch(inputFieldJson.type) {
+            case 'command':
+                const command = this.addCommand(inputFieldJson.name, inputFieldJson.parameters);
+                break;
+            case 'raw_bytes':
+                const rawBytes = this.addRawBytes(inputFieldJson.raw_bytes, inputFieldJson.repetitions);
+                break;
+        }
+    }
+   
 }
 
 // CommandCreate: this class will be used to store the command create data
@@ -526,7 +634,7 @@ class CommandCreate {
 
 class ScriptTitle {
     // variables
-    titleElement = "test";
+    titleElement = null;
     deleteButton = null;
 
     // constructor
@@ -624,7 +732,6 @@ class Script {
         scriptElement.appendChild(colorSwatchElement);
         this.colorSwatchElement = colorSwatchElement;
 
-
         // Create the script info element
         const scriptInfoElement = document.createElement('div');
         scriptInfoElement.classList.add('script-info');
@@ -664,16 +771,16 @@ class Script {
             // remove the variable group
             variableGroup.variableGroupElement.remove();
             // call the selection callback
-            selectionCallback();
+            selectionCallback(this);
         });
     }
 
     // function to change the script color
     changeScriptColor(color) {
-        // set the script color
         this.color = color;
-        // set the script color
         this.scriptElement.style.setProperty('--main-color', this.color);
+        const colorArray = color.split(',').map(val => parseInt(val));
+        this.colorSwatchElement.value =  `#${colorArray[0].toString(16)}${colorArray[1].toString(16)}${colorArray[2].toString(16)}`
     }
 
     // function to change the script color from hex
@@ -689,14 +796,28 @@ class Script {
         // set the script selection
         this.scriptElement.classList.toggle('selected', selection);
     }
+
+    // function to add input field from json 
+    addInputFieldFromJson(inputFieldJson) {
+        // add the input field
+        this.commandWrapper.addInputFieldFromJson(inputFieldJson);
+    }
+
+    // function to add the variable group from json
+    updateVariableGroupFromJson(variableGroupJson) {
+        // add the variable group
+        this.variableGroup.updateVariableGroupFromJson(variableGroupJson);
+        this.variableGroup.updateTitle(this.title.titleElement.firstElementChild.value);
+    }
 }
 
 // ScriptHandler: this class will handle the script elements
 
 class ScriptHandler {
     // variables
-    ingameVariables = {};
+    scripts = [];
     dotArtistConverter = new DotArtistConverter();
+    jsonExporter = new JsonExporter();
 
     // function to select a script and deselect the other scripts
     selectScript(script) {
@@ -717,7 +838,8 @@ class ScriptHandler {
     }
 
     // function to reset the selection
-    resetSelection = () => {
+    resetSelection = (script) => {
+        this.removeScript(script);
         // unselect the other scripts
         const scriptElements = document.querySelectorAll('.script-area .script');
         if (scriptElements.length === 0) {
@@ -731,25 +853,34 @@ class ScriptHandler {
 
         // select the first script
         const firstScript = scriptElements[0];
-       
 
-        // dispatch a click event, because callbacks are a pain due to the structure of the code
+        // dispatch a click event
         const clickEvent = new Event('click');
         firstScript.dispatchEvent(clickEvent);
     }
 
+    // remove the script from the scripts array
+    removeScript(script) {
+        // remove the script from the scripts array
+        this.scripts = this.scripts.filter((scriptElement) => scriptElement !== script);
+    }
+
     // function to add an empty script element
-    addScriptElement() {
+    addScriptElement(color=undefined, select=true) {
         // create a new script element
-        const script = new Script(this.dotArtistConverter, this.resetSelection);
-        // select the script
-        this.selectScript(script);
+        const script = new Script(this.dotArtistConverter, this.resetSelection, color);
         
         // add event handler so if the script is clicked, it will be selected, and the other scripts will be deselected
         script.scriptElement.addEventListener('click', () => {
             // select the script
             this.selectScript(script);
         });
+
+        // select the script
+        if (select) {this.selectScript(script);}
+
+        this.scripts.push(script);
+        return script;
     }
 
         // function to add event listeners
@@ -763,6 +894,101 @@ class ScriptHandler {
         });
     }
 
+    // function to export the scripts
+    exportScripts() {
+        let json = this.jsonExporter.exportScripts(this.scripts);
+        return json;
+    }
+
+    addScriptFromJson(json) {
+        // create a new script element
+        if (!json.color) {
+            json.color = '180, 180, 180';
+        }
+        const color = json.color.split(',').map(val => parseInt(val));
+        const script = this.addScriptElement(color);
+        // set the title
+        script.title.titleElement.firstElementChild.value = json.title;
+        // set the commands & raw bytes
+        for (let inputField of json.input_fields) {
+            script.addInputFieldFromJson(inputField);
+        }        
+        script.updateVariableGroupFromJson(json.variables);
+        // run change event to update the script
+        script.scriptElement.dispatchEvent(new Event('change'));
+        return script;
+    }
+
+    // function to import the scripts
+    importScripts(json) {
+        for (let script of json) {
+            this.addScriptFromJson(script);
+        }
+    }
+
+    // function to add the import and export buttons
+    addImportExportButtons() {
+        // select the top bar of the script area
+        const topBar = document.querySelector('.option-bar');
+        // create the import and export buttons
+        const importButton = IconFactory.getUploadIcon("import"); // returns div containing an svg
+
+        importButton.addEventListener('click', () => {
+            // Create a file input element dynamically
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = '.json';
+        
+            // Listen for changes when a file is selected
+            fileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+        
+                // Create a FileReader object to read the contents of the file
+                const reader = new FileReader();
+        
+                reader.onload = (fileEvent) => {
+                    try {
+                        const json = JSON.parse(fileEvent.target.result);
+                        this.importScripts(json);
+                    } catch (error) {
+                        console.error('Error parsing JSON:', error);
+                    }
+                };
+        
+                reader.readAsText(file);
+            });
+        
+            // Trigger the file input click event programmatically
+            fileInput.click();
+        });
+        topBar.appendChild(importButton);        
+        const exportButton = IconFactory.getDownloadIcon("export");
+
+        exportButton.addEventListener('click', () => {
+            // Get the JSON data to export
+            const json = this.exportScripts();
+        
+            // Create a Blob object from the JSON data
+            const blob = new Blob([JSON.stringify(json)], { type: 'application/json' });
+        
+            // Create a temporary URL for the Blob object
+            const url = URL.createObjectURL(blob);
+        
+            // Create a temporary anchor element to trigger the download
+            const downloadLink = document.createElement('a');
+            downloadLink.href = url;
+            let title = "exported_scripts"; // maybe in the future, the user can choose a title
+            downloadLink.download = `${title}.json`;
+        
+            // Trigger the click event on the anchor element programmatically
+            downloadLink.click();
+        
+            // Clean up by revoking the temporary URL
+            URL.revokeObjectURL(url);
+        });
+        
+        topBar.appendChild(exportButton);
+    }
 }
 
 const getJsonFromUrl = async function(url) {
@@ -792,11 +1018,11 @@ document.addEventListener("DOMContentLoaded", async function () {
     // global VariableWrapper
     variableWrapper = new VariableWrapper();
 
-
     // initialize the script handler
     scriptHandler = new ScriptHandler();
     scriptHandler.addEventListeners();
     scriptHandler.addScriptElement(); // add a default first script element
+    scriptHandler.addImportExportButtons();
 });
 
 
