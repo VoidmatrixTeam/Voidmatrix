@@ -222,7 +222,7 @@ class Converter {
     convertScriptToByteCode(script) {
         const scriptElement = script.scriptElement;
         const variableGroup = script.variableGroup;
-        const language = scriptElement.querySelector('.script-language').value || 'Any';
+        const language = scriptElement.querySelector('.script-language').value || 'All';
 
         // get all variables, then sanitize them
         const variables = this.getVariablesByLanguage(variableGroup, language);
@@ -342,7 +342,7 @@ class JsonExporter extends Converter {
     convertScriptToJson(script) {
       const scriptElement = script.scriptElement;
       const variableGroup = script.variableGroup;
-      const language = scriptElement.querySelector('.script-language').value || 'Any';
+      const language = scriptElement.querySelector('.script-language').value || 'All';
        
       let json = {
         'title': script.title.titleElement.firstElementChild.value,
