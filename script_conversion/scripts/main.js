@@ -41,10 +41,10 @@ class IconFactory {
     static getUploadIcon(tag) {
         // create the upload icon
         const uploadIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        uploadIcon.setAttribute('viewBox', '0 0 24 24');
+        uploadIcon.setAttribute('viewBox', '0 -960 960 960');
         uploadIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
         uploadIcon.classList.add('button', tag);
-        uploadIcon.innerHTML = `<path d="M0 0h24v24H0z" fill="none"/><path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>`;
+        uploadIcon.innerHTML = `<path d="M452-202h60v-201l82 82 42-42-156-152-154 154 42 42 84-84v201ZM220-80q-24 0-42-18t-18-42v-680q0-24 18-42t42-18h361l219 219v521q0 24-18 42t-42 18H220Zm331-554v-186H220v680h520v-494H551ZM220-820v186-186 680-680Z"/></path>`;
         // return the upload icon
         return uploadIcon;
     }
@@ -52,10 +52,10 @@ class IconFactory {
     static getDownloadIcon(tag) {
         // create the download icon
         const downloadIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        downloadIcon.setAttribute('viewBox', '0 0 24 24');
+        downloadIcon.setAttribute('viewBox', '0 -960 960 960');
         downloadIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
         downloadIcon.classList.add('button', tag);
-        downloadIcon.innerHTML = `<path d="M0 0h24v24H0z" fill="none"/><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>`;
+        downloadIcon.innerHTML = `<path d="M840-683v503q0 24-18 42t-42 18H180q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h503l157 157Zm-60 27L656-780H180v600h600v-476ZM479.765-245Q523-245 553.5-275.265q30.5-30.264 30.5-73.5Q584-392 553.735-422.5q-30.264-30.5-73.5-30.5Q437-453 406.5-422.735q-30.5 30.264-30.5 73.5Q376-306 406.265-275.5q30.264 30.5 73.5 30.5ZM233-584h358v-143H233v143Zm-53-72v476-600 124Z"/></path>`;
         // return the download icon
         return downloadIcon;
     }
