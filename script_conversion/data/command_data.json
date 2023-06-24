@@ -19,7 +19,7 @@
                 "size": "u16"
             },
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -648,7 +648,7 @@
         "command_name": "YesNoWin",
         "parameters": [
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -677,7 +677,7 @@
                 "size": "u8"
             },
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -702,7 +702,7 @@
                 "size": "u8"
             },
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -715,7 +715,7 @@
                 "size": "u8"
             },
             {
-                "name": "prm",
+                "name": "param",
                 "size": "u8"
             }
         ]
@@ -744,7 +744,7 @@
                 "size": "u8"
             },
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -769,7 +769,7 @@
                 "size": "u8"
             },
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -1305,6 +1305,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "MoveMachineItemNumberCheck"
         ]
     },
     "0x80": {
@@ -1681,7 +1684,8 @@
             }
         ],
         "aliases": [
-            "AddEgg"
+            "AddEgg",
+            "GiveEgg"
         ]
     },
     "0x98": {
@@ -1692,13 +1696,18 @@
                 "size": "u16"
             },
             {
-                "name": "movi",
+                "name": "move slot",
                 "size": "u16"
             },
             {
-                "name": "mov",
-                "size": "u16"
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
             }
+        ],
+        "aliases": [
+            "ChangePokemonMove"
         ]
     },
     "0x99": {
@@ -1709,13 +1718,18 @@
                 "size": "u16"
             },
             {
-                "name": "mov",
-                "size": "u16"
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
             },
             {
                 "name": "party index",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "CheckPokemonMove"
         ]
     },
     "0x9a": {
@@ -1726,9 +1740,14 @@
                 "size": "u16"
             },
             {
-                "name": "mov",
-                "size": "u16"
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
             }
+        ],
+        "aliases": [
+            "CheckPokemonMoveGroup"
         ]
     },
     "0x9b": {
@@ -1942,6 +1961,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "ChangeName"
         ]
     },
     "0xbb": {
@@ -1955,6 +1977,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "ChangeNamePokemon"
         ]
     },
     "0xbc": {
@@ -2209,6 +2234,9 @@
                 "type": "options",
                 "datalist_name": "datalist-items"
             }
+        ],
+        "aliases": [
+            "ItemMoveName"
         ]
     },
     "0xd4": {
@@ -2219,9 +2247,14 @@
                 "size": "u8"
             },
             {
-                "name": "mov",
-                "size": "u16"
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
             }
+        ],
+        "aliases": [
+            "MoveName"
         ]
     },
     "0xd5": {
@@ -2558,7 +2591,7 @@
         "command_name": "ConnectDebugParentWin",
         "parameters": [
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -2567,7 +2600,7 @@
         "command_name": "ConnectDebugChildWin",
         "parameters": [
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -3597,7 +3630,10 @@
     },
     "0x16d": {
         "command_name": "GetSodateyaName",
-        "parameters": []
+        "parameters": [],
+        "aliases": [
+            "GetDaycareName"
+        ]
     },
     "0x16e": {
         "command_name": "GetSodateyaZiisan",
@@ -3606,6 +3642,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "GetDaycareGrandfather"
         ]
     },
     "0x16f": {
@@ -4070,6 +4109,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "GetEggCount"
         ]
     },
     "0x19e": {
@@ -4080,7 +4122,7 @@
                 "size": "u16"
             },
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -4153,11 +4195,17 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "PickupList"
         ]
     },
     "0x1a6": {
         "command_name": "MsgSodateyaAishou",
-        "parameters": []
+        "parameters": [],
+        "aliases": [
+            "MessageDaycareAishou"
+        ]
     },
     "0x1a7": {
         "command_name": "MsgExpandBuf",
@@ -4165,11 +4213,17 @@
     },
     "0x1a8": {
         "command_name": "DelSodateyaEgg",
-        "parameters": []
+        "parameters": [],
+        "aliases": [
+            "DeleteDaycareEgg"
+        ]
     },
     "0x1a9": {
         "command_name": "GetSodateyaEgg",
-        "parameters": []
+        "parameters": [],
+        "aliases": [
+            "GetDaycareEgg"
+        ]
     },
     "0x1aa": {
         "command_name": "HikitoriRyoukin",
@@ -4182,6 +4236,9 @@
                 "name": "no",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "PickupPrice"
         ]
     },
     "0x1ab": {
@@ -4199,7 +4256,10 @@
     },
     "0x1ac": {
         "command_name": "TamagoDemo",
-        "parameters": []
+        "parameters": [],
+        "aliases": [
+            "EggDemo"
+        ]
     },
     "0x1ad": {
         "command_name": "SodateyaPokeList",
@@ -4208,6 +4268,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "DaycarePokemonList"
         ]
     },
     "0x1ae": {
@@ -4221,6 +4284,9 @@
                 "name": "no",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "DaycarePokemonLevelStr"
         ]
     },
     "0x1af": {
@@ -4247,6 +4313,9 @@
                 "name": "party index",
                 "size": "u8"
             }
+        ],
+        "aliases": [
+            "SetDaycarePokemon"
         ]
     },
     "0x1b1": {
@@ -4490,6 +4559,9 @@
                 "name": "party index",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "MoveListSetProc"
         ]
     },
     "0x1c7": {
@@ -4499,6 +4571,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "MoveListGetResult"
         ]
     },
     "0x1c8": {
@@ -4512,6 +4587,9 @@
                 "name": "party index",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "MoveCount"
         ]
     },
     "0x1c9": {
@@ -4522,9 +4600,14 @@
                 "size": "u16"
             },
             {
-                "name": "mov",
-                "size": "u16"
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
             }
+        ],
+        "aliases": [
+            "MoveDelete"
         ]
     },
     "0x1ca": {
@@ -4539,9 +4622,14 @@
                 "size": "u16"
             },
             {
-                "name": "mov",
-                "size": "u16"
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
             }
+        ],
+        "aliases": [
+            "MoveNumber"
         ]
     },
     "0x1cb": {
@@ -4556,9 +4644,14 @@
                 "size": "u16"
             },
             {
-                "name": "mov",
-                "size": "u16"
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
             }
+        ],
+        "aliases": [
+            "MoveName"
         ]
     },
     "0x1cc": {
@@ -4748,7 +4841,7 @@
                 "size": "u16"
             },
             {
-                "name": "prm",
+                "name": "param",
                 "size": "u16"
             },
             {
@@ -4784,7 +4877,7 @@
         "command_name": "BattleTowerIsPrizeGet",
         "parameters": [
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -4793,7 +4886,7 @@
         "command_name": "BattleTowerIsPrizemanSet",
         "parameters": [
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -4806,7 +4899,7 @@
                 "size": "u16"
             },
             {
-                "name": "prm",
+                "name": "param",
                 "size": "u16"
             }
         ]
@@ -4819,7 +4912,7 @@
                 "size": "u16"
             },
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -5247,7 +5340,7 @@
         "command_name": "BtlSearcherEventCall",
         "parameters": [
             {
-                "name": "workid",
+                "name": "work",
                 "size": "u16"
             }
         ]
@@ -5443,6 +5536,9 @@
                 "name": "party index",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "TaughtMoveCount"
         ]
     },
     "0x21f": {
@@ -5456,11 +5552,17 @@
                 "name": "party index",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "RemainingMoveCount"
         ]
     },
     "0x220": {
         "command_name": "OshieWazaListSetProc",
-        "parameters": []
+        "parameters": [],
+        "aliases": [
+            "TaughtMoveListSetProc"
+        ]
     },
     "0x221": {
         "command_name": "RemaindWazaListSetProc",
@@ -5469,11 +5571,17 @@
                 "name": "party index",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "RemainingMoveListSetProc"
         ]
     },
     "0x222": {
         "command_name": "OshieWazaListGetResult",
-        "parameters": []
+        "parameters": [],
+        "aliases": [
+            "TaughtMoveListGetResult"
+        ]
     },
     "0x223": {
         "command_name": "RemaindWazaListGetResult",
@@ -5482,6 +5590,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "RemainingMoveListGetResult"
         ]
     },
     "0x224": {
@@ -5492,9 +5603,14 @@
                 "size": "u16"
             },
             {
-                "name": "mov",
-                "size": "u16"
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
             }
+        ],
+        "aliases": [
+            "NormalMoveListSetProc"
         ]
     },
     "0x225": {
@@ -5504,6 +5620,9 @@
                 "name": "work",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "NormalMoveListGetResult"
         ]
     },
     "0x226": {
@@ -6535,7 +6654,7 @@
                 "size": "u16"
             },
             {
-                "name": "prm",
+                "name": "param",
                 "size": "u8"
             },
             {
@@ -6604,6 +6723,9 @@
                 "name": "position",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "DaycarePokemonListSetProc"
         ]
     },
     "0x291": {
@@ -6617,6 +6739,9 @@
                 "name": "mod",
                 "size": "u16"
             }
+        ],
+        "aliases": [
+            "DaycarePokemonListGetResult"
         ]
     },
     "0x292": {
