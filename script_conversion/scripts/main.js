@@ -1046,7 +1046,6 @@ const getFilesFromGithub = async function(user, repository, directory="") {
 }
 
 const importScriptsFromSearch = async function(file) {
-    console.log(file.download_url)
     const json = await getJsonFromUrl(file.download_url)
     scriptHandler.importScripts(json);
 }
