@@ -60,13 +60,13 @@ class IconFactory {
         return downloadIcon;
     }
 
-    static getMarketIcon(tag) {
+    static getSearchIcon(tag) {
         // create the download icon
         const downloadIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         downloadIcon.setAttribute('viewBox', '0 -960 960 960');
         downloadIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
         downloadIcon.classList.add('button', tag);
-        downloadIcon.innerHTML = `<path d="M840-683v503q0 24-18 42t-42 18H180q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h503l157 157Zm-60 27L656-780H180v600h600v-476ZM479.765-245Q523-245 553.5-275.265q30.5-30.264 30.5-73.5Q584-392 553.735-422.5q-30.264-30.5-73.5-30.5Q437-453 406.5-422.735q-30.5 30.264-30.5 73.5Q376-306 406.265-275.5q30.264 30.5 73.5 30.5ZM233-584h358v-143H233v143Zm-53-72v476-600 124Z"/></path>`;
+        downloadIcon.innerHTML = `<path d="M0 0h24v24H0z" fill="none"/><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></path>`;
         // return the download icon
         return downloadIcon;
     }
@@ -946,7 +946,7 @@ class ScriptHandler {
         const searchWrapper = document.createElement('div')
         searchWrapper.classList.add('search-wrapper')
 
-        const searchIcon = IconFactory.getMarketIcon("search-script");
+        const searchIcon = IconFactory.getSearchIcon("search-script");
         searchWrapper.appendChild(searchIcon)
 
         const searchInput = document.createElement('input')
