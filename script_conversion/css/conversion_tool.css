@@ -145,7 +145,14 @@ input[type="color"]::-webkit-color-swatch {
     font-weight: 500;
 }
 
-.import, .export {
+.search-wrapper {
+    display:flex;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.import, .export, .search-script {
     width: 24px;
     height: 24px;
     margin-right: 10px;
@@ -155,11 +162,6 @@ input[type="color"]::-webkit-color-swatch {
     align-items: center;
     fill: var(--light-color);
 }
-
-.import {
-    margin-left: auto;
-}
-
 
 .script-language {
     width: 100px;
@@ -175,12 +177,25 @@ input[type="color"]::-webkit-color-swatch {
     color: var(--light-color);
 }
 
-.script-language:focus, .script-language:active {
+.search-input::placeholder {
+    color: var(--light-color);
+}
+
+.search-input {
+    width: 200px;
+    height: 16px;
+    margin-left: auto;
+    margin-right: 10px;
+    color: var(--light-color);
+    background-color: transparent;
+    border:None;
+}
+
+.script-language:focus, .script-language:active, .search-input:focus, .search-input:active {
     border: transparent;
     outline: none;
     text-shadow: none;
 }
-
 
 .title-text {
     width: 400px;

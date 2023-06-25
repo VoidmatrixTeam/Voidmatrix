@@ -90,7 +90,7 @@ class CommandDataList extends DataList {
             options.push({value: commandName, text: commandName});
 
             for (const alias of aliases) {
-                options.push({ value: commandName, text: alias});
+                options.push({value: commandName, text: alias});
             }
         }
         return options;
@@ -250,3 +250,39 @@ class LanguageDataList extends DataList {
         super(parent, 'datalist-languages', dataListOptions);
     }
 }
+
+// ScriptDataList: this class will be used to retrieve and store scripts
+
+class ScriptDataList extends DataList {
+    // constructor
+    constructor(parent, files) {
+      super(parent, 'datalist-scripts', files);
+    }
+
+    processName(fileName) {
+        return fileName.split(".")[0].replace(/_/g, ' ');
+    }
+
+     // prepare the datalist options
+    prepareDataListOptions(files) {
+        if (files.message) {return [];}
+        let options = [];
+        for (let file of files) {
+            const filename = this.processName(file.name);
+            options.push(filename);
+        }
+        return options;
+    }
+
+    // function to get an option by name
+    getOptionByName(optionName) {
+        for (const file in this.json) {
+            const fileInfo = this.json[file];
+            if (this.processName(fileInfo.name) == optionName) {
+                return fileInfo;
+            }
+        }
+        return null;
+    }
+}
+  

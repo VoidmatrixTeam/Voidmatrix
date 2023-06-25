@@ -60,6 +60,17 @@ class IconFactory {
         return downloadIcon;
     }
 
+    static getMarketIcon(tag) {
+        // create the download icon
+        const downloadIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        downloadIcon.setAttribute('viewBox', '0 -960 960 960');
+        downloadIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
+        downloadIcon.classList.add('button', tag);
+        downloadIcon.innerHTML = `<path d="M840-683v503q0 24-18 42t-42 18H180q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h503l157 157Zm-60 27L656-780H180v600h600v-476ZM479.765-245Q523-245 553.5-275.265q30.5-30.264 30.5-73.5Q584-392 553.735-422.5q-30.264-30.5-73.5-30.5Q437-453 406.5-422.735q-30.5 30.264-30.5 73.5Q376-306 406.265-275.5q30.264 30.5 73.5 30.5ZM233-584h358v-143H233v143Zm-53-72v476-600 124Z"/></path>`;
+        // return the download icon
+        return downloadIcon;
+    }
+
 }
 
 // VariableGroup: this class will be used to store variables
@@ -931,6 +942,29 @@ class ScriptHandler {
     addImportExportButtons() {
         // select the top bar of the script area
         const topBar = document.querySelector('.option-bar');
+        // create search
+        const searchWrapper = document.createElement('div')
+        searchWrapper.classList.add('search-wrapper')
+
+        const searchIcon = IconFactory.getMarketIcon("search-script");
+        searchWrapper.appendChild(searchIcon)
+
+        const searchInput = document.createElement('input')
+        searchInput.classList.add('search-input')
+        searchInput.setAttribute('autocomplete', 'on');
+        searchInput.setAttribute('list', "datalist-scripts")
+        searchInput.placeholder = "Search Scripts"
+
+        searchInput.addEventListener('change', () => {
+                const scriptInfo = datalists['datalist-scripts'].getOptionByName(searchInput.value);
+                if (!scriptInfo) {return;}
+                importScriptsFromSearch(scriptInfo)
+            }
+        )
+
+        searchWrapper.appendChild(searchInput)
+        topBar.appendChild(searchWrapper);
+
         // create the import and export buttons
         const importButton = IconFactory.getUploadIcon("import"); // returns div containing an svg
 
@@ -997,8 +1031,24 @@ const getJsonFromUrl = async function(url) {
         response.json()).then((responseJson) => {
             return responseJson;
         }).catch((error) => {
-        console.error(error);
+        console.error('Error:', error);
     });   
+}
+
+const getFilesFromGithub = async function(user, repository, directory="") {
+    const url = `https://api.github.com/repos/${user}/${repository}/contents/${directory}`
+    return fetch(url).then(response => response.json())
+        .then(data => {
+            return data;
+        }).catch(error => {
+        console.error('Error:', error);
+  });
+}
+
+const importScriptsFromSearch = async function(file) {
+    console.log(file.download_url)
+    const json = await getJsonFromUrl(file.download_url)
+    scriptHandler.importScripts(json);
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -1015,6 +1065,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     datalists["datalist-moves"] = new MoveDataList(document.documentElement, moves);
     const languages = ["All", "English", "Japanese", "French", "Italian", "German", "Spanish", "Korean"];
     datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
+    const scriptFiles = await getFilesFromGithub(`VoidmatrixTeam`, `Voidmatrix`, `script_conversion/market`)
+    datalists["datalist-scripts"] = new ScriptDataList(document.documentElement, scriptFiles)
 
     // global VariableWrapper
     variableWrapper = new VariableWrapper();
