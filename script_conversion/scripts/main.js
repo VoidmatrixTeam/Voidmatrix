@@ -1004,7 +1004,7 @@ class ScriptHandler {
             const json = this.exportScripts();
         
             // Create a Blob object from the JSON data
-            const blob = new Blob([JSON.stringify(json)], { type: 'application/json' });
+            const blob = new Blob([JSON.stringify(json, null, 2)], { type: 'application/json' });
         
             // Create a temporary URL for the Blob object
             const url = URL.createObjectURL(blob);
