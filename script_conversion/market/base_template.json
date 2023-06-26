@@ -1,1 +1,50 @@
-[{"title":"Base Address Template","color":"182, 93, 93","language":"All","input_fields":[],"variables":[{"language":"All","name":"money","value":"0"},{"language":"English","name":"base_address","value":"0x0226D260 + [money]"},{"language":"German","name":"base_address","value":"0x0226D4A0 + [money]"},{"language":"French","name":"base_address","value":"0x0226D5E0 + [money]"},{"language":"Italian","name":"base_address","value":"0x0226D440 + [money]"},{"language":"Japanese","name":"base_address","value":"0x02271940 + [money]"},{"language":"Korean","name":"base_address","value":"0x02274B00 + [money]"},{"language":"Spanish","name":"base_address","value":"0x0226d600 + [money]"}]}]
+[
+  {
+    "title": "Base Address Template",
+    "color": "182, 93, 93",
+    "language": "All",
+    "input_fields": [],
+    "variables": [
+      {
+        "language": "All",
+        "name": "money",
+        "value": "0"
+      },
+      {
+        "language": "English",
+        "name": "base_pointer",
+        "value": "0x0226D260 + [money]"
+      },
+      {
+        "language": "German",
+        "name": "base_pointer",
+        "value": "0x0226D4A0 + [money]"
+      },
+      {
+        "language": "French",
+        "name": "base_pointer",
+        "value": "0x0226D5E0 + [money]"
+      },
+      {
+        "language": "Italian",
+        "name": "base_pointer",
+        "value": "0x0226D440 + [money]"
+      },
+      {
+        "language": "Japanese",
+        "name": "base_pointer",
+        "value": "0x02271940 + [money]"
+      },
+      {
+        "language": "Korean",
+        "name": "base_pointer",
+        "value": "0x02274B00 + [money]"
+      },
+      {
+        "language": "Spanish",
+        "name": "base_pointer",
+        "value": "0x0226d600 + [money]"
+      }
+    ]
+  }
+]
