@@ -1,18 +1,5 @@
 [
   {
-    "title": "",
-    "color": "180, 180, 180",
-    "language": "All",
-    "input_fields": [
-      {
-        "type": "command",
-        "name": "",
-        "parameters": []
-      }
-    ],
-    "variables": []
-  },
-  {
     "title": "Simple Base Pointer Finder",
     "color": "182, 93, 93",
     "language": "English",
