@@ -18,11 +18,6 @@
     "language": "English",
     "input_fields": [
       {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "17"
-      },
-      {
         "type": "raw_bytes",
         "raw_bytes": "0x0",
         "repetitions": "[dotartist_offset]"
@@ -99,6 +94,11 @@
       }
     ],
     "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "17"
+      },
       {
         "language": "English",
         "name": "base_address",
