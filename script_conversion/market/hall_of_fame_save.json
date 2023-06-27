@@ -2,7 +2,7 @@
   {
     "title": "Hall of Fame Save Feature",
     "color": "238, 145, 145",
-    "language": "English",
+    "language": "All",
     "input_fields": [
       {
         "type": "raw_bytes",
@@ -168,13 +168,18 @@
             "value": "0xBD"
           }
         ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
       }
     ],
     "variables": [
       {
         "language": "All",
         "name": "dotartist_offset",
-        "value": "0"
+        "value": "17"
       }
     ]
   },
@@ -213,7 +218,7 @@
       {
         "language": "All",
         "name": "dotartist_offset",
-        "value": "0"
+        "value": "17"
       }
     ]
   }
