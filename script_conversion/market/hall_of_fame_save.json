@@ -1,0 +1,198 @@
+[
+  {
+    "title": "Hall of Fame Save Feature",
+    "color": "238, 145, 145",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0204853E"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x01"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0204853F"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x02048540"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x02048541"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x60"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0204865A"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x03"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0204865B"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0xB0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0204865C"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x01"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0204865D"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0204865E"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0xF0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0204865F"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0xBD"
+          }
+        ]
+      }
+    ],
+    "variables": []
+  },
+  {
+    "title": "Hall of Fame Save Feature: Execution",
+    "color": "90, 170, 99",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "DendouSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "PcDendouSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "SetMapProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": []
+  }
+]
