@@ -184,6 +184,11 @@
     "language": "All",
     "input_fields": [
       {
+        "type": "raw_bytes",
+        "raw_bytes": "0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
         "type": "command",
         "name": "DendouSetProc",
         "parameters": []
@@ -204,6 +209,12 @@
         "parameters": []
       }
     ],
-    "variables": []
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0"
+      }
+    ]
   }
 ]
