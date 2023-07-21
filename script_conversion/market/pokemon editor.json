@@ -1,0 +1,166 @@
+[
+  {
+    "title": "Pokémon Editor: Setup",
+    "color": "88, 165, 198",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_SetMove] + 0x10"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_SetMove] + 0x3E"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_SetMove] + 0x3F"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_SetMove] + 0x40"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_SetMove] + 0x41"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "English",
+        "name": "FUN_SetMove",
+        "value": "0x020697CC"
+      }
+    ]
+  },
+  {
+    "title": "Pokémon Editor: Execution",
+    "color": "50, 134, 55",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "ChgPokeWaza",
+        "parameters": [
+          {
+            "name": "party index",
+            "type": "text",
+            "value": "0x1"
+          },
+          {
+            "name": "move slot",
+            "type": "text",
+            "value": "[param_choice]"
+          },
+          {
+            "name": "move",
+            "type": "text",
+            "value": "[param_value]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "param_choice",
+        "value": "0x0"
+      },
+      {
+        "language": "All",
+        "name": "param_value",
+        "value": "0x0"
+      }
+    ]
+  }
+]

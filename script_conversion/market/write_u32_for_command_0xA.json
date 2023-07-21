@@ -1,7 +1,7 @@
 [
   {
-    "title": "Walk Through Walls",
-    "color": "182, 93, 93",
+    "title": "Write u32 Functionality for Command 0xA",
+    "color": "40, 154, 68",
     "language": "All",
     "input_fields": [
       {
@@ -16,12 +16,12 @@
           {
             "name": "address",
             "type": "text",
-            "value": "[collision]"
+            "value": "[FUN_LoadAdrsAdrs] + 0x11"
           },
           {
             "name": "value",
             "type": "text",
-            "value": "0x10"
+            "value": "0x0"
           }
         ]
       },
@@ -32,12 +32,12 @@
           {
             "name": "address",
             "type": "text",
-            "value": "[collision] + 0x1"
+            "value": "[FUN_LoadAdrsAdrs] + 0x13"
           },
           {
             "name": "value",
             "type": "text",
-            "value": "0x0"
+            "value": "0x60"
           }
         ]
       },
@@ -49,44 +49,14 @@
     ],
     "variables": [
       {
-        "language": "English",
-        "name": "collision",
-        "value": "0x2056C06"
-      },
-      {
-        "language": "German",
-        "name": "collision",
-        "value": "0x2056C76"
-      },
-      {
-        "language": "French",
-        "name": "collision",
-        "value": "0x2056C76"
-      },
-      {
-        "language": "Italian",
-        "name": "collision",
-        "value": "0x2056C76"
-      },
-      {
-        "language": "Japanese",
-        "name": "collision",
-        "value": "0x20593E0"
-      },
-      {
-        "language": "Korean",
-        "name": "collision",
-        "value": "0x20570DE"
-      },
-      {
-        "language": "Spanish",
-        "name": "collision",
-        "value": "0x2056C76"
-      },
-      {
         "language": "All",
         "name": "dotartist_offset",
         "value": "0x11"
+      },
+      {
+        "language": "English",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039ACC"
       }
     ]
   }

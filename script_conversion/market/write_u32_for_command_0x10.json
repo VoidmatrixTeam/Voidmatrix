@@ -1,0 +1,79 @@
+[
+  {
+    "title": "Write u32 Functionality for Command 0x10",
+    "color": "40, 154, 68",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x9"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1C"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x10"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x11"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x60"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "English",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039BBC"
+      }
+    ]
+  }
+]
