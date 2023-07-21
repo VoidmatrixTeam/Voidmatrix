@@ -474,7 +474,7 @@
         "parameters": [
             {
                 "name": "message",
-                "size": "u16"
+                "size": "u8"
             }
         ]
     },
