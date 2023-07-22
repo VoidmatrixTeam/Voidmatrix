@@ -1,0 +1,143 @@
+[
+  {
+    "title": "Shiny Wild Encounter of Choice",
+    "color": "129, 100, 166",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x0223c32c"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x223c360 "
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x223cbed"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x223cc00"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[pokemon_id] & 0x100 >> 8 * 0xFF"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x223cc01"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x223cc02"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[pokemon_id] & 0x100 >> 8 + [value] & 0xFF"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x223cc03"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x30"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x17"
+      },
+      {
+        "language": "All",
+        "name": "pokemon_id",
+        "value": "0x1E0"
+      }
+    ]
+  }
+]
