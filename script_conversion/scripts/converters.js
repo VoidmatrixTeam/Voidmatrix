@@ -2,6 +2,85 @@
 // Converter: this class will convert the input scripts to byte code
 
 class Converter {
+    // primary operator function
+    evalPrimaryOperators(input) {
+        // primary operators: >>, <<, &, |, ^
+        let output = [];
+        let operator = null;
+        for (let i = 0; i < input.length; i++) {
+            const component = input[i];
+            if (typeof component === 'string') {
+                // If the component is a string, check if it's an operator, otherwise ignore it
+                if (component.match(/^[&|^]|<<|>>$/)) {
+                    operator = component;
+                }
+                else { // push the component to the output, might be a secondary operator
+                    output.push(component);
+                }
+            }
+            else if (typeof component === 'number') {
+                // If the component is a number, perform the operation
+                switch (operator) {
+                    case '>>':
+                        output[output.length-1] >>= component;
+                        break;
+                    case '<<':
+                        output[output.length-1] <<= component;
+                        break;
+                    case '&':
+                        output[output.length-1] &= component;
+                        break;
+                    case '|':
+                        output[output.length-1] |= component;
+                        break;
+                    case '^':
+                        output[output.length-1] ^= component;
+                        break;
+                    default:
+                        output.push(component);
+                }
+            }
+        }
+        return output;
+    }
+
+    // secondary operator function
+    evalSecondaryOperators(input) {
+        // secondary operators: +, -, *, /, %
+        let output = 0;
+        let operator = '+';
+        for (let i = 0; i < input.length; i++) {
+            const component = input[i];
+            if (typeof component === 'string') {
+                // If the component is a string, check if it's an operator, otherwise ignore it
+                if (component.match(/^[+\-*/%]$/)) {
+                    operator = component;
+                }
+            }
+            else if (typeof component === 'number') {
+                // If the component is a number, perform the operation
+                switch (operator) {
+                    case '+':
+                        output += component;
+                        break;
+                    case '-':
+                        output -= component;
+                        break;
+                    case '*':
+                        output *= component;
+                        break;
+                    case '/':
+                        output /= component;
+                        break;
+                    case '%':
+                        output %= component;
+                        break;
+                }
+            }
+        }
+        return output;
+    }
+
     // function to safely evaluate the input
     safeEval(input, variables) {
         // Sanitize the input
@@ -9,53 +88,8 @@ class Converter {
         if (sanitizedInput === null) {
             return null;
         }
-        let value = 0;
-        let operator = '+';
-      
-        for (let i = 0; i < sanitizedInput.length; i++) {
-            const component = sanitizedInput[i];
-      
-            if (typeof component === 'string') {
-                // If the component is a string, check if it's an operator, otherwise ignore it
-                if (component.match(/^[+\-*/&|^]|<<|>>$/)) {
-                    operator = component;
-                }
-            } else if (typeof component === 'number') {
-                // If the component is a number, perform the operation
-                switch (operator) {
-                    case '+':
-                        value += component;
-                        break;
-                    case '-':
-                        value -= component;
-                        break;
-                    case '*':
-                        value *= component;
-                        break;
-                    case '/':
-                        value /= component;
-                        break;
-                    case '%':
-                        value %= component;
-                        break;
-                    case '>>':
-                        value >>= component;
-                        break;
-                    case '<<':
-                        value <<= component;
-                        break;
-                    case '&':
-                        value &= component;
-                        break;
-                    case '|':
-                        value |= component;
-                        break;
-                    case '^':
-                        value ^= component;
-                        break;
-                }
-            }
-        }
+        let primaryOutput = this.evalPrimaryOperators(sanitizedInput);
+        let value = this.evalSecondaryOperators(primaryOutput);
         return value;
     }    
 
@@ -144,7 +178,7 @@ class Converter {
     // function to sanitize variable values
     sanitizeVariableValues(variables) {
         for (const variable of variables) {
-            const sanitizedValue = this.sanitizeInput(variable.value, variables, variable.language);
+            const sanitizedValue = this.sanitizeInput(variable.value, variables);
             variable.value = sanitizedValue;
         }
     }
