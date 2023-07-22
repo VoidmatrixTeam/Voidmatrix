@@ -17,7 +17,7 @@ class Converter {
       
             if (typeof component === 'string') {
                 // If the component is a string, check if it's an operator, otherwise ignore it
-                if (component.match(/^[+\-*/]$/)) {
+                if (component.match(/^[+\-*/&|^]|<<|>>$/)) {
                     operator = component;
                 }
             } else if (typeof component === 'number') {
@@ -35,10 +35,27 @@ class Converter {
                     case '/':
                         value /= component;
                         break;
+                    case '%':
+                        value %= component;
+                        break;
+                    case '>>':
+                        value >>= component;
+                        break;
+                    case '<<':
+                        value <<= component;
+                        break;
+                    case '&':
+                        value &= component;
+                        break;
+                    case '|':
+                        value |= component;
+                        break;
+                    case '^':
+                        value ^= component;
+                        break;
                 }
             }
         }
-      
         return value;
     }    
 
@@ -54,7 +71,7 @@ class Converter {
 
     // function to split a string into an array of tokens
     splitString(input) {
-        const regex = /(0x[\da-fA-F]+|\d+|[+\-*/]|\[[^\]]+\])/g;
+        const regex = /(0x[\da-fA-F]+|\d+|[+\-*/&|^]|<<|>>|\[[^\]]+\])/g;
         return input.match(regex);
     }
 
