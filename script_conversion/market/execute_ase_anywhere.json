@@ -1,0 +1,127 @@
+[
+  {
+    "title": "Execute ASE Anywhere With RETIRE Menu",
+    "color": "70, 149, 86",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_InitRetireScript] + 0x38"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x3D"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_InitRetireScript] + 0x39"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x21"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_InitRetireScript] + 0x3A"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x9"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_InitRetireScript] + 0x3B"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x2"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_InitRetireScript] + 0x4E"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x21"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_InitRetireScript] + 0x4F"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x31"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "English",
+        "name": "FUN_InitRetireScript",
+        "value": "0x020367E8"
+      }
+    ]
+  }
+]
