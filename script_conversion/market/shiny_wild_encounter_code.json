@@ -123,49 +123,6 @@
       },
       {
         "type": "command",
-        "name": "LoadAdrsValue",
-        "parameters": [
-          {
-            "name": "address",
-            "type": "text",
-            "value": "0x2035678"
-          },
-          {
-            "name": "value",
-            "type": "text",
-            "value": "0x13"
-          }
-        ]
-      },
-      {
-        "type": "command",
-        "name": "LoadAdrsValue",
-        "parameters": [
-          {
-            "name": "address",
-            "type": "text",
-            "value": "0x02035708 "
-          },
-          {
-            "name": "value",
-            "type": "text",
-            "value": "0x0"
-          }
-        ]
-      },
-      {
-        "type": "command",
-        "name": "PokeParkControl",
-        "parameters": [
-          {
-            "name": "mod",
-            "type": "text",
-            "value": "0x1"
-          }
-        ]
-      },
-      {
-        "type": "command",
         "name": "End",
         "parameters": []
       }
@@ -190,6 +147,73 @@
         "language": "All",
         "name": "add_value",
         "value": "[pokemon_id] - [mov_value]"
+      }
+    ]
+  },
+  {
+    "title": "Allow Wild Encounters",
+    "color": "165, 161, 34",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x02035678"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x13"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x02035708"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "PokeParkControl",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "text",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
       }
     ]
   }
