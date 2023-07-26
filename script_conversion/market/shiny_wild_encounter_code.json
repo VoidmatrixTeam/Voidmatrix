@@ -2,7 +2,7 @@
   {
     "title": "Shiny Wild Encounter of Choice",
     "color": "129, 100, 166",
-    "language": "English",
+    "language": "All",
     "input_fields": [
       {
         "type": "raw_bytes",
@@ -123,6 +123,49 @@
       },
       {
         "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x2035678"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x13"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "0x02035708 "
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "PokeParkControl",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "text",
+            "value": "0x1"
+          }
+        ]
+      },
+      {
+        "type": "command",
         "name": "End",
         "parameters": []
       }
@@ -136,7 +179,7 @@
       {
         "language": "All",
         "name": "pokemon_id",
-        "value": "0x1EE"
+        "value": "0x102"
       },
       {
         "language": "All",
