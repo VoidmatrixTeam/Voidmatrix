@@ -1,0 +1,184 @@
+[
+  {
+    "title": "Optimized Kakuna - NPC ASE bootstrap",
+    "color": "51, 198, 209",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_AddNPCData] + 0x58"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[npc_eventid] >> 8 & 0xFF"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_AddNPCData] + 0x59"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x21"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_AddNPCData] + 0x5A"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x9"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_AddNPCData] + 0x5B"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x2"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_AddNPCData] + 0x5C"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[npc_eventid] & 0xFF"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_AddNPCData] + 0x5D"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x31"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "MapChange",
+        "parameters": [
+          {
+            "name": "map",
+            "type": "text",
+            "value": "0xAf"
+          },
+          {
+            "name": "door",
+            "type": "text",
+            "value": "0x0"
+          },
+          {
+            "name": "x pos",
+            "type": "text",
+            "value": "8"
+          },
+          {
+            "name": "z pos",
+            "type": "text",
+            "value": "4"
+          },
+          {
+            "name": "direction",
+            "type": "text",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "PokeParkControl",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "text",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "0x3B - [dotartist_offset]"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x16",
+        "repetitions": "0x1"
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "FUN_AddNPCData",
+        "value": "0x02057d2C"
+      },
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "npc_eventid",
+        "value": "0x3D50"
+      }
+    ]
+  }
+]
