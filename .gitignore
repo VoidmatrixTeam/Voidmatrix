@@ -3,3 +3,4 @@ script_conversion/data/convert_format.py
 script_conversion/data/command_data_input.json
 script_conversion/data/convert_maps.py
 script_conversion/data/map_data.txt
+script_conversion/market_old/*
