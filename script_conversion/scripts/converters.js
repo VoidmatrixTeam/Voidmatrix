@@ -1,4 +1,5 @@
 
+let debug = false;
 // Converter: this class will convert the input scripts to byte code
 
 class Converter {
@@ -376,6 +377,13 @@ class DotArtistConverter extends Converter {
     convertScriptToDotArtist(script) {
         this.changeDotArtistBackgroundColor(`rgb(${script.color})`);
         let byteCode = this.convertScriptToByteCode(script);
+        if (debug) {
+            // print the byte code as hex with 0x prefix
+            console.log(byteCode.map(x => "0x" + x.toString(16)));
+            // also print it as one long hex string
+            // fix above line so that each byte is 2 characters long, 0 padded
+            console.log(byteCode.map(x => x.toString(16).padStart(2, "0")).join(""));
+        }
         this.convertByteCodeToDotArtist(byteCode);
         
     }
