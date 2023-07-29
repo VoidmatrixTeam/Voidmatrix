@@ -1,18 +1,5 @@
 [
   {
-    "title": "",
-    "color": "180, 180, 180",
-    "language": "All",
-    "input_fields": [
-      {
-        "type": "command",
-        "name": "",
-        "parameters": []
-      }
-    ],
-    "variables": []
-  },
-  {
     "title": "Write u16 Functionality for Command 0x10",
     "color": "40, 154, 68",
     "language": "All",
@@ -234,12 +221,12 @@
           {
             "name": "address1",
             "type": "text",
-            "value": "[FUN_AddRecord] + 0x18"
+            "value": "[FUN_EndGame] + 0x164"
           },
           {
             "name": "address2",
             "type": "text",
-            "value": "0x18425447"
+            "value": "0xBDF02001"
           }
         ]
       },
@@ -250,12 +237,12 @@
           {
             "name": "address1",
             "type": "text",
-            "value": "[FUN_AddRecord] + 0x1C"
+            "value": "[FUN_AddRecord] + 0x18"
           },
           {
             "name": "address2",
             "type": "text",
-            "value": "0x7117"
+            "value": "0x18425447"
           }
         ]
       },
@@ -328,6 +315,22 @@
         "type": "raw_bytes",
         "raw_bytes": "0x0",
         "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x1C"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x7117"
+          }
+        ]
       },
       {
         "type": "command",
@@ -459,6 +462,11 @@
       },
       {
         "type": "command",
+        "name": "CmpAdrsAdCmpAdrsAdrsrs",
+        "parameters": []
+      },
+      {
+        "type": "command",
         "name": "CmpAdrsAdrs",
         "parameters": [
           {
@@ -584,6 +592,22 @@
         "type": "raw_bytes",
         "raw_bytes": "0x0",
         "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x1C"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x7117"
+          }
+        ]
       },
       {
         "type": "command",
