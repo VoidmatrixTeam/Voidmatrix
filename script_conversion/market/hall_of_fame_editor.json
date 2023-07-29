@@ -1,5 +1,18 @@
 [
   {
+    "title": "",
+    "color": "180, 180, 180",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "",
+        "parameters": []
+      }
+    ],
+    "variables": []
+  },
+  {
     "title": "Write u16 Functionality for Command 0x10",
     "color": "40, 154, 68",
     "language": "All",
@@ -360,7 +373,7 @@
           {
             "name": "address2",
             "type": "text",
-            "value": "0x2700 + [record_id] << 0x8 + 0x9800"
+            "value": "[record_id] << 0x10 + 0x27009800"
           }
         ]
       },
@@ -488,7 +501,7 @@
           {
             "name": "address2",
             "type": "text",
-            "value": "0x2700 + [record_id] << 0x8 + 0x9800"
+            "value": "[record_id] << 0x10 + 0x27009800"
           }
         ]
       },
@@ -616,7 +629,7 @@
           {
             "name": "address2",
             "type": "text",
-            "value": "0x2700 + [record_id] << 0x8 + 0x9800"
+            "value": "[record_id] << 0x10 + 0x27009800"
           }
         ]
       },
