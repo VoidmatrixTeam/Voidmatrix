@@ -462,8 +462,19 @@
       },
       {
         "type": "command",
-        "name": "CmpAdrsAdCmpAdrsAdrsrs",
-        "parameters": []
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x1C"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x7117"
+          }
+        ]
       },
       {
         "type": "command",
