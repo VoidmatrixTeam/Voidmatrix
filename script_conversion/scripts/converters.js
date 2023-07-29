@@ -16,12 +16,16 @@ class Converter {
                     operator = component;
                 }
                 else { // push the component to the output, might be a secondary operator
+                    operator = null;
                     output.push(component);
                 }
             }
             else if (typeof component === 'number') {
                 // If the component is a number, perform the operation
                 switch (operator) {
+                    case null:
+                        output.push(component);
+                        break;
                     case '>>':
                         output[output.length-1] >>= component;
                         break;
