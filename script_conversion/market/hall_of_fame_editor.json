@@ -1,0 +1,693 @@
+[
+  {
+    "title": "Write u16 Functionality for Command 0x10",
+    "color": "40, 154, 68",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x9"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1C"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x10"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x11"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x70"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039BBC"
+      }
+    ]
+  },
+  {
+    "title": "Setup Hall of Fame Custom Save",
+    "color": "196, 110, 110",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_EndGame] + 0x46"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x2001"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_EndGame] + 0x48"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x6020"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_EndGame] + 0x162"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xB003"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x158"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x4A13"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x15C"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x5042"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_GetRecordId] + 0x3"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetRecordId] + 0x4"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xBD10"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x11"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x60"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x18"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x18425447"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x1C"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x7117"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x65"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x45"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "FUN_AddRecord",
+        "value": "0x0202b050"
+      },
+      {
+        "language": "All",
+        "name": "FUN_GetRecordId",
+        "value": "0x0202b1f0"
+      },
+      {
+        "language": "All",
+        "name": "FUN_EndGame",
+        "value": "0x020484f8"
+      },
+      {
+        "language": "All",
+        "name": "jump",
+        "value": "0xE00FE"
+      },
+      {
+        "language": "All",
+        "name": "record_id",
+        "value": "0x1B"
+      },
+      {
+        "language": "All",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039BBC"
+      }
+    ]
+  },
+  {
+    "title": "Set Hall of Fame 28",
+    "color": "71, 163, 194",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x14C"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "[pokemon_id] << 0x10 + 0x23002200"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_GetRecordId] + 0x2"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[record_id]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x14"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x2700 + [record_id] << 0x8 + 0x9800"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetRecordId] + 0x8"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "DendouSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "PcDendouSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "SetMapProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "pokemon_id",
+        "value": "0x1"
+      },
+      {
+        "language": "All",
+        "name": "record_id",
+        "value": "0x1B"
+      },
+      {
+        "language": "All",
+        "name": "FUN_AddRecord",
+        "value": "0x0202b050"
+      },
+      {
+        "language": "All",
+        "name": "FUN_GetRecordId",
+        "value": "0x0202b1f0"
+      },
+      {
+        "language": "All",
+        "name": "jump",
+        "value": "0x0"
+      }
+    ]
+  },
+  {
+    "title": "Set Hall of Fame 29",
+    "color": "167, 121, 57",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x14C"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "[pokemon_id] << 0x10 + 0x23002200"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_GetRecordId] + 0x2"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[record_id]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x14"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x2700 + [record_id] << 0x8 + 0x9800"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetRecordId] + 0x8"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "DendouSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "PcDendouSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "SetMapProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "pokemon_id",
+        "value": "0x1"
+      },
+      {
+        "language": "All",
+        "name": "record_id",
+        "value": "0x1C"
+      },
+      {
+        "language": "All",
+        "name": "FUN_AddRecord",
+        "value": "0x0202b050"
+      },
+      {
+        "language": "All",
+        "name": "FUN_GetRecordId",
+        "value": "0x0202b1f0"
+      },
+      {
+        "language": "All",
+        "name": "jump",
+        "value": "0x0"
+      }
+    ]
+  },
+  {
+    "title": "Set Hall of Fame 30",
+    "color": "84, 182, 95",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x14C"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "[pokemon_id] << 0x10 + 0x23002200"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_GetRecordId] + 0x2"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[record_id]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_AddRecord] + 0x14"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x2700 + [record_id] << 0x8 + 0x9800"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetRecordId] + 0x8"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "[jump_literal]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "DendouSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "PcDendouSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "SetMapProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "pokemon_id",
+        "value": "0x1"
+      },
+      {
+        "language": "All",
+        "name": "record_id",
+        "value": "0x1D"
+      },
+      {
+        "language": "All",
+        "name": "FUN_AddRecord",
+        "value": "0x0202b050"
+      },
+      {
+        "language": "All",
+        "name": "FUN_GetRecordId",
+        "value": "0x0202b1f0"
+      },
+      {
+        "language": "All",
+        "name": "jump_literal",
+        "value": "0xFFFF0016"
+      }
+    ]
+  }
+]
