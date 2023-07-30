@@ -64,6 +64,22 @@
           {
             "name": "address1",
             "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x16"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xBD38"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
             "value": "[FUN_EndGame] + 0x46"
           },
           {
@@ -755,6 +771,146 @@
         "language": "All",
         "name": "jump",
         "value": "0xFFFD7020"
+      }
+    ]
+  },
+  {
+    "title": "Signature Data Overwrite",
+    "color": "50, 134, 128",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "TSignSetProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "SetMapProc",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x18"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x02106FC0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x10"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x68124A01"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x14"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x10"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x15"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x51"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x5D20"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x160000"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x5D24"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "[jump]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039BBC"
+      },
+      {
+        "language": "All",
+        "name": "jump",
+        "value": "0xFFFFB662"
       }
     ]
   }
