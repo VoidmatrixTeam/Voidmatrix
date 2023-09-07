@@ -21,7 +21,7 @@
           {
             "name": "value",
             "type": "text",
-            "value": "0x10"
+            "value": "0x00"
           }
         ]
       },
@@ -37,7 +37,7 @@
           {
             "name": "value",
             "type": "text",
-            "value": "0x0"
+            "value": "0x10"
           }
         ]
       },
