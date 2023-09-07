@@ -921,6 +921,8 @@ class ScriptHandler {
         const script = this.addScriptElement(color, true, false);
         // set the title
         script.title.titleElement.firstElementChild.value = json.title;
+        let languageField = script.title.titleElement.querySelector('.script-language');
+        languageField.value = json.language;
         // set the commands & raw bytes
         for (let inputField of json.input_fields) {
             script.addInputFieldFromJson(inputField);
