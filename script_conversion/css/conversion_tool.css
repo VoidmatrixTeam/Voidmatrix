@@ -419,6 +419,7 @@ input:focus, input:active {
     height: 100%;
     /* flex */
     display: flex;
+    overflow: hidden;
 }
 
 .dot-artist-application .canvas .row .pixel {
@@ -426,6 +427,9 @@ input:focus, input:active {
     width: 100%;
     height: 100%;
     border: var(--dot-artist-border);
+    overflow: hidden; 
+    text-align: center;
+    cursor: default;
 }
 
 .dot-artist-application .canvas .row .bit-0{
