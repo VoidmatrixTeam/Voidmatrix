@@ -27,22 +27,6 @@
       },
       {
         "type": "command",
-        "name": "LoadAdrsValue",
-        "parameters": [
-          {
-            "name": "address",
-            "type": "text",
-            "value": "[Box_ClearPokemon] + 0x3"
-          },
-          {
-            "name": "value",
-            "type": "text",
-            "value": "0xBD"
-          }
-        ]
-      },
-      {
-        "type": "command",
         "name": "End",
         "parameters": []
       }
