@@ -1,0 +1,197 @@
+[
+    {
+      "title": "Add Write u32 Relative to Base for Command 0x10",
+      "color": "184, 119, 46",
+      "language": "English",
+      "input_fields": [
+        {
+          "type": "raw_bytes",
+          "raw_bytes": "0",
+          "repetitions": "[dotartist_offset]"
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "type": "text",
+              "value": "[FUN_LoadAdrsAdrs] + 0x11"
+            },
+            {
+              "name": "value",
+              "type": "text",
+              "value": "0x0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "type": "text",
+              "value": "[FUN_LoadAdrsAdrs] + 0x13"
+            },
+            {
+              "name": "value",
+              "type": "text",
+              "value": "0x60"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "type": "text",
+              "value": "[FUN_CompAdrsAdrs] + 0x9"
+            },
+            {
+              "name": "value",
+              "type": "text",
+              "value": "0x1C"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsAdrs",
+          "parameters": [
+            {
+              "name": "tg",
+              "type": "text",
+              "value": "[FUN_CompAdrsAdrs] + 0x10"
+            },
+            {
+              "name": "src",
+              "type": "text",
+              "value": "0x68094902"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsAdrs",
+          "parameters": [
+            {
+              "name": "tg",
+              "type": "text",
+              "value": "[FUN_CompAdrsAdrs] + 0x14"
+            },
+            {
+              "name": "src",
+              "type": "text",
+              "value": "0xBD385060"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsAdrs",
+          "parameters": [
+            {
+              "name": "tg",
+              "type": "text",
+              "value": "[FUN_CompAdrsAdrs] + 0x1E"
+            },
+            {
+              "name": "src",
+              "type": "text",
+              "value": "0x02106FC0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ],
+      "variables": [
+        {
+          "language": "English",
+          "name": "dotartist_offset",
+          "value": "0x11"
+        },
+        {
+          "language": "English",
+          "name": "FUN_CompAdrsAdrs",
+          "value": "0x02039BBC"
+        },
+        {
+          "language": "English",
+          "name": "FUN_LoadAdrsAdrs",
+          "value": "0x2039ACC"
+        }
+      ]
+    },
+    {
+      "title": "Write Relative to Base",
+      "color": "114, 147, 197",
+      "language": "All",
+      "input_fields": [
+        {
+          "type": "raw_bytes",
+          "raw_bytes": "0",
+          "repetitions": "[dotartist_offset]"
+        },
+        {
+          "type": "command",
+          "name": "CmpAdrsAdrs",
+          "parameters": [
+            {
+              "name": "address1",
+              "type": "text",
+              "value": "[offset]"
+            },
+            {
+              "name": "address2",
+              "type": "text",
+              "value": "[value]"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ],
+      "variables": [
+        {
+          "language": "All",
+          "name": "dotartist_offset",
+          "value": "0x11"
+        },
+        {
+          "language": "All",
+          "name": "Trainer ID",
+          "value": "0xFFFF"
+        },
+        {
+          "language": "All",
+          "name": "Secret ID",
+          "value": "0xFFFF"
+        },
+        {
+          "language": "All",
+          "name": "TIDSID_offset",
+          "value": "0x288"
+        },
+        {
+          "language": "All",
+          "name": "offset",
+          "value": "[TIDSID_offset]"
+        },
+        {
+          "language": "All",
+          "name": "value",
+          "value": "[Secret ID] >> 16 + [Trainer ID]"
+        }
+      ]
+    }
+  ]
