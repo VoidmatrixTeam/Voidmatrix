@@ -130,7 +130,7 @@
       ]
     },
     {
-      "title": "Write Relative to Base",
+      "title": "Write custom TID/SID to Save File",
       "color": "114, 147, 197",
       "language": "All",
       "input_fields": [
