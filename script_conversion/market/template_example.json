@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Template",
+    "color": "180, 180, 180",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "",
+        "parameters": []
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      }
+    ]
+  }
+]
