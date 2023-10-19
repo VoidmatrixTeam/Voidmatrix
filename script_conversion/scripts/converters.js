@@ -318,12 +318,35 @@ class DotArtistConverter extends Converter {
         this.dotArtistGridElement = document.createElement("div");
         this.dotArtistGridElement.classList.add("canvas");
         this.dotArtistElement.appendChild(this.dotArtistGridElement);
-        this.convertByteCodeToDotArtist([0x00]);
+        //this.convertByteCodeToDotArtist([0x00]);
+        this.initializeDotArtist();
+        this.addEventListeners();
+    }
+
+    // initialize the dot artist
+    initializeDotArtist() {
+        for (let i=0;i<20;i++) {
+            let row = document.createElement("div");
+            row.classList.add("row");
+            for (let j=0;j<24;j++) {
+                row.appendChild(this.createPixelElement(0));
+            }
+            this.dotArtistGridElement.appendChild(row);
+        };
     }
 
     // function to clear the dot artist
     clearDotArtist() {
-        this.dotArtistGridElement.innerHTML = "";
+        //this.dotArtistGridElement.innerHTML = "";
+        // loop through all the rows, setting all the pixels to 0
+        for (let i=0;i<20;i++) {
+            let row = this.dotArtistGridElement.children[i];
+            for (let j=0;j<24;j++) {
+                let pixel = row.children[j];
+                // just set the class list to only pixel and bit-0
+                pixel.className = "pixel uninitialized";
+            }
+        }
     }
 
     // function to convert a script to byte code
@@ -331,14 +354,43 @@ class DotArtistConverter extends Converter {
         this.clearDotArtist();
         const binaryCode = this.convertByteCodeToBinary(byteCode);
     
+        outer_loop: // label for the outer loop
         for (let i=0;i<20;i++) {
-            let row = document.createElement("div");
-            row.classList.add("row");
+            let row = this.dotArtistGridElement.children[i];
             for (let j=0;j<24;j++) {  
-                let bit = binaryCode[i*24+j];          
-                row.appendChild(this.createPixelElement(bit));
+                let idx = i*24+j;
+                let bit = binaryCode[idx];          
+                // set class to bit-1, bit-2, or bit-3
+                let pixel = row.children[j];
+                pixel.classList.add(`bit-${bit}`);
+
+                pixel.classList.remove("uninitialized")
+                pixel.classList.add("highlight-bit");
+                if (i == 0) {
+                    pixel.classList.add("first-row");
+                }
+                if (j == 23) { // if we're at the end of the row, highlight the last bit
+                    pixel.classList.add("last-bit");
+                }
+                if (idx == binaryCode.length - 1) {
+                    pixel.classList.add("last-bit");
+                    // loop over all pixels in this row until this one, and give the tag last-row
+                    for (let k=0;k<=j;k++) {
+                        row.children[k].classList.add("last-row");
+                    }
+                    // loop over the remaining pixels, in the row above, given that current row is not the first row
+                    if (i > 0) {
+                        let prev_row = this.dotArtistGridElement.children[i-1];
+                        for (let k=j+1;k<24;k++) {
+                            prev_row.children[k].classList.add("last-row");
+                        }
+                    }
+                }
+                
+                if (idx  == binaryCode.length -1) {
+                    break outer_loop;
+                }
             }
-            this.dotArtistGridElement.appendChild(row);
         };
     }
 
@@ -350,7 +402,20 @@ class DotArtistConverter extends Converter {
 
         dotElement.addEventListener("mouseover", function() {
             dotElement.classList.add("show-bit");
-            dotElement.innerHTML = bit;
+            let classList = dotElement.classList;
+
+            if (classList.contains("uninitialized")) {
+                dotElement.innerHTML = "#";
+                return;
+            } else {
+                for (let i=0;i<classList.length;i++) {
+                    let className = classList[i];
+                    if (className.startsWith("bit-")) {
+                        dotElement.innerHTML = className.slice(4);
+                        break;
+                    }
+                }
+            }
         });
         dotElement.addEventListener("mouseout", function() {
             dotElement.classList.remove("show-bit");
@@ -367,11 +432,10 @@ class DotArtistConverter extends Converter {
 
     // function to convert bytecode to binary
     convertByteCodeToBinary(byteCode) {
-        let binaryCode = new Array((24*20)).fill(0);
-        const byteCodeIndex = 0x0 // binaryCode.length - byteCode.length*4;
+        let binaryCode = new Array(byteCode.length*4).fill(0);
         for (let i=0;i<byteCode.length;i++) {
             for (let j=0;j<4;j++) {
-                binaryCode[byteCodeIndex+i*4+j] = ((byteCode[i] >> (j*2)) & 0x3)
+                binaryCode[i*4+j] = ((byteCode[i] >> (j*2)) & 0x3)
             }
         }
         return binaryCode;
@@ -397,6 +461,40 @@ class DotArtistConverter extends Converter {
         const byteCode = [];
         this.convertByteCodeToDotArtist(byteCode);
         this.changeDotArtistBackgroundColor(`rgb(180, 180, 180)`);
+    }
+
+    // add event listeners to the options
+    addEventListeners() {
+        this.addOptionMenu()
+    }
+
+    addOptionMenu() {
+        const outerDiv = document.querySelector('.dot-artist-options');
+        console.log(outerDiv)
+        const listMenu = outerDiv.querySelector('.list_menu');
+
+        // Add a click event to all elements inside the outer div
+        const allElements = outerDiv.querySelectorAll('svg');
+        allElements.forEach((element) => {
+            element.addEventListener('click', () => {
+                element.classList.toggle('inactive');
+            });
+        });
+
+        // Add a click event specifically for the "list_meny" element
+        listMenu.addEventListener('click', () => {
+            allElements.forEach((element) => {
+                if (element !== listMenu) {
+                    element.classList.toggle('show');
+                }
+            });
+        });
+
+        // Add a click event specifically on the "highlight_code" element
+        const highlightCode = outerDiv.querySelector('.highlight_code');
+        highlightCode.addEventListener('click', () => {
+            this.dotArtistElement.classList.toggle("highlight_selection")
+        });
     }
 }
 
