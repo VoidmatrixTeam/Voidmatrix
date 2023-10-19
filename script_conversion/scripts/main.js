@@ -272,7 +272,7 @@ class CommandInput {
         this.paramElements = {};
     }
 
-  // function to add a command parameter
+    // function to add a command parameter
     addCommandParameter(parameter, index) {
         const paramName = parameter.name;
         const paramSize = parameter.size;
