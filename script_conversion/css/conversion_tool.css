@@ -14,7 +14,8 @@
     --dot-artist-bit-2 : rgba(0, 0, 0, 0.6);
     --dot-artist-bit-3 : rgba(0, 0, 0, 0.85);
     --dot-artist-no-highlight : rgba(80, 80, 80, 0.75);
-    --dot-artist-highlight-border: 1px solid rgba(255, 255, 255, 1);
+    --dot-artist-highlight-border: 1px solid rgb(255, 255, 255);
+    --dot-artist-uninitialized-border: 1px solid rgb(120,120,120);
 }
 
 html {
@@ -462,7 +463,8 @@ input:focus, input:active {
 }
 
 .dot-artist-application.highlight_selection .canvas .row .uninitialized {
-    background-color: var(--dot-artist-no-highlight)
+    background-color: var(--dot-artist-no-highlight);
+    border: var(--dot-artist-uninitialized-border);
 }
 
 .dot-artist-application.highlight_selection .canvas .row .highlight-bit:first-child {
