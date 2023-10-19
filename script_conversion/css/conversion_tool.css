@@ -3,6 +3,8 @@
     --gray-1 : #343434;
     --gray-2 : #242424;
     --light-color: white;
+    --menu_enabled-color: white;
+    --menu_disabled-color: rgb(120,120,120);
 
     --command-border: 1px solid rgb(200, 200, 200);
     --dot-artist-border : 1px solid rgb(200, 200, 200);
@@ -11,6 +13,8 @@
     --dot-artist-bit-1 : rgba(0, 0, 0, 0.3);
     --dot-artist-bit-2 : rgba(0, 0, 0, 0.6);
     --dot-artist-bit-3 : rgba(0, 0, 0, 0.85);
+    --dot-artist-no-highlight : rgba(80, 80, 80, 0.75);
+    --dot-artist-highlight-border: 1px solid rgba(255, 255, 255, 1);
 }
 
 html {
@@ -297,11 +301,11 @@ input:focus, input:active {
 /* Right side */
 
 .right-side {
-    width: 600px;
+    width: 640px;
 }
 
 .variable-container {
-    width: 100%;
+    width: 600px;
     background-color: var(--gray-1);
     border: var(--command-border);
     color: var(--light-color);
@@ -396,9 +400,13 @@ input:focus, input:active {
 
 /* Dot Artist */
 
+.dot-artist-application-wrapper {
+    display: flex;
+}
+
 .dot-artist-application {
     /* Styles for dot-artist-application */
-    width: 100%;
+    width: 600px;
     height: 500px;
     border: var(--dot-artist-border);
     background-color: var(--dot-artist-background);
@@ -425,7 +433,8 @@ input:focus, input:active {
 .dot-artist-application .canvas .row .pixel {
     /* Styles for pixel */
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
+    box-sizing: border-box;
     border: var(--dot-artist-border);
     overflow: hidden; 
     text-align: center;
@@ -452,6 +461,53 @@ input:focus, input:active {
     background-color: var(--dot-artist-bit-3);
 }
 
-.options {
-/* Styles for options */
+.dot-artist-application.highlight_selection .canvas .row .uninitialized {
+    background-color: var(--dot-artist-no-highlight)
+}
+
+.dot-artist-application.highlight_selection .canvas .row .highlight-bit:first-child {
+    border-left: var(--dot-artist-highlight-border);
+}
+
+.dot-artist-application.highlight_selection .canvas .row .last-bit {
+    border-right: var(--dot-artist-highlight-border);
+}
+
+.dot-artist-application.highlight_selection .canvas .row .last-row {
+    border-bottom: var(--dot-artist-highlight-border);
+}
+
+.dot-artist-application.highlight_selection .canvas .row .first-row {
+    border-top: var(--dot-artist-highlight-border);
+}
+
+.dot-artist-options {
+    /* Styles for options */
+    margin-left:4px;
+    width: 32px;
+    /* height depends on the number of options */
+    height: fit-content;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: var(--command-border);
+    background-color: var(--gray-1);
+    display: flex;
+    /* center items */
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.dot-artist-options svg {
+    fill: var(--menu_enabled-color);
+    display: none;
+}
+
+.dot-artist-options .show {
+    display: inline;
+}
+
+.dot-artist-options .inactive {
+    fill: var(--menu_disabled-color)
 }
