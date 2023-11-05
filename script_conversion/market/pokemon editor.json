@@ -2,7 +2,7 @@
   {
     "title": "Pokémon Editor: Setup",
     "color": "88, 165, 198",
-    "language": "All",
+    "language": "English",
     "input_fields": [
       {
         "type": "raw_bytes",
@@ -111,7 +111,7 @@
   {
     "title": "Pokémon Editor: Execution",
     "color": "50, 134, 55",
-    "language": "All",
+    "language": "English",
     "input_fields": [
       {
         "type": "raw_bytes",
