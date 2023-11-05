@@ -1,0 +1,175 @@
+[
+  {
+    "title": "Copy Party to Pal Park",
+    "color": "111, 172, 211",
+    "language": "All",
+    "input_fields": [
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "[dotartist_offset]"
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x9"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1C"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x10"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x11"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x60"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetFrontPokemon] + 0x8"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x21B93008"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetFrontPokemon] + 0xC"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x31900209"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetFrontPokemon] + 0x10"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x225A4401"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetFrontPokemon] + 0x14"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xF0790112"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[FUN_GetFrontPokemon] + 0x18"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xBDF8EAEE"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "FrontPokemon",
+        "parameters": [
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4000"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "All",
+        "name": "FUN_GetFrontPokemon",
+        "value": "0x02054dec"
+      },
+      {
+        "language": "All",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039BBC"
+      }
+    ]
+  }
+]
