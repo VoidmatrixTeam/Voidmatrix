@@ -91,15 +91,15 @@
       },
       {
         "type": "command",
-        "name": "LoadAdrsAdrs",
+        "name": "LoadAdrsValue",
         "parameters": [
           {
-            "name": "tg",
+            "name": "address",
             "type": "text",
             "value": "0x21ED410"
           },
           {
-            "name": "src",
+            "name": "value",
             "type": "text",
             "value": "0x89"
           }
