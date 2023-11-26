@@ -56,7 +56,27 @@
       {
         "language": "English",
         "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039ACC"
+        "value": "0x02039ACC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B3C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B3C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B3C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B3C"
       }
     ]
   }

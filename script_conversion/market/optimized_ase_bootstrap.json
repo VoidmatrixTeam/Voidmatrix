@@ -1,8 +1,8 @@
 [
   {
-    "title": "Optimized Kakuna - NPC ASE bootstrap",
+    "title": "Optimized NPC ASE bootstrap",
     "color": "51, 198, 209",
-    "language": "All",
+    "language": "English",
     "input_fields": [
       {
         "type": "raw_bytes",
@@ -166,11 +166,6 @@
     "variables": [
       {
         "language": "All",
-        "name": "FUN_AddNPCData",
-        "value": "0x02057d2C"
-      },
-      {
-        "language": "All",
         "name": "dotartist_offset",
         "value": "0x11"
       },
@@ -178,6 +173,31 @@
         "language": "All",
         "name": "npc_eventid",
         "value": "0x3D50"
+      },
+      {
+        "language": "English",
+        "name": "FUN_AddNPCData",
+        "value": "0x02057d2C"
+      },
+      {
+        "language": "French",
+        "name": "FUN_AddNPCData",
+        "value": "0x02057d9C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_AddNPCData",
+        "value": "0x02057d9C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_AddNPCData",
+        "value": "0x02057d9C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_AddNPCData",
+        "value": "0x02057d9C"
       }
     ]
   }

@@ -2,7 +2,7 @@
   {
     "title": "RETIRE function on regular menu",
     "color": "165, 161, 34",
-    "language": "All",
+    "language": "English",
     "input_fields": [
       {
         "type": "raw_bytes",
@@ -16,7 +16,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x02035678"
+            "value": "[FUN_CreateFieldMenu] + 0xC"
           },
           {
             "name": "value",
@@ -32,7 +32,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x02035708"
+            "value": "[FUN_CreateFieldMenu] + 0x9C"
           },
           {
             "name": "value",
@@ -63,6 +63,31 @@
         "language": "All",
         "name": "dotartist_offset",
         "value": "0x11"
+      },
+      {
+        "language": "English",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x0203566C"
+      },
+      {
+        "language": "French",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x020356DC"
+      },
+      {
+        "language": "German",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x020356DC"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x020356DC"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x020356DC"
       }
     ]
   }

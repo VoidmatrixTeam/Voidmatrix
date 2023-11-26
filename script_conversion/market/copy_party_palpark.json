@@ -2,7 +2,7 @@
   {
     "title": "Copy Party to Pal Park",
     "color": "111, 172, 211",
-    "language": "All",
+    "language": "English",
     "input_fields": [
       {
         "type": "raw_bytes",
@@ -161,14 +161,54 @@
         "value": "0x11"
       },
       {
-        "language": "All",
+        "language": "English",
         "name": "FUN_GetFrontPokemon",
         "value": "0x02054dec"
       },
       {
-        "language": "All",
+        "language": "French",
+        "name": "FUN_GetFrontPokemon",
+        "value": "0x02054e5c"
+      },
+      {
+        "language": "German",
+        "name": "FUN_GetFrontPokemon",
+        "value": "0x02054e5c"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_GetFrontPokemon",
+        "value": "0x02054e5c"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_GetFrontPokemon",
+        "value": "0x02054e5c"
+      },
+      {
+        "language": "English",
         "name": "FUN_CompAdrsAdrs",
         "value": "0x02039BBC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
       }
     ]
   }

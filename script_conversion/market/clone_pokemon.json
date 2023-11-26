@@ -41,6 +41,26 @@
         "language": "English",
         "name": "Box_ClearPokemon",
         "value": "0x0206B2FC"
+      },
+      {
+        "language": "French",
+        "name": "Box_ClearPokemon",
+        "value": "0x0206B36C"
+      },
+      {
+        "language": "German",
+        "name": "Box_ClearPokemon",
+        "value": "0x0206B36C"
+      },
+      {
+        "language": "Italian",
+        "name": "Box_ClearPokemon",
+        "value": "0x0206B36C"
+      },
+      {
+        "language": "Spanish",
+        "name": "Box_ClearPokemon",
+        "value": "0x0206B36C"
       }
     ]
   }

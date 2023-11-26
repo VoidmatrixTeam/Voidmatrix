@@ -97,14 +97,34 @@
     ],
     "variables": [
       {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
         "language": "English",
         "name": "FUN_DotArt_SetBitData",
         "value": "0x204c0e8"
       },
       {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
+        "language": "French",
+        "name": "FUN_DotArt_SetBitData",
+        "value": "0x204c158"
+      },
+      {
+        "language": "German",
+        "name": "FUN_DotArt_SetBitData",
+        "value": "0x204c158"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_DotArt_SetBitData",
+        "value": "0x204c158"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_DotArt_SetBitData",
+        "value": "0x204c158"
       }
     ]
   },

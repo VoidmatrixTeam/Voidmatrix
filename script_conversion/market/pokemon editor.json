@@ -105,13 +105,33 @@
         "language": "English",
         "name": "FUN_SetMove",
         "value": "0x020697CC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_SetMove",
+        "value": "0x0206983C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_SetMove",
+        "value": "0x0206983C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_SetMove",
+        "value": "0x0206983C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_SetMove",
+        "value": "0x0206983C"
       }
     ]
   },
   {
     "title": "Pokémon Editor: Execution",
     "color": "50, 134, 55",
-    "language": "English",
+    "language": "All",
     "input_fields": [
       {
         "type": "raw_bytes",

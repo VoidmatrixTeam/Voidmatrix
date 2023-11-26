@@ -65,14 +65,34 @@
     ],
     "variables": [
       {
-        "language": "English",
+        "language": "All",
         "name": "dotartist_offset",
         "value": "0x11"
       },
       {
-        "language": "All",
+        "language": "English",
         "name": "FUN_CompAdrsAdrs",
         "value": "0x02039BBC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
       }
     ]
   }

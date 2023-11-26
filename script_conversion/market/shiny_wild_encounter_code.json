@@ -2,7 +2,7 @@
   {
     "title": "Shiny Wild Encounter of Choice",
     "color": "129, 100, 166",
-    "language": "All",
+    "language": "English",
     "input_fields": [
       {
         "type": "raw_bytes",
@@ -16,7 +16,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x0223c32c"
+            "value": "[FUN_WildSingleEnc] + 0x10"
           },
           {
             "name": "value",
@@ -32,7 +32,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x223c360 "
+            "value": "[FUN_WildSingleEnc] + 0x44"
           },
           {
             "name": "value",
@@ -48,7 +48,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x223cbec"
+            "value": "[FUN_ChooseWildMon] + 0x18"
           },
           {
             "name": "value",
@@ -64,7 +64,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x223cc00"
+            "value": "[FUN_ChooseWildMon] + 0x2C"
           },
           {
             "name": "value",
@@ -80,7 +80,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x223cc01"
+            "value": "[FUN_ChooseWildMon] + 0x2D"
           },
           {
             "name": "value",
@@ -96,7 +96,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x223cc02"
+            "value": "[FUN_ChooseWildMon] + 0x2E"
           },
           {
             "name": "value",
@@ -112,7 +112,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x223cc03"
+            "value": "[FUN_ChooseWildMon] + 0x2F"
           },
           {
             "name": "value",
@@ -147,6 +147,56 @@
         "language": "All",
         "name": "add_value",
         "value": "[pokemon_id] - [mov_value]"
+      },
+      {
+        "language": "English",
+        "name": "FUN_WildSingleEnc",
+        "value": "0x0223C31C"
+      },
+      {
+        "language": "French",
+        "name": "FUN_WildSingleEnc",
+        "value": "0x0223C38C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_WildSingleEnc",
+        "value": "0x0223C38C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_WildSingleEnc",
+        "value": "0x0223C38C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_WildSingleEnc",
+        "value": "0x0223C38C"
+      },
+      {
+        "language": "English",
+        "name": "FUN_ChooseWildMon",
+        "value": "0x0223CBD4"
+      },
+      {
+        "language": "French",
+        "name": "FUN_ChooseWildMon",
+        "value": "0x0223CC44"
+      },
+      {
+        "language": "German",
+        "name": "FUN_ChooseWildMon",
+        "value": "0x0223CC44"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_ChooseWildMon",
+        "value": "0x0223CC44"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_ChooseWildMon",
+        "value": "0x0223CC44"
       }
     ]
   },
@@ -183,7 +233,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x02035708"
+            "value": "[FUN_CreateFieldMenu] + 0x9C"
           },
           {
             "name": "value",
@@ -214,6 +264,31 @@
         "language": "All",
         "name": "dotartist_offset",
         "value": "0x11"
+      },
+      {
+        "language": "English",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x0203566C"
+      },
+      {
+        "language": "French",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x020356DC"
+      },
+      {
+        "language": "German",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x020356DC"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x020356DC"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_CreateFieldMenu",
+        "value": "0x020356DC"
       }
     ]
   }
