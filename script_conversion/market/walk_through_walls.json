@@ -2,7 +2,7 @@
   {
     "title": "Walk Through Walls",
     "color": "182, 93, 93",
-    "language": "All",
+    "language": "English",
     "input_fields": [
       {
         "type": "raw_bytes",
@@ -49,6 +49,11 @@
     ],
     "variables": [
       {
+        "language": "All",
+        "name": "dotartist_offset",
+        "value": "0x11"
+      },
+      {
         "language": "English",
         "name": "collision",
         "value": "0x2056C06"
@@ -82,11 +87,6 @@
         "language": "Spanish",
         "name": "collision",
         "value": "0x2056C76"
-      },
-      {
-        "language": "English",
-        "name": "dotartist_offset",
-        "value": "0x11"
       }
     ]
   }
