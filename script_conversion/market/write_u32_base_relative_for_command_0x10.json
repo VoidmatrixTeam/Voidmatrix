@@ -113,7 +113,7 @@
     ],
     "variables": [
       {
-        "language": "English",
+        "language": "All",
         "name": "dotartist_offset",
         "value": "0x11"
       },
