@@ -145,7 +145,7 @@
           {
             "name": "party index",
             "type": "text",
-            "value": "0x1"
+            "value": "0x0"
           },
           {
             "name": "move slot",

@@ -265,7 +265,7 @@
         {
           "language": "All",
           "name": "value",
-          "value": "[Secret ID] >> 16 + [Trainer ID]"
+          "value": "[Secret ID] << 16 + [Trainer ID]"
         }
       ]
     }
