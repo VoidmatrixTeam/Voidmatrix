@@ -112,7 +112,7 @@
           {
             "name": "map",
             "type": "text",
-            "value": "0xAf"
+            "value": "0xAF"
           },
           {
             "name": "door",
@@ -198,6 +198,11 @@
         "language": "Spanish",
         "name": "FUN_AddNPCData",
         "value": "0x02057d9C"
+      },
+      {
+        "language": "Japanese",
+        "name": "FUN_AddNPCData",
+        "value": "0x0205BBCC"
       }
     ]
   }
