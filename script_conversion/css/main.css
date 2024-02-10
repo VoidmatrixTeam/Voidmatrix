@@ -449,6 +449,9 @@ input[type="color"]::-webkit-color-swatch {
     overflow: hidden; 
     text-align: center;
     cursor: default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dot-artist-container .canvas .row .bit-0{
