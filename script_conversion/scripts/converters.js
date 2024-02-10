@@ -340,6 +340,7 @@ class DotArtistConverter extends Converter {
         if (classList.contains("uninitialized")) {
             if (showUninitialized) {
                 dotElement.innerHTML = "-";
+                return;
             }
             dotElement.innerHTML = "";
             return;
@@ -347,7 +348,16 @@ class DotArtistConverter extends Converter {
             for (let i=0;i<dotElement.classList.length;i++) {
                 let className = classList[i];
                 if (className.startsWith("bit-")) {
-                    dotElement.innerHTML = className.slice(4);
+                    let bit = className.slice(4);
+                    if (bit == 0) {
+                        if (showUninitialized) {
+                            dotElement.innerHTML = "-";
+                            return;
+                        }
+                        dotElement.innerHTML = "";
+                        return;
+                    }
+                    dotElement.innerHTML = bit;
                     break;
                 }
             }
