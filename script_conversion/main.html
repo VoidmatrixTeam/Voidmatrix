@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/conversion_tool.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/icon.css">
+  <script src="https://unpkg.com/mathjs@12.3.1/lib/browser/math.js"></script>
+
   <script src="scripts/converters.js"></script>
   <script src="scripts/datalists.js"></script>
   <script src="scripts/main.js"></script>
@@ -12,38 +15,58 @@
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 
+<datalist id="datalist-languages">
+  <option value="All"></option>
+  <option value="English"></option>
+  <option value="Japanese"></option>
+  <option value="French"></option>
+  <option value="German"></option>
+  <option value="Spanish"></option>
+  <option value="Italian"></option>
+  <option value="Korean"></option>
+</datalist>
+
 <body>
-  <div class="container">
+  <div class="application-container">
 
-    <div class="left-side">
-      <div class="script-area-wrapper">
-        <div class="option-bar">
-			<img class="button create-script" src="assets/add.svg" alt="plus icon">
-          	<span>New Script</span>
-        </div>
-		<div class="script-area">
-		</div>
+    <div class="left-panel-content">
+      <div class="toolbar">
+        <img class="icon-0 add-icon create-script" src="assets/add.svg" alt="addition icon">
+        <span>Create New Script</span>
+        <img class="icon-0 search-icon" src="assets/search.svg" alt="search icon">
+
+        <input class="script-search" autocomplete="on" list="datalist-scripts" placeholder="Search Scripts">
+        <img class="icon-0 upload-icon" src="assets/upload.svg" alt="plus icon">
+        <img class="icon-0 download-icon" src="assets/download.svg" alt="plus icon">
+      </div>
+
+      <div class="script-editor-wrapper">
+        <div class="script-editor"></div>
       </div>
     </div>
 
-    <div class="right-side">
-      <div class="variable-container">
-		    <div class="variable-wrapper-title">
-			    <h4>Variables</h4>
-		    </div>
-		    <div class="variable-wrapper">
-		    </div>
-      </div>
+    <div class="right-panel-content">
 
-      <div class="dot-artist-application-wrapper">
-			  <div class="dot-artist-application"></div>
-        <div class="dot-artist-options">
-          <svg class="list_menu inactive show" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
-          <svg class="highlight_code inactive" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M17 5h-2V3h2v2zm-2 16h2v-2.59L19.59 21 21 19.59 18.41 17H21v-2h-6v6zm4-12h2V7h-2v2zm0 4h2v-2h-2v2zm-8 8h2v-2h-2v2zM7 5h2V3H7v2zM3 17h2v-2H3v2zm2 4v-2H3c0 1.1.9 2 2 2zM19 3v2h2c0-1.1-.9-2-2-2zm-8 2h2V3h-2v2zM3 9h2V7H3v2zm4 12h2v-2H7v2zm-4-8h2v-2H3v2zm0-8h2V3c-1.1 0-2 .9-2 2z"/></svg>
+      <div class="variable-section">
+        <div class="variable-toolbar">
+          <h4>Variables</h4>
+          <input class="language-config" autocomplete="on" list="datalist-languages" placeholder="English" value="English">
+        </div>
+        <div class="variable-container"></div>
+      </div>
+    
+      <div class="dot-artist-section">
+        <div class="dot-artist-container"></div>
+        <div class="dot-artist-config-options">
+          <img class="icon-0 config-icon-0 dot-artist-options-icon show" src="assets/list_menu.svg" alt="options icon">
+          <img class="icon-0 config-icon-0 dot-artist-highlight-icon inactive" src="assets/highlight_selection.svg" alt="highlight icon">
+          <img class="icon-0 config-icon-0 dot-artist-number-overlay-icon inactive" src="assets/123.svg" alt="123 icon">
         </div>
       </div>
-    </div>
+
+
   </div>
+  
 </body>
 
 </html>
