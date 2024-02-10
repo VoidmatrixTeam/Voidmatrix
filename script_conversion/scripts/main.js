@@ -177,11 +177,44 @@ class VariableWrapper {
     // variables
     variableWrapperElement = null;
     variableGroups = [];
+    prevLanguage = null;
 
     // constructor
     constructor() {
         this.createVariableWrapper();
+        this.setDynamicLanguageConfig();
     }
+
+    // function to set the dynamic language Config
+    setDynamicLanguageConfig() {
+        const languageConfig = document.querySelector('.language-config');
+        console.log(languageConfig);
+
+        languageConfig.addEventListener('focus', (event) => {
+            console.log('clicked');
+            this.prevLanguage = event.target.value
+            event.target.value = '';
+        });
+
+        languageConfig.addEventListener('blur', (event) => {
+            const language = event.target.value;
+            let validLanguageDataList = datalists["datalist-languages"].json;
+            console.log(validLanguageDataList);
+            if (!validLanguageDataList.includes(language)) {
+                console.log('invalid language');
+                event.target.value = this.prevLanguage;
+            }
+        });
+
+        // run blur upon pressing enter
+        languageConfig.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                event.target.blur();
+            }
+        });
+    }
+            
+
 
     // function to create the variable wrapper
     createVariableWrapper() {
