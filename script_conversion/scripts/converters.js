@@ -2,101 +2,20 @@
 let debug = false;
 // Converter: this class will convert the input scripts to byte code
 
-class Converter {
-    // primary operator function
-    evalPrimaryOperators(input) {
-        // primary operators: >>, <<, &, |, ^
-        let output = [];
-        let operator = null;
-        for (let i = 0; i < input.length; i++) {
-            const component = input[i];
-            if (typeof component === 'string') {
-                // If the component is a string, check if it's an operator, otherwise ignore it
-                if (component.match(/^[&|^]|<<|>>$/)) {
-                    operator = component;
-                }
-                else { // push the component to the output, might be a secondary operator
-                    operator = null;
-                    output.push(component);
-                }
-            }
-            else if (typeof component === 'number') {
-                // If the component is a number, perform the operation
-                switch (operator) {
-                    case null:
-                        output.push(component);
-                        break;
-                    case '>>':
-                        output[output.length-1] >>= component;
-                        break;
-                    case '<<':
-                        output[output.length-1] <<= component;
-                        break;
-                    case '&':
-                        output[output.length-1] &= component;
-                        break;
-                    case '|':
-                        output[output.length-1] |= component;
-                        break;
-                    case '^':
-                        output[output.length-1] ^= component;
-                        break;
-                    default:
-                        output.push(component);
-                }
-            }
-        }
-        return output;
-    }
-
-    // secondary operator function
-    evalSecondaryOperators(input) {
-        // secondary operators: +, -, *, /, %
-        let output = 0;
-        let operator = '+';
-        for (let i = 0; i < input.length; i++) {
-            const component = input[i];
-            if (typeof component === 'string') {
-                // If the component is a string, check if it's an operator, otherwise ignore it
-                if (component.match(/^[+\-*/%]$/)) {
-                    operator = component;
-                }
-            }
-            else if (typeof component === 'number') {
-                // If the component is a number, perform the operation
-                switch (operator) {
-                    case '+':
-                        output += component;
-                        break;
-                    case '-':
-                        output -= component;
-                        break;
-                    case '*':
-                        output *= component;
-                        break;
-                    case '/':
-                        output /= component;
-                        break;
-                    case '%':
-                        output %= component;
-                        break;
-                }
-            }
-        }
-        return output;
-    }
-
-    // function to safely evaluate the input
+class Converter {    
     safeEval(input, variables) {
         // Sanitize the input
         const sanitizedInput = this.sanitizeInput(input, variables);
         if (sanitizedInput === null) {
             return null;
         }
-        let primaryOutput = this.evalPrimaryOperators(sanitizedInput);
-        let value = this.evalSecondaryOperators(primaryOutput);
-        return value;
-    }    
+        try {
+            return math.evaluate(sanitizedInput.join(' ')); // convert the sanitized input to a string and evaluate it
+        } catch (error) {
+            console.error('Error evaluating expression:', error);
+            return null;
+        }
+    }
 
     // function to sanitize input
     sanitizeInput(inputValue, variables) {
@@ -143,6 +62,28 @@ class Converter {
                     name: variableName,
                     value: variableValue
                 });
+            }
+        }
+
+        // extend with global variables
+        let globalVariables = document.querySelector('.global-variables');
+        if (globalVariables) {
+            let globalVariableElements = globalVariables.querySelectorAll('.variable');
+            for (let globalVariableElement of globalVariableElements) {
+                const variableLanguage = globalVariableElement.querySelector('.variable-language').value || 'All';
+                if ((variableLanguage === language) || (variableLanguage === 'All')) {
+                    const variableName = globalVariableElement.querySelector('.variable-name').value;
+                    const variableValue = globalVariableElement.querySelector('.variable-value').value;
+
+                    // if the variable is not already in the list, add it
+                    if (!variables.some(variable => variable.name === variableName)) {
+                        variables.push({
+                            language: variableLanguage,
+                            name: variableName,
+                            value: variableValue
+                        });
+                    }
+                }
             }
         }
         return variables;
@@ -278,7 +219,7 @@ class Converter {
     convertScriptToByteCode(script) {
         const scriptElement = script.scriptElement;
         const variableGroup = script.variableGroup;
-        const language = scriptElement.querySelector('.script-language').value || 'All';
+        const language = document.querySelector('.language-config').value || 'All';
 
         // get all variables, then sanitize them
         const variables = this.getVariablesByLanguage(variableGroup, language);
@@ -310,15 +251,15 @@ class DotArtistConverter extends Converter {
     // variables
     dotArtistElement = null;
     dotArtistGridElement = null;
+    forceShowNumbers = false;
 
     // constructor
     constructor() {
         super();
-        this.dotArtistElement = document.querySelector('.dot-artist-application');
+        this.dotArtistElement = document.querySelector('.dot-artist-container');
         this.dotArtistGridElement = document.createElement("div");
         this.dotArtistGridElement.classList.add("canvas");
         this.dotArtistElement.appendChild(this.dotArtistGridElement);
-        //this.convertByteCodeToDotArtist([0x00]);
         this.initializeDotArtist();
         this.addEventListeners();
     }
@@ -337,7 +278,6 @@ class DotArtistConverter extends Converter {
 
     // function to clear the dot artist
     clearDotArtist() {
-        //this.dotArtistGridElement.innerHTML = "";
         // loop through all the rows, setting all the pixels to 0
         for (let i=0;i<20;i++) {
             let row = this.dotArtistGridElement.children[i];
@@ -386,7 +326,7 @@ class DotArtistConverter extends Converter {
                         }
                     }
                 }
-                
+
                 if (idx  == binaryCode.length -1) {
                     break outer_loop;
                 }
@@ -394,32 +334,73 @@ class DotArtistConverter extends Converter {
         };
     }
 
+    setDotInnerValue(dotElement, showUninitialized=true) {
+        dotElement.classList.add("show-bit");
+        let classList = dotElement.classList;
+        if (classList.contains("uninitialized")) {
+            if (showUninitialized) {
+                dotElement.innerHTML = "-";
+            }
+            dotElement.innerHTML = "";
+            return;
+        } else {
+            for (let i=0;i<dotElement.classList.length;i++) {
+                let className = classList[i];
+                if (className.startsWith("bit-")) {
+                    dotElement.innerHTML = className.slice(4);
+                    break;
+                }
+            }
+        }
+    }
+
+    removeDotInnerValue(dotElement) {
+        dotElement.classList.remove("show-bit");
+        dotElement.innerHTML = "";
+    }
+
+    setAllDotInnerValues(showUninitialized=true) {
+        console.log("Setting all dot inner values");
+        for (let i=0;i<20;i++) {
+            let row = this.dotArtistGridElement.children[i];
+            for (let j=0;j<24;j++) {
+                let pixel = row.children[j];
+                this.setDotInnerValue(pixel, showUninitialized);
+            }
+        }
+    }
+
+    removeAllDotInnerValues() {
+        for (let i=0;i<20;i++) {
+            let row = this.dotArtistGridElement.children[i];
+            for (let j=0;j<24;j++) {
+                let pixel = row.children[j];
+                this.removeDotInnerValue(pixel);
+            }
+        }
+    }
+
+
     // function to create a dot element
     createPixelElement(bit) {
         let dotElement = document.createElement("div");
         dotElement.classList.add("pixel");
         dotElement.classList.add(`bit-${bit}`);
 
-        dotElement.addEventListener("mouseover", function() {
-            dotElement.classList.add("show-bit");
-            let classList = dotElement.classList;
-
-            if (classList.contains("uninitialized")) {
-                dotElement.innerHTML = "#";
+        dotElement.addEventListener("mouseover", () => {
+            if (this.forceShowNumbers) {
                 return;
-            } else {
-                for (let i=0;i<classList.length;i++) {
-                    let className = classList[i];
-                    if (className.startsWith("bit-")) {
-                        dotElement.innerHTML = className.slice(4);
-                        break;
-                    }
-                }
             }
+
+            this.setDotInnerValue(dotElement);
         });
-        dotElement.addEventListener("mouseout", function() {
-            dotElement.classList.remove("show-bit");
-            dotElement.innerHTML = "";
+
+        dotElement.addEventListener("mouseout", () => {
+            if (this.forceShowNumbers) {
+                return;
+            }
+
+            this.removeDotInnerValue(dotElement);
         });
         return dotElement;
     }
@@ -453,7 +434,10 @@ class DotArtistConverter extends Converter {
             console.log(byteCode.map(x => x.toString(16).padStart(2, "0")).join(""));
         }
         this.convertByteCodeToDotArtist(byteCode);
-        
+
+        if (this.forceShowNumbers) {
+            this.setAllDotInnerValues(false);
+        }
     }
 
     // reset the dot artist
@@ -461,6 +445,9 @@ class DotArtistConverter extends Converter {
         const byteCode = [];
         this.convertByteCodeToDotArtist(byteCode);
         this.changeDotArtistBackgroundColor(`rgb(180, 180, 180)`);
+        if (this.forceShowNumbers) {
+            this.setAllDotInnerValues(false);
+        }
     }
 
     // add event listeners to the options
@@ -469,31 +456,44 @@ class DotArtistConverter extends Converter {
     }
 
     addOptionMenu() {
-        const outerDiv = document.querySelector('.dot-artist-options');
-        console.log(outerDiv)
-        const listMenu = outerDiv.querySelector('.list_menu');
+        const outerDiv = document.querySelector('.dot-artist-config-options');
+        const optionsIcon = outerDiv.querySelector('.dot-artist-options-icon');
 
         // Add a click event to all elements inside the outer div
-        const allElements = outerDiv.querySelectorAll('svg');
+        const allElements = outerDiv.querySelectorAll('img, svg');
         allElements.forEach((element) => {
             element.addEventListener('click', () => {
                 element.classList.toggle('inactive');
             });
         });
 
-        // Add a click event specifically for the "list_meny" element
-        listMenu.addEventListener('click', () => {
+        // Add a click event specifically for the "list_menu" element
+        optionsIcon.addEventListener('click', () => {
             allElements.forEach((element) => {
-                if (element !== listMenu) {
+                if (element !== optionsIcon) {
                     element.classList.toggle('show');
                 }
             });
         });
 
         // Add a click event specifically on the "highlight_code" element
-        const highlightCode = outerDiv.querySelector('.highlight_code');
+        const highlightCode = outerDiv.querySelector('.dot-artist-highlight-icon');
         highlightCode.addEventListener('click', () => {
             this.dotArtistElement.classList.toggle("highlight_selection")
+        });
+
+        // Add a click event specifically to the "show_numbers" element
+        const showNumbers = outerDiv.querySelector('.dot-artist-number-overlay-icon');
+        showNumbers.addEventListener('click', () => {
+            this.forceShowNumbers = !this.forceShowNumbers;
+            console.log(this.forceShowNumbers);
+            if (this.forceShowNumbers) {
+                // loop over all pixels and set the inner value to the bit value
+                this.setAllDotInnerValues(false);
+            } else {
+                // loop over all pixels and remove the inner value
+                this.removeAllDotInnerValues();
+            }
         });
     }
 }
@@ -503,7 +503,7 @@ class JsonExporter extends Converter {
     convertScriptToJson(script) {
       const scriptElement = script.scriptElement;
       const variableGroup = script.variableGroup;
-      const language = scriptElement.querySelector('.script-language').value || 'All';
+      const language = document.querySelector('.language-config').value || 'All';
        
       let json = {
         'title': script.title.titleElement.firstElementChild.value,

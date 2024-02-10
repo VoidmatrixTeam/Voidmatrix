@@ -12,7 +12,7 @@ class IconFactory {
         const deleteIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         deleteIcon.setAttribute('viewBox', '0 0 24 24');
         deleteIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
-        deleteIcon.classList.add('button', tag);
+        deleteIcon.classList.add('icon-1', tag);
         deleteIcon.innerHTML = '<path d="M0 0h24v24H0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>';
         if (eventListener) {
             deleteIcon.addEventListener('click', () => {
@@ -32,7 +32,7 @@ class IconFactory {
         const addIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         addIcon.setAttribute('viewBox', '0 0 24 24');
         addIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
-        addIcon.classList.add('button', tag);
+        addIcon.classList.add('icon-0', tag, 'add-icon');
         addIcon.innerHTML = `<path d="M10.8,22.8V13.2H1.2a1.2,1.2,0,0,1,0-2.4h9.6V1.2a1.2,1.2,0,1,1,2.4,0v9.6h9.6a1.2,1.2,0,1,1,0,2.4H13.2v9.6a1.2,1.2,0,0,1-2.4,0Z"></path>`;
         // return the add icon
         return addIcon;
@@ -43,7 +43,7 @@ class IconFactory {
         const uploadIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         uploadIcon.setAttribute('viewBox', '0 -960 960 960');
         uploadIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
-        uploadIcon.classList.add('button', tag);
+        uploadIcon.classList.add('icon-0', tag);
         uploadIcon.innerHTML = `<path d="M452-202h60v-201l82 82 42-42-156-152-154 154 42 42 84-84v201ZM220-80q-24 0-42-18t-18-42v-680q0-24 18-42t42-18h361l219 219v521q0 24-18 42t-42 18H220Zm331-554v-186H220v680h520v-494H551ZM220-820v186-186 680-680Z"/></path>`;
         // return the upload icon
         return uploadIcon;
@@ -82,23 +82,21 @@ class VariableGroup {
     titleElement = null;
   
     // constructor
-    constructor(parent, scriptTitle) {
+    constructor(parent, scriptTitle, isGlobal = false) {
         this.createVariableGroup(parent, scriptTitle);
+        if (isGlobal) {
+            this.variableGroupElement.classList.add('global-variables');
+        }
     }
   
     // function to create the variable group
     createVariableGroup(parent, title) {
         const variableGroupElement = document.createElement('div');
         variableGroupElement.classList.add('variable-group');
-    
+
         const variableTitleElement = document.createElement('div');
         variableTitleElement.classList.add('variable-title');
-    
-        const titleHeadingElement = document.createElement('h4');
-        titleHeadingElement.innerText = title;
-        variableTitleElement.appendChild(titleHeadingElement);
-        this.titleElement = titleHeadingElement;
-    
+
         const addButtonElement = IconFactory.getPlusIcon('create-variable');
         addButtonElement.alt = 'plus icon';
         addButtonElement.addEventListener('click', () => {
@@ -107,10 +105,16 @@ class VariableGroup {
 
         variableTitleElement.appendChild(addButtonElement);
     
-        variableGroupElement.appendChild(variableTitleElement);
+        const titleHeadingElement = document.createElement('h4');
+        titleHeadingElement.innerText = title;
+        variableTitleElement.appendChild(titleHeadingElement);
+        this.titleElement = titleHeadingElement;
     
-        parent.appendChild(variableGroupElement);
+        variableGroupElement.appendChild(variableTitleElement);
+        
         this.variableGroupElement = variableGroupElement;
+
+        parent.appendChild(variableGroupElement);
     }
   
     // function to add a variable element
@@ -182,15 +186,25 @@ class VariableWrapper {
     // function to create the variable wrapper
     createVariableWrapper() {
         // the variable wrapper is already created in the html file, tag with id 'variable-wrapper'
-        this.variableWrapperElement = document.querySelector('.variable-wrapper');
+        this.variableWrapperElement = document.querySelector('.variable-container');
+        this.addVariableGroup(null, "Global Variables", true)
     }
 
     // function to add a variable group
-    addVariableGroup(scriptTitle, placeholderTitle = "Script Title") {
-        const variableGroup = new VariableGroup(this.variableWrapperElement, scriptTitle.titleElement.firstElementChild.value || placeholderTitle);
-        scriptTitle.titleElement.firstElementChild.addEventListener('input', () => {
-            variableGroup.updateTitle(scriptTitle.titleElement.firstElementChild.value);
-        });
+    addVariableGroup(scriptTitle, placeholderTitle = "Script Title", isGlobal = false) {
+        let titleText = placeholderTitle;
+        if (scriptTitle) {
+            titleText ||= scriptTitle.titleElement.firstElementChild.value;
+        }
+        
+        const variableGroup = new VariableGroup(this.variableWrapperElement, titleText, isGlobal);
+        
+        if (scriptTitle) {
+            scriptTitle.titleElement.firstElementChild.addEventListener('input', () => {
+                variableGroup.updateTitle(scriptTitle.titleElement.firstElementChild.value);
+            });
+        }
+
         this.variableGroups.push(variableGroup);
         return variableGroup;
     }
@@ -362,6 +376,13 @@ class Command {
     addDragandDrop(parent, commandElement) { 
         // Drag start event listener
         function handleDragStart(event) {
+            // check if user is currently on any input field (not the event's target)
+            let activeElement = document.activeElement;
+            if (activeElement.tagName === 'INPUT') {
+                console.log('active element is input')
+                event.preventDefault();
+                return;
+            }
             currentDrag = this;
             event.dataTransfer.effectAllowed = 'move';
             event.dataTransfer.setData('text/html', this.innerHTML);
@@ -461,6 +482,13 @@ class RawBytes {
     addDragandDrop(parent, rawBytes) { 
         // Drag start event listener
         function handleDragStart(event) {
+            // check if user is currently on any input field (not the event's target)
+            let activeElement = document.activeElement;
+            if (activeElement.tagName === 'INPUT') {
+                console.log('active element is input')
+                event.preventDefault();
+                return;
+            }
             currentDrag = this;
             event.dataTransfer.effectAllowed = 'move';
             event.dataTransfer.setData('text/html', this.innerHTML);
@@ -468,6 +496,12 @@ class RawBytes {
     
         // Drag over event listener
         function handleDragOver(event) {
+            // check if user is currently on any input field (not the event's target)
+            let activeElement = document.activeElement;
+            if (activeElement.tagName === 'INPUT') {
+                console.log('active element is input')
+                return;
+            }
             event.preventDefault();
             event.dataTransfer.dropEffect = 'move';
             return false;
@@ -593,6 +627,7 @@ class CommandWrapper {
 class CommandCreate {
     // variables
     addInputWrapperElement = null;
+    optionWrapperElement = null;
     addCommandButtonElement = null;
     addRawBytesButtonElement = null;
 
@@ -605,40 +640,53 @@ class CommandCreate {
     createInputAdders(parent) {
         const addInputWrapperElement = document.createElement('div');
         addInputWrapperElement.classList.add('command-create-wrapper');
+        addInputWrapperElement.addEventListener('mouseleave', () => {
+            addInputWrapperElement.classList.remove('dropdown');
+        });
 
-        // Command adder
-        const addCommandWrapperElement = document.createElement('div');
-        addCommandWrapperElement.classList.add('command-create');
+        const optionWrapperElement = document.createElement('div');
+        optionWrapperElement.classList.add('option-wrapper');
+    
+        const options = [
+            { type: 'command', icon: 'command-add', text: 'Add Command' },
+            { type: 'raw-bytes', icon: 'raw-bytes-add', text: 'Add Raw Bytes' }
+        ];
 
-        const addCommandButtonElement = IconFactory.getPlusIcon("command-add");
-        addCommandButtonElement.alt = 'add icon';
-        addCommandWrapperElement.appendChild(addCommandButtonElement);
+        options.forEach(option => {
+            const addWrapperElement = document.createElement('div');
+            addWrapperElement.classList.add(`${option.type}-create`, 'dropdown-content');
+    
+            const addButtonElement = IconFactory.getPlusIcon(option.icon);
+            addButtonElement.alt = 'add icon';
+            addWrapperElement.appendChild(addButtonElement);
+    
+            const addTextElement = document.createElement('span');
+            addTextElement.classList.add(`${option.type}-add-text`);
+            addTextElement.innerText = option.text;
 
-        const addCommandTextElement = document.createElement('span');
-        addCommandTextElement.classList.add('command-add-text');
-        addCommandTextElement.innerText = 'Add Command';
-        addCommandWrapperElement.appendChild(addCommandTextElement);
-        addInputWrapperElement.appendChild(addCommandWrapperElement);
+            addWrapperElement.appendChild(addTextElement);
+            optionWrapperElement.appendChild(addWrapperElement);
+        });
 
-        // Raw bytes adder
-        const addRawBytesWrapperElement = document.createElement('div');
-        addRawBytesWrapperElement.classList.add('raw-bytes-create');
-
-        const addRawBytesButtonElement = IconFactory.getPlusIcon("raw-bytes-add");
-        addRawBytesButtonElement.alt = 'add icon';
-        addRawBytesWrapperElement.appendChild(addRawBytesButtonElement);
-
-        const addRawBytesTextElement = document.createElement('span');
-        addRawBytesTextElement.classList.add('raw-bytes-add-text');
-        addRawBytesTextElement.innerText = 'Add Raw Bytes';
-        addRawBytesWrapperElement.appendChild(addRawBytesTextElement);
-        addInputWrapperElement.appendChild(addRawBytesWrapperElement);
+        addInputWrapperElement.appendChild(optionWrapperElement);
+    
+        // Dropdown icon
+        const dropdownIconElement = document.createElement('span');
+        dropdownIconElement.classList.add('dropdown-icon');
+        dropdownIconElement.innerText = '▼';
+        dropdownIconElement.addEventListener('click', () => {
+            addInputWrapperElement.classList.toggle('dropdown');
+        });
+        addInputWrapperElement.appendChild(dropdownIconElement);
 
         parent.appendChild(addInputWrapperElement);
-        this.addCommandButtonElement = addCommandButtonElement;
-        this.addRawBytesButtonElement = addRawBytesButtonElement;
+
+        this.optionWrapperElement = optionWrapperElement;
+        this.addCommandButtonElement = addInputWrapperElement.querySelector('.command-create');
+        this.addCommandButtonElement.classList.add('current-option');
+        this.addRawBytesButtonElement = addInputWrapperElement.querySelector('.raw-bytes-create');
         this.addInputWrapperElement = addInputWrapperElement;
-    }
+    }    
 }
 
 // ScriptTitle: this class will be used to store the script title data
@@ -656,18 +704,12 @@ class ScriptTitle {
     // function to create the script title element
     createScriptTitleElement(parent, scriptElement) {
         const scriptTitleElement = document.createElement('div');
-        scriptTitleElement.classList.add('script-title');
+        scriptTitleElement.classList.add('script-toolbar');
     
         const titleText = document.createElement('input');
         titleText.classList.add('title-text');
         titleText.placeholder = 'Script Title';
         scriptTitleElement.appendChild(titleText);
-
-        const scriptLanguage = document.createElement('input');
-        scriptLanguage.classList.add('script-language');
-        scriptLanguage.placeholder = 'Language';
-        scriptLanguage.setAttribute('list', 'datalist-languages');
-        scriptTitleElement.appendChild(scriptLanguage);
 
         const scriptDeleteButton = IconFactory.getDeleteIcon("script-delete", scriptElement, 'Would you like to delete this script?' , false);
         scriptTitleElement.appendChild(scriptDeleteButton);  
@@ -702,13 +744,31 @@ class Script {
     addCommandCreate(parent) {
         // create a command create element
         const commandCreate = new CommandCreate(parent);
+
+        const setCurrent = (addWrapperElement) => {
+            commandCreate.optionWrapperElement.childNodes.forEach(opt => {
+                opt.classList.remove('current-option');
+            });
+
+            addWrapperElement.classList.add('current-option');
+            commandCreate.addInputWrapperElement.classList.remove('dropdown');
+        };
+
         // add event listener to the add button
         commandCreate.addCommandButtonElement.addEventListener('click', () => {
+            if (commandCreate.addInputWrapperElement.classList.contains('dropdown')) {
+                setCurrent(commandCreate.addCommandButtonElement);
+                return;
+            }
             // create a new command
             this.commandWrapper.addCommand();
         });
 
         commandCreate.addRawBytesButtonElement.addEventListener('click', () => {
+            if (commandCreate.addInputWrapperElement.classList.contains('dropdown')) {
+                setCurrent(commandCreate.addRawBytesButtonElement);
+                return;
+            }
             // create a new command
             this.commandWrapper.addRawBytes();
         });
@@ -718,7 +778,7 @@ class Script {
 
     // function to create the script element
     createScriptElement(color, dotArtist) {
-        const scriptContainer = document.querySelector('.script-area');
+        const scriptContainer = document.querySelector('.script-editor');
 
         // Create the script element
         const scriptElement = document.createElement('div');
@@ -729,7 +789,7 @@ class Script {
         const colorSwatchElement = document.createElement('input');
         colorSwatchElement.type = 'color';
         colorSwatchElement.value = `#${color[0].toString(16)}${color[1].toString(16)}${color[2].toString(16)}`
-        colorSwatchElement.classList.add('script-group');
+        colorSwatchElement.classList.add('script-color-swatch');
 
         colorSwatchElement.addEventListener('input', () => {
             const colorCode = colorSwatchElement.value;
@@ -833,7 +893,7 @@ class ScriptHandler {
     selectScript(script) {
         const scriptElement = script.scriptElement;
         // unselect the other scripts
-        const scriptElements = document.querySelectorAll('.script-area .script');
+        const scriptElements = document.querySelectorAll('.script-editor .script');
         scriptElements.forEach((element) => {
           element.classList.remove('selected');
         });
@@ -851,7 +911,7 @@ class ScriptHandler {
     resetSelection = (script) => {
         this.removeScript(script);
         // unselect the other scripts
-        const scriptElements = document.querySelectorAll('.script-area .script');
+        const scriptElements = document.querySelectorAll('.script-editor .script');
         if (scriptElements.length === 0) {
             this.dotArtistConverter.resetDotArtist();
             return;
@@ -919,10 +979,10 @@ class ScriptHandler {
         }
         const color = json.color.split(',').map(val => parseInt(val));
         const script = this.addScriptElement(color, true, false);
+
         // set the title
         script.title.titleElement.firstElementChild.value = json.title;
-        let languageField = script.title.titleElement.querySelector('.script-language');
-        languageField.value = json.language;
+
         // set the commands & raw bytes
         for (let inputField of json.input_fields) {
             script.addInputFieldFromJson(inputField);
@@ -943,19 +1003,8 @@ class ScriptHandler {
     // function to add the import and export buttons
     addImportExportButtons() {
         // select the top bar of the script area
-        const topBar = document.querySelector('.option-bar');
-        // create search
-        const searchWrapper = document.createElement('div')
-        searchWrapper.classList.add('search-wrapper')
-
-        const searchIcon = IconFactory.getSearchIcon("search-script");
-        searchWrapper.appendChild(searchIcon)
-
-        const searchInput = document.createElement('input')
-        searchInput.classList.add('search-input')
-        searchInput.setAttribute('autocomplete', 'on');
-        searchInput.setAttribute('list', "datalist-scripts")
-        searchInput.placeholder = "Search Scripts"
+        const topBar = document.querySelector('.toolbar');
+        let searchInput = document.querySelector('.script-search')
 
         searchInput.addEventListener('change', () => {
                 const scriptInfo = datalists['datalist-scripts'].getOptionByName(searchInput.value);
@@ -964,13 +1013,9 @@ class ScriptHandler {
             }
         )
 
-        searchWrapper.appendChild(searchInput)
-        topBar.appendChild(searchWrapper);
+        const uploadButton = document.querySelector('.upload-icon');
 
-        // create the import and export buttons
-        const importButton = IconFactory.getUploadIcon("import"); // returns div containing an svg
-
-        importButton.addEventListener('click', () => {
+        uploadButton.addEventListener('click', () => {
             // Create a file input element dynamically
             const fileInput = document.createElement('input');
             fileInput.type = 'file';
@@ -998,10 +1043,10 @@ class ScriptHandler {
             // Trigger the file input click event programmatically
             fileInput.click();
         });
-        topBar.appendChild(importButton);        
-        const exportButton = IconFactory.getDownloadIcon("export");
 
-        exportButton.addEventListener('click', () => {
+        const downloadIcon = document.querySelector('.download-icon');
+
+        downloadIcon.addEventListener('click', () => {
             // Get the JSON data to export
             const json = this.exportScripts();
         
@@ -1023,8 +1068,6 @@ class ScriptHandler {
             // Clean up by revoking the temporary URL
             URL.revokeObjectURL(url);
         });
-        
-        topBar.appendChild(exportButton);
     }
 }
 
