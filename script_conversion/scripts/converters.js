@@ -2,6 +2,12 @@
 let debug = false;
 // Converter: this class will convert the input scripts to byte code
 
+const math_config = {
+    number: 'number'
+};
+
+const mathjs = math.create(math.all, math_config);
+
 class Converter {    
     safeEval(input, variables) {
         // Sanitize the input
@@ -10,7 +16,7 @@ class Converter {
             return null;
         }
         try {
-            return math.evaluate(sanitizedInput.join(' ')); // convert the sanitized input to a string and evaluate it
+            return mathjs.evaluate(sanitizedInput.join(' ')); // convert the sanitized input to a string and evaluate it
         } catch (error) {
             console.error('Error evaluating expression:', error);
             return null;
