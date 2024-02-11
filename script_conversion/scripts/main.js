@@ -82,15 +82,18 @@ class VariableGroup {
     titleElement = null;
   
     // constructor
-    constructor(parent, scriptTitle, isGlobal = false) {
-        this.createVariableGroup(parent, scriptTitle);
-        if (isGlobal) {
-            this.variableGroupElement.classList.add('global-variables');
-        }
+    constructor(parent, script, isGlobal = false) {
+        this.createVariableGroup(parent, script, isGlobal);
+        if (isGlobal) { this.variableGroupElement.classList.add('global-variables'); }
     }
   
     // function to create the variable group
-    createVariableGroup(parent, title) {
+    createVariableGroup(parent, script, isGlobal = false) {
+        let title = script ? script.title.titleElement.firstElementChild.value || "Script Title" : "Script Title";
+        if (isGlobal) {
+            title = "Global Variables";
+        }
+
         const variableGroupElement = document.createElement('div');
         variableGroupElement.classList.add('variable-group');
 
@@ -169,6 +172,18 @@ class VariableGroup {
         }
     }
 
+    addEventListeners(script) {
+        if (!script) { return; }
+
+        script.title.titleElement.firstElementChild.addEventListener('input', () => {
+            this.updateTitle(script.title.titleElement.firstElementChild.value);
+        });
+
+        // if any update is made to the variable group, update the script
+        this.variableGroupElement.addEventListener('change', () => {
+            script.scriptElement.dispatchEvent(new Event('change'));
+        });
+    }
   }
   
 // VariableWrapper: this class will be used to store variable groups
@@ -220,23 +235,13 @@ class VariableWrapper {
     createVariableWrapper() {
         // the variable wrapper is already created in the html file, tag with id 'variable-wrapper'
         this.variableWrapperElement = document.querySelector('.variable-container');
-        this.addVariableGroup(null, "Global Variables", true)
+        this.addVariableGroup(null, true)
     }
 
     // function to add a variable group
-    addVariableGroup(scriptTitle, placeholderTitle = "Script Title", isGlobal = false) {
-        let titleText = placeholderTitle;
-        if (scriptTitle) {
-            titleText ||= scriptTitle.titleElement.firstElementChild.value;
-        }
-        
-        const variableGroup = new VariableGroup(this.variableWrapperElement, titleText, isGlobal);
-        
-        if (scriptTitle) {
-            scriptTitle.titleElement.firstElementChild.addEventListener('input', () => {
-                variableGroup.updateTitle(scriptTitle.titleElement.firstElementChild.value);
-            });
-        }
+    addVariableGroup(script, isGlobal = false) {
+        const variableGroup = new VariableGroup(this.variableWrapperElement, script, isGlobal);
+        variableGroup.addEventListeners(script);
 
         this.variableGroups.push(variableGroup);
         return variableGroup;
@@ -769,7 +774,7 @@ class Script {
     constructor(dotArtist, selectionCallback, color = [180, 180, 180]) {
         this.color = `${color[0]}, ${color[1]}, ${color[2]}`;
         this.createScriptElement(color, dotArtist);
-        this.variableGroup = variableWrapper.addVariableGroup(this.title);
+        this.variableGroup = variableWrapper.addVariableGroup(this);
         this.addDeleteButtonEventListener(this.title.deleteButton, this.scriptElement, this.variableGroup, selectionCallback);
     }
 
