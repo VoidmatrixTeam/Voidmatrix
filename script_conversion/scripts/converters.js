@@ -356,7 +356,7 @@ class DotArtistConverter extends Converter {
                 let className = classList[i];
                 if (className.startsWith("bit-")) {
                     let bit = className.slice(4);
-                    if (bit == 0) {
+                    if ((bit === 'undefined') || (bit === '0')) {
                         if (showUninitialized) {
                             dotElement.innerHTML = "-";
                             return;
