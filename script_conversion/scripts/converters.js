@@ -25,6 +25,7 @@ class Converter {
 
     // function to sanitize input
     sanitizeInput(inputValue, variables) {
+        inputValue = inputValue.replace(/\s/g, '');
         const splitInput = this.splitString(inputValue);
         if (splitInput === null) {
           return null;
@@ -48,8 +49,8 @@ class Converter {
             const variableValue = variableElement.querySelector('.variable-value').value;
             variables.push({
                 language: language,
-                name: variableName,
-                value: variableValue
+                name: variableName.replace(/\s/g, ''),
+                value: variableValue.replace(/\s/g, '')
             });
         }
         return variables;
@@ -65,8 +66,8 @@ class Converter {
                 const variableValue = variableElement.querySelector('.variable-value').value;
                 variables.push({
                     language: variableLanguage,
-                    name: variableName,
-                    value: variableValue
+                    name: variableName.replace(/\s/g, ''),
+                    value: variableValue.replace(/\s/g, '')
                 });
             }
         }
@@ -85,8 +86,8 @@ class Converter {
                     if (!variables.some(variable => variable.name === variableName)) {
                         variables.push({
                             language: variableLanguage,
-                            name: variableName,
-                            value: variableValue
+                            name: variableName.replace(/\s/g, ''),
+                            value: variableValue.replace(/\s/g, '')
                         });
                     }
                 }
