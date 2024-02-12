@@ -232,7 +232,15 @@ class Converter {
         const variables = this.getVariablesByLanguage(variableGroup, language);
         this.sanitizeVariableValues(variables);
 
-        let byteCode = [];
+        let byteCodeOffset = 0;
+        for (let variable of variables) {
+            if (variable.name === 'byte_code_offset') {
+                byteCodeOffset = parseInt(variable.value, variables);
+                break;
+            }
+        }
+        // set bytecode with byteCodeOffset amount of 0s
+        let byteCode = new Array(byteCodeOffset).fill(0);
         let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes");
         for (let scriptElement of scriptElements) {
             switch (scriptElement.className) {

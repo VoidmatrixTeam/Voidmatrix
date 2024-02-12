@@ -192,6 +192,7 @@ class VariableWrapper {
     // variables
     variableWrapperElement = null;
     variableGroups = [];
+    globalVariableGroup = null;
     prevLanguage = null;
 
     // constructor
@@ -231,7 +232,16 @@ class VariableWrapper {
     createVariableWrapper() {
         // the variable wrapper is already created in the html file, tag with id 'variable-wrapper'
         this.variableWrapperElement = document.querySelector('.variable-container');
-        this.addVariableGroup(null, true)
+        this.globalVariableGroup = this.addVariableGroup(null, true)
+        // load global variables from json
+        const globalVariableJson = [
+            {
+            "language": "All",
+            "name": "byte_code_offset",
+            "value": "0"
+            }
+        ];
+        this.globalVariableGroup.updateVariableGroupFromJson(globalVariableJson);
     }
 
     // function to add a variable group
