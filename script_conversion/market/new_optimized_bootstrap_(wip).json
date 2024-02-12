@@ -122,6 +122,26 @@
         "value": "0x0205847c"
       },
       {
+        "language": "French",
+        "name": "FUN_setMoveCode",
+        "value": "0x020584ec"
+      },
+      {
+        "language": "German",
+        "name": "FUN_setMoveCode",
+        "value": "0x020584ec"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_setMoveCode",
+        "value": "0x020584ec"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_setMoveCode",
+        "value": "0x020584ec"
+      },
+      {
         "language": "Japanese",
         "name": "FUN_setMoveCode",
         "value": "0x0205b4e0"
