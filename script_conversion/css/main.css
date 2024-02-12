@@ -3,6 +3,7 @@
     --bg-dark-1: #181818;
     --bg-dark-2: #242424;
     --bg-dark-3: #343434;
+    --bg-dark-4: #444444;
     
     --light-1: white;
     --toolbar-height: 40px;
@@ -174,6 +175,7 @@ input:focus, input:active {
 .variable-group {
     display: flex;
     flex-direction: column;
+    margin-bottom: 10px;
 }
 
 .variable-group:first-child {
@@ -204,6 +206,7 @@ input:focus, input:active {
 .variable {
     display:flex;
     padding: 4px;
+    background-color: var(--bg-dark-4);
 }
 
 .variable div {
@@ -333,6 +336,7 @@ input[type="color"]::-webkit-color-swatch {
     margin-right: 10px;
     fill: rgb(var(--main-color));
     display: none;
+    cursor: pointer;
 }
 
 .script-delete {
@@ -345,6 +349,10 @@ input[type="color"]::-webkit-color-swatch {
     position: absolute;
     top: 4px;
     right: 0;
+}
+
+.command:hover .command-delete, .raw-bytes:hover .raw-bytes-delete {
+    display: block;
 }
 
 .command-input > * > input, .raw-bytes-container > input {
