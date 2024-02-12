@@ -242,54 +242,9 @@ class MoveDataList extends DataList {
     }
 }
 
-// DynamicValidationDataList
-
-class DynamicValidationDataList extends DataList {
-    prevValue = null
-
-    // constructor
-    constructor(parent, dataListId, dataListOptions=[]) {
-        super(parent, dataListId, dataListOptions);
-    }
-
-    getSimpleJson(){
-        return this.json
-    }
-
-    addDynamicEventListeners(input) {
-        console.log(input)
-        input.addEventListener('focus', (event) => {
-            this.prevValue = event.target.value;
-            event.target.value = '';
-        });
-    
-        input.addEventListener('blur', (event) => {
-            if (!this.getSimpleJson().includes(event.target.value)) {
-                event.target.value = this.prevValue;
-            }
-        });
-    
-        input.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                event.target.blur();
-            }
-        });
-    }
-}
-
-
-// LanguageDataList: this class will be used to store the language selection data
-
-class LanguageDataList extends DynamicValidationDataList  {
-    // constructor
-    constructor(parent, dataListOptions) {
-        super(parent, 'datalist-languages', dataListOptions);
-    }
-}
-
 // ScriptDataList: this class will be used to retrieve and store scripts
 
-class ScriptDataList extends DynamicValidationDataList {
+class ScriptDataList extends DataList {
     // constructor
     constructor(parent, files) {
         super(parent, 'datalist-scripts', files);
@@ -321,8 +276,53 @@ class ScriptDataList extends DynamicValidationDataList {
         return null;
     }
 
-    getSimpleJson() {
-        return Object.values(this.json).map(item => this.processName(item.name));
+    // getSimpleJson() {
+    //     return Object.values(this.json).map(item => this.processName(item.name));
+    // }
+}
+
+// DynamicValidationDataList
+
+class DynamicValidationDataList extends DataList {
+    prevValue = null
+
+    // constructor
+    constructor(parent, dataListId, dataListOptions=[]) {
+        super(parent, dataListId, dataListOptions);
+    }
+
+    getSimpleJson(){
+        return this.json
+    }
+
+    addDynamicEventListeners(input) {
+        input.addEventListener('focus', (event) => {
+            this.prevValue = event.target.value;
+            event.target.value = '';
+        });
+    
+        input.addEventListener('blur', (event) => {
+            if (!this.getSimpleJson().includes(event.target.value)) {
+                event.target.value = this.prevValue;
+            }
+        });
+    
+        input.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                event.target.blur();
+            }
+        });
     }
 }
+
+
+// LanguageDataList: this class will be used to store the language selection data
+
+class LanguageDataList extends DynamicValidationDataList  {
+    // constructor
+    constructor(parent, dataListOptions) {
+        super(parent, 'datalist-languages', dataListOptions);
+    }
+}
+
   
