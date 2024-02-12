@@ -46,9 +46,11 @@ class VariableGroup {
     variableGroupElement = null;
     variableElements = [];
     titleElement = null;
+    callback = null
   
     // constructor
-    constructor(parent, script, isGlobal = false) {
+    constructor(parent, script, callback, isGlobal = false) {
+        this.callback = callback
         this.createVariableGroup(parent, script, isGlobal);
         if (isGlobal) { this.variableGroupElement.classList.add('global-variables'); }
     }
@@ -98,7 +100,7 @@ class VariableGroup {
         languageInputElement.setAttribute('list', 'datalist-languages');
         languageInputElement.placeholder = 'language';
         languageElement.appendChild(languageInputElement);
-    
+
         const variableNameElement = document.createElement('div');
         const variableNameInputElement = document.createElement('input');
         variableNameInputElement.classList.add('variable-name');
@@ -118,8 +120,20 @@ class VariableGroup {
         variableElement.appendChild(variableValueElement);
     
         parent.appendChild(variableElement);
-        this.variableElements.push(variableElement);
+        this.variableElements.push(variableElement);   
+        
+        this.addLanguageVisibilityListener(variableElement, languageElement);
         return variableElement;
+    }
+
+    addLanguageVisibilityListener(parent, languageElement) {
+        if (this.callback !== null) {
+            languageElement.addEventListener('change', () => {
+                this.callback(parent);
+            });
+            
+            this.callback(parent);
+        }
     }
 
     // function to update the title
@@ -132,7 +146,9 @@ class VariableGroup {
     updateVariableGroupFromJson(variableGroupJson) {
         for (const variableJson of variableGroupJson) {
             const variableElement = this.addVariableElement(this.variableGroupElement);
-            variableElement.querySelector('.variable-language').value = variableJson.language;
+            const languageElement = variableElement.querySelector('.variable-language')
+            languageElement.value = variableJson.language;
+            this.addLanguageVisibilityListener(variableElement, languageElement);
             variableElement.querySelector('.variable-name').value = variableJson.name;
             variableElement.querySelector('.variable-value').value = variableJson.value;
         }
@@ -158,11 +174,53 @@ class VariableWrapper {
     variableWrapperElement = null;
     variableGroups = [];
     globalVariableGroup = null;
+    languageConfig = null;
 
     // constructor
     constructor() {
         this.createVariableWrapper();
-        datalists["datalist-languages"].addDynamicEventListeners(document.querySelector('.language-config'));
+        this.addLanguageListeners()
+    }
+
+    addLanguageListeners() {
+        this.languageConfig = document.querySelector('.language-config');
+        datalists["datalist-languages"].addDynamicEventListeners(this.languageConfig);
+
+        this.languageConfig.addEventListener('change', (event) => {
+            this.setLanguageVisibilityAll();
+        })
+
+        this.setLanguageVisibilityAll(); // initialize once
+    }
+
+
+    setLanguageVisibilityAll() {
+        const language = document.querySelector('.language-config').value;
+        const languageVariableElements = document.querySelectorAll('.variable')
+        let element = null;
+        let valueOptions = [language, 'All', null, undefined, '']
+
+        for (let variableElement of languageVariableElements) {
+            element = variableElement.querySelector('.variable-language');
+            variableElement.classList.remove("hidden")
+
+            if (!valueOptions.includes(element.value)) {
+                variableElement.classList.add("hidden")
+            }
+        }
+    }
+
+    setLanguageVisibility(parent) {
+        const language = document.querySelector('.language-config').value;
+        const element = parent.querySelector('.variable-language');
+
+        let valueOptions = [language, 'All', null, undefined, '']
+
+        parent.classList.remove("hidden")
+        if (!valueOptions.includes(element.value)) {
+            console.log(element.value, language)
+            parent.classList.add("hidden")
+        }
     }
 
     // function to create the variable wrapper
@@ -183,7 +241,7 @@ class VariableWrapper {
 
     // function to add a variable group
     addVariableGroup(script, isGlobal = false) {
-        const variableGroup = new VariableGroup(this.variableWrapperElement, script, isGlobal);
+        const variableGroup = new VariableGroup(this.variableWrapperElement, script, this.setLanguageVisibility, isGlobal);
         variableGroup.addEventListeners(script);
 
         this.variableGroups.push(variableGroup);

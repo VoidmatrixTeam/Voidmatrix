@@ -226,6 +226,10 @@ input:focus, input:active {
     width: 80px;
 }
 
+.variable.hidden {
+    display:none;
+}
+
 .language-config {
     margin-left: auto;
     width: 80px;
