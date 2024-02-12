@@ -7,7 +7,7 @@
       {
         "type": "raw_bytes",
         "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
+        "repetitions": "[dot_artist_offset]"
       },
       {
         "type": "command",
@@ -80,11 +80,6 @@
       }
     ],
     "variables": [
-      {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
       {
         "language": "English",
         "name": "RNG_address",

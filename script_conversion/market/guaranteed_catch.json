@@ -5,11 +5,6 @@
     "language": "All",
     "input_fields": [
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0",
-        "repetitions": "[dotartist_offset]"
-      },
-      {
         "type": "command",
         "name": "LoadAdrsValue",
         "parameters": [
@@ -66,11 +61,6 @@
     "variables": [
       {
         "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
-      {
-        "language": "All",
         "name": "FUN_CompAdrsAdrs",
         "value": "0x02039BBC"
       }
@@ -81,11 +71,6 @@
     "color": "110, 194, 196",
     "language": "All",
     "input_fields": [
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
       {
         "type": "command",
         "name": "CmpAdrsAdrs",
@@ -143,11 +128,6 @@
     "variables": [
       {
         "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
-      {
-        "language": "All",
         "name": "FUN_GetItemName",
         "value": "0x200ae38"
       }
@@ -158,11 +138,6 @@
     "color": "165, 161, 34",
     "language": "All",
     "input_fields": [
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -213,11 +188,6 @@
       }
     ],
     "variables": [
-      {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      }
     ]
   }
 ]

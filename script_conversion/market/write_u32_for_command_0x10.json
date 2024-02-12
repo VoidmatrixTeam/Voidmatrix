@@ -5,11 +5,6 @@
     "language": "English",
     "input_fields": [
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0",
-        "repetitions": "[dotartist_offset]"
-      },
-      {
         "type": "command",
         "name": "LoadAdrsValue",
         "parameters": [
@@ -64,11 +59,6 @@
       }
     ],
     "variables": [
-      {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
       {
         "language": "English",
         "name": "FUN_CompAdrsAdrs",

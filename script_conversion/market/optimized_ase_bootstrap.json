@@ -5,11 +5,6 @@
     "language": "English",
     "input_fields": [
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
-      {
         "type": "command",
         "name": "LoadAdrsValue",
         "parameters": [
@@ -155,7 +150,7 @@
       {
         "type": "raw_bytes",
         "raw_bytes": "0x0",
-        "repetitions": "0x3B - [dotartist_offset]"
+        "repetitions": "0x3B - [byte_code_offset]"
       },
       {
         "type": "raw_bytes",
@@ -166,7 +161,7 @@
     "variables": [
       {
         "language": "All",
-        "name": "dotartist_offset",
+        "name": "byte_code_offset",
         "value": "0x11"
       },
       {

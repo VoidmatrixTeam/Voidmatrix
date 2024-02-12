@@ -5,11 +5,6 @@
     "language": "All",
     "input_fields": [
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
-      {
         "type": "command",
         "name": "",
         "parameters": []
@@ -21,11 +16,6 @@
       }
     ],
     "variables": [
-      {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      }
     ]
   }
 ]

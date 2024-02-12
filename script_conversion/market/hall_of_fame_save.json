@@ -5,11 +5,6 @@
     "language": "All",
     "input_fields": [
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
-      {
         "type": "command",
         "name": "LoadAdrsValue",
         "parameters": [
@@ -176,11 +171,6 @@
       }
     ],
     "variables": [
-      {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      }
     ]
   },
   {
@@ -188,11 +178,6 @@
     "color": "90, 170, 99",
     "language": "All",
     "input_fields": [
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0",
-        "repetitions": "[dotartist_offset]"
-      },
       {
         "type": "command",
         "name": "DendouSetProc",
@@ -215,11 +200,6 @@
       }
     ],
     "variables": [
-      {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      }
     ]
   }
 ]

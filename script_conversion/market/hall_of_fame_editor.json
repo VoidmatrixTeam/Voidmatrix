@@ -5,11 +5,6 @@
     "language": "All",
     "input_fields": [
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
-      {
         "type": "command",
         "name": "LoadAdrsValue",
         "parameters": [
@@ -183,11 +178,6 @@
     "variables": [
       {
         "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
-      {
-        "language": "All",
         "name": "FUN_CompAdrsAdrs",
         "value": "0x02039BBC"
       },
@@ -213,11 +203,6 @@
     "color": "196, 110, 110",
     "language": "All",
     "input_fields": [
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -355,11 +340,6 @@
     "variables": [
       {
         "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
-      {
-        "language": "All",
         "name": "FUN_AddRecord",
         "value": "0x0202b050"
       },
@@ -395,11 +375,6 @@
     "color": "71, 163, 194",
     "language": "All",
     "input_fields": [
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -488,11 +463,6 @@
     "variables": [
       {
         "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
-      {
-        "language": "All",
         "name": "pokemon_id",
         "value": "0x1"
       },
@@ -523,11 +493,6 @@
     "color": "167, 121, 57",
     "language": "All",
     "input_fields": [
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -614,11 +579,6 @@
       }
     ],
     "variables": [
-      {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
       {
         "language": "All",
         "name": "pokemon_id",
@@ -652,11 +612,6 @@
     "language": "All",
     "input_fields": [
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
-      {
         "type": "command",
         "name": "LoadAdrsValue",
         "parameters": [
@@ -744,11 +699,6 @@
     "variables": [
       {
         "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
-      {
-        "language": "All",
         "name": "pokemon_id",
         "value": "0x1"
       },
@@ -779,11 +729,6 @@
     "color": "50, 134, 128",
     "language": "All",
     "input_fields": [
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "[dotartist_offset]"
-      },
       {
         "type": "command",
         "name": "TSignSetProc",
@@ -897,11 +842,6 @@
       }
     ],
     "variables": [
-      {
-        "language": "All",
-        "name": "dotartist_offset",
-        "value": "0x11"
-      },
       {
         "language": "All",
         "name": "FUN_CompAdrsAdrs",
