@@ -377,7 +377,6 @@ class DotArtistConverter extends Converter {
     }
 
     setAllDotInnerValues(showUninitialized=true) {
-        console.log("Setting all dot inner values");
         for (let i=0;i<20;i++) {
             let row = this.dotArtistGridElement.children[i];
             for (let j=0;j<24;j++) {
@@ -503,7 +502,7 @@ class DotArtistConverter extends Converter {
         const showNumbers = outerDiv.querySelector('.dot-artist-number-overlay-icon');
         showNumbers.addEventListener('click', () => {
             this.forceShowNumbers = !this.forceShowNumbers;
-            console.log(this.forceShowNumbers);
+
             if (this.forceShowNumbers) {
                 // loop over all pixels and set the inner value to the bit value
                 this.setAllDotInnerValues(false);

@@ -203,10 +203,8 @@ class VariableWrapper {
     // function to set the dynamic language Config
     setDynamicLanguageConfig() {
         const languageConfig = document.querySelector('.language-config');
-        console.log(languageConfig);
 
         languageConfig.addEventListener('focus', (event) => {
-            console.log('clicked');
             this.prevLanguage = event.target.value
             event.target.value = '';
         });
@@ -214,9 +212,7 @@ class VariableWrapper {
         languageConfig.addEventListener('blur', (event) => {
             const language = event.target.value;
             let validLanguageDataList = datalists["datalist-languages"].json;
-            console.log(validLanguageDataList);
             if (!validLanguageDataList.includes(language)) {
-                console.log('invalid language');
                 event.target.value = this.prevLanguage;
             }
         });
@@ -417,7 +413,6 @@ class Command {
             // check if user is currently on any input field (not the event's target)
             let activeElement = document.activeElement;
             if (activeElement.tagName === 'INPUT') {
-                console.log('active element is input')
                 event.preventDefault();
                 return;
             }
@@ -523,7 +518,6 @@ class RawBytes {
             // check if user is currently on any input field (not the event's target)
             let activeElement = document.activeElement;
             if (activeElement.tagName === 'INPUT') {
-                console.log('active element is input')
                 event.preventDefault();
                 return;
             }
@@ -537,7 +531,6 @@ class RawBytes {
             // check if user is currently on any input field (not the event's target)
             let activeElement = document.activeElement;
             if (activeElement.tagName === 'INPUT') {
-                console.log('active element is input')
                 return;
             }
             event.preventDefault();
