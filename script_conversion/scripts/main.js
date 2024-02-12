@@ -979,15 +979,15 @@ class ScriptHandler {
     }
 
     // function to add the import and export buttons
-    addEventListeners() {
+    addToolbarEventListeners() {
         // select the top bar of the script area
         let searchInput = document.querySelector('.script-search')
-        datalists["datalist-scripts"].addDynamicEventListeners(searchInput);
 
         searchInput.addEventListener('change', () => {
                 const scriptInfo = datalists['datalist-scripts'].getOptionByName(searchInput.value);
                 if (!scriptInfo) {return;}
                 importScriptsFromSearch(scriptInfo)
+                searchInput.value = ''
             }
         )
 
@@ -1104,5 +1104,5 @@ document.addEventListener("DOMContentLoaded", async function () {
     scriptHandler = new ScriptHandler();
     scriptHandler.addEventListeners();
     scriptHandler.addScriptElement(); // add a default first script element
-    scriptHandler.addEventListeners();
+    scriptHandler.addToolbarEventListeners();
 });
