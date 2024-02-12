@@ -1,0 +1,115 @@
+[
+  {
+    "title": "NPC ASE Bootstrap",
+    "color": "199, 151, 143",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_setMoveCode]"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x01"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_setMoveCode] + 0x1"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x62"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "MapChange",
+        "parameters": [
+          {
+            "name": "map",
+            "type": "text",
+            "value": "0xAF"
+          },
+          {
+            "name": "door",
+            "type": "text",
+            "value": "0x0"
+          },
+          {
+            "name": "x pos",
+            "type": "text",
+            "value": "8"
+          },
+          {
+            "name": "z pos",
+            "type": "text",
+            "value": "4"
+          },
+          {
+            "name": "direction",
+            "type": "text",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "MoveCodeChange",
+        "parameters": [
+          {
+            "name": "object",
+            "type": "text",
+            "value": "0x4"
+          },
+          {
+            "name": "cod",
+            "type": "text",
+            "value": "0x3D50"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0",
+        "repetitions": "0x55 - [byte_code_offset]"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x16",
+        "repetitions": "1"
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "byte_code_offset",
+        "value": "0x11"
+      },
+      {
+        "language": "English",
+        "name": "FUN_setMoveCode",
+        "value": "0x0205847c"
+      }
+    ]
+  }
+]
