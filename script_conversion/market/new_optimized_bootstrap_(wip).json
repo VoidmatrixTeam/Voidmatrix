@@ -85,13 +85,24 @@
       },
       {
         "type": "command",
+        "name": "PokeParkControl",
+        "parameters": [
+          {
+            "name": "mod",
+            "type": "text",
+            "value": "0x1"
+          }
+        ]
+      },
+      {
+        "type": "command",
         "name": "End",
         "parameters": []
       },
       {
         "type": "raw_bytes",
         "raw_bytes": "0",
-        "repetitions": "0x55 - [byte_code_offset]"
+        "repetitions": "0x51 - [byte_code_offset]"
       },
       {
         "type": "raw_bytes",
