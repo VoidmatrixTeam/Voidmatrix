@@ -295,10 +295,33 @@ input:focus, input:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 16px;
     border-bottom: 1px solid var(--bg-dark-3);
     background-color: rgba(40,40,40,0.8);
     position: relative;
+}
+
+.command-input, .raw-bytes  {
+    padding: 8px 16px;
+}
+
+.command-input:hover {
+    /* make it so things inside can scroll horizontally */
+    overflow-x: auto;
+}
+
+.command-input::-webkit-scrollbar {
+    height: 4px;
+    background-color: transparent;
+    top: 10px;
+}
+
+.command-input::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.command-input::-webkit-scrollbar-thumb {
+    background-color: var(--light-1);
+    border-radius: 4px;
 }
 
 .command-input, .raw-bytes-container {
