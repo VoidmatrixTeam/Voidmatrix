@@ -20,7 +20,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -198,7 +199,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "value",
@@ -360,7 +362,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "rwk",
@@ -373,7 +376,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -409,7 +413,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "value",
@@ -422,7 +427,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "value",
@@ -435,7 +441,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "value",
@@ -461,7 +468,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "value",
@@ -557,7 +565,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -598,7 +607,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -607,7 +617,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -649,7 +660,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -678,7 +690,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -703,7 +716,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -745,7 +759,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -770,7 +785,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -936,7 +952,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -945,7 +962,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1139,7 +1157,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "value",
@@ -1194,7 +1213,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1231,7 +1251,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1250,7 +1271,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1269,7 +1291,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1288,7 +1311,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1303,7 +1327,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -1321,7 +1346,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1346,7 +1372,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1363,7 +1390,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1380,7 +1408,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1397,7 +1426,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1414,7 +1444,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1431,7 +1462,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1448,7 +1480,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1465,7 +1498,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1482,7 +1516,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1499,7 +1534,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1516,7 +1552,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1533,7 +1570,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1550,7 +1588,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1567,7 +1606,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1584,7 +1624,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1601,7 +1642,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1614,7 +1656,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1640,7 +1683,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1665,7 +1709,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1715,7 +1760,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "move",
@@ -1737,7 +1783,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "move",
@@ -1759,7 +1806,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1809,7 +1857,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1889,7 +1938,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1898,7 +1948,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1928,7 +1979,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1937,7 +1989,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1950,7 +2003,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1959,7 +2013,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -1975,7 +2030,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -2109,7 +2165,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2136,7 +2193,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2373,7 +2431,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2449,7 +2508,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2518,7 +2578,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2540,7 +2601,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2549,7 +2611,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2558,7 +2621,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2592,7 +2656,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2601,7 +2666,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2753,7 +2819,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2771,7 +2838,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2780,7 +2848,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2789,7 +2858,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2802,7 +2872,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2815,7 +2886,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2824,7 +2896,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2833,7 +2906,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2851,7 +2925,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2902,7 +2977,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2923,7 +2999,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2936,7 +3013,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2972,7 +3050,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2989,7 +3068,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -2998,7 +3078,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3007,7 +3088,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3016,7 +3098,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3025,7 +3108,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3042,7 +3126,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3089,7 +3174,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3110,7 +3196,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3119,7 +3206,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3132,7 +3220,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3145,7 +3234,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3167,7 +3257,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3189,7 +3280,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3211,7 +3303,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3220,7 +3313,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3267,7 +3361,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3276,7 +3371,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3285,7 +3381,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3311,7 +3408,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3320,7 +3418,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3333,7 +3432,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3391,7 +3491,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3437,7 +3538,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3455,7 +3557,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3468,7 +3571,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3485,7 +3589,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3503,7 +3608,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3512,7 +3618,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3525,7 +3632,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3542,7 +3650,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3559,7 +3668,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3640,7 +3750,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -3694,7 +3805,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3712,7 +3824,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3725,7 +3838,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3764,7 +3878,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3773,7 +3888,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3782,7 +3898,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3791,7 +3908,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3800,7 +3918,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3972,7 +4091,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -3989,7 +4109,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4019,7 +4140,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "mod",
@@ -4041,7 +4163,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4076,7 +4199,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4085,7 +4209,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "number",
@@ -4098,7 +4223,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4107,7 +4233,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -4123,7 +4250,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4180,7 +4308,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "no",
@@ -4193,7 +4322,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -4230,7 +4360,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "no",
@@ -4246,7 +4377,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "gld",
@@ -4266,7 +4398,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -4278,7 +4411,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "no",
@@ -4302,7 +4436,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4345,7 +4480,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4358,7 +4494,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4367,7 +4504,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "lim",
@@ -4380,7 +4518,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "lim",
@@ -4393,7 +4532,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -4462,7 +4602,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4471,7 +4612,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4480,7 +4622,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "species",
@@ -4495,7 +4638,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "number",
@@ -4569,7 +4713,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -4581,7 +4726,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -4615,7 +4761,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -4696,7 +4843,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4709,7 +4857,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4722,7 +4871,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4752,7 +4902,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4769,7 +4920,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4791,7 +4943,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4804,7 +4957,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4846,7 +5000,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4878,7 +5033,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4887,7 +5043,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4913,7 +5070,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4935,7 +5093,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -4991,7 +5150,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5000,7 +5160,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5021,7 +5182,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5030,7 +5192,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -5043,7 +5206,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5061,7 +5225,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5078,7 +5243,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "item",
@@ -5110,7 +5276,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "level",
@@ -5123,7 +5290,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -5247,7 +5415,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5256,7 +5425,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5313,7 +5483,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5341,7 +5512,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5362,7 +5534,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5392,7 +5565,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5410,7 +5584,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -5423,7 +5598,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "nat",
@@ -5436,7 +5612,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5449,7 +5626,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5458,7 +5636,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "species",
@@ -5473,7 +5652,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5491,7 +5671,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5521,7 +5702,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5530,7 +5712,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -5546,7 +5729,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -5588,7 +5772,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -5618,7 +5803,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ],
         "aliases": [
@@ -5639,7 +5825,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5648,7 +5835,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5682,7 +5870,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5691,7 +5880,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -5704,7 +5894,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5713,7 +5904,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -5756,7 +5948,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -5769,7 +5962,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5816,7 +6010,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5911,7 +6106,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5933,7 +6129,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "ans",
@@ -5950,7 +6147,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "an1",
@@ -5980,7 +6178,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -5989,7 +6188,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6015,7 +6215,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "ak1",
@@ -6040,7 +6241,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6076,7 +6278,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6123,7 +6326,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6141,7 +6345,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6158,7 +6363,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6196,7 +6402,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6239,7 +6446,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6257,7 +6465,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6283,7 +6492,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6343,7 +6553,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6361,7 +6572,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6389,7 +6601,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6420,7 +6633,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "value",
@@ -6433,7 +6647,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6442,7 +6657,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "value",
@@ -6455,7 +6671,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6464,7 +6681,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "party index",
@@ -6511,7 +6729,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "buffer",
@@ -6524,7 +6743,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6533,7 +6753,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6571,7 +6792,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6580,7 +6802,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6602,7 +6825,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6624,7 +6848,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6633,7 +6858,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6642,7 +6868,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6651,7 +6878,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "param",
@@ -6668,7 +6896,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6681,7 +6910,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6703,7 +6933,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6712,7 +6943,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6733,7 +6965,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "mod",
@@ -6753,7 +6986,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6762,7 +6996,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6792,7 +7027,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6823,7 +7059,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6859,7 +7096,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6885,7 +7123,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6944,7 +7183,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6953,7 +7193,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -6991,7 +7232,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -7009,7 +7251,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "cwk",
@@ -7022,7 +7265,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "w0",
@@ -7047,7 +7291,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -7060,7 +7305,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             },
             {
                 "name": "object",
@@ -7077,7 +7323,8 @@
             },
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -7086,7 +7333,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -7156,7 +7404,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -7178,7 +7427,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -7191,7 +7441,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -7215,7 +7466,8 @@
         "parameters": [
             {
                 "name": "work",
-                "size": "u16"
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },

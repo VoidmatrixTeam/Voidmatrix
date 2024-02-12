@@ -279,6 +279,9 @@ class CommandInput {
         paramContainer.setAttribute('description', paramDescription);
 
         const paramInput = document.createElement('input');
+        if (parameter.default_value) {
+            paramInput.value = parameter.default_value;
+        }
         if (paramType === 'options') {
             new DynamicValidationInput(datalists[parameter.datalist_name], paramInput)
             paramInput.placeholder = paramName;
