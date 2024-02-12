@@ -173,15 +173,14 @@ class VariableGroup {
     }
 
     addEventListeners(script) {
+        // if any update is made to the variable group, update the dot artist
+        this.variableGroupElement.addEventListener('change', () => {
+            scriptHandler.updateSelectedScript();
+        });
         if (!script) { return; }
 
         script.title.titleElement.firstElementChild.addEventListener('input', () => {
             this.updateTitle(script.title.titleElement.firstElementChild.value);
-        });
-
-        // if any update is made to the variable group, update the script
-        this.variableGroupElement.addEventListener('change', () => {
-            script.scriptElement.dispatchEvent(new Event('change'));
         });
     }
   }
@@ -1109,6 +1108,13 @@ class ScriptHandler {
             // Clean up by revoking the temporary URL
             URL.revokeObjectURL(url);
         });
+    }
+
+    updateSelectedScript() {
+        let selectedScript = this.scripts.find(script => script.scriptElement.classList.contains('selected'));
+        if (selectedScript) {
+            this.dotArtistConverter.convertScriptToDotArtist(selectedScript);
+        }
     }
 }
 
