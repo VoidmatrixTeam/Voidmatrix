@@ -188,6 +188,7 @@ class VariableWrapper {
 
         this.languageConfig.addEventListener('change', (event) => {
             this.setLanguageVisibilityAll();
+            scriptHandler.updateSelectedScript();
         })
 
         this.setLanguageVisibilityAll(); // initialize once
