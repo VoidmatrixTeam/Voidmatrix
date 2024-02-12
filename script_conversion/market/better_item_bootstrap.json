@@ -171,33 +171,33 @@
       },
       {
         "language": "English",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039ACC"
+        "name": "base_address",
+        "value": "0x2106FC0"
       },
       {
         "language": "French",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039B3C"
+        "name": "base_address",
+        "value": "0x2107140"
       },
       {
         "language": "German",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039B3C"
+        "name": "base_address",
+        "value": "0x2107100"
       },
       {
         "language": "Italian",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039B3C"
+        "name": "base_address",
+        "value": "0x21070A0"
       },
       {
         "language": "Spanish",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039B3C"
+        "name": "base_address",
+        "value": "0x2107160"
       },
       {
-        "language": "English",
+        "language": "Japanese",
         "name": "base_address",
-        "value": "0x2106FC0"
+        "value": "0x2108818"
       }
     ]
   }
