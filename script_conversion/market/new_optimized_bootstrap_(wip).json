@@ -120,6 +120,11 @@
         "language": "English",
         "name": "FUN_setMoveCode",
         "value": "0x0205847c"
+      },
+      {
+        "language": "Japanese",
+        "name": "FUN_setMoveCode",
+        "value": "0x0205b4e0"
       }
     ]
   }
