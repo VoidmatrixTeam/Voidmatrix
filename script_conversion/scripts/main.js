@@ -227,10 +227,8 @@ class CommandInput {
 
     // function to get the command options
     setCommandOptions(parent) {
-        const commandSelection = document.createElement('input');
+        const commandSelection = new DynamicValidationInput(datalists['datalist-commands'])
 
-        commandSelection.setAttribute('list', 'datalist-commands');
-        commandSelection.autocomplete = 'on';
         commandSelection.placeholder = 'Command';
         commandSelection.conversionType = 'options';
         commandSelection.bitSize = "u16";
@@ -282,9 +280,7 @@ class CommandInput {
 
         const paramInput = document.createElement('input');
         if (paramType === 'options') {
-            const datalistName = parameter.datalist_name;
-            paramInput.setAttribute('autoComplete', 'on');
-            paramInput.setAttribute('list', datalistName);
+            new DynamicValidationInput(datalists[parameter.datalist_name], paramInput)
             paramInput.placeholder = paramName;
 
         } else if (paramType === 'number') {
