@@ -204,7 +204,7 @@ class VariableWrapper {
             element = variableElement.querySelector('.variable-language');
             variableElement.classList.remove("hidden")
 
-            if (!valueOptions.includes(element.value)) {
+            if (!valueOptions.includes(element.value) && !(language == 'All')) {
                 variableElement.classList.add("hidden")
             }
         }
@@ -217,7 +217,7 @@ class VariableWrapper {
         let valueOptions = [language, 'All', null, undefined, '']
 
         parent.classList.remove("hidden")
-        if (!valueOptions.includes(element.value)) {
+        if (!valueOptions.includes(element.value) && !(language == 'All')) {
             console.log(element.value, language)
             parent.classList.add("hidden")
         }
