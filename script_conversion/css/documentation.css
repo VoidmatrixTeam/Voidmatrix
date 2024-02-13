@@ -7,10 +7,10 @@
 }
 
 .documentation {
-    width:800px;
-    height:600px;
+    top: 8vh;
+    width: 80vw; 
+    height: 90vh;
     margin: auto;
-    margin-top: 700px;
     position: absolute;
     background-color: var(--bg-dark-2);
     z-index: 3;
