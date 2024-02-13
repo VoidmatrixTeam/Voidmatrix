@@ -22,7 +22,7 @@ class Documentation {
         this.docWindow.classList.add("documentation");
 
         this.toolbar = document.createElement("div");
-        this.toolbar.classList.add("toolbar");
+        this.toolbar.classList.add("documentation-toolbar");
 
         this.previewButton = document.createElement("div");
         this.previewButton.classList.add("preview-button");
@@ -68,7 +68,7 @@ class Documentation {
     }
 
     updateDocumentation(newDoc) {
-        this.docText = newDoc;
+        this.docText = newDoc || "";
         this.updateEditorWindow();
         this.updatePreviewWindow();
     }
@@ -82,7 +82,7 @@ class Documentation {
     }
 
     getParsedDocumentation() {
-        return marked.parse(this.docText);
+        return DOMPurify.sanitize(marked.parse(this.docText));
     }
 
     setDocWindowOpen(mode) {
@@ -130,7 +130,6 @@ class Documentation {
 
         this.closeButton.addEventListener("click", () => {
             this.setDocWindowOpen(false);
-            this.removeEventListeners();
         });
     }
 }
