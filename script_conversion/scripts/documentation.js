@@ -1,14 +1,66 @@
 class Documentation {
-    constructor(docText) {
-        this.docText = docText;
-        this.docWindow = document.querySelector(".documentation");
-        this.previewButton = document.querySelector(".preview-icon");
-        this.previewWindow = document.querySelector(".preview");
-        this.editorButton = document.querySelector(".editor-icon");
-        this.editorWindow = document.querySelector(".editor");
-        this.closeButton = document.querySelector(".close-icon");
-        this.addEventListeners();
-        this.switchToPreview(); // Default to preview
+    docText = "";
+    docWindowContainer = null;
+    docWindow = null;
+    previewButton = null;
+    previewWindow = null;
+    editorButton = null;
+    editorWindow = null;
+    closeButton = null;
+
+    constructor() {
+        this.createDocumentationWindow();
+        this.switchToPreview(); // Default to 
+        this.clearDocumentation();
+    }
+
+    createDocumentationWindow() {
+        this.docWindowContainer = document.createElement("div");
+        this.docWindowContainer.classList.add("documentation-container");
+
+        this.docWindow = document.createElement("div");
+        this.docWindow.classList.add("documentation");
+
+        this.toolbar = document.createElement("div");
+        this.toolbar.classList.add("toolbar");
+
+        this.previewButton = document.createElement("div");
+        this.previewButton.classList.add("preview-button");
+        this.previewButton.innerHTML = '<img class="icon-0 preview-icon" src="assets/article.svg" alt="preview icon"><h2>preview</h2>';
+
+        this.editorButton = document.createElement("div");
+        this.editorButton.classList.add("editor-button");
+        this.editorButton.innerHTML = '<img class="icon-0 editor-icon" src="assets/edit.svg" alt="editor icon"><h2>edit</h2>';
+        
+        this.closeButton = document.createElement("div");
+        this.closeButton.innerHTML = '<img class="icon-0 close-icon close-button" src="assets/close.svg" alt="close icon">';
+
+        this.toolbar.appendChild(this.previewButton);
+        this.toolbar.appendChild(this.editorButton);
+        this.toolbar.appendChild(this.closeButton);
+
+        this.editorWindow = document.createElement("textarea");
+        this.editorWindow.classList.add("editor");
+
+        this.previewWindow = document.createElement("div");
+        this.previewWindow.classList.add("preview");
+
+        this.docWindow.appendChild(this.toolbar);
+        this.docWindow.appendChild(this.editorWindow);
+        this.docWindow.appendChild(this.previewWindow);
+
+        this.docWindowContainer.appendChild(this.docWindow);
+        document.body.insertBefore(this.docWindowContainer, document.body.firstChild);
+    }
+
+    deleteDocumentationWindow() {
+        this.docWindowContainer.remove();
+    }
+
+    clearDocumentation() {
+        this.docText = "";
+        this.updateEditorWindow();
+        this.updatePreviewWindow();
     }
 
     getDocumentation() {
@@ -72,12 +124,13 @@ class Documentation {
             this.switchToEditor();
         });
 
-        this.docWindow.querySelector(".editor").addEventListener("click", () => {
+        this.editorWindow.addEventListener("click", () => {
             this.switchToEditor();
         });
 
         this.closeButton.addEventListener("click", () => {
             this.setDocWindowOpen(false);
+            this.removeEventListeners();
         });
     }
 }

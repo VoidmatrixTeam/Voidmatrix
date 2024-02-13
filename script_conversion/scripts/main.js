@@ -1,7 +1,6 @@
 // Global variables
 let datalists = {};
 
-let documentation = null;
 let variableWrapper = null;
 let scriptHandler = null;
 let currentDrag = null;
@@ -740,9 +739,11 @@ class ScriptTitle {
     // variables
     titleElement = null;
     deleteButton = null;
+    documentation = null
 
     // constructor
     constructor(parent, scriptElement) {
+        this.documentation = new Documentation();
         this.createScriptTitleElement(parent, scriptElement);
     }
 
@@ -758,7 +759,8 @@ class ScriptTitle {
 
         const scriptInfoIcon = IconFactory.getInfoIcon("script-info");
         scriptInfoIcon.addEventListener('click', () => {
-            documentation.setDocWindowOpen(true);
+            this.documentation.setDocWindowOpen(true);
+            this.documentation.addEventListeners();
         });
         scriptTitleElement.appendChild(scriptInfoIcon);
 
@@ -768,6 +770,10 @@ class ScriptTitle {
   
         parent.appendChild(scriptTitleElement);
         this.titleElement = scriptTitleElement;
+    }
+
+    deleteDocumentationWindow() {
+        this.documentation.deleteDocumentationWindow();
     }
 }
 
@@ -788,7 +794,7 @@ class Script {
         this.color = `${color[0]}, ${color[1]}, ${color[2]}`;
         this.createScriptElement(color, dotArtist);
         this.variableGroup = variableWrapper.addVariableGroup(this);
-        this.addDeleteButtonEventListener(this.title.deleteButton, this.scriptElement, this.variableGroup, selectionCallback);
+        this.addDeleteButtonEventListener(selectionCallback);
     }
 
     // function to add command create
@@ -881,16 +887,18 @@ class Script {
     }
 
     // add event listener to delete the script and variable group associated with it
-    addDeleteButtonEventListener(button, scriptElement, variableGroup, selectionCallback) {
-        button.addEventListener('click', () => {
+    addDeleteButtonEventListener(selectionCallback) {
+        this.title.deleteButton.addEventListener('click', () => {
             // confirm the delete
             if (!confirm('Are you sure you want to delete this script?')) {
                 return;
             }
             // remove the script element
-            scriptElement.remove();
+            this.scriptElement.remove();
             // remove the variable group
-            variableGroup.variableGroupElement.remove();
+            this.variableGroup.variableGroupElement.remove();
+            // remove documentation window
+            this.title.deleteDocumentationWindow();
             // call the selection callback
             selectionCallback(this);
         });
@@ -1169,9 +1177,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
     const scriptFiles = await getFilesFromGithub(`VoidmatrixTeam`, `Voidmatrix`, `script_conversion/market`)
     datalists["datalist-scripts"] = new ScriptDataList(document.documentElement, scriptFiles)
-
-    // global documentation
-    documentation = new Documentation('Test');
 
     // global VariableWrapper
     variableWrapper = new VariableWrapper();
