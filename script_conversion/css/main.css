@@ -81,6 +81,10 @@ input:focus, input:active {
     box-sizing: border-box;
 }
 
+.applicqtion-container.as-background {
+    filter: brightness(0.4);
+}
+
 /* Left Panel */
 .left-panel-content {
     width: var(--left-panel-width);
