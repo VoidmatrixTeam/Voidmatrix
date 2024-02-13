@@ -174,7 +174,7 @@ class VariableGroup {
             this.updateTitle(script.title.titleElement.firstElementChild.value);
         });
     }
-  }
+}
   
 // VariableWrapper: this class will be used to store variable groups
 
@@ -775,6 +775,11 @@ class ScriptTitle {
     deleteDocumentationWindow() {
         this.documentation.deleteDocumentationWindow();
     }
+
+    updateFromJson(title, documentation) {
+        this.titleElement.firstElementChild.value = title;
+        this.documentation.updateDocumentation(documentation);
+    }
 }
 
 // Script: this class will be used to store the script data
@@ -1040,7 +1045,7 @@ class ScriptHandler {
         const script = this.addScriptElement(color, true, false);
 
         // set the title
-        script.title.titleElement.firstElementChild.value = json.title;
+        script.title.updateFromJson(json.title, json.documentation)
 
         // set the commands & raw bytes
         for (let inputField of json.input_fields) {
