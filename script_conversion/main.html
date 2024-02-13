@@ -6,16 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/icon.css">
-  <script src="https://unpkg.com/mathjs@12.3.1/lib/browser/math.js"></script>
+  <link rel="stylesheet" href="css/documentation.css">
 
+  <!-- external libraries  -->
+  <script src="https://unpkg.com/mathjs@12.3.1/lib/browser/math.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- internal scripts -->
   <script src="scripts/converters.js"></script>
   <script src="scripts/datalists.js"></script>
   <script src="scripts/main.js"></script>
+  <script src="scripts/documentation.js"></script>
+
   <title>Script Conversion Tool</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+  <div class="documentation-container">
+    <div class="documentation">
+      <img class="icon-0 preview-icon" src="assets/preview.svg" alt="preview icon">
+      <img class="icon-0 editor-icon" src="assets/editor.svg" alt="editor icon">
+      <img class="icon-0 close-icon" src="assets/close.svg" alt="close icon">"
+      <textarea class="editor"></textarea>
+      <div class="preview"></div>
+    </div>
+  </div>
+
   <div class="application-container">
 
     <div class="left-panel-content">

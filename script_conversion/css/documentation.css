@@ -1,0 +1,54 @@
+.documentation-container {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+.documentation {
+    width:800px;
+    height:600px;
+    margin: auto;
+    margin-top: 700px;
+    position: absolute;
+    overflow: auto;
+    background-color: var(--bg-dark-2);
+    border: 1px solid var(--light-1);
+    z-index: 3;
+    display: none;
+}
+
+.documentation .preview, .documentation .editor {
+    all: unset;
+    width:100%;
+    height:100%;
+    display: none;
+    overflow:auto;
+}
+
+.documentation .preview.active, .documentation .editor.active {
+    display: block;
+}
+
+.documentation.active {
+    display: block;
+}
+
+.documentation .editor::-webkit-scrollbar, .documentation .preview::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.documentation .editor::-webkit-scrollbar-track, .documentation .preview::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.documentation .editor::-webkit-scrollbar-thumb, .documentation .preview::-webkit-scrollbar-thumb {
+    background-color: var(--light-1);
+    border-radius: 4px;
+}
+
+.application-container.as-background {
+    filter: brightness(0.8);
+}

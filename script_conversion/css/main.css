@@ -291,7 +291,17 @@ input:focus, input:active {
     width: 100%;
 }
 
-.script-toolbar:hover .script-delete {
+.script-toolbar .script-info {
+    margin-right: 10px;
+    fill: rgb(var(--main-color));
+    cursor: pointer;
+    display: none;
+    margin-left: auto;
+    float: right;
+    fill: white;
+}
+
+.script-toolbar:hover .script-delete, .script-toolbar:hover .script-info {
     display: block;
 }
 

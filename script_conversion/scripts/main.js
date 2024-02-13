@@ -1,6 +1,7 @@
 // Global variables
 let datalists = {};
 
+let documentation = null;
 let variableWrapper = null;
 let scriptHandler = null;
 let currentDrag = null;
@@ -27,7 +28,7 @@ class IconFactory {
     }
 
     // function that returns a add icon
-    static getPlusIcon(tag) {
+    static getAdditionIcon(tag) {
         // create the add icon
         const addIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         addIcon.setAttribute('viewBox', '0 0 24 24');
@@ -36,6 +37,15 @@ class IconFactory {
         addIcon.innerHTML = `<path d="M10.8,22.8V13.2H1.2a1.2,1.2,0,0,1,0-2.4h9.6V1.2a1.2,1.2,0,1,1,2.4,0v9.6h9.6a1.2,1.2,0,1,1,0,2.4H13.2v9.6a1.2,1.2,0,0,1-2.4,0Z"></path>`;
         // return the add icon
         return addIcon;
+    }
+
+    static getInfoIcon(tag) {
+        const infoIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        infoIcon.setAttribute('viewBox', '0 0 24 24');
+        infoIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
+        infoIcon.classList.add('icon-0','icon-1', tag, 'info-icon');
+        infoIcon.innerHTML = `<path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"></path>`;
+        return infoIcon;
     }
 }
 
@@ -68,7 +78,7 @@ class VariableGroup {
         const variableTitleElement = document.createElement('div');
         variableTitleElement.classList.add('variable-title');
 
-        const addButtonElement = IconFactory.getPlusIcon('create-variable');
+        const addButtonElement = IconFactory.getAdditionIcon('create-variable');
         addButtonElement.alt = 'plus icon';
         addButtonElement.addEventListener('click', () => {
             this.addVariableElement(variableGroupElement);
@@ -219,7 +229,6 @@ class VariableWrapper {
 
         parent.classList.remove("hidden")
         if (!valueOptions.includes(element.value) && !(language == 'All')) {
-            console.log(element.value, language)
             parent.classList.add("hidden")
         }
     }
@@ -692,7 +701,7 @@ class CommandCreate {
             const addWrapperElement = document.createElement('div');
             addWrapperElement.classList.add(`${option.type}-create`, 'dropdown-content');
     
-            const addButtonElement = IconFactory.getPlusIcon(option.icon);
+            const addButtonElement = IconFactory.getAdditionIcon(option.icon);
             addButtonElement.alt = 'add icon';
             addWrapperElement.appendChild(addButtonElement);
     
@@ -746,6 +755,12 @@ class ScriptTitle {
         titleText.classList.add('title-text');
         titleText.placeholder = 'Script Title';
         scriptTitleElement.appendChild(titleText);
+
+        const scriptInfoIcon = IconFactory.getInfoIcon("script-info");
+        scriptInfoIcon.addEventListener('click', () => {
+            documentation.setDocWindowOpen(true);
+        });
+        scriptTitleElement.appendChild(scriptInfoIcon);
 
         const scriptDeleteButton = IconFactory.getDeleteIcon("script-delete", scriptElement, 'Would you like to delete this script?' , false);
         scriptTitleElement.appendChild(scriptDeleteButton);  
@@ -1154,6 +1169,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
     const scriptFiles = await getFilesFromGithub(`VoidmatrixTeam`, `Voidmatrix`, `script_conversion/market`)
     datalists["datalist-scripts"] = new ScriptDataList(document.documentElement, scriptFiles)
+
+    // global documentation
+    documentation = new Documentation('Test');
 
     // global VariableWrapper
     variableWrapper = new VariableWrapper();
