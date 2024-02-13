@@ -550,6 +550,8 @@ class JsonExporter extends Converter {
             break;
         }
       }
+
+      json.documentation = script.title.documentation.getDocumentation();
       return json;
     }
   
