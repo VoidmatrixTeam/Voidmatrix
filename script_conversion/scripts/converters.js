@@ -269,7 +269,7 @@ class DotArtistConverter extends Converter {
     // variables
     dotArtistElement = null;
     dotArtistGridElement = null;
-    forceShowNumbers = false;
+    forceShowNumbers = true;
 
     // constructor
     constructor() {
