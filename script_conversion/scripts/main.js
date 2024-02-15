@@ -1021,6 +1021,7 @@ class ScriptHandler {
         const script = new Script(this.dotArtistConverter, this.resetSelection, color);
         if (addDefaultCommand) {
             script.commandWrapper.addCommand();
+            script.commandWrapper.addCommand('End',[]);
         }
         // add event handler so if the script is clicked, it will be selected, and the other scripts will be deselected
         script.scriptElement.addEventListener('click', () => {
