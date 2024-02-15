@@ -1,6 +1,6 @@
 [
   {
-    "title": "NPC ASE Bootstrap",
+    "title": "NPC ASE Bootstrap + Better Item Bootstrap",
     "color": "199, 151, 143",
     "language": "English",
     "input_fields": [
@@ -85,6 +85,80 @@
       },
       {
         "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_GetItemData] + 0x14"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x5"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_GetItemData] + 0x15"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x20"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "AddItem",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "text",
+            "value": "0x16"
+          },
+          {
+            "name": "number",
+            "type": "text",
+            "value": "0x10CC"
+          },
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4000"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "AddItem",
+        "parameters": [
+          {
+            "name": "item",
+            "type": "text",
+            "value": "0xFFEF"
+          },
+          {
+            "name": "number",
+            "type": "text",
+            "value": "0x1"
+          },
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4000"
+          }
+        ]
+      },
+      {
+        "type": "command",
         "name": "PokeParkControl",
         "parameters": [
           {
@@ -102,7 +176,7 @@
       {
         "type": "raw_bytes",
         "raw_bytes": "0",
-        "repetitions": "0x51 - [byte_code_offset]"
+        "repetitions": "0x33 - [byte_code_offset]"
       },
       {
         "type": "raw_bytes",
@@ -145,7 +219,13 @@
         "language": "Japanese",
         "name": "FUN_setMoveCode",
         "value": "0x0205b4e0"
+      },
+      {
+        "language": "English",
+        "name": "FUN_GetItemData",
+        "value": "0x0206ebd4"
       }
-    ]
+    ],
+    "documentation": ""
   }
 ]
