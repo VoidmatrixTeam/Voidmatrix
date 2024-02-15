@@ -159,6 +159,22 @@
       },
       {
         "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_GetItemData] + 0x80"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
         "name": "PokeParkControl",
         "parameters": [
           {
@@ -224,6 +240,31 @@
         "language": "English",
         "name": "FUN_GetItemData",
         "value": "0x0206ebd4"
+      },
+      {
+        "language":"French",
+        "name": "FUN_GetItemData",
+        "value": "0x206ec30"
+      },
+      {
+        "language":"German",
+        "name": "FUN_GetItemData",
+        "value": "0x206ec30"
+      },
+      {
+        "language":"Italian",
+        "name": "FUN_GetItemData",
+        "value": "0x206ec10"
+      },
+      {
+        "language":"Spanish",
+        "name": "FUN_GetItemData",
+        "value": "0x206ec30"
+      },
+      {
+        "language":"Japanese",
+        "name": "FUN_GetItemData",
+        "value": "0x0???????"
       }
     ],
     "documentation": ""
