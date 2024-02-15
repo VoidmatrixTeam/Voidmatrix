@@ -74,7 +74,7 @@
           {
             "name": "object",
             "type": "text",
-            "value": "0x4"
+            "value": "0x3"
           },
           {
             "name": "cod",
@@ -164,7 +164,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "[FUN_GetItemData] + 0x80"
+            "value": "[FUN_GetItemData] + 0x7E"
           },
           {
             "name": "value",
