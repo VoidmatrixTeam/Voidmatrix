@@ -117,10 +117,8 @@ class DynamicValidationDataList extends DataList {
         if (this.getSimpleJson().includes(input.value)) {
             return true;
         }
-        console.log(variableGroup, converter)
 
         if (variableGroup !== null && converter !== null) {
-            console.log('validating input', input.value)
             const language = document.querySelector('.language-config').value || 'All';
             let variables = converter.getVariablesByLanguage(variableGroup, language);
             converter.sanitizeVariableValues(variables);
@@ -130,7 +128,6 @@ class DynamicValidationDataList extends DataList {
             }
         }
 
-        console.log('invalid input', input.value)
         return false;
     }
 
