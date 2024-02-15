@@ -266,9 +266,13 @@ class CommandInput {
     commandInputElement = null;
     command = null;
     paramElements = {};
+    variableGroup = null;
+    converter = null;
 
     // constructor
-    constructor(parent) {
+    constructor(parent, variableGroup, converter) {
+        this.variableGroup = variableGroup;
+        this.converter = converter;
         this.createCommandInputElement(parent);
     }
 
@@ -294,7 +298,7 @@ class CommandInput {
 
     // function to get the command options
     setCommandOptions(parent) {
-        const commandSelection = new DynamicValidationInput(datalists['datalist-commands'])
+        const commandSelection = new DynamicValidationInput(datalists['datalist-commands'], null, this.variableGroup, this.converter);
 
         commandSelection.placeholder = 'Command';
         commandSelection.conversionType = 'options';
@@ -350,7 +354,7 @@ class CommandInput {
             paramInput.value = parameter.default_value;
         }
         if (paramType === 'options') {
-            new DynamicValidationInput(datalists[parameter.datalist_name], paramInput)
+            new DynamicValidationInput(datalists[parameter.datalist_name], paramInput, this.variableGroup, this.converter);
             paramInput.placeholder = paramName;
 
         } else if (paramType === 'number') {
@@ -394,21 +398,25 @@ class Command {
     // variables
     commandElement = null;
     commandInput = null;
+    variableGroup = null;
+    converter = null;
 
     // constructor
-    constructor(parent) {
-        this.createCommandElement(parent);
+    constructor(parent, variableGroup, converter) {
+        this.variableGroup = variableGroup;
+        this.converter = converter;
+        this.createCommandElement(parent, variableGroup, converter);
     }
 
     // function to create the command element
-    createCommandElement(parent) {
+    createCommandElement(parent, variableGroup, converter) {
         const commandElement = document.createElement('div');
         commandElement.classList.add('command');
 
         const commandInputDeleteButton = IconFactory.getDeleteIcon("command-delete", commandElement, 'Are you sure you want to to delete this command?');
         commandElement.appendChild(commandInputDeleteButton);        
 
-        const commandInput = new CommandInput(commandElement);
+        const commandInput = new CommandInput(commandElement, variableGroup, converter);
         this.commandInput = commandInput;
 
         const commandOutputElement = document.createElement('div');
@@ -605,9 +613,13 @@ class CommandWrapper {
     // variables
     commandWrapperElement = null;
     inputElements = [];
+    variableGroup = null;
+    converter = null;
 
     // constructor
-    constructor(parent) {
+    constructor(parent, variableGroup, converter) {
+        this.variableGroup = variableGroup;
+        this.converter = converter;
         this.createCommandWrapperElement(parent);
     }
 
@@ -623,7 +635,7 @@ class CommandWrapper {
     // function to add command
     addCommand(commandName=undefined, params=undefined) {
         // create a new command
-        const command = new Command(this.commandWrapperElement);
+        const command = new Command(this.commandWrapperElement, this.variableGroup, this.converter);
         if (commandName) {
             // add the command to the commands
             command.setCommandName(commandName);
@@ -788,6 +800,7 @@ class Script {
     // variables
     color = null;
     scriptElement = null;
+    scriptInfoElement = null;
     colorSwatchElement = null;
     commandWrapper = null;
     title = null;
@@ -799,6 +812,7 @@ class Script {
         this.color = `${color[0]}, ${color[1]}, ${color[2]}`;
         this.createScriptElement(color, dotArtist);
         this.variableGroup = variableWrapper.addVariableGroup(this);
+        this.addCommandWrapper(dotArtist);
         this.addDeleteButtonEventListener(selectionCallback);
     }
 
@@ -866,18 +880,12 @@ class Script {
         this.colorSwatchElement = colorSwatchElement;
 
         // Create the script info element
-        const scriptInfoElement = document.createElement('div');
-        scriptInfoElement.classList.add('script-info');
-        scriptElement.appendChild(scriptInfoElement);
+        this.scriptInfoElement = document.createElement('div');
+        this.scriptInfoElement.classList.add('script-info');
+        scriptElement.appendChild(this.scriptInfoElement);
 
         // Create the script title element
-        this.title = new ScriptTitle(scriptInfoElement, scriptElement);
-
-        // Create the script commands element
-        this.commandWrapper = new CommandWrapper(scriptInfoElement);
-
-        // Create the command create element
-        this.addCommandCreate(scriptInfoElement);
+        this.title = new ScriptTitle(this.scriptInfoElement, scriptElement);
 
         // Append the script element to the script container
         scriptContainer.appendChild(scriptElement);
@@ -889,6 +897,14 @@ class Script {
                 dotArtist.convertScriptToDotArtist(this);
             }
         });
+    }
+
+    addCommandWrapper(dotArtist) {
+        // Create the script commands element
+        this.commandWrapper = new CommandWrapper(this.scriptInfoElement, this.variableGroup, dotArtist);
+
+        // Create the command create element
+        this.addCommandCreate(this.scriptInfoElement);
     }
 
     // add event listener to delete the script and variable group associated with it

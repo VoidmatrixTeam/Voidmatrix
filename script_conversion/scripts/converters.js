@@ -235,7 +235,10 @@ class Converter {
         let byteCodeOffset = 0;
         for (let variable of variables) {
             if (variable.name === 'byte_code_offset') {
-                byteCodeOffset = parseInt(variable.value, variables);
+                let value = variable.value;
+                if (value.length === 0) { value = [0]; }
+                value = value.join(' ');
+                byteCodeOffset = this.safeEval(value, variables);
                 break;
             }
         }

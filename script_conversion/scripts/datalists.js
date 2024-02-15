@@ -105,7 +105,7 @@ class DynamicValidationDataList extends DataList {
     prevValue = null
 
     // constructor
-    constructor(parent, dataListId, dataListOptions=[]) {
+    constructor(parent, dataListId, dataListOptions=[], converter) {
         super(parent, dataListId, dataListOptions);
     }
 
@@ -113,14 +113,35 @@ class DynamicValidationDataList extends DataList {
         return this.json
     }
 
-    addDynamicEventListeners(input) {
+    validateInput(input, variableGroup = null, converter = null) {
+        if (this.getSimpleJson().includes(input.value)) {
+            return true;
+        }
+        console.log(variableGroup, converter)
+
+        if (variableGroup !== null && converter !== null) {
+            console.log('validating input', input.value)
+            const language = document.querySelector('.language-config').value || 'All';
+            let variables = converter.getVariablesByLanguage(variableGroup, language);
+            converter.sanitizeVariableValues(variables);
+
+            if (converter.safeEval(input.value, variables) !== null) {
+                return true;
+            }
+        }
+
+        console.log('invalid input', input.value)
+        return false;
+    }
+
+    addDynamicEventListeners(input, variableGroup = null, converter = null) {
         input.addEventListener('focus', (event) => {
             this.prevValue = event.target.value;
             event.target.value = '';
         });
     
         input.addEventListener('blur', (event) => {
-            if (!this.getSimpleJson().includes(event.target.value)) {
+            if (!this.validateInput(event.target, variableGroup, converter)) {
                 event.target.value = this.prevValue;
             }
         });
@@ -139,6 +160,18 @@ class CommandDataList extends DynamicValidationDataList {
     // constructor
     constructor(parent, dataListOptions) {
         super(parent, 'datalist-commands', dataListOptions);
+    }
+
+    getSimpleJson() {
+        let names = []
+        for (const commandId in this.json) {
+            const command = this.json[commandId];
+            const commandName = command.command_name;
+            const aliases = command.aliases || [];
+            names.push(commandName)
+            names.concat(aliases)
+        }
+        return names
     }
 
     // prepare the datalist options (overwrite)
@@ -219,18 +252,6 @@ class CommandDataList extends DynamicValidationDataList {
             }
         }
         return null;
-    }
-
-    getSimpleJson() {
-        let names = []
-        for (const commandId in this.json) {
-            const command = this.json[commandId];
-            const commandName = command.command_name;
-            const aliases = command.aliases || [];
-            names.push(commandName)
-            names.concat(aliases)
-        }
-        return names
     }
 }
 
@@ -338,19 +359,18 @@ class LanguageDataList extends DynamicValidationDataList  {
         super(parent, 'datalist-languages', dataListOptions);
     }
 }
-
   
 class DynamicValidationInput {
     input = null
 
-    constructor(dataList, input = null) {
-        this.createInputField(dataList, input);
+    constructor(dataList, input = null, variableGroup = null, converter = null) {
+        this.createInputField(dataList, input, variableGroup, converter);
         return this.input
     }
 
-    createInputField(dataList, input) {
+    createInputField(dataList, input, variableGroup, converter) {
         this.input = input !== null ? input : document.createElement('input');
-        dataList.addDynamicEventListeners(this.input);
+        dataList.addDynamicEventListeners(this.input, variableGroup, converter);
         this.input.setAttribute('list', dataList.dataListId)
         this.input.setAttribute('autoComplete', 'on');
     }
