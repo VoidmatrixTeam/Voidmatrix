@@ -192,7 +192,7 @@
       {
         "type": "raw_bytes",
         "raw_bytes": "0",
-        "repetitions": "0x33 - [byte_code_offset]"
+        "repetitions": "0x2C - [byte_code_offset]"
       },
       {
         "type": "raw_bytes",
@@ -242,27 +242,27 @@
         "value": "0x0206ebd4"
       },
       {
-        "language":"French",
+        "language": "French",
         "name": "FUN_GetItemData",
         "value": "0x206ec30"
       },
       {
-        "language":"German",
+        "language": "German",
         "name": "FUN_GetItemData",
         "value": "0x206ec30"
       },
       {
-        "language":"Italian",
+        "language": "Italian",
         "name": "FUN_GetItemData",
         "value": "0x206ec10"
       },
       {
-        "language":"Spanish",
+        "language": "Spanish",
         "name": "FUN_GetItemData",
         "value": "0x206ec30"
       },
       {
-        "language":"Japanese",
+        "language": "Japanese",
         "name": "FUN_GetItemData",
         "value": "0x0???????"
       }
