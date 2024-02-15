@@ -410,15 +410,15 @@ input[type="color"]::-webkit-color-swatch {
 } */
 
 .command-create-wrapper {
-    padding: 9px 16px;
+    padding: 8px 16px 9px 16px;
     background-color: rgba(40,40,40,0.8);
     display: flex;
     position: relative;
-    align-items: center;
 }
 
 .option-wrapper {
     position: absolute;
+    height:24px;
 
 }
 
@@ -453,6 +453,7 @@ input[type="color"]::-webkit-color-swatch {
 /* Style the dropdown icon */
 .command-create-wrapper .dropdown-icon {
     font-size: 12px;
+    margin-top: 4px;
     margin-left: 150px;
     cursor: pointer;
     z-index: 2;
