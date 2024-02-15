@@ -410,7 +410,7 @@ input[type="color"]::-webkit-color-swatch {
 } */
 
 .command-create-wrapper {
-    padding: 8px 16px 9px 16px;
+    padding: 9px 16px 11px 16px;
     background-color: rgba(40,40,40,0.8);
     display: flex;
     position: relative;
@@ -419,18 +419,16 @@ input[type="color"]::-webkit-color-swatch {
 .option-wrapper {
     position: absolute;
     height:24px;
-
 }
 
 .option-wrapper .dropdown-content {
     display: none;
     align-items: center;
-    min-width: 170px;
+    min-width: 166px;
     z-index: 1;
+    padding: 2px 0 2px 4px;
     background-color: var(--bg-dark-2);
-    padding: 1px 0;
 }
-
 .option-wrapper .dropdown-content span {
     font-size: 14px;
     font-weight: 400;
