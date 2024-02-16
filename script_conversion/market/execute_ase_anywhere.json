@@ -115,22 +115,22 @@
       {
         "language": "French",
         "name": "FUN_InitRetireScript",
-        "value": "0x02036858"
+        "value": "0x02036830"
       },
       {
         "language": "German",
         "name": "FUN_InitRetireScript",
-        "value": "0x02036858"
+        "value": "0x02036830"
       },
       {
         "language": "Italian",
         "name": "FUN_InitRetireScript",
-        "value": "0x02036858"
+        "value": "0x02036830"
       },
       {
         "language": "Spanish",
         "name": "FUN_InitRetireScript",
-        "value": "0x02036858"
+        "value": "0x02036830"
       }
     ]
   }

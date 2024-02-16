@@ -62,22 +62,22 @@
       {
         "language": "French",
         "name": "FUN_CreateFieldMenu",
-        "value": "0x020356DC"
+        "value": "0x020356B4"
       },
       {
         "language": "German",
         "name": "FUN_CreateFieldMenu",
-        "value": "0x020356DC"
+        "value": "0x020356B4"
       },
       {
         "language": "Italian",
         "name": "FUN_CreateFieldMenu",
-        "value": "0x020356DC"
+        "value": "0x020356B4"
       },
       {
         "language": "Spanish",
         "name": "FUN_CreateFieldMenu",
-        "value": "0x020356DC"
+        "value": "0x020356B4"
       }
     ]
   }
