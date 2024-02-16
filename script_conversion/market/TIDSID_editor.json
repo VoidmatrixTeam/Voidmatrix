@@ -1,6 +1,6 @@
 [
     {
-      "title": "Add Write u32 Relative to Base for Command 0x10",
+      "title": "Write custom TID/SID",
       "color": "184, 119, 46",
       "language": "English",
       "input_fields": [
@@ -102,11 +102,52 @@
         },
         {
           "type": "command",
+          "name": "CmpAdrsAdrs",
+          "parameters": [
+            {
+              "name": "address1",
+              "type": "text",
+              "value": "[offset]"
+            },
+            {
+              "name": "address2",
+              "type": "text",
+              "value": "[value]"
+            }
+          ]
+        },
+        {
+          "type": "command",
           "name": "End",
           "parameters": []
         }
       ],
       "variables": [
+        {
+          "language": "All",
+          "name": "Trainer ID",
+          "value": "0xFFFF"
+        },
+        {
+          "language": "All",
+          "name": "Secret ID",
+          "value": "0xFFFF"
+        },
+        {
+          "language": "All",
+          "name": "TIDSID_offset",
+          "value": "0x288"
+        },
+        {
+          "language": "All",
+          "name": "offset",
+          "value": "[TIDSID_offset]"
+        },
+        {
+          "language": "All",
+          "name": "value",
+          "value": "[Secret ID] << 16 + [Trainer ID]"
+        },
         {
           "language": "English",
           "name": "FUN_CompAdrsAdrs",
@@ -193,60 +234,5 @@
           "value": "0x02107160"
         }
       ]
-    },
-    {
-      "title": "Write custom TID/SID to Save File",
-      "color": "114, 147, 197",
-      "language": "All",
-      "input_fields": [
-        {
-          "type": "command",
-          "name": "CmpAdrsAdrs",
-          "parameters": [
-            {
-              "name": "address1",
-              "type": "text",
-              "value": "[offset]"
-            },
-            {
-              "name": "address2",
-              "type": "text",
-              "value": "[value]"
-            }
-          ]
-        },
-        {
-          "type": "command",
-          "name": "End",
-          "parameters": []
-        }
-      ],
-      "variables": [
-        {
-          "language": "All",
-          "name": "Trainer ID",
-          "value": "0xFFFF"
-        },
-        {
-          "language": "All",
-          "name": "Secret ID",
-          "value": "0xFFFF"
-        },
-        {
-          "language": "All",
-          "name": "TIDSID_offset",
-          "value": "0x288"
-        },
-        {
-          "language": "All",
-          "name": "offset",
-          "value": "[TIDSID_offset]"
-        },
-        {
-          "language": "All",
-          "name": "value",
-          "value": "[Secret ID] << 16 + [Trainer ID]"
-        }
-      ]
     }
-  ]
+]
