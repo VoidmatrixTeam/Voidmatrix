@@ -16,7 +16,8 @@ class Converter {
             return null;
         }
         try {
-            return mathjs.evaluate(sanitizedInput.join(' ')); // convert the sanitized input to a string and evaluate it
+            const output = mathjs.evaluate(sanitizedInput.join(' ')); // convert the sanitized input to a string and evaluate it
+            return output;
         } catch (error) {
             console.error('Error evaluating expression:', error);
             return null;
@@ -36,7 +37,7 @@ class Converter {
 
     // function to split a string into an array of tokens
     splitString(input) {
-        const regex = /(0x[\da-fA-F]+|\d+|[+\-*/&|^]|<<|>>|\[[^\]]+\])/g;
+        const regex = /(0x[\da-fA-F]+|\d+|[()+\-*/&|^]|<<|>>|\[[^\]]+\])/g;
         return input.match(regex);
     }
 
