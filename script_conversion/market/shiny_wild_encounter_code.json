@@ -146,22 +146,22 @@
       {
         "language": "French",
         "name": "FUN_WildSingleEnc",
-        "value": "0x0223C38C"
+        "value": "0x0223C45C"
       },
       {
         "language": "German",
         "name": "FUN_WildSingleEnc",
-        "value": "0x0223C38C"
+        "value": "0x0223C45C"
       },
       {
         "language": "Italian",
         "name": "FUN_WildSingleEnc",
-        "value": "0x0223C38C"
+        "value": "0x0223C3C8"
       },
       {
         "language": "Spanish",
         "name": "FUN_WildSingleEnc",
-        "value": "0x0223C38C"
+        "value": "0x0223C45C"
       },
       {
         "language": "English",
@@ -171,22 +171,22 @@
       {
         "language": "French",
         "name": "FUN_ChooseWildMon",
-        "value": "0x0223CC44"
+        "value": "0x0223CD14"
       },
       {
         "language": "German",
         "name": "FUN_ChooseWildMon",
-        "value": "0x0223CC44"
+        "value": "0x0223CD14"
       },
       {
         "language": "Italian",
         "name": "FUN_ChooseWildMon",
-        "value": "0x0223CC44"
+        "value": "0x0223CC80"
       },
       {
         "language": "Spanish",
         "name": "FUN_ChooseWildMon",
-        "value": "0x0223CC44"
+        "value": "0x0223CD14"
       }
     ]
   },
@@ -202,7 +202,7 @@
           {
             "name": "address",
             "type": "text",
-            "value": "0x02035678"
+            "value": "[FUN_CreateFieldMenu] + 0xC"
           },
           {
             "name": "value",
@@ -253,22 +253,22 @@
       {
         "language": "French",
         "name": "FUN_CreateFieldMenu",
-        "value": "0x020356DC"
+        "value": "0x020356B4"
       },
       {
         "language": "German",
         "name": "FUN_CreateFieldMenu",
-        "value": "0x020356DC"
+        "value": "0x020356B4"
       },
       {
         "language": "Italian",
         "name": "FUN_CreateFieldMenu",
-        "value": "0x020356DC"
+        "value": "0x020356B4"
       },
       {
         "language": "Spanish",
         "name": "FUN_CreateFieldMenu",
-        "value": "0x020356DC"
+        "value": "0x020356B4"
       }
     ]
   }
