@@ -1,0 +1,75 @@
+[
+  {
+    "title": "Change Form of Pokémon",
+    "color": "78, 176, 183",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_ChangeDeoxiesForm] + 0x54"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[Party Slot]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_ChangeDeoxiesForm] + 0x55"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x2D"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "PartyDeokisisuFormChange",
+        "parameters": [
+          {
+            "name": "frm",
+            "type": "text",
+            "value": "[Form Id]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "English",
+        "name": "FUN_ChangeDeoxiesForm",
+        "value": "0x0203eed8"
+      },
+      {
+        "language": "All",
+        "name": "PartySlot",
+        "value": "0"
+      },
+      {
+        "language": "All",
+        "name": "FormId",
+        "value": "1"
+      }
+    ],
+    "documentation": ""
+  }
+]
