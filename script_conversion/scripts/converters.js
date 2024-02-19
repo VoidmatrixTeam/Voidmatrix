@@ -10,30 +10,56 @@ const mathjs = math.create(math.all, math_config);
 
 class Converter {    
     safeEval(input, variables) {
-        // Sanitize the input
-        const sanitizedInput = this.sanitizeInput(input, variables);
-        if (sanitizedInput === null) {
+        if (!input) {
             return null;
         }
+        return this.evaluateExpression(input, variables);
+    }
+
+    evaluateMathExpression(expression) {
         try {
-            const output = mathjs.evaluate(sanitizedInput.join(' ')); // convert the sanitized input to a string and evaluate it
-            return output;
+            return mathjs.evaluate(expression);
         } catch (error) {
-            console.error('Error evaluating expression:', error);
             return null;
         }
     }
 
-    // function to sanitize input
-    sanitizeInput(inputValue, variables) {
-        inputValue = inputValue.replace(/\s/g, '');
-        const splitInput = this.splitString(inputValue);
-        if (splitInput === null) {
-          return null;
+    evaluateVariables(variables) {
+        for (let variable of variables) {
+            variable.value = this.evaluateExpression(variable.value, variables);
         }
-        const processedInput = this.processInput(splitInput, variables);
-        return processedInput;
-      }
+        return variables;
+    }
+
+
+    evaluateExpression(expression, variables, depth=0) {
+        try {
+            const maxDepth = variables.length;
+            if (depth > maxDepth) {
+                return 0;
+            }
+            depth++;
+
+            // if the expression is a number, return it
+            if (typeof expression === 'number') { // && !isNaN(expression)) {
+                return expression;
+            }
+
+            let splitValue = this.splitString(expression);
+            const regex = /\[(.*?)\]/g;
+
+            for (let i = 0; i < splitValue.length; i++) {
+                if (splitValue[i].match(regex)) {
+                    let variableName = splitValue[i].replace(/[\[\]']+/g, '');
+                    let value = this.evaluateExpression(variables.find(variable => variable.name === variableName).value, variables, depth);
+                    splitValue[i] = value;
+                }
+            }
+            return this.evaluateMathExpression(splitValue.join(' '));
+        } catch (error) {
+            return null;
+        }
+    }
 
     // function to split a string into an array of tokens
     splitString(input) {
@@ -60,11 +86,18 @@ class Converter {
     // function to get all variables from a variable group where the language matches
     getVariablesByLanguage(variableGroup, language) {
         const variables = [];
-        for (let variableElement of variableGroup.variableElements) {
-            const variableLanguage = variableElement.querySelector('.variable-language').value || 'All';
+        variables.push(...this.getVariablesByLanguageFromElements(document.querySelectorAll('.global-variables .variable'), language));
+        variables.push(...this.getVariablesByLanguageFromElements(variableGroup.variableElements, language));
+        return variables;
+    }
+
+    getVariablesByLanguageFromElements(variableElements, language) {
+        const variables = [];
+        for (let variable of variableElements) {
+            const variableLanguage = variable.querySelector('.variable-language').value || 'All';
             if ((variableLanguage === language) || (variableLanguage === 'All')) {
-                const variableName = variableElement.querySelector('.variable-name').value;
-                const variableValue = variableElement.querySelector('.variable-value').value;
+                const variableName = variable.querySelector('.variable-name').value;
+                const variableValue = variable.querySelector('.variable-value').value;
                 variables.push({
                     language: variableLanguage,
                     name: variableName.replace(/\s/g, ''),
@@ -72,69 +105,7 @@ class Converter {
                 });
             }
         }
-
-        // extend with global variables
-        let globalVariables = document.querySelector('.global-variables');
-        if (globalVariables) {
-            let globalVariableElements = globalVariables.querySelectorAll('.variable');
-            for (let globalVariableElement of globalVariableElements) {
-                const variableLanguage = globalVariableElement.querySelector('.variable-language').value || 'All';
-                if ((variableLanguage === language) || (variableLanguage === 'All')) {
-                    const variableName = globalVariableElement.querySelector('.variable-name').value;
-                    const variableValue = globalVariableElement.querySelector('.variable-value').value;
-
-                    // if the variable is not already in the list, add it
-                    if (!variables.some(variable => variable.name === variableName)) {
-                        variables.push({
-                            language: variableLanguage,
-                            name: variableName.replace(/\s/g, ''),
-                            value: variableValue.replace(/\s/g, '')
-                        });
-                    }
-                }
-            }
-        }
         return variables;
-    }
-
-    processInput(splitInput, variables) {
-        const processedInput = [];
-      
-        for (const component of splitInput) {
-          if (typeof component === 'string' && component.startsWith('[') && component.endsWith(']')) {
-            // Extract variable name from component
-            const variableName = component.slice(1, -1);
-      
-            // Find variable by name in the variables array
-            const variable = variables.find(function(varItem) {
-                return varItem.name === variableName;
-            });
-      
-            if (variable && !(typeof variable.value === 'string')) {
-              // Extend the processed input with the variable value, which is an array
-              processedInput.push(...variable.value);
-            } else {
-              // Variable not found, keep the original component
-              processedInput.push(component);
-            }
-          } else if (!isNaN(component)) {
-            // Convert numeric strings to integers
-            processedInput.push(parseInt(component));
-          } else {
-            // Keep other components as they are
-            processedInput.push(component);
-          }
-        }
-      
-        return processedInput;
-      }
-
-    // function to sanitize variable values
-    sanitizeVariableValues(variables) {
-        for (const variable of variables) {
-            const sanitizedValue = this.sanitizeInput(variable.value, variables);
-            variable.value = sanitizedValue;
-        }
     }
 
     // function to convert a value to a byte array, given the bit count
@@ -231,20 +202,19 @@ class Converter {
 
         // get all variables, then sanitize them
         const variables = this.getVariablesByLanguage(variableGroup, language);
-        this.sanitizeVariableValues(variables);
+        // this.sanitizeVariableValues(variables);
+        this.evaluateVariables(variables);
 
         let byteCodeOffset = 0;
         for (let variable of variables) {
             if (variable.name === 'byte_code_offset') {
-                let value = variable.value;
-                if (value.length === 0) { value = [0]; }
-                value = value.join(' ');
-                byteCodeOffset = this.safeEval(value, variables);
-                break;
+                byteCodeOffset = variable.value;
             }
         }
+        
         // set bytecode with byteCodeOffset amount of 0s
         let byteCode = new Array(byteCodeOffset).fill(0);
+
         let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes");
         for (let scriptElement of scriptElements) {
             switch (scriptElement.className) {
