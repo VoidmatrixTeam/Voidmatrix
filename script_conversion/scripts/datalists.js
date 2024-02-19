@@ -121,7 +121,7 @@ class DynamicValidationDataList extends DataList {
         if (variableGroup !== null && converter !== null) {
             const language = document.querySelector('.language-config').value || 'All';
             let variables = converter.getVariablesByLanguage(variableGroup, language);
-            converter.sanitizeVariableValues(variables);
+            converter.evaluateVariables(variables);
 
             if (converter.safeEval(input.value, variables) !== null) {
                 return true;
