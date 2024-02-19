@@ -199,7 +199,7 @@
       {
         "language": "German",
         "name": "FUN_WildSingleEnc",
-        "value": "0x0223C45C"
+        "value": "0x0223C41C"
       },
       {
         "language": "Italian",
@@ -209,7 +209,7 @@
       {
         "language": "Spanish",
         "name": "FUN_WildSingleEnc",
-        "value": "0x0223C45C"
+        "value": "0x0223C488"
       },
       {
         "language": "English",
@@ -224,7 +224,7 @@
       {
         "language": "German",
         "name": "FUN_ChooseWildMon",
-        "value": "0x0223CD14"
+        "value": "0x0223CCD4"
       },
       {
         "language": "Italian",
@@ -234,7 +234,42 @@
       {
         "language": "Spanish",
         "name": "FUN_ChooseWildMon",
-        "value": "0x0223CD14"
+        "value": "0x0223CD40"
+      },
+      {
+        "language": "English",
+        "name": "FUN_CheckEncounter",
+        "value": "0x021d8954"
+      },
+      {
+        "language": "French",
+        "name": "FUN_CheckEncounter",
+        "value": "0x021d8ad4"
+      },
+      {
+        "language": "German",
+        "name": "FUN_CheckEncounter",
+        "value": "0x021d8a94"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_CheckEncounter",
+        "value": "0x021d8a34"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_CheckEncounter",
+        "value": "0x021d8af4"
+      },
+      {
+        "language": "English",
+        "name": "FUN_GetEncounterOdds",
+        "value": "0x0223c61c"
+      },
+      {
+        "language": "French",
+        "name": "FUN_GetEncounterOdds",
+        "value": "0x0223c65c"
       },
       {
         "language": "English",
@@ -242,9 +277,24 @@
         "value": "0x0223c51c"
       },
       {
-        "language": "English",
-        "name": "FUN_CheckEncounter",
-        "value": "0x021d8954"
+        "language": "French",
+        "name": "FUN_GetEncounterOdds",
+        "value": "0x0223c65c"
+      },
+      {
+        "language": "German",
+        "name": "FUN_GetEncounterOdds",
+        "value": "0x0223c65c"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_GetEncounterOdds",
+        "value": "0x0223c5c8"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_GetEncounterOdds",
+        "value": "0x0223c688"
       }
     ],
     "documentation": "### Shiny Wild Encounter Anywhere\n\nWith this script you can generate a battle with any Pokémon you want, and it will be shiny.\nThe Pokémon's pid gets rerolled until it matches a shiny pid for your player TID/SID. You can\nmodify the generated Pokémon afterwards using the Pokémon editor script, if necessary to pass\nthrough Poké Transporter or Bank.\n\nYou can put the ID of the Pokémon you want in the variables section, a list containing the ids can be found on [Bulbapedia](https://docs.google.com/spreadsheets/d/1ggx-qds-txThvSBAbt4ecpzx9OKalHF4_uorJnEPrUI/edit#gid=2092601225).\n\nAfter using the code, start running around, you'll notice the player stuttering and quickly get an encounter.\n\nThe code will stop working if you reload graphics (through opening menu or a battle), just re-activate it to\nget a new encounter. You can easily modify the Pokémon Id to chain multiple shinies."
