@@ -1,9 +1,57 @@
 [
   {
-    "title": "Shiny Wild Encounter of Choice",
+    "title": "Shiny Wild Encounter Anywhere",
     "color": "129, 100, 166",
     "language": "English",
     "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CheckEncounter] + 0x1A"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x19"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CheckEncounter] + 0x59"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0xD0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_GetEncounterOdds] + 0x3C"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0xFF"
+          }
+        ]
+      },
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -126,7 +174,7 @@
       {
         "language": "All",
         "name": "pokemon_id",
-        "value": "0x22"
+        "value": "0x181"
       },
       {
         "language": "All",
@@ -187,8 +235,18 @@
         "language": "Spanish",
         "name": "FUN_ChooseWildMon",
         "value": "0x0223CD14"
+      },
+      {
+        "language": "English",
+        "name": "FUN_GetEncounterOdds",
+        "value": "0x0223c51c"
+      },
+      {
+        "language": "English",
+        "name": "FUN_CheckEncounter",
+        "value": "0x021d8954"
       }
     ],
-    "documentation": ""
+    "documentation": "### Shiny Wild Encounter Anywhere\n\nWith this script you can generate a battle with any Pokémon you want, and it will be shiny.\nThe Pokémon's pid gets rerolled until it matches a shiny pid for your player TID/SID. You can\nmodify the generated Pokémon afterwards using the Pokémon editor script, if necessary to pass\nthrough Poké Transporter or Bank.\n\nYou can put the ID of the Pokémon you want in the variables section, a list containing the ids can be found on [Bulbapedia](https://docs.google.com/spreadsheets/d/1ggx-qds-txThvSBAbt4ecpzx9OKalHF4_uorJnEPrUI/edit#gid=2092601225).\n\nAfter using the code, start running around, you'll notice the player stuttering and quickly get an encounter.\n\nThe code will stop working if you reload graphics (through opening menu or a battle), just re-activate it to\nget a new encounter. You can easily modify the Pokémon Id to chain multiple shinies."
   }
 ]
