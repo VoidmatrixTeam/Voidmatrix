@@ -264,16 +264,6 @@
       {
         "language": "English",
         "name": "FUN_GetEncounterOdds",
-        "value": "0x0223c61c"
-      },
-      {
-        "language": "French",
-        "name": "FUN_GetEncounterOdds",
-        "value": "0x0223c65c"
-      },
-      {
-        "language": "English",
-        "name": "FUN_GetEncounterOdds",
         "value": "0x0223c51c"
       },
       {
