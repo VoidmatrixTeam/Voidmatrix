@@ -86,18 +86,28 @@ class Converter {
     // function to get all variables from a variable group where the language matches
     getVariablesByLanguage(variableGroup, language) {
         const variables = [];
-        variables.push(...this.getVariablesByLanguageFromElements(document.querySelectorAll('.global-variables .variable'), language));
-        variables.push(...this.getVariablesByLanguageFromElements(variableGroup.variableElements, language));
+        this.getVariablesByLanguageFromElements(document.querySelectorAll('.global-variables .variable'), language, variables);
+        this.getVariablesByLanguageFromElements(variableGroup.variableElements, language, variables);
         return variables;
     }
 
-    getVariablesByLanguageFromElements(variableElements, language) {
-        const variables = [];
+    getVariablesByLanguageFromElements(variableElements, language, variables=[]) {
         for (let variable of variableElements) {
             const variableLanguage = variable.querySelector('.variable-language').value || 'All';
             if ((variableLanguage === language) || (variableLanguage === 'All')) {
                 const variableName = variable.querySelector('.variable-name').value;
                 const variableValue = variable.querySelector('.variable-value').value;
+
+                // if a variable with the same name already exists, replace it
+                const existingVariable = variables.find(v => v.name === variableName);
+                if (existingVariable) {
+                    // if the existing variable is from a more specific language, replace it
+                    if (existingVariable.language === 'All' || existingVariable.language === variableLanguage) {
+                        existingVariable.value = variableValue;
+                        continue;
+                    }
+                }
+
                 variables.push({
                     language: variableLanguage,
                     name: variableName.replace(/\s/g, ''),
