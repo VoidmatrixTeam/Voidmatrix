@@ -1,0 +1,346 @@
+[
+  {
+    "title": "Mystery Gift ACE Bootstrap Part 1",
+    "color": "184, 119, 46",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x60"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x9"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1C"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x10"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0x68094902"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x14"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0xBD385060"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x1E"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "[base_address]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0xA9E4"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xEDB88320"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0xAA10"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xCF9F"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x63E4"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xE282000D"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x63E8"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xE12FFF10"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x63EC"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x60102001"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x63F0"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0xCA303218"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "English",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039BBC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "English",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039ACC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "English",
+        "name": "base_address",
+        "value": "0x02106FC0"
+      },
+      {
+        "language": "French",
+        "name": "base_address",
+        "value": "0x02107140"
+      },
+      {
+        "language": "German",
+        "name": "base_address",
+        "value": "0x02107100"
+      },
+      {
+        "language": "Italian",
+        "name": "base_address",
+        "value": "0x021070A0"
+      },
+      {
+        "language": "Spanish",
+        "name": "base_address",
+        "value": "0x02107160"
+      }
+    ],
+    "documentation": ""
+  },
+  {
+    "title": "Mystery Gift ACE Bootstrap Part 2",
+    "color": "74, 196, 182",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x63F4"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x46F7C331"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x63F8"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x7C440016"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "0x63FC"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "0x0000FFFD"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [],
+    "documentation": ""
+  }
+]
