@@ -339,22 +339,22 @@
       {
         "language": "French",
         "name": "FUN_LoadAdrsAdrs",
-        "value": "0x02039B14"
+        "value": "0x02039B3C"
       },
       {
         "language": "German",
         "name": "FUN_LoadAdrsAdrs",
-        "value": "0x02039B14"
+        "value": "0x02039B3C"
       },
       {
         "language": "Italian",
         "name": "FUN_LoadAdrsAdrs",
-        "value": "0x02039B14"
+        "value": "0x02039B3C"
       },
       {
         "language": "Spanish",
         "name": "FUN_LoadAdrsAdrs",
-        "value": "0x02039B14"
+        "value": "0x02039B3C"
       },
       {
         "language": "English",
@@ -362,32 +362,22 @@
         "value": "0x02039BDC"
       },
       {
-        "language": "French",
-        "name": "FUN_CmpWkValue",
-        "value": "0x02039C24"
-      },
-      {
-        "language": "German",
-        "name": "FUN_CmpWkValue",
-        "value": "0x02039C24"
-      },
-      {
-        "language": "Italian",
-        "name": "FUN_CmpWkValue",
-        "value": "0x02039C24"
-      },
-      {
-        "language": "Spanish",
-        "name": "FUN_CmpWkValue",
-        "value": "0x02039C24"
-      },
-      {
         "language": "All",
         "name": "data_offset",
         "value": "0x8"
+      },
+      {
+        "language": "All",
+        "name": "",
+        "value": ""
+      },
+      {
+        "language": "All",
+        "name": "",
+        "value": ""
       }
     ],
-    "documentation": ""
+    "documentation": "### Mystery Gift Postman ACE\n\nThis is a bootstrap that sets up **permanent ASE/ACE** for your savefile, that allows you to\nplay the game freely. The ASE/ACE will be triggered by talking to a Postman in any Pokémon Market.\n\n### Usage\nThis assumes you have set up the newest ase bootstrap as listed on the site. \nThe green, long code taking up the entire dot artist should be executed first. Feel free to save before executing it,\nthis code is the most important part.\n\nOnce executed, you can either use a walk through walls code, or fly to any town in the game that has a Pokémon Market.\nEnter the Pokémon Market. There should be a Mystery Gift Postman present inside.\n\nThe grey smaller code should be inserted now. You don't have to wipe the entire dot artist,  you can click the 'highlight' button at the right of the\ndot artist to see what section of the dot artist has to be edited. The remaining code in the non-highlighted section doesn't have to be edited,\nbut can if you prefer.\n\nOnce the new code is in, make sure to reload graphics. Talk to the Postman. Given everything worked properly, you'll hear a badge acquisition sound effect,\nand the game will freeze while it plays. Once you are able to move again you can simply soft reset. During the sound playing the game saved. You can't save\nusing the usual save menu, just soft/hard reset.\n\nAfter rebooting the game you should be in the Pokémon Market where you saved. Talking to the Postman at any time will execute ASE from the dot artist by default.\n\n### Restrictions\nYou are able to play the game and do anything you want, including beating the game. There is only one restriction: **Do not record a new Chatter sound**.\n\nIf you are planning on performing RNG manipulation, make sure to **use chatter before doing this setup**. Some may be aware that putting Chatot in a box\nwill remove the sound effect. **This is not entirely true.** The sound effect never gets automatically deleted, only a flag that says the sound exists. The Postman code includes automatically setting the chatter exists flag whenever you talk to him. So if you want to RNG manip, just run any empty code with the Postman to enable the chatter cry again.\n\nAlso, since this ACE makes use of the Postman obviously you won't be able to receive new Mystery Gifts as long as the code is active.\n\n### Technical Details\nFor those interested in how this ACE exploit functions, it is based on Attack vector 1 as noted in my\n[Mystery Gift/Wonder Card ACE research](https://jorikdevreese.com/index.php/2024/02/17/remote-code-execution-in-generation-4-pokemon-games-through-mystery-gifts/).\n\nThe specific implementation here makes use of Gift Id 0xCF9F. Upon receival, the game reads an out of bounds validity check function for this gift ID. (ironic, I know)\nSpecifically, the function pointer is read from address **0x221bc54** (on English), which points to the Chatot Chatter sound.\n\nThis pointer automatically adjusts to ASLR, and is therefore ideal. The remaining code writes a bootstrap in the Chatter sound data.\nThe Chatter sound data is read as code whenever you talk to a Postman, and performs the following:\n\n1. Sets the Chatot Chatter 'Exists' flag to true. This is necessary for RNG manipulation.\n2.  Modifies the next script command the Postman will execute to jump to Dot Artist\n\n"
   },
   {
     "title": "Postman Check",
