@@ -385,16 +385,6 @@
         "language": "All",
         "name": "data_offset",
         "value": "0x8"
-      },
-      {
-        "language": "All",
-        "name": "",
-        "value": ""
-      },
-      {
-        "language": "All",
-        "name": "",
-        "value": ""
       }
     ],
     "documentation": ""
