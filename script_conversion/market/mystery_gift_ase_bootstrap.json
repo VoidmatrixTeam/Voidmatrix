@@ -1,7 +1,7 @@
 [
   {
-    "title": "Mystery Gift ACE Bootstrap Part 1",
-    "color": "184, 119, 46",
+    "title": "Mystery Gift Postman ACE",
+    "color": "40, 154, 68",
     "language": "English",
     "input_fields": [
       {
@@ -38,12 +38,108 @@
       },
       {
         "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CmpWkValue] + 0x8"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0xE0040005"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CmpWkValue] + 0x1C"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0x18691808"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CmpWkValue] + 0x20"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0xF0942204"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CmpWkValue] + 0x24"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0xBD38EBF0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpWkValue",
+        "parameters": [
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x961E"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[data_offset] + 0xB"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpWkValue",
+        "parameters": [
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x9644"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "[data_offset] + 0x9"
+          }
+        ]
+      },
+      {
+        "type": "command",
         "name": "LoadAdrsValue",
         "parameters": [
           {
             "name": "address",
             "type": "text",
-            "value": "[FUN_CompAdrsAdrs] + 0x9"
+            "value": "[FUN_CmpWkValue] + 0x20"
           },
           {
             "name": "value",
@@ -54,283 +150,295 @@
       },
       {
         "type": "command",
-        "name": "LoadAdrsAdrs",
+        "name": "CmpWkValue",
         "parameters": [
           {
-            "name": "tg",
+            "name": "work",
             "type": "text",
-            "value": "[FUN_CompAdrsAdrs] + 0x10"
+            "value": "0x500B"
           },
           {
-            "name": "src",
+            "name": "value",
             "type": "text",
-            "value": "0x68094902"
+            "value": "[data_offset]"
           }
         ]
       },
       {
-        "type": "command",
-        "name": "LoadAdrsAdrs",
-        "parameters": [
-          {
-            "name": "tg",
-            "type": "text",
-            "value": "[FUN_CompAdrsAdrs] + 0x14"
-          },
-          {
-            "name": "src",
-            "type": "text",
-            "value": "0xBD385060"
-          }
-        ]
+        "type": "raw_bytes",
+        "raw_bytes": "0x20",
+        "repetitions": "1"
       },
       {
-        "type": "command",
-        "name": "LoadAdrsAdrs",
-        "parameters": [
-          {
-            "name": "tg",
-            "type": "text",
-            "value": "[FUN_CompAdrsAdrs] + 0x1E"
-          },
-          {
-            "name": "src",
-            "type": "text",
-            "value": "[base_address]"
-          }
-        ]
+        "type": "raw_bytes",
+        "raw_bytes": "0x83",
+        "repetitions": "1"
       },
       {
-        "type": "command",
-        "name": "CmpAdrsAdrs",
-        "parameters": [
-          {
-            "name": "address1",
-            "type": "text",
-            "value": "0xA9E4"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0xEDB88320"
-          }
-        ]
+        "type": "raw_bytes",
+        "raw_bytes": "0xB8",
+        "repetitions": "1"
       },
       {
-        "type": "command",
-        "name": "CmpAdrsAdrs",
-        "parameters": [
-          {
-            "name": "address1",
-            "type": "text",
-            "value": "0xAA10"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0xCF9F"
-          }
-        ]
+        "type": "raw_bytes",
+        "raw_bytes": "0xED",
+        "repetitions": "1"
       },
       {
-        "type": "command",
-        "name": "CmpAdrsAdrs",
-        "parameters": [
-          {
-            "name": "address1",
-            "type": "text",
-            "value": "0x63E4"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0xE282000D"
-          }
-        ]
+        "type": "raw_bytes",
+        "raw_bytes": "0x9F",
+        "repetitions": "1"
       },
       {
-        "type": "command",
-        "name": "CmpAdrsAdrs",
-        "parameters": [
-          {
-            "name": "address1",
-            "type": "text",
-            "value": "0x63E8"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0xE12FFF10"
-          }
-        ]
+        "type": "raw_bytes",
+        "raw_bytes": "0xCF",
+        "repetitions": "1"
       },
       {
-        "type": "command",
-        "name": "CmpAdrsAdrs",
-        "parameters": [
-          {
-            "name": "address1",
-            "type": "text",
-            "value": "0x63EC"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0x60102001"
-          }
-        ]
+        "type": "raw_bytes",
+        "raw_bytes": "0",
+        "repetitions": "2"
       },
       {
-        "type": "command",
-        "name": "CmpAdrsAdrs",
-        "parameters": [
-          {
-            "name": "address1",
-            "type": "text",
-            "value": "0x63F0"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0xCA303218"
-          }
-        ]
+        "type": "raw_bytes",
+        "raw_bytes": "0xD",
+        "repetitions": "1"
       },
       {
-        "type": "command",
-        "name": "End",
-        "parameters": []
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x82",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xE2",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x10",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xFF",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x2F",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xE1",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x01",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x20",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x10",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x60",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x18",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x32",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x30",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xCA",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x31",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xC3",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xF7",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x46",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x16",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x44",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x7C",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xFD",
+        "repetitions": "1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xFF",
+        "repetitions": "1"
       }
     ],
     "variables": [
       {
         "language": "English",
-        "name": "FUN_CompAdrsAdrs",
-        "value": "0x02039BBC"
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039ACC"
       },
       {
         "language": "French",
-        "name": "FUN_CompAdrsAdrs",
-        "value": "0x02039C2C"
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B14"
       },
       {
         "language": "German",
-        "name": "FUN_CompAdrsAdrs",
-        "value": "0x02039C2C"
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B14"
       },
       {
         "language": "Italian",
-        "name": "FUN_CompAdrsAdrs",
-        "value": "0x02039C2C"
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B14"
       },
       {
         "language": "Spanish",
-        "name": "FUN_CompAdrsAdrs",
-        "value": "0x02039C2C"
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B14"
       },
       {
         "language": "English",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039ACC"
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039BDC"
       },
       {
         "language": "French",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039B3C"
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039C24"
       },
       {
         "language": "German",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039B3C"
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039C24"
       },
       {
         "language": "Italian",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039B3C"
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039C24"
       },
       {
         "language": "Spanish",
-        "name": "FUN_LoadAdrsAdrs",
-        "value": "0x2039B3C"
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039C24"
       },
       {
-        "language": "English",
-        "name": "base_address",
-        "value": "0x02106FC0"
+        "language": "All",
+        "name": "data_offset",
+        "value": "0x8"
       },
       {
-        "language": "French",
-        "name": "base_address",
-        "value": "0x02107140"
+        "language": "All",
+        "name": "",
+        "value": ""
       },
       {
-        "language": "German",
-        "name": "base_address",
-        "value": "0x02107100"
-      },
-      {
-        "language": "Italian",
-        "name": "base_address",
-        "value": "0x021070A0"
-      },
-      {
-        "language": "Spanish",
-        "name": "base_address",
-        "value": "0x02107160"
+        "language": "All",
+        "name": "",
+        "value": ""
       }
     ],
     "documentation": ""
   },
   {
-    "title": "Mystery Gift ACE Bootstrap Part 2",
-    "color": "74, 196, 182",
+    "title": "Postman Check",
+    "color": "180, 180, 180",
     "language": "English",
     "input_fields": [
       {
         "type": "command",
-        "name": "CmpAdrsAdrs",
+        "name": "MePlay",
         "parameters": [
           {
-            "name": "address1",
+            "name": "sound",
             "type": "text",
-            "value": "0x63F4"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0x46F7C331"
+            "value": "0x489"
           }
         ]
       },
       {
         "type": "command",
-        "name": "CmpAdrsAdrs",
+        "name": "TimeWait",
         "parameters": [
           {
-            "name": "address1",
+            "name": "number",
             "type": "text",
-            "value": "0x63F8"
+            "value": "1"
           },
           {
-            "name": "address2",
+            "name": "work",
             "type": "text",
-            "value": "0x7C440016"
+            "value": "0x4000"
           }
         ]
       },
       {
         "type": "command",
-        "name": "CmpAdrsAdrs",
+        "name": "ReportSave",
         "parameters": [
           {
-            "name": "address1",
+            "name": "work",
             "type": "text",
-            "value": "0x63FC"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0x0000FFFD"
+            "value": "0x4000"
           }
         ]
       },
