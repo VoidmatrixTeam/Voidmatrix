@@ -80,7 +80,7 @@
           {
             "name": "src",
             "type": "text",
-            "value": "0xF0942204"
+            "value": "0xF094221C"
           }
         ]
       },
@@ -112,7 +112,7 @@
           {
             "name": "value",
             "type": "text",
-            "value": "[data_offset] + 0xB"
+            "value": "[data_offset] + 0x4"
           }
         ]
       },
@@ -128,23 +128,7 @@
           {
             "name": "value",
             "type": "text",
-            "value": "[data_offset] + 0x9"
-          }
-        ]
-      },
-      {
-        "type": "command",
-        "name": "LoadAdrsValue",
-        "parameters": [
-          {
-            "name": "address",
-            "type": "text",
-            "value": "[FUN_CmpWkValue] + 0x20"
-          },
-          {
-            "name": "value",
-            "type": "text",
-            "value": "0x1C"
+            "value": "[data_offset] + 0x2"
           }
         ]
       },
@@ -155,7 +139,7 @@
           {
             "name": "work",
             "type": "text",
-            "value": "0x500B"
+            "value": "0x5012"
           },
           {
             "name": "value",
