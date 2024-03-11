@@ -99,3 +99,11 @@
 .application-container.as-background {
     filter: brightness(0.8);
 }
+
+.preview a {
+    color: #FFEE88;
+}
+
+.preview a:hover {
+    color: #FF8888
+}
