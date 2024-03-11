@@ -1,6 +1,6 @@
 [
   {
-    "title": "Pokémon Editor: Setup",
+    "title": "Pokémon Editor",
     "color": "88, 165, 198",
     "language": "English",
     "input_fields": [
@@ -86,6 +86,27 @@
       },
       {
         "type": "command",
+        "name": "ChgPokeWaza",
+        "parameters": [
+          {
+            "name": "party index",
+            "type": "text",
+            "value": "[party_index]"
+          },
+          {
+            "name": "move slot",
+            "type": "text",
+            "value": "[param_choice]"
+          },
+          {
+            "name": "move",
+            "type": "text",
+            "value": "[param_value]"
+          }
+        ]
+      },
+      {
+        "type": "command",
         "name": "End",
         "parameters": []
       }
@@ -115,42 +136,7 @@
         "language": "Spanish",
         "name": "FUN_SetMove",
         "value": "0x02069828"
-      }
-    ]
-  },
-  {
-    "title": "Pokémon Editor: Execution",
-    "color": "50, 134, 55",
-    "language": "All",
-    "input_fields": [
-      {
-        "type": "command",
-        "name": "ChgPokeWaza",
-        "parameters": [
-          {
-            "name": "party index",
-            "type": "text",
-            "value": "0x0"
-          },
-          {
-            "name": "move slot",
-            "type": "text",
-            "value": "[param_choice]"
-          },
-          {
-            "name": "move",
-            "type": "text",
-            "value": "[param_value]"
-          }
-        ]
       },
-      {
-        "type": "command",
-        "name": "End",
-        "parameters": []
-      }
-    ],
-    "variables": [
       {
         "language": "All",
         "name": "param_choice",
@@ -160,7 +146,13 @@
         "language": "All",
         "name": "param_value",
         "value": "0x0"
+      },
+      {
+        "language": "All",
+        "name": "party_index",
+        "value": "0x0"
       }
-    ]
+    ],
+    "documentation": "# Pokemon Editor - ASE  \n\nThe Pokemon Editor is used to modify the values of Pokemon, whether it be their IVs, their level, their game of origin, or other factors.  \nThis code can be used to edit any parameter, but there are some which have better alternatives or should be edited with caution:\n1. PID: The PID is used to decide the block order of a Pokémon. If edited, the resulting block order may differ, and the Pokémon could become corrupt.\n2. Checksum: The Checksum is a value determining how the Pokémon should be encrypted and decrypted. Editing this will guarantee your Pokémon is corrupted.\n3. Nickname: I recommend using the NameInPoke command instead, as it provides a keyboard to easily edit the Pokémon's nickname.\n4. Playername: I will provide a code to edited NameInPoke so it can edit playername too, eventually...\n\n## How to use\n\nThe `param_choice` is the specific variable that you wish to change. The values for each of these variables can be [found here][POKEPARAMS]. \nFor example, to edit the Pokémon's caught ball,  use `ID_PARA_get_ball`, which has an index of 154 (0x9A). Simply enter this value as the `param_choice` variable.\n\nAs `param_value` simply set the id of the desired Pokéball. This can be found on the same spreadsheet, in the [main tab][HEX_TABLE].\n\nFinally, the `party_index` is the slot your Pokémon is in. The first slot is 0, going up to 5. I recommend just keeping this as 0, and putting the Pokémon you want to edit in the first slot.\n\n[HEX_TABLE]: https://docs.google.com/spreadsheets/d/1ggx-qds-txThvSBAbt4ecpzx9OKalHF4_uorJnEPrUI/edit#gid=2092601225\n[POKEPARAMS]: https://docs.google.com/spreadsheets/d/1ggx-qds-txThvSBAbt4ecpzx9OKalHF4_uorJnEPrUI/edit#gid=187112851"
   }
 ]
