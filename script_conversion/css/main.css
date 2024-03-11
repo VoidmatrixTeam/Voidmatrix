@@ -299,15 +299,15 @@ input:focus, input:active {
     margin-right: 10px;
     fill: rgb(var(--main-color));
     cursor: pointer;
-    display: none;
+    /* display: none; */
     margin-left: auto;
     float: right;
     fill: white;
 }
 
-.script-toolbar:hover .script-delete, .script-toolbar:hover .script-info {
+/* .script-toolbar:hover .script-delete, .script-toolbar:hover .script-info {
     display: block;
-}
+} */
 
 .command, .raw-bytes {
     display: flex;
@@ -376,8 +376,11 @@ input[type="color"]::-webkit-color-swatch {
 .script-delete, .command-delete, .raw-bytes-delete {
     margin-right: 10px;
     fill: rgb(var(--main-color));
-    display: none;
     cursor: pointer;
+}
+
+.command-delete, .raw-bytes-delete {
+    display: none;
 }
 
 .script-delete {
