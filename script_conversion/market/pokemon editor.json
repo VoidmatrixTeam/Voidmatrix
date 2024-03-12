@@ -27,12 +27,12 @@
           {
             "name": "address",
             "type": "text",
-            "value": "[FUN_SetMove] + 0x3E"
+            "value": "[FUN_SetMove] + 0x1A"
           },
           {
             "name": "value",
             "type": "text",
-            "value": "0x0"
+            "value": "0x12"
           }
         ]
       },
@@ -43,44 +43,12 @@
           {
             "name": "address",
             "type": "text",
-            "value": "[FUN_SetMove] + 0x3F"
+            "value": "[FUN_SetMove] + 0x1B"
           },
           {
             "name": "value",
             "type": "text",
-            "value": "0x0"
-          }
-        ]
-      },
-      {
-        "type": "command",
-        "name": "LoadAdrsValue",
-        "parameters": [
-          {
-            "name": "address",
-            "type": "text",
-            "value": "[FUN_SetMove] + 0x40"
-          },
-          {
-            "name": "value",
-            "type": "text",
-            "value": "0x0"
-          }
-        ]
-      },
-      {
-        "type": "command",
-        "name": "LoadAdrsValue",
-        "parameters": [
-          {
-            "name": "address",
-            "type": "text",
-            "value": "[FUN_SetMove] + 0x41"
-          },
-          {
-            "name": "value",
-            "type": "text",
-            "value": "0x0"
+            "value": "0xE0"
           }
         ]
       },
@@ -140,12 +108,12 @@
       {
         "language": "All",
         "name": "param_choice",
-        "value": "0x0"
+        "value": "54"
       },
       {
         "language": "All",
         "name": "param_value",
-        "value": "0x0"
+        "value": "120"
       },
       {
         "language": "All",
