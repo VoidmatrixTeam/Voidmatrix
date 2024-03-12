@@ -16,7 +16,7 @@
           {
             "name": "value",
             "type": "text",
-            "value": "[Party Slot]"
+            "value": "[PartySlot]"
           }
         ]
       },
@@ -43,7 +43,7 @@
           {
             "name": "frm",
             "type": "text",
-            "value": "[Form Id]"
+            "value": "[FormId]"
           }
         ]
       },
