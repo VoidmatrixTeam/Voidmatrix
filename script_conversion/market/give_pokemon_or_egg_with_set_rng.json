@@ -113,6 +113,36 @@
         "value": "0x021C4D48"
       },
       {
+        "language": "German",
+        "name": "RNG_address",
+        "value": "0x021C4E88"
+      },
+      {
+        "language": "French",
+        "name": "RNG_address",
+        "value": "0x021C4EC8"
+      },
+      {
+        "language": "Italian",
+        "name": "RNG_address",
+        "value": "0x021C4E28"
+      },
+      {
+        "language": "Japanese",
+        "name": "RNG_address",
+        "value": "0x021C65A0"
+      },
+      {
+        "language": "Korean",
+        "name": "RNG_address",
+        "value": "0x021C2348"
+      },
+      {
+        "language": "Spanish",
+        "name": "RNG_address",
+        "value": "0x021C4EE8"
+      },
+      {
         "language": "All",
         "name": "rng_state",
         "value": "0x7EB30525"
@@ -226,6 +256,36 @@
         "language": "English",
         "name": "RNG_address",
         "value": "0x021C4D48"
+      },
+      {
+        "language": "German",
+        "name": "RNG_address",
+        "value": "0x021C4E88"
+      },
+      {
+        "language": "French",
+        "name": "RNG_address",
+        "value": "0x021C4EC8"
+      },
+      {
+        "language": "Italian",
+        "name": "RNG_address",
+        "value": "0x021C4E28"
+      },
+      {
+        "language": "Japanese",
+        "name": "RNG_address",
+        "value": "0x021C65A0"
+      },
+      {
+        "language": "Korean",
+        "name": "RNG_address",
+        "value": "0x021C2348"
+      },
+      {
+        "language": "Spanish",
+        "name": "RNG_address",
+        "value": "0x021C4EE8"
       },
       {
         "language": "All",
