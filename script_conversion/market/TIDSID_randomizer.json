@@ -1,0 +1,179 @@
+[
+  {
+    "title": "TIDSID randomizer",
+    "color": "180, 180, 180",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x60"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CmpWkValue] + 0x1C"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0x800D1A09"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CmpWkValue] + 0x20"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0xBD38"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "GetRandNext",
+        "parameters": [
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4000"
+          },
+          {
+            "name": "lim",
+            "type": "text",
+            "value": "0xFFFF"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpWkValue",
+        "parameters": [
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4000"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1140"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpWkValue",
+        "parameters": [
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4000"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1144"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "English",
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039BDC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039C24"
+      },
+      {
+        "language": "German",
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039C24"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039C24"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_CmpWkValue",
+        "value": "0x02039C24"
+      },
+      {
+        "language": "English",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039ACC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      }
+    ],
+    "documentation": ""
+  }
+]
