@@ -1868,14 +1868,39 @@
     },
     "0xa6": {
         "command_name": "ImageClipSetProc",
-        "parameters": []
+        "parameters": [
+            {
+                "name": "ppi",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "workvalue",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
     },
     "0xa7": {
         "command_name": "ImageClipPreviewTvProc",
         "parameters": [
             {
-                "name": "ps",
-                "size": "u8"
+                "name": "ppi",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "workvalue",
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
@@ -1883,8 +1908,18 @@
         "command_name": "ImageClipPreviewConProc",
         "parameters": [
             {
-                "name": "ps",
-                "size": "u8"
+                "name": "ppi",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "workvalue",
+                "size": "u16",
+                "default_value":"0x4000"
             }
         ]
     },
