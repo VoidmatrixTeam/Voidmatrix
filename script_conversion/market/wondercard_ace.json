@@ -1,0 +1,990 @@
+[
+  {
+    "title": "Generate Bootstrap Pokémon",
+    "color": "40, 154, 68",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x60"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[rng_address]"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "[rng_state]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "AddPokemon",
+        "parameters": [
+          {
+            "name": "species",
+            "type": "text",
+            "value": "Porygon-Z"
+          },
+          {
+            "name": "level",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "item",
+            "type": "text",
+            "value": ""
+          },
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4000"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[CapitalWordsetAdrs]"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "[CharacterValues]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_GetPokeCount] + 0x24"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0x80283801"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "GetPokeCount",
+        "parameters": [
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4040"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "NameInPoke",
+        "parameters": [
+          {
+            "name": "party index",
+            "type": "text",
+            "value": "0x4040"
+          },
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x4000"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "English",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039ACC"
+      },
+      {
+        "language": "French",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B3C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B3C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B3C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x02039B3C"
+      },
+      {
+        "language": "English",
+        "name": "CapitalWordsetAdrs",
+        "value": "0x020F9E6C"
+      },
+      {
+        "language": "English",
+        "name": "CharacterValues",
+        "value": "0xFFFBBF66"
+      },
+      {
+        "language": "English",
+        "name": "rng_address",
+        "value": "0x021C4D48"
+      },
+      {
+        "language": "All",
+        "name": "rng_state",
+        "value": "0xCD1FE751"
+      },
+      {
+        "language": "English",
+        "name": "FUN_GetPokeCount",
+        "value": "0x02044B00"
+      }
+    ],
+    "documentation": "# Wondercard ACE Distribution Code\n\nThis code lets you transfer ACE/ASE to Platinum. In the future Heartgold Soulsilver support will be added. "
+  },
+  {
+    "title": "ACE transfer Wonder Card (Platinum)",
+    "color": "180, 180, 180",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_PaperPlaneSet] + 0x8"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x18"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_PaperPlaneSet] + 0x9"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x47"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "PaperplaneSet",
+        "parameters": [
+          {
+            "name": "work",
+            "type": "text",
+            "value": "0x1D33"
+          }
+        ]
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x18",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x1C",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x02",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x88",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x2A",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xD1",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x10",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xBD",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x03",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x4B",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x41",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x88",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x41",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x18",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x1D",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x98",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x48",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xF5",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xE7",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xE0",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xE3",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0C",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x02",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x08",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x4B",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x96",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x20",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x83",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xB8",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xED",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x20",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x83",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xB8",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xED",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0C",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x6C",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x9E",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x06",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x01",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x6E",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xD7",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x01",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x04",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xA4",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xA1",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xFF",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x89",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x06",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xA0",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x9F",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x80",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x1D",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xEE",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x04",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xEA",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xA4",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xFF",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xDF",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x01",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x06",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xE6",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xA2",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x80",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x1D",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xEE",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x08",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x90",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0xA1",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x0B",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x00",
+        "repetitions": "0x1"
+      },
+      {
+        "type": "raw_bytes",
+        "raw_bytes": "0x11",
+        "repetitions": "0x1"
+      }
+    ],
+    "variables": [
+      {
+        "language": "English",
+        "name": "FUN_PaperPlaneSet",
+        "value": "0x0203e4d8"
+      },
+      {
+        "language": "All",
+        "name": "",
+        "value": ""
+      }
+    ],
+    "documentation": ""
+  },
+  {
+    "title": "Platinum NPC ASE Bootstrap",
+    "color": "184, 119, 46",
+    "language": "English",
+    "input_fields": [
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x0"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x60"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsValue",
+        "parameters": [
+          {
+            "name": "address",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x9"
+          },
+          {
+            "name": "value",
+            "type": "text",
+            "value": "0x1C"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x10"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0x68094902"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x14"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "0xBD385060"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "LoadAdrsAdrs",
+        "parameters": [
+          {
+            "name": "tg",
+            "type": "text",
+            "value": "[FUN_CompAdrsAdrs] + 0x1E"
+          },
+          {
+            "name": "src",
+            "type": "text",
+            "value": "[base_address]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "CmpAdrsAdrs",
+        "parameters": [
+          {
+            "name": "address1",
+            "type": "text",
+            "value": "[offset]"
+          },
+          {
+            "name": "address2",
+            "type": "text",
+            "value": "[value]"
+          }
+        ]
+      },
+      {
+        "type": "command",
+        "name": "End",
+        "parameters": []
+      }
+    ],
+    "variables": [
+      {
+        "language": "All",
+        "name": "offset",
+        "value": "0x23C15"
+      },
+      {
+        "language": "All",
+        "name": "value",
+        "value": "0x9C4E"
+      },
+      {
+        "language": "English",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x0203F8E0"
+      },
+      {
+        "language": "French",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_CompAdrsAdrs",
+        "value": "0x02039C2C"
+      },
+      {
+        "language": "English",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x0203F7F0"
+      },
+      {
+        "language": "French",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "German",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_LoadAdrsAdrs",
+        "value": "0x2039B3C"
+      },
+      {
+        "language": "English",
+        "name": "base_address",
+        "value": "0x02101D40"
+      },
+      {
+        "language": "German",
+        "name": "base_address",
+        "value": "0x02107100"
+      },
+      {
+        "language": "French",
+        "name": "base_address",
+        "value": "0x02107140"
+      },
+      {
+        "language": "Italian",
+        "name": "base_address",
+        "value": "0x021070A0"
+      },
+      {
+        "language": "Japanese",
+        "name": "base_address",
+        "value": "0x02108818"
+      },
+      {
+        "language": "Korean",
+        "name": "base_address",
+        "value": "0x021045C0"
+      },
+      {
+        "language": "Spanish",
+        "name": "base_address",
+        "value": "0x02107160"
+      }
+    ],
+    "documentation": ""
+  }
+]
