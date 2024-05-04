@@ -1,6 +1,3 @@
-
-let debug = false;
-
 const math_config = {
     number: 'number'
 };

@@ -1,6 +1,6 @@
 // Global variables
 let datalists = {};
-
+let debug = false;
 let variableWrapper = null;
 let scriptHandler = null;
 let currentDrag = null;
@@ -1084,13 +1084,18 @@ s
         }
     }
 
+    loadScriptFromDataList(scriptTitle) {
+        const scriptInfo = datalists['datalist-scripts'].getOptionByName(scriptTitle);
+        if (!scriptInfo) {return false;}
+        importScriptsFromSearch(scriptInfo);
+        return true;
+    }
+
     addToolbarEventListeners() {
         let searchInput = document.querySelector('.script-search')
 
         searchInput.addEventListener('change', () => {
-                const scriptInfo = datalists['datalist-scripts'].getOptionByName(searchInput.value);
-                if (!scriptInfo) {return;}
-                importScriptsFromSearch(scriptInfo)
+                this.loadScriptFromDataList(searchInput.value);
                 searchInput.value = ''
             }
         )
@@ -1138,6 +1143,24 @@ s
         });
     }
 
+    parseUrl() {
+        const urlParams = new URLSearchParams(window.location.search);
+        debug = urlParams.get('debug');
+        const language = urlParams.get('language');
+
+        if (language) {
+            const languageElement = document.querySelector('.language-config');
+            languageElement.value = language;
+            languageElement.dispatchEvent(new Event('change'));
+        }
+
+        const scriptUrl = urlParams.get('script');
+
+        if (!(scriptUrl && this.loadScriptFromDataList(scriptUrl))) {
+            scriptHandler.addScriptElement(); // add a default first script element
+        }
+    }
+
     updateSelectedScript() {
         let selectedScript = this.scripts.find(script => script.scriptElement.classList.contains('selected'));
         if (selectedScript) {
@@ -1170,6 +1193,8 @@ const importScriptsFromSearch = async function(file) {
     scriptHandler.importScripts(json);
 }
 
+
+
 document.addEventListener("DOMContentLoaded", async function () {
     // add data lists to the document
     const commands = await getJsonFromUrl(`data/command_data.json`);
@@ -1185,7 +1210,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     const languages = ["All", "English", "Japanese", "French", "Italian", "German", "Spanish", "Korean"];
     datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
     const scriptFiles = await getFilesFromGithub(`VoidmatrixTeam`, `Voidmatrix`, `script_conversion/market`)
-    datalists["datalist-scripts"] = new ScriptDataList(document.documentElement, scriptFiles)
+    datalists["datalist-scripts"] = new ScriptDataList(document.documentElement, scriptFiles);
+
+
 
     // global VariableWrapper
     variableWrapper = new VariableWrapper();
@@ -1193,6 +1220,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     // initialize the script handler
     scriptHandler = new ScriptHandler();
     scriptHandler.addEventListeners();
-    scriptHandler.addScriptElement(); // add a default first script element
     scriptHandler.addToolbarEventListeners();
+    scriptHandler.parseUrl();
 });
