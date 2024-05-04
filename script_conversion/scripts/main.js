@@ -770,7 +770,7 @@ class CommandCreate {
     
         const options = [
             { type: 'command', icon: 'command-add', text: 'Add Command' },
-            // { type: 'raw-bytes', icon: 'raw-bytes-add', text: 'Add Raw Bytes' },
+            { type: 'raw-bytes', icon: 'raw-bytes-add', text: 'Add Raw Bytes' },
             { type: 'memory-editor', icon: 'memory-editor-add', text: 'Add Memory Editor'}
         ];
 
@@ -893,13 +893,13 @@ class Script {
             this.commandWrapper.addCommand();
         });
 
-        // commandCreate.addRawBytesButtonElement.addEventListener('click', () => {
-        //     if (commandCreate.addInputWrapperElement.classList.contains('dropdown')) {
-        //         setCurrent(commandCreate.addRawBytesButtonElement);
-        //         return;
-        //     }
-        //     this.commandWrapper.addRawBytes();
-        // });
+        commandCreate.addRawBytesButtonElement.addEventListener('click', () => {
+            if (commandCreate.addInputWrapperElement.classList.contains('dropdown')) {
+                setCurrent(commandCreate.addRawBytesButtonElement);
+                return;
+            }
+            this.commandWrapper.addRawBytes();
+        });
 
         commandCreate.addMemoryEditorButtonElement.addEventListener('click', () => {
             if (commandCreate.addInputWrapperElement.classList.contains('dropdown')) {
