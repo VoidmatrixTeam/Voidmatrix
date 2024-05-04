@@ -85,104 +85,29 @@
         "parameters": []
       },
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0x3",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xb4",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x3",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x48",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x80",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x47",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x3",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xbc",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x9",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x1a",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xa",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x60",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x10",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xbd",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xed",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xb9",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x1",
-        "repetitions": "0x1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x2",
-        "repetitions": "0x1"
+        "type": "memory_editor",
+        "memory": [
+          "0x3",
+          "0xb4",
+          "0x3",
+          "0x48",
+          "0x80",
+          "0x47",
+          "0x3",
+          "0xbc",
+          "0x9",
+          "0x1a",
+          "0xa",
+          "0x60",
+          "0x10",
+          "0xbd",
+          "0x0",
+          "0x0",
+          "0xed",
+          "0xb9",
+          "0x1",
+          "0x2"
+        ]
       }
     ],
     "variables": [

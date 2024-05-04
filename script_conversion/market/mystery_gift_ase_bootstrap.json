@@ -149,169 +149,43 @@
         ]
       },
       {
-        "type": "raw_bytes",
-        "raw_bytes": "0x20",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x83",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xB8",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xED",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "([giftId] & 0xFF)",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "([giftId] & 0xFF00) >> 8",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0",
-        "repetitions": "2"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xD",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x82",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xE2",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x10",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xFF",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x2F",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xE1",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x01",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x20",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x10",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x60",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x18",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x32",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x30",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xCA",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x31",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xC3",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xF7",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x46",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x16",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x0",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x44",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0x7C",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xFD",
-        "repetitions": "1"
-      },
-      {
-        "type": "raw_bytes",
-        "raw_bytes": "0xFF",
-        "repetitions": "1"
+        "type": "memory_editor",
+        "memory": [
+          "0x20",
+          "0x83",
+          "0xB8",
+          "0xED",
+          "([giftId] & 0xFF)",
+          "([giftId] & 0xFF00) >> 8",
+          "0x0",
+          "0x0",
+          "0xD",
+          "0x0",
+          "0x82",
+          "0xE2",
+          "0x10",
+          "0xFF",
+          "0x2F",
+          "0xE1",
+          "0x01",
+          "0x20",
+          "0x10",
+          "0x60",
+          "0x18",
+          "0x32",
+          "0x30",
+          "0xCA",
+          "0x31",
+          "0xC3",
+          "0xF7",
+          "0x46",
+          "0x16",
+          "0x0",
+          "0x44",
+          "0x7C",
+          "0xFD",
+          "0xFF"
+        ]
       }
     ],
     "variables": [
