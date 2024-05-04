@@ -1,6 +1,5 @@
 
 let debug = false;
-// Converter: this class will convert the input scripts to byte code
 
 const math_config = {
     number: 'number'
@@ -40,8 +39,7 @@ class Converter {
             }
             depth++;
 
-            // if the expression is a number, return it
-            if (typeof expression === 'number') { // && !isNaN(expression)) {
+            if (typeof expression === 'number') {
                 return expression;
             }
 
@@ -61,13 +59,11 @@ class Converter {
         }
     }
 
-    // function to split a string into an array of tokens
     splitString(input) {
         const regex = /(0x[\da-fA-F]+|\d+|[()+\-*/&|^]|<<|>>|\[[^\]]+\])/g;
         return input.match(regex);
     }
 
-    // function to get all variables from a variable group
     getVariables(variableGroup) {
         const variables = [];
         for (let variableElement of variableGroup.variableElements) {
@@ -83,7 +79,6 @@ class Converter {
         return variables;
     }
 
-    // function to get all variables from a variable group where the language matches
     getVariablesByLanguage(variableGroup, language) {
         const variables = [];
         this.getVariablesByLanguageFromElements(document.querySelectorAll('.global-variables .variable'), language, variables);
@@ -97,11 +92,8 @@ class Converter {
             if ((variableLanguage === language) || (variableLanguage === 'All')) {
                 const variableName = variable.querySelector('.variable-name').value;
                 const variableValue = variable.querySelector('.variable-value').value;
-
-                // if a variable with the same name already exists, replace it
                 const existingVariable = variables.find(v => v.name === variableName);
                 if (existingVariable) {
-                    // if the existing variable is from a more specific language, replace it
                     if (existingVariable.language === 'All' || existingVariable.language === variableLanguage) {
                         existingVariable.value = variableValue;
                         continue;
@@ -118,7 +110,6 @@ class Converter {
         return variables;
     }
 
-    // function to convert a value to a byte array, given the bit count
     convertValueToByteArray(value, bitCount) {
         const byteArray = [];
       
@@ -130,21 +121,18 @@ class Converter {
         return byteArray;
     }
 
-    // function to convert a value to a byte array, no bit count
     convertValueToByteArrayNoBitCount(value) {
         if (value === 0) { return [0];}
+
         const byteArray = [];
-        
-        // Iterate over each byte
         while (value > 0) {
-            byteArray.unshift(value & 0xff); // Extract the least significant byte
-            value >>= 8; // Shift the value right by 8 bits
+            byteArray.unshift(value & 0xff);
+            value >>= 8;
         }
 
         return byteArray;
     }
 
-    // function to return sanitized value for 'options' type
     sanitizeOptionsValue(inputElement, variables) {
         const datalistName = inputElement.getAttribute('list');
         const datalist = datalists[datalistName]
@@ -152,50 +140,39 @@ class Converter {
         return inputOptionId;
     }
 
-    // function to return sanitized value for other types
     sanitizeOtherValue(inputElement, variables) {
         return this.safeEval(inputElement.value, variables) || 0x0;
     }
 
-    // function to convert command element to byte code
     convertCommandToByteCode(commandElement, variables) {
         const byteCode = [];
 
         let commandInput = commandElement.querySelector(".command-input");
         let inputElements = commandInput.querySelectorAll("input");
         for (let inputElement of inputElements) {
-            // get the input type, datalist, and value
             const conversionType = inputElement.conversionType;
             const bitCount = parseInt(inputElement.bitSize.substring(1));
             let sanitizedValue = null;
 
             if (conversionType === 'options'){
-                // sanitize the value
                 sanitizedValue = this.sanitizeOptionsValue(inputElement, variables);
             } else {
-                // sanitize the value
                 sanitizedValue = this.sanitizeOtherValue(inputElement, variables);
             }
             const sanitizedValueArray = this.convertValueToByteArray(sanitizedValue, bitCount);
-
-            // add the sanitized values to the byte code
             byteCode.push(...sanitizedValueArray);
         }
         return byteCode;
     }
 
-    // function to convert raw bytes element to byte code
     convertRawBytesToByteArray(rawBytesElement, variables) {
-        // get the raw bytes
         const rawBytesInput = rawBytesElement.querySelector(".raw-bytes-input")
         const sanitizedRawBytes = this.safeEval(rawBytesInput.value, variables) || 0x0;
         const rawBytesArray = this.convertValueToByteArrayNoBitCount(sanitizedRawBytes);
 
-        // get the repitition count
         const rawBytesRepeatInput = rawBytesElement.querySelector(".raw-bytes-repeat-input");
         const sanitizedRawBytesRepeat = this.safeEval(rawBytesRepeatInput.value, variables) || 0x0;
         
-        // repeat the raw bytes
         const byteArray = [];
 
         for (let i = 0; i < sanitizedRawBytesRepeat; i++) {
@@ -204,15 +181,23 @@ class Converter {
         return byteArray;
     }
 
-    // function to convert a script to byte code
+    convertMemoryEditorToByteArray(memoryEditorElement, variables) {
+        const byteInputs = Array.from(memoryEditorElement.querySelectorAll('.memory-byte')).filter(byteInput => !byteInput.classList.contains('no-show'));
+        return Array.from(byteInputs).map(byteInput => this.safeEval(byteInput.value, variables) || 0x0 & 0xFF);
+    }
+
+    evaluateInputField(inputFieldElement, variableGroup) {
+        const language = document.querySelector('.language-config').value || 'All';
+        const variables = this.getVariablesByLanguage(variableGroup, language);
+        this.evaluateVariables(variables);
+        return this.safeEval(inputFieldElement.value, variables);
+    }
+
     convertScriptToByteCode(script) {
         const scriptElement = script.scriptElement;
         const variableGroup = script.variableGroup;
         const language = document.querySelector('.language-config').value || 'All';
-
-        // get all variables, then sanitize them
         const variables = this.getVariablesByLanguage(variableGroup, language);
-        // this.sanitizeVariableValues(variables);
         this.evaluateVariables(variables);
 
         let byteCodeOffset = 0;
@@ -221,21 +206,20 @@ class Converter {
                 byteCodeOffset = variable.value;
             }
         }
-        
-        // set bytecode with byteCodeOffset amount of 0s
         let byteCode = new Array(byteCodeOffset).fill(0);
 
-        let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes");
+        let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes, .memory-editor");
         for (let scriptElement of scriptElements) {
             switch (scriptElement.className) {
                 case 'command':
-                    // process the command
                     byteCode.push(...this.convertCommandToByteCode(scriptElement, variables));
                     break;
                 case 'raw-bytes':
-                    // process the raw bytes
                     byteCode.push(...this.convertRawBytesToByteArray(scriptElement, variables));
-                    break;            
+                    break;
+                case 'memory-editor':
+                    byteCode.push(...this.convertMemoryEditorToByteArray(scriptElement, variables));
+                    break;          
             }
 
         }
@@ -244,15 +228,11 @@ class Converter {
 
 }
 
-// DotArtistConverter: this class will convert the input scripts to byte code, then convert the byte code to a dot artist image
-
 class DotArtistConverter extends Converter {
-    // variables
     dotArtistElement = null;
     dotArtistGridElement = null;
     forceShowNumbers = true;
 
-    // constructor
     constructor() {
         super();
         this.dotArtistElement = document.querySelector('.dot-artist-container');
@@ -263,7 +243,6 @@ class DotArtistConverter extends Converter {
         this.addEventListeners();
     }
 
-    // initialize the dot artist
     initializeDotArtist() {
         for (let i=0;i<20;i++) {
             let row = document.createElement("div");
@@ -275,32 +254,27 @@ class DotArtistConverter extends Converter {
         };
     }
 
-    // function to clear the dot artist
     clearDotArtist() {
-        // loop through all the rows, setting all the pixels to 0
         for (let i=0;i<20;i++) {
             let row = this.dotArtistGridElement.children[i];
             for (let j=0;j<24;j++) {
                 let pixel = row.children[j];
-                // just set the class list to only pixel and bit-0
                 pixel.className = "pixel uninitialized";
             }
         }
     }
 
-    // function to convert a script to byte code
     convertByteCodeToDotArtist(byteCode) {
         this.clearDotArtist();
         const binaryCode = this.convertByteCodeToBinary(byteCode);
     
-        outer_loop: // label for the outer loop
+        outer_loop:
         for (let i=0;i<20;i++) {
             let row = this.dotArtistGridElement.children[i];
             for (let j=0;j<24;j++) {  
                 let idx = i*24+j;
-                let bit = binaryCode[idx];          
-                // set class to bit-1, bit-2, or bit-3
-                let pixel = row.children[j];
+                let bit = binaryCode[idx]; 
+                let pixel = row.children[j]; // set class to bit-1, bit-2, or bit-3
                 pixel.classList.add(`bit-${bit}`);
 
                 pixel.classList.remove("uninitialized")
@@ -388,8 +362,6 @@ class DotArtistConverter extends Converter {
         }
     }
 
-
-    // function to create a dot element
     createPixelElement(bit) {
         let dotElement = document.createElement("div");
         dotElement.classList.add("pixel");
@@ -413,13 +385,10 @@ class DotArtistConverter extends Converter {
         return dotElement;
     }
 
-    // function to change the dot artist background color
     changeDotArtistBackgroundColor(color) {
-        // change the root variable of the dot artist background color
         this.dotArtistElement.style.setProperty('--dot-artist-background', color);
     }
 
-    // function to convert bytecode to binary
     convertByteCodeToBinary(byteCode) {
         let binaryCode = new Array(byteCode.length*4).fill(0);
         for (let i=0;i<byteCode.length;i++) {
@@ -430,17 +399,15 @@ class DotArtistConverter extends Converter {
         return binaryCode;
     }
 
-    // function to convert a script to DotArtist
     convertScriptToDotArtist(script) {
         this.changeDotArtistBackgroundColor(`rgb(${script.color})`);
         let byteCode = this.convertScriptToByteCode(script);
+
         if (debug) {
-            // print the byte code as hex with 0x prefix
             console.log(byteCode.map(x => "0x" + x.toString(16)));
-            // also print it as one long hex string
-            // fix above line so that each byte is 2 characters long, 0 padded
             console.log(byteCode.map(x => x.toString(16).padStart(2, "0")).join(""));
         }
+
         this.convertByteCodeToDotArtist(byteCode);
 
         if (this.forceShowNumbers) {
@@ -448,7 +415,6 @@ class DotArtistConverter extends Converter {
         }
     }
 
-    // reset the dot artist
     resetDotArtist() {
         const byteCode = [];
         this.convertByteCodeToDotArtist(byteCode);
@@ -458,7 +424,6 @@ class DotArtistConverter extends Converter {
         }
     }
 
-    // add event listeners to the options
     addEventListeners() {
         this.addOptionMenu()
     }
@@ -467,7 +432,6 @@ class DotArtistConverter extends Converter {
         const outerDiv = document.querySelector('.dot-artist-config-options');
         const optionsIcon = outerDiv.querySelector('.dot-artist-options-icon');
 
-        // Add a click event to all elements inside the outer div
         const allElements = outerDiv.querySelectorAll('img, svg');
         allElements.forEach((element) => {
             element.addEventListener('click', () => {
@@ -475,7 +439,6 @@ class DotArtistConverter extends Converter {
             });
         });
 
-        // Add a click event specifically for the "list_menu" element
         optionsIcon.addEventListener('click', () => {
             allElements.forEach((element) => {
                 if (element !== optionsIcon) {
@@ -484,22 +447,18 @@ class DotArtistConverter extends Converter {
             });
         });
 
-        // Add a click event specifically on the "highlight_code" element
         const highlightCode = outerDiv.querySelector('.dot-artist-highlight-icon');
         highlightCode.addEventListener('click', () => {
             this.dotArtistElement.classList.toggle("highlight_selection")
         });
 
-        // Add a click event specifically to the "show_numbers" element
         const showNumbers = outerDiv.querySelector('.dot-artist-number-overlay-icon');
         showNumbers.addEventListener('click', () => {
             this.forceShowNumbers = !this.forceShowNumbers;
 
             if (this.forceShowNumbers) {
-                // loop over all pixels and set the inner value to the bit value
                 this.setAllDotInnerValues(false);
             } else {
-                // loop over all pixels and remove the inner value
                 this.removeAllDotInnerValues();
             }
         });
@@ -507,7 +466,6 @@ class DotArtistConverter extends Converter {
 }
 
 class JsonExporter extends Converter {
-    // function to convert a script to byte code
     convertScriptToJson(script) {
       const scriptElement = script.scriptElement;
       const variableGroup = script.variableGroup;
@@ -521,17 +479,18 @@ class JsonExporter extends Converter {
         'variables': this.getVariables(variableGroup)
       };
   
-      let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes");
+      let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes, .memory-editor");
       for (let scriptElement of scriptElements) {
         switch (scriptElement.className) {
-          case 'command':
-            // process the command
-            json.input_fields.push(this.convertCommandToJson(scriptElement));
-            break;
-          case 'raw-bytes':
-            // process the raw bytes
-            json.input_fields.push(this.convertRawBytesToJson(scriptElement));
-            break;
+            case 'command':
+                json.input_fields.push(this.convertCommandToJson(scriptElement));
+                break;
+            case 'raw-bytes':
+                json.input_fields.push(this.convertRawBytesToJson(scriptElement));
+                break;
+            case 'memory-editor':
+                json.input_fields.push(this.convertMemoryEditorToJson(scriptElement));
+                break;
         }
       }
 
@@ -551,7 +510,6 @@ class JsonExporter extends Converter {
       };
 
       for (let i = 1; i < paramElements.length; i++) {
-        // skip the first element, which is the command name
         const paramElement = paramElements[i];
         const paramInfo = {
             'name': paramElement.placeholder,
@@ -566,17 +524,25 @@ class JsonExporter extends Converter {
     convertRawBytesToJson(rawBytesElement) {
       const rawBytes = {
         'type': 'raw_bytes',
+        'raw_bytes': rawBytesElement.querySelector('.raw-bytes-input').value,
+        'repetitions': rawBytesElement.querySelector('.raw-bytes-repeat-input').value
       };
   
-      // process raw bytes details
-      const rawBytesInput = rawBytesElement.querySelector('.raw-bytes-input');
-      rawBytes.raw_bytes = rawBytesInput.value;
-  
-      // process repetitions
-      const rawBytesRepeatInput = rawBytesElement.querySelector('.raw-bytes-repeat-input');
-      rawBytes.repetitions = rawBytesRepeatInput.value;
-  
       return rawBytes;
+    }
+
+    convertMemoryEditorToJson(memoryEditorElement) {
+      const memoryEditor = {
+        'type': 'memory_editor',
+        'memory': []
+      };
+  
+      const byteInputs = Array.from(memoryEditorElement.querySelectorAll('.memory-byte')).filter(byteInput => !byteInput.classList.contains('no-show'));
+      for (let byteInput of byteInputs) {
+        memoryEditor.memory.push(byteInput.value);
+      }
+  
+      return memoryEditor;
     }
   
     exportScripts(scripts) {

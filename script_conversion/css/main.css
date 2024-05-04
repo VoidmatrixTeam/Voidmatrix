@@ -309,16 +309,19 @@ input:focus, input:active {
     display: block;
 } */
 
+.command, .raw-bytes, .memory-editor {
+    background-color: rgba(40,40,40,0.8);
+    border-bottom: 1px solid var(--bg-dark-3);
+    position: relative;
+}
+
 .command, .raw-bytes {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--bg-dark-3);
-    background-color: rgba(40,40,40,0.8);
-    position: relative;
 }
 
-.command-input, .raw-bytes  {
+.command-input, .raw-bytes, .memory-editor {
     padding: 8px 16px;
 }
 
@@ -373,14 +376,17 @@ input[type="color"]::-webkit-color-swatch {
     width: calc(100% - var(--color-swatch-width));
 }
 
-.script-delete, .command-delete, .raw-bytes-delete {
+.script-delete, .command-delete, .raw-bytes-delete, .memory-editor-delete {
     margin-right: 10px;
     fill: rgb(var(--main-color));
     cursor: pointer;
 }
 
-.command-delete, .raw-bytes-delete {
+.command-delete, .raw-bytes-delete, .memory-editor-delete{
     display: none;
+    position: absolute;
+    top: 4px;
+    right: 0;
 }
 
 .script-delete {
@@ -389,13 +395,7 @@ input[type="color"]::-webkit-color-swatch {
     fill: white;
 }
 
-.command-delete, .raw-bytes-delete {
-    position: absolute;
-    top: 4px;
-    right: 0;
-}
-
-.command:hover .command-delete, .raw-bytes:hover .raw-bytes-delete {
+.command:hover .command-delete, .raw-bytes:hover .raw-bytes-delete, .memory-editor:hover .memory-editor-delete {
     display: block;
 }
 
@@ -406,11 +406,27 @@ input[type="color"]::-webkit-color-swatch {
     padding: 4px;
 }
 
-/* .command-create-wrapper{
-    display: flex;
-    align-items: center;
-    background-color: rgba(40,40,40,0.8);
-} */
+.memory-editor > input, .memory-editor-bytes > input, .memory-size-input
+{
+    color: var(--light-color);
+    background-color: rgba(0,0,0,0.5);
+    border: None;
+    padding: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    width: 44px;
+}
+
+.memory-size-text {
+    color: var(--light-color);
+    margin-right: 4px;
+    font-size: 14px;
+    margin-right: 27px;
+}
+
+.no-show {
+    display: none;
+}
 
 .command-create-wrapper {
     padding: 9px 16px 11px 16px;

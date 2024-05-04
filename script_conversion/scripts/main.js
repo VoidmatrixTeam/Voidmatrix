@@ -51,13 +51,11 @@ class IconFactory {
 // VariableGroup: this class will be used to store variables
 
 class VariableGroup {
-    // variables
     variableGroupElement = null;
     variableElements = [];
     titleElement = null;
     callback = null
   
-    // constructor
     constructor(parent, script, callback, isGlobal = false) {
         this.callback = callback
         this.createVariableGroup(parent, script, isGlobal);
@@ -179,13 +177,11 @@ class VariableGroup {
 // VariableWrapper: this class will be used to store variable groups
 
 class VariableWrapper {
-    // variables
     variableWrapperElement = null;
     variableGroups = [];
     globalVariableGroup = null;
     languageConfig = null;
 
-    // constructor
     constructor() {
         this.createVariableWrapper();
         this.addLanguageListeners()
@@ -262,14 +258,12 @@ class VariableWrapper {
 // CommandInput: this class handles multiple commands
 
 class CommandInput {
-    // variables
     commandInputElement = null;
     command = null;
     paramElements = {};
     variableGroup = null;
     converter = null;
 
-    // constructor
     constructor(parent, variableGroup, converter) {
         this.variableGroup = variableGroup;
         this.converter = converter;
@@ -392,19 +386,78 @@ class CommandInput {
     }
 }
 
-// Command: this class will be used to store the command data
 
-class Command {
-    // variables
+class DraggableScriptChild {
+    // dummy constructor
+    constructor() {
+        if (this.constructor === DraggableScriptChild) {
+            throw new TypeError('Cannot construct DraggableScriptChild instances directly');
+        }
+    }
+
+    addDragandDrop(parent, draggableElement) { 
+        function handleDragStart(event) {
+            let activeElement = document.activeElement;
+            if (activeElement.tagName === 'INPUT') {
+                event.preventDefault();
+                return;
+            }
+            currentDrag = this;
+            event.dataTransfer.effectAllowed = 'move';
+            event.dataTransfer.setData('text/html', this.innerHTML);
+        }
+    
+        function handleDragOver(event) {
+            let activeElement = document.activeElement;
+            if (activeElement.tagName === 'INPUT') {
+                return;
+            }
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+    
+        function handleDrop(event) {
+            if (currentDrag && currentDrag !== this) {
+                const targetRect = this.getBoundingClientRect();
+                const halfwayPoint = targetRect.top + targetRect.height / 2;
+    
+                if (event.clientY < halfwayPoint) {
+                    parent.insertBefore(currentDrag, this);
+                } else {
+                    const nextSibling = this.nextElementSibling;
+                    if (nextSibling) {
+                        parent.insertBefore(currentDrag, nextSibling);
+                    } else {
+                        parent.appendChild(currentDrag);
+                    }
+                }
+            }
+
+            event.stopPropagation();
+            const changeEvent = new Event('change', { bubbles: true });
+            this.dispatchEvent(changeEvent);
+            return false;
+        }
+
+        draggableElement.setAttribute('draggable', true);
+        draggableElement.addEventListener('dragstart', handleDragStart, false);
+        draggableElement.addEventListener('dragover', handleDragOver, false);
+        draggableElement.addEventListener('drop', handleDrop, false);
+    }
+}
+
+
+
+// Command: this class will be used to store the command data, must inherit from DraggableScriptChild
+class Command extends DraggableScriptChild {
     commandElement = null;
     commandInput = null;
     variableGroup = null;
-    converter = null;
 
-    // constructor
     constructor(parent, variableGroup, converter) {
+        super();
         this.variableGroup = variableGroup;
-        this.converter = converter;
         this.createCommandElement(parent, variableGroup, converter);
     }
 
@@ -428,58 +481,6 @@ class Command {
         this.addDragandDrop(parent, commandElement);
     }
 
-    addDragandDrop(parent, commandElement) { 
-        // Drag start event listener
-        function handleDragStart(event) {
-            // check if user is currently on any input field (not the event's target)
-            let activeElement = document.activeElement;
-            if (activeElement.tagName === 'INPUT') {
-                event.preventDefault();
-                return;
-            }
-            currentDrag = this;
-            event.dataTransfer.effectAllowed = 'move';
-            event.dataTransfer.setData('text/html', this.innerHTML);
-        }
-    
-        // Drag over event listener
-        function handleDragOver(event) {
-            event.preventDefault();
-            event.dataTransfer.dropEffect = 'move';
-            return false;
-        }
-    
-        // Drop event listener
-        function handleDrop(event) {
-            if (currentDrag && currentDrag !== this) {
-                const targetRect = this.getBoundingClientRect();
-                const halfwayPoint = targetRect.top + targetRect.height / 2;
-    
-                if (event.clientY < halfwayPoint) {
-                    parent.insertBefore(currentDrag, this);
-                } else {
-                    const nextSibling = this.nextElementSibling;
-                    if (nextSibling) {
-                        parent.insertBefore(currentDrag, nextSibling);
-                    } else {
-                        parent.appendChild(currentDrag);
-                    }
-                }
-            }
-
-            event.stopPropagation();
-            const changeEvent = new Event('change', { bubbles: true });
-            this.dispatchEvent(changeEvent);
-
-            return false;
-        }
-
-        commandElement.setAttribute('draggable', true);
-        commandElement.addEventListener('dragstart', handleDragStart, false);
-        commandElement.addEventListener('dragover', handleDragOver, false);
-        commandElement.addEventListener('drop', handleDrop, false);
-    }
-
     // function to set the command name
     setCommandName(commandName) {
         this.commandInput.setCommandName(commandName);
@@ -494,12 +495,11 @@ class Command {
 
 // RawBytes: this class will be used to store the raw bytes data
 
-class RawBytes {
-    // variables
+class RawBytes extends DraggableScriptChild {
     rawBytesElement = null;
 
-    // constructor
     constructor(parent) {
+        super();
         this.createRawBytesElement(parent);
     }
 
@@ -532,63 +532,6 @@ class RawBytes {
         this.addDragandDrop(parent, rawBytesElement);
     }
 
-    // function to add drag and drop functionality
-    addDragandDrop(parent, rawBytes) { 
-        // Drag start event listener
-        function handleDragStart(event) {
-            // check if user is currently on any input field (not the event's target)
-            let activeElement = document.activeElement;
-            if (activeElement.tagName === 'INPUT') {
-                event.preventDefault();
-                return;
-            }
-            currentDrag = this;
-            event.dataTransfer.effectAllowed = 'move';
-            event.dataTransfer.setData('text/html', this.innerHTML);
-        }
-    
-        // Drag over event listener
-        function handleDragOver(event) {
-            // check if user is currently on any input field (not the event's target)
-            let activeElement = document.activeElement;
-            if (activeElement.tagName === 'INPUT') {
-                return;
-            }
-            event.preventDefault();
-            event.dataTransfer.dropEffect = 'move';
-            return false;
-        }
-    
-        // Drop event listener
-        function handleDrop(event) {
-            if (currentDrag && currentDrag !== this) {
-                const targetRect = this.getBoundingClientRect();
-                const halfwayPoint = targetRect.top + targetRect.height / 2;
-    
-                if (event.clientY < halfwayPoint) {
-                    parent.insertBefore(currentDrag, this);
-                } else {
-                    const nextSibling = this.nextElementSibling;
-                    if (nextSibling) {
-                        parent.insertBefore(currentDrag, nextSibling);
-                    } else {
-                        parent.appendChild(currentDrag);
-                    }
-                }
-            }
-
-            event.stopPropagation();
-            const changeEvent = new Event('change', { bubbles: true });
-            this.dispatchEvent(changeEvent);
-            return false;
-        }
-
-        rawBytes.setAttribute('draggable', true);
-        rawBytes.addEventListener('dragstart', handleDragStart, false);
-        rawBytes.addEventListener('dragover', handleDragOver, false);
-        rawBytes.addEventListener('drop', handleDrop, false);
-    }
-
     // function to set the raw bytes
     setRawBytes(rawBytes) {
         this.rawBytesElement.querySelector('.raw-bytes-input').value = rawBytes;
@@ -607,23 +550,152 @@ class RawBytes {
 
 }
 
-// CommandWrapper: this class will be used to store the commands
+class MemoryEditorByte {
+    byteElement = null;
 
-class CommandWrapper {
-    // variables
-    commandWrapperElement = null;
-    inputElements = [];
+    constructor(parent) {
+        this.createByteElement(parent);
+    }
+
+    createByteElement(parent) {
+        const byteElement = document.createElement('input');
+        byteElement.type = 'text';
+        byteElement.placeholder = '0x0'
+        byteElement.classList.add('memory-byte');
+        parent.appendChild(byteElement);
+        this.byteElement = byteElement;
+    }
+
+    setByteValue(byte) {
+        this.byteElement.value = byte;
+    }
+}
+
+class MemoryEditorView {
+    maxMemorySize = 120;
+    MemoryEditorViewElement = null;
+    memoryByteElements = [];
+    
+    variableGroup = null;
+    converter = null;
+    memorySizeInput = null;
+
+    constructor(parent, memorySizeInput, variableGroup, converter, bytes=[]) {
+        this.variableGroup = variableGroup;
+        this.converter = converter;
+        this.memorySizeInput = memorySizeInput;        
+        this.createMemoryEditorViewElement(parent, converter, bytes);
+    }
+
+    initializeMemoryEditorBytes(bytes) {
+        for (let i = 0; i < this.maxMemorySize; i++) {
+            this.memoryByteElements.push(new MemoryEditorByte(this.MemoryEditorViewElement, this.variableGroup, this.converter));
+            if (i < bytes.length) {
+                this.memoryByteElements[i].setByteValue(bytes[i]);
+            } else {
+                this.memoryByteElements[i].byteElement.classList.add('no-show');
+            }
+        }
+    }
+
+    createMemoryEditorViewElement(parent, converter, bytes=[]) {
+        this.MemoryEditorViewElement = document.createElement('div');
+        this.MemoryEditorViewElement.classList.add('memory-editor-bytes');
+
+        this.initializeMemoryEditorBytes(bytes);
+        this.memorySizeInput.value = `0x${bytes.length.toString(16)}`;
+        parent.appendChild(this.MemoryEditorViewElement);
+    }
+
+    getSize() {
+        return this.memoryByteElements.filter(byte => !byte.byteElement.classList.contains('no-show')).length;
+    }
+
+    changeSize(memorySize) {
+        const currentSize = this.getSize();
+        if (memorySize === currentSize) {return;}
+
+        memorySize = Math.min(memorySize, this.maxMemorySize);
+        for (let i = 0; i < this.maxMemorySize; i++) {
+            if (i < memorySize) {
+                this.memoryByteElements[i].byteElement.classList.remove('no-show');
+            } else {
+                this.memoryByteElements[i].byteElement.classList.add('no-show');
+            }
+        }
+        this.memorySizeInput.value = `0x${memorySize.toString(16)}`;
+    }
+
+}
+
+class MemoryEditor extends DraggableScriptChild {
+    memoryEditorElement = null;
+    memoryEditor = null;
+    memorySizeInput = null;
     variableGroup = null;
     converter = null;
 
-    // constructor
+    constructor(parent, variableGroup, converter, bytes=[]) {
+        super();
+        this.variableGroup = variableGroup;
+        this.converter = converter;
+        this.createMemoryEditorElement(parent, converter, bytes);
+    }
+
+    createMemoryEditorElement(parent, converter, bytes=[]) {
+        const memoryEditorElement = document.createElement('div');
+        memoryEditorElement.classList.add('memory-editor');
+
+        const memoryEditorContainer = document.createElement('div');
+        memoryEditorContainer.classList.add('memory-editor-container');
+
+        const memoryEditorDeleteButton = IconFactory.getDeleteIcon("memory-editor-delete", memoryEditorElement, 'Are you sure you want to to delete this element?');
+        memoryEditorElement.appendChild(memoryEditorDeleteButton);
+
+        this.createMemorySizeControlUnit(memoryEditorElement, converter);
+        this.memoryEditor = new MemoryEditorView(memoryEditorContainer, this.memorySizeInput, this.variableGroup, converter, bytes);
+
+        memoryEditorElement.appendChild(memoryEditorContainer);
+        this.memoryEditorElement = memoryEditorElement;
+        parent.appendChild(memoryEditorElement);
+
+        this.addDragandDrop(parent, memoryEditorElement);
+    }
+
+    createMemorySizeControlUnit(parent, converter) {
+        const memorySizeContainer = document.createElement('div');
+        memorySizeContainer.classList.add('memory-size-container');
+
+        const memorySizeText = document.createElement('span');
+        memorySizeText.classList.add('memory-size-text');
+        memorySizeText.innerText = 'Size:';
+        memorySizeContainer.appendChild(memorySizeText);
+
+        this.memorySizeInput = document.createElement('input');
+        this.memorySizeInput.classList.add('memory-size-input');
+        this.memorySizeInput.placeholder = '0x0';
+
+        this.memorySizeInput.addEventListener('input', (event) => {
+            const memorySize = Math.min(converter.evaluateInputField(event.target, this.variableGroup) || 0, 120);
+            this.memoryEditor.changeSize(memorySize);
+        });
+
+        memorySizeContainer.appendChild(this.memorySizeInput);
+        parent.appendChild(memorySizeContainer);
+    }
+}
+
+class CommandWrapper {
+    commandWrapperElement = null;
+    variableGroup = null;
+    converter = null;
+
     constructor(parent, variableGroup, converter) {
         this.variableGroup = variableGroup;
         this.converter = converter;
         this.createCommandWrapperElement(parent);
     }
 
-    // function to create the command wrapper element
     createCommandWrapperElement(parent) {
         const commandWrapperElement = document.createElement('div');
         commandWrapperElement.classList.add('script-commands');
@@ -632,26 +704,18 @@ class CommandWrapper {
         this.commandWrapperElement = commandWrapperElement;
     }
 
-    // function to add command
     addCommand(commandName=undefined, params=undefined) {
-        // create a new command
         const command = new Command(this.commandWrapperElement, this.variableGroup, this.converter);
         if (commandName) {
-            // add the command to the commands
             command.setCommandName(commandName);
         }
         if (params) {
-            // set the params
             command.setCommandParameters(params);
         }
-        // add the command to the commands
-        this.inputElements.push(command);
         return command;
     }
 
-    // function to add raw bytes
     addRawBytes(bytes=undefined, repetitions=undefined) {
-        // create a new command
         const rawBytes = new RawBytes(this.commandWrapperElement);
         if (bytes) {
             rawBytes.setRawBytes(bytes);
@@ -659,12 +723,14 @@ class CommandWrapper {
         if (repetitions) {
             rawBytes.setRepetitions(repetitions);
         }
-        // add the command to the commands
-        this.inputElements.push(rawBytes);
+
         return rawBytes;
     }
 
-    // function to add input field from json
+    addMemoryEditor(bytes=new Array(0x10).fill('0x0')) {
+        return new MemoryEditor(this.commandWrapperElement, this.variableGroup, this.converter, bytes);
+    }
+
     addInputFieldFromJson(inputFieldJson) {
         switch(inputFieldJson.type) {
             case 'command':
@@ -673,26 +739,25 @@ class CommandWrapper {
             case 'raw_bytes':
                 const rawBytes = this.addRawBytes(inputFieldJson.raw_bytes, inputFieldJson.repetitions);
                 break;
+            case 'memory_editor':
+                const memoryEditor = this.addMemoryEditor(inputFieldJson.memory);
+                break;
         }
     }
    
 }
 
-// CommandCreate: this class will be used to store the command create data
-
 class CommandCreate {
-    // variables
     addInputWrapperElement = null;
     optionWrapperElement = null;
     addCommandButtonElement = null;
     addRawBytesButtonElement = null;
+    addMemoryEditorButtonElement = null;
 
-    // constructor
     constructor(parent) {
         this.createInputAdders(parent);
     }
 
-    // function to create the command create element
     createInputAdders(parent) {
         const addInputWrapperElement = document.createElement('div');
         addInputWrapperElement.classList.add('command-create-wrapper');
@@ -705,7 +770,8 @@ class CommandCreate {
     
         const options = [
             { type: 'command', icon: 'command-add', text: 'Add Command' },
-            { type: 'raw-bytes', icon: 'raw-bytes-add', text: 'Add Raw Bytes' }
+            // { type: 'raw-bytes', icon: 'raw-bytes-add', text: 'Add Raw Bytes' },
+            { type: 'memory-editor', icon: 'memory-editor-add', text: 'Add Memory Editor'}
         ];
 
         options.forEach(option => {
@@ -741,25 +807,21 @@ class CommandCreate {
         this.addCommandButtonElement = addInputWrapperElement.querySelector('.command-create');
         this.addCommandButtonElement.classList.add('current-option');
         this.addRawBytesButtonElement = addInputWrapperElement.querySelector('.raw-bytes-create');
+        this.addMemoryEditorButtonElement = addInputWrapperElement.querySelector('.memory-editor-create');
         this.addInputWrapperElement = addInputWrapperElement;
     }    
 }
 
-// ScriptTitle: this class will be used to store the script title data
-
 class ScriptTitle {
-    // variables
     titleElement = null;
     deleteButton = null;
     documentation = null
 
-    // constructor
     constructor(parent, scriptElement) {
         this.documentation = new Documentation();
         this.createScriptTitleElement(parent, scriptElement);
     }
 
-    // function to create the script title element
     createScriptTitleElement(parent, scriptElement) {
         const scriptTitleElement = document.createElement('div');
         scriptTitleElement.classList.add('script-toolbar');
@@ -793,11 +855,7 @@ class ScriptTitle {
         this.documentation.updateDocumentation(documentation);
     }
 }
-
-// Script: this class will be used to store the script data
-
 class Script {
-    // variables
     color = null;
     scriptElement = null;
     scriptInfoElement = null;
@@ -807,7 +865,6 @@ class Script {
     commandCreate = null;
     variableGroup = null;
 
-    // constructor
     constructor(dotArtist, selectionCallback, color = [180, 180, 180]) {
         this.color = `${color[0]}, ${color[1]}, ${color[2]}`;
         this.createScriptElement(color, dotArtist);
@@ -816,9 +873,7 @@ class Script {
         this.addDeleteButtonEventListener(selectionCallback);
     }
 
-    // function to add command create
-    addCommandCreate(parent) {
-        // create a command create element
+    addSwitchInputMode(parent) {
         const commandCreate = new CommandCreate(parent);
 
         const setCurrent = (addWrapperElement) => {
@@ -830,38 +885,39 @@ class Script {
             commandCreate.addInputWrapperElement.classList.remove('dropdown');
         };
 
-        // add event listener to the add button
         commandCreate.addCommandButtonElement.addEventListener('click', () => {
             if (commandCreate.addInputWrapperElement.classList.contains('dropdown')) {
                 setCurrent(commandCreate.addCommandButtonElement);
                 return;
             }
-            // create a new command
             this.commandWrapper.addCommand();
         });
 
-        commandCreate.addRawBytesButtonElement.addEventListener('click', () => {
+        // commandCreate.addRawBytesButtonElement.addEventListener('click', () => {
+        //     if (commandCreate.addInputWrapperElement.classList.contains('dropdown')) {
+        //         setCurrent(commandCreate.addRawBytesButtonElement);
+        //         return;
+        //     }
+        //     this.commandWrapper.addRawBytes();
+        // });
+
+        commandCreate.addMemoryEditorButtonElement.addEventListener('click', () => {
             if (commandCreate.addInputWrapperElement.classList.contains('dropdown')) {
-                setCurrent(commandCreate.addRawBytesButtonElement);
+                setCurrent(commandCreate.addMemoryEditorButtonElement);
                 return;
             }
-            // create a new command
-            this.commandWrapper.addRawBytes();
+            this.commandWrapper.addMemoryEditor();
         });
-        // set the add command create element
+
         this.commandCreate = commandCreate;
     }
 
-    // function to create the script element
     createScriptElement(color, dotArtist) {
         const scriptContainer = document.querySelector('.script-editor');
-
-        // Create the script element
         const scriptElement = document.createElement('div');
         scriptElement.classList.add('script');
         scriptElement.style.setProperty('--main-color', this.color);
 
-        // Create the script group element
         const colorSwatchElement = document.createElement('input');
         colorSwatchElement.type = 'color';
         colorSwatchElement.value = `#${color[0].toString(16)}${color[1].toString(16)}${color[2].toString(16)}`
@@ -879,19 +935,13 @@ class Script {
         scriptElement.appendChild(colorSwatchElement);
         this.colorSwatchElement = colorSwatchElement;
 
-        // Create the script info element
         this.scriptInfoElement = document.createElement('div');
         this.scriptInfoElement.classList.add('script-info');
         scriptElement.appendChild(this.scriptInfoElement);
 
-        // Create the script title element
         this.title = new ScriptTitle(this.scriptInfoElement, scriptElement);
-
-        // Append the script element to the script container
         scriptContainer.appendChild(scriptElement);
         this.scriptElement = scriptElement;
-
-        // add event listener for any change to the script element or its children
         scriptElement.addEventListener('change', () => {
             if (this.scriptElement) {
                 dotArtist.convertScriptToDotArtist(this);
@@ -900,32 +950,22 @@ class Script {
     }
 
     addCommandWrapper(dotArtist) {
-        // Create the script commands element
         this.commandWrapper = new CommandWrapper(this.scriptInfoElement, this.variableGroup, dotArtist);
-
-        // Create the command create element
-        this.addCommandCreate(this.scriptInfoElement);
+        this.addSwitchInputMode(this.scriptInfoElement);
     }
 
-    // add event listener to delete the script and variable group associated with it
     addDeleteButtonEventListener(selectionCallback) {
         this.title.deleteButton.addEventListener('click', () => {
-            // confirm the delete
             if (!confirm('Are you sure you want to delete this script?')) {
                 return;
             }
-            // remove the script element
             this.scriptElement.remove();
-            // remove the variable group
             this.variableGroup.variableGroupElement.remove();
-            // remove documentation window
             this.title.deleteDocumentationWindow();
-            // call the selection callback
             selectionCallback(this);
         });
     }
 
-    // function to change the script color
     changeScriptColor(color) {
         this.color = color;
         this.scriptElement.style.setProperty('--main-color', this.color);
@@ -933,52 +973,37 @@ class Script {
         this.colorSwatchElement.value =  `#${colorArray[0].toString(16)}${colorArray[1].toString(16)}${colorArray[2].toString(16)}`
     }
 
-    // function to change the script color from hex
     changeScriptColorFromHex(hex) {
-        // convert the hex to rgb
-        const rgb = [...hex.matchAll(/[0-9A-F]{2}/gi)].map((hex) => parseInt(hex, 16)).join(', ');
-        // change the script color
+        const rgb = [...hex.matchAll(/[0-9A-F]{2}/gi)].map((hex) => parseInt(hex, 16)).join(', ');r
         this.changeScriptColor(`${rgb.r}, ${rgb.g}, ${rgb.b}`);
     }
 
-    // function to set the script selection
     setSelection(selection) {
-        // set the script selection
         this.scriptElement.classList.toggle('selected', selection);
     }
 
-    // function to add input field from json 
     addInputFieldFromJson(inputFieldJson) {
-        // add the input field
         this.commandWrapper.addInputFieldFromJson(inputFieldJson);
     }
 
-    // function to add the variable group from json
     updateVariableGroupFromJson(variableGroupJson) {
-        // add the variable group
         this.variableGroup.updateVariableGroupFromJson(variableGroupJson);
         this.variableGroup.updateTitle(this.title.titleElement.firstElementChild.value);
     }
 }
 
-// ScriptHandler: this class will handle the script elements
-
 class ScriptHandler {
-    // variables
     scripts = [];
     dotArtistConverter = new DotArtistConverter();
     jsonExporter = new JsonExporter();
-
-    // function to select a script and deselect the other scripts
+s
     selectScript(script) {
         const scriptElement = script.scriptElement;
-        // unselect the other scripts
         const scriptElements = document.querySelectorAll('.script-editor .script');
         scriptElements.forEach((element) => {
           element.classList.remove('selected');
         });
       
-        // check if script.scriptElement is inside scriptElements
         const scriptElementArray = [...scriptElements];
         if (!scriptElementArray.includes(scriptElement)) {
             return;
@@ -987,10 +1012,9 @@ class ScriptHandler {
         this.dotArtistConverter.convertScriptToDotArtist(script);
     }
 
-    // function to reset the selection
     resetSelection = (script) => {
         this.removeScript(script);
-        // unselect the other scripts
+
         const scriptElements = document.querySelectorAll('.script-editor .script');
         if (scriptElements.length === 0) {
             this.dotArtistConverter.resetDotArtist();
@@ -1001,89 +1025,66 @@ class ScriptHandler {
             element.classList.remove('selected');
         });
 
-        // select the first script
         const firstScript = scriptElements[0];
-
-        // dispatch a click event
         const clickEvent = new Event('click');
         firstScript.dispatchEvent(clickEvent);
     }
 
-    // remove the script from the scripts array
     removeScript(script) {
-        // remove the script from the scripts array
         this.scripts = this.scripts.filter((scriptElement) => scriptElement !== script);
     }
 
-    // function to add an empty script element
     addScriptElement(color=undefined, select=true, addDefaultCommand=true) {
-        // create a new script element
         const script = new Script(this.dotArtistConverter, this.resetSelection, color);
         if (addDefaultCommand) {
             script.commandWrapper.addCommand();
             script.commandWrapper.addCommand('End',[]);
         }
-        // add event handler so if the script is clicked, it will be selected, and the other scripts will be deselected
         script.scriptElement.addEventListener('click', () => {
-            // select the script
             this.selectScript(script);
         });
 
-        // select the script
         if (select) {this.selectScript(script);}
 
         this.scripts.push(script);
         return script;
     }
 
-        // function to add event listeners
+
     addEventListeners() {
-        // add event listeners
-        // first, create-script button
         const createScriptButton = document.querySelector('.create-script');
         createScriptButton.addEventListener('click', () => {
-            // add a script element
             this.addScriptElement();
         });
     }
 
-    // function to export the scripts
     exportScripts() {
         let json = this.jsonExporter.exportScripts(this.scripts);
         return json;
     }
 
     addScriptFromJson(json) {
-        // create a new script element
         if (!json.color) {
             json.color = '180, 180, 180';
         }
         const color = json.color.split(',').map(val => parseInt(val));
         const script = this.addScriptElement(color, true, false);
-
-        // set the title
         script.title.updateFromJson(json.title, json.documentation)
-
-        // set the commands & raw bytes
         for (let inputField of json.input_fields) {
             script.addInputFieldFromJson(inputField);
         }        
         script.updateVariableGroupFromJson(json.variables);
-        // run change event to update the script
         script.scriptElement.dispatchEvent(new Event('change'));
         return script;
     }
 
-    // function to import the scripts
     importScripts(json) {
         for (let script of json) {
             this.addScriptFromJson(script);
         }
     }
 
-    // function to add the import and export buttons
     addToolbarEventListeners() {
-        // select the top bar of the script area
         let searchInput = document.querySelector('.script-search')
 
         searchInput.addEventListener('change', () => {
@@ -1097,16 +1098,12 @@ class ScriptHandler {
         const uploadButton = document.querySelector('.upload-icon');
 
         uploadButton.addEventListener('click', () => {
-            // Create a file input element dynamically
             const fileInput = document.createElement('input');
             fileInput.type = 'file';
             fileInput.accept = '.json';
         
-            // Listen for changes when a file is selected
             fileInput.addEventListener('change', (event) => {
                 const file = event.target.files[0];
-        
-                // Create a FileReader object to read the contents of the file
                 const reader = new FileReader();
         
                 reader.onload = (fileEvent) => {
@@ -1121,32 +1118,22 @@ class ScriptHandler {
                 reader.readAsText(file);
             });
         
-            // Trigger the file input click event programmatically
             fileInput.click();
         });
 
         const downloadIcon = document.querySelector('.download-icon');
 
         downloadIcon.addEventListener('click', () => {
-            // Get the JSON data to export
             const json = this.exportScripts();
-        
-            // Create a Blob object from the JSON data
             const blob = new Blob([JSON.stringify(json, null, 2)], { type: 'application/json' });
-        
-            // Create a temporary URL for the Blob object
             const url = URL.createObjectURL(blob);
-        
-            // Create a temporary anchor element to trigger the download
+
             const downloadLink = document.createElement('a');
             downloadLink.href = url;
-            let title = "exported_scripts"; // maybe in the future, the user can choose a title
+            let title = "exported_scripts";
             downloadLink.download = `${title}.json`;
         
-            // Trigger the click event on the anchor element programmatically
             downloadLink.click();
-        
-            // Clean up by revoking the temporary URL
             URL.revokeObjectURL(url);
         });
     }
