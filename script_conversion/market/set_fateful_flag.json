@@ -11,7 +11,7 @@
           {
             "name": "party index",
             "type": "text",
-            "value": "[pokemon_slot] - 1"
+            "value": "[pokemon_slot]"
           },
           {
             "name": "move slot",
@@ -35,7 +35,7 @@
       {
         "language": "All",
         "name": "pokemon_slot",
-        "value": "1"
+        "value": "0"
       }
     ]
   }
