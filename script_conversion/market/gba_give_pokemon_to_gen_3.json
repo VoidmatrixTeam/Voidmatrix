@@ -48,7 +48,7 @@
           {
             "name": "src",
             "type": "text",
-            "value": "0xEB0EDECC"
+            "value": "0xEB0F1ECC"
           }
         ]
       },
@@ -59,12 +59,12 @@
           {
             "name": "tg",
             "type": "text",
-            "value": "[FUN_CmpAdrsAdrs] + 0x8"
+            "value": "[FUN_EvCmdPaperPlane] + 0xC"
           },
           {
             "name": "src",
             "type": "text",
-            "value": "0xF09468A1"
+            "value": "0x04910018"
           }
         ]
       },
@@ -75,35 +75,31 @@
           {
             "name": "tg",
             "type": "text",
-            "value": "[FUN_CmpAdrsAdrs] + 0xC"
+            "value": "[FUN_EvCmdPaperPlane] + 0x10"
           },
           {
             "name": "src",
             "type": "text",
-            "value": "0xBD38EC0C"
-          }
-        ]
-      },
-      {
-        "type": "command",
-        "name": "CmpAdrsAdrs",
-        "parameters": [
-          {
-            "name": "address1",
-            "type": "text",
-            "value": "0x23B0000"
-          },
-          {
-            "name": "address2",
-            "type": "text",
-            "value": "0xEBF120EF"
+            "value": "0xEF7AF08F"
           }
         ]
       },
       {
         "type": "memory_editor",
         "memory": [
-          "0x88",
+          "0xEF",
+          "0x01",
+          "0x8F"
+        ]
+      },
+      {
+        "type": "memory_editor",
+        "memory": [
+          "0xEF",
+          "0xE0",
+          "0xF0",
+          "0xEB",
+          "0x08",
           "0x00",
           "0x9F",
           "0xE5",
@@ -116,14 +112,14 @@
           "0x00",
           "0xE5",
           "0x67",
-          "0x20",
-          "0xF1",
+          "0xE0",
+          "0xF0",
           "0xEB",
           "0x60",
           "0x68",
           "0x00",
           "0x02",
-          "0xA9",
+          "0xB9",
           "0xF3",
           "0xDC",
           "0xFB"
@@ -173,7 +169,10 @@
           "0x00",
           "0x00",
           "0x00",
-          "0x00"
+          "0x00",
+          "",
+          "0x0",
+          "0x0"
         ]
       }
     ],
@@ -210,13 +209,13 @@
       },
       {
         "language": "English",
-        "name": "FUN_CmpAdrsAdrs",
-        "value": "0x02039bbc"
+        "name": "FUN_EvCmdPaperPlane",
+        "value": "0x0203e4d8"
       },
       {
         "language": "All",
         "name": "FUN_Sys_RebootSystem",
-        "value": "0x01f84ba4"
+        "value": "0x01ff84a4"
       },
       {
         "language": "All",
