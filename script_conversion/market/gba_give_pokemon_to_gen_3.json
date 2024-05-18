@@ -140,14 +140,14 @@
           "0x60",
           "0x6E",
           "0x31",
-          "0x0C",
+          "0x0E",
           "0x80",
           "0x1A",
           "0x60",
+          "0x24",
+          "0x70",
           "0xFF",
           "0xBD",
-          "0x00",
-          "0x00",
           "0x1A",
           "0x4D",
           "0x2D",
@@ -164,12 +164,12 @@
           "0x65",
           "0x23",
           "0x02",
+          "0x11",
+          "0x6B",
+          "0x23",
+          "0x02",
           "[poke_id] & 0xFF",
           "([poke_id] >> 0x8) & 0xFF",
-          "0x00",
-          "0x00",
-          "0x00",
-          "0x00",
           "",
           "0x0",
           "0x0"
@@ -223,6 +223,6 @@
         "value": "0x97"
       }
     ],
-    "documentation": "# GBA: give any Pokémon to gen 3 game\n\nThis code lets you edit the save data of any gen 3 game. It should even function before unlocking elite four, as it ignores certain error conditions. The only requirement should be needing 6 Pokémon in the gen 3 game.\n\nNote: only supports english at the moment\n\n# Prerequisites:\nCapture 6 Pokémon in the gen 3 game. \nUnlock Pal Park migration on gen 4 game.\n\n# How To Use\nSet the desired Pokémon's id in the variables section. This is set to Mew's id by default. Invalid ID's are allowed, and this code can thus be used to transfer ACE.\n\nAfter executing this code, soft reset and select \"Migrate from Emerald\" on the main menu. Select 6 Pokémon, let the game save, and select \"Migrate from Emerald\" once more. The desired Pokémon should overwrite the first selected Pokémon."
+    "documentation": "# GBA: give any Pokémon to gen 3 game\n\nThis code lets you edit the save data of any gen 3 game. It should even function before unlocking elite four, as it ignores certain error conditions. The only requirement should be needing 6 Pokémon in the gen 3 game.\n\nNote: only supports english at the moment\n\n# Prerequisites:\nObtain at least 1 pokémon. (This Pokémon's species ID will be modified).\nUnlock Pal Park migration on gen 4 game.\n\n# How To Use\nSet the desired Pokémon's id in the variables section. This is set to Mew's id by default. Invalid ID's are allowed, and this code can thus be used to transfer ACE.\n\nAfter executing this code, soft reset and select \"Migrate from Emerald\" on the main menu. Select the Pokémon you wish to modify and save. You can tell the code works if you immediately go to the save menu after selecting a single Pokémon. The remaining 5 Pokémon will be glitch Pokémon with a question mark as icon.\n\nTo check whether it worked, select \"Migrate from Emerald\" once more. You should not get a 24 hour warning, and your Pokémon should have been modifed."
   }
 ]
