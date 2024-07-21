@@ -2,7 +2,7 @@
   {
     "title": "ASE Bootstrap",
     "color": "62, 147, 63",
-    "language": "Japanese",
+    "language": "English",
     "input_fields": [
       {
         "type": "command",
@@ -143,9 +143,14 @@
         "value": "0x203C5D4"
       },
       {
-        "language": "Japanese",
+        "language": "Japanese Rev5",
         "name": "EvCmdNameInStone",
         "value": "0x203F75C"
+      },
+      {
+        "language": "Japanese Rev5",
+        "name": "EvCmdNameInStone",
+        "value": "0x203F800"
       }
     ],
     "documentation": ""
