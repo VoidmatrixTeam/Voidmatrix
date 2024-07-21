@@ -1207,7 +1207,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     datalists["datalist-maps"] = new MapDataList(document.documentElement, maps);
     const moves = await getJsonFromUrl(`data/move_data.json`);
     datalists["datalist-moves"] = new MoveDataList(document.documentElement, moves);
-    const languages = ["All", "English", "Japanese", "French", "Italian", "German", "Spanish", "Korean"];
+    const languages = ["All", "English", "Japanese Rev5", "Japanese Rev6", "French", "Italian", "German", "Spanish", "Korean"];
     datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
     const scriptFiles = await getFilesFromGithub(`VoidmatrixTeam`, `Voidmatrix`, `script_conversion/market`)
     datalists["datalist-scripts"] = new ScriptDataList(document.documentElement, scriptFiles);
