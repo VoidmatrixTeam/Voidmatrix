@@ -232,9 +232,14 @@
         "value": "0x020584ec"
       },
       {
-        "language": "Japanese",
+        "language": "Japanese Rev5",
         "name": "FUN_setMoveCode",
         "value": "0x0205b4e0"
+      },
+      {
+        "language": "Japanese Rev6",
+        "name": "FUN_setMoveCode",
+        "value": "0x0205b5CC"
       },
       {
         "language": "English",
@@ -262,12 +267,17 @@
         "value": "0x206ec30"
       },
       {
-        "language": "Japanese",
+        "language": "Japanese Rev5",
         "name": "FUN_GetItemData",
         "value": "0x02073944"
       },
       {
-        "language": "Japanese",
+        "language": "Japanese Rev6",
+        "name": "FUN_GetItemData",
+        "value": "0x02073A42"
+      },
+      {
+        "language": "Japanese Rev5",
         "name": "SetMailMax",
         "value": "[FUN_GetItemData]+0x7C"
       },
