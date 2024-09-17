@@ -103,8 +103,8 @@
           "0xbd",
           "0x0",
           "0x0",
-          "0xed",
-          "0xb9",
+          "[rngcall_lo]",
+          "[rngcall_hi]",
           "0x1",
           "0x2"
         ]
@@ -115,6 +115,31 @@
         "language": "English",
         "name": "FUN_UnusedCommand",
         "value": "0x0203E4D8"
+      },
+      {
+        "language": "French",
+        "name": "FUN_UnusedCommand",
+        "value": "0x203E520"
+      },
+      {
+        "language": "English",
+        "name": "rngcall_lo",
+        "value": "0xed"
+      },
+      {
+        "language": "French",
+        "name": "rngcall_lo",
+        "value": "0x39"
+      },
+      {
+        "language": "English",
+        "name": "rngcall_hi",
+        "value": "0xb9"
+      },
+      {
+        "language": "French",
+        "name": "rngcall_hi",
+        "value": "0xba"
       }
     ],
     "documentation": ""
