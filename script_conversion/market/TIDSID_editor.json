@@ -169,6 +169,11 @@
           "value": "0x2039C04"
         },
         {
+          "language": "Japanese Rev5",
+          "name": "FUN_CompAdrsAdrs",
+          "value": "0x20422F4"
+        },
+        {
           "language": "Spanish",
           "name": "FUN_CompAdrsAdrs",
           "value": "0x2039C04"
@@ -197,6 +202,11 @@
           "language": "Italian",
           "name": "FUN_LoadAdrsAdrs",
           "value": "0x2039B14"
+        },
+        {
+          "language": "Japanese Rev5",
+          "name": "FUN_LoadAdrsAdrs",
+          "value": "0x20423F8"
         },
         {
           "language": "English",
