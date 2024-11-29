@@ -103,10 +103,10 @@
           "0xbd",
           "0x0",
           "0x0",
-          "0xed",
-          "0xb9",
-          "0x1",
-          "0x2"
+          "[rngcall]&0xFF",
+          "[rngcall]>>8&0xFF",
+          "[rngcall]>>16&0xFF",
+          "[rngcall]>>24&0xFF"
         ]
       }
     ],
@@ -115,6 +115,41 @@
         "language": "English",
         "name": "FUN_UnusedCommand",
         "value": "0x0203E4D8"
+      },
+      {
+        "language": "French",
+        "name": "FUN_UnusedCommand",
+        "value": "0x203E520"
+      },
+      {
+        "language": "German",
+        "name": "FUN_UnusedCommand",
+        "value": "0x203E520"
+      },
+      {
+        "language": "Italian",
+        "name": "FUN_UnusedCommand",
+        "value": "0x203E520"
+      },
+      {
+        "language": "Japanese Rev5",
+        "name": "FUN_UnusedCommand",
+        "value": "0x203D664"
+      },
+      {
+        "language": "Spanish",
+        "name": "FUN_UnusedCommand",
+        "value": "0x203E520"
+      },
+      {
+        "language": "English",
+        "name": "rngcall",
+        "value": "0x0201B9ED"
+      },
+      {
+        "language": "French",
+        "name": "rngcall",
+        "value": "0x0201BA39"
       }
     ],
     "documentation": ""
