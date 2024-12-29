@@ -1,21 +1,16 @@
 
 
-// DataList: this class adds a datalist to a parent element
-
 class DataList {
-    // variables
     json = null;
     dataListId = null;
     dataListElement = null;
 
-    // constructor
     constructor(parent, dataListId, dataListOptions=[]) {
         this.json = dataListOptions;
         this.dataListId = dataListId;
         this.createDataListElement(parent, dataListId, dataListOptions);
     }
 
-    // function to create the datalist element
     createDataListElement(parent, dataListId, dataListOptions) {
         const dataListElement = document.createElement('datalist');
         dataListElement.id = dataListId;
@@ -25,13 +20,10 @@ class DataList {
         this.dataListElement = dataListElement;
     }
 
-    // prepare the datalist options
     prepareDataListOptions(dataListOptions) {
-        // This should be overwritten by the child class
         return dataListOptions;
     }
 
-    // function to set the datalist options
     setDataListOptions(parent, dataListOptions) {
         for (let option of dataListOptions) {
             const optionElement = document.createElement('option');
@@ -41,16 +33,11 @@ class DataList {
         }
     }
 
-    // function to get an option by name
     getOptionByName(optionName) {
-        // This should be overwritten by the child class, if needed
         return this.json[optionName];
     }
 
-    // function to get the id of an option by name
     getOptionIdByName(optionName) {
-        // This should be overwritten by the child class, if needed
-        // get the index of the option
         const optionIndex = this.json.indexOf(optionName);
         if (optionIndex == -1) {
             return null;
@@ -60,10 +47,7 @@ class DataList {
 
 }
 
-// ScriptDataList: this class will be used to retrieve and store scripts
-
 class ScriptDataList extends DataList {
-    // constructor
     constructor(parent, files) {
         super(parent, 'datalist-scripts', files);
     }
@@ -72,7 +56,6 @@ class ScriptDataList extends DataList {
         return fileName.split(".")[0].replace(/_/g, ' ');
     }
 
-     // prepare the datalist options
     prepareDataListOptions(files) {
         if (files.message) {return [];}
         let options = [];
@@ -83,7 +66,6 @@ class ScriptDataList extends DataList {
         return options;
     }
 
-    // function to get an option by name
     getOptionByName(optionName) {
         for (const file in this.json) {
             const fileInfo = this.json[file];
@@ -93,18 +75,11 @@ class ScriptDataList extends DataList {
         }
         return null;
     }
-
-    // getSimpleJson() {
-    //     return Object.values(this.json).map(item => this.processName(item.name));
-    // }
 }
-
-// DynamicValidationDataList
 
 class DynamicValidationDataList extends DataList {
     prevValue = null
 
-    // constructor
     constructor(parent, dataListId, dataListOptions=[], converter) {
         super(parent, dataListId, dataListOptions);
     }
@@ -136,13 +111,13 @@ class DynamicValidationDataList extends DataList {
             this.prevValue = event.target.value;
             event.target.value = '';
         });
-    
+
         input.addEventListener('blur', (event) => {
             if (!this.validateInput(event.target, variableGroup, converter)) {
                 event.target.value = this.prevValue;
             }
         });
-    
+
         input.addEventListener('keypress', (event) => {
             if (event.key === 'Enter') {
                 event.target.blur();
@@ -151,10 +126,7 @@ class DynamicValidationDataList extends DataList {
     }
 }
 
-// CommandSelection: this class will be used to store the command selection data
-
 class CommandDataList extends DynamicValidationDataList {
-    // constructor
     constructor(parent, dataListOptions) {
         super(parent, 'datalist-commands', dataListOptions);
     }
@@ -171,17 +143,16 @@ class CommandDataList extends DynamicValidationDataList {
         return names
     }
 
-    // prepare the datalist options (overwrite)
     prepareDataListOptions(dataListOptions) {
-        /* command data is of format: 
+        /* command data is of format:
         {
             commandId: {
                 "command_name": "",                             -> name of the command
                 "parameters": ["param1","param1","param2"],     -> each entry is a u8, multiple consecutive entries should be bitshifted into a single parameter
                 "description": "",                               -> description of the command
                 "aliases": ["alias1","alias2","alias3"]          -> aliases for the command (AddTamago => AddEgg, ...)
-            }, 
-            
+            },
+
             (...)
         }
         */
@@ -201,7 +172,6 @@ class CommandDataList extends DynamicValidationDataList {
         return options;
     }
 
-    // function to set the datalist options
     setDataListOptions(parent, dataListOptions) {
         for (const option of dataListOptions) {
             const optionElement = document.createElement('option');
@@ -211,7 +181,6 @@ class CommandDataList extends DynamicValidationDataList {
         }
     }
 
-    // function to get an option by name
     getOptionByName(optionName) {
         for (const commandId in this.json) {
             const command = this.json[commandId];
@@ -231,7 +200,6 @@ class CommandDataList extends DynamicValidationDataList {
         return null;
     }
 
-    // function to get the id of an option by name
     getOptionIdByName(optionName, asNumber=true) {
         for (const commandId in this.json) {
             const command = this.json[commandId];
@@ -252,33 +220,23 @@ class CommandDataList extends DynamicValidationDataList {
     }
 }
 
-// SpeciesDataList: this class will be used to store the species selection data
-
 class SpeciesDataList extends DynamicValidationDataList {
-    // constructor
     constructor(parent, speciesData) {
         super(parent, 'datalist-species', speciesData);
     }
 }
 
-// ItemDataList: this class will be used to store the item selection data
-
 class ItemDataList extends DynamicValidationDataList {
-    // constructor
     constructor(parent, itemData) {
         super(parent, 'datalist-items', itemData);
     }
 }
 
-// MapDataList: this class will be used to store the map selection data
-
 class MapDataList extends DynamicValidationDataList {
-    // constructor
     constructor(parent, dataListOptions) {
         super(parent, 'datalist-maps', dataListOptions);
     }
 
-    // prepare the datalist options (overwrite)
     prepareDataListOptions(dataListOptions) {
         /* map data is of format:
             {
@@ -287,7 +245,7 @@ class MapDataList extends DynamicValidationDataList {
                     "map_name": "",                                 -> name of the map
                 }
 
-            } 
+            }
         */
         const options = [];
         for (const mapId in dataListOptions) {
@@ -301,7 +259,6 @@ class MapDataList extends DynamicValidationDataList {
         return options;
     }
 
-    // function to set the datalist options
     setDataListOptions(parent, dataListOptions) {
         for (const option of dataListOptions) {
             const optionElement = document.createElement('option');
@@ -311,7 +268,6 @@ class MapDataList extends DynamicValidationDataList {
         }
     }
 
-    // function to get an option by name
     getOptionByName(optionName) {
         for (const mapId in this.json) {
             const map = this.json[mapId];
@@ -324,7 +280,6 @@ class MapDataList extends DynamicValidationDataList {
         return null;
     }
 
-    // function to get the id of an option by name
     getOptionIdByName(optionName, asNumber=true) {
         for (const mapId in this.json) {
             const map = this.json[mapId];
@@ -338,25 +293,19 @@ class MapDataList extends DynamicValidationDataList {
     }
 }
 
-// MoveDataList: this class will be used to store the move selection data
 
 class MoveDataList extends DynamicValidationDataList {
-    // constructor
     constructor(parent, dataListOptions) {
         super(parent, 'datalist-moves', dataListOptions);
     }
 }
 
-
-// LanguageDataList: this class will be used to store the language selection data
-
 class LanguageDataList extends DynamicValidationDataList  {
-    // constructor
     constructor(parent, dataListOptions) {
         super(parent, 'datalist-languages', dataListOptions);
     }
 }
-  
+
 class DynamicValidationInput {
     input = null
 
