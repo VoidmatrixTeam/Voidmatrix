@@ -116,11 +116,6 @@
       ],
       "variables": [
           {
-              "language": "All",
-              "name": "byte_code_offset",
-              "value": "0x0"
-          },
-          {
               "language": "English",
               "name": "FUN_EvCmdNameInStone",
               "value": "0x0203c58c"
