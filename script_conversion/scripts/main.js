@@ -1012,24 +1012,28 @@ s
         return json;
     }
 
-    addScriptFromJson(json) {
+    addScriptFromJson(json, select=true) {
         if (!json.color) {
             json.color = '180, 180, 180';
         }
         const color = json.color.split(',').map(val => parseInt(val));
-        const script = this.addScriptElement(color, true, false);
+        const script = this.addScriptElement(color, select, false);
         script.title.updateFromJson(json.title, json.documentation)
         for (let inputField of json.input_fields) {
             script.addInputFieldFromJson(inputField);
         }
         script.updateVariableGroupFromJson(json.variables);
-        script.scriptElement.dispatchEvent(new Event('change'));
+        if (select) {
+            script.scriptElement.dispatchEvent(new Event('change'));
+        }
         return script;
     }
 
     importScripts(json) {
+        let select = true;
         for (let script of json) {
-            this.addScriptFromJson(script);
+            this.addScriptFromJson(script, select);
+            select = false;
         }
     }
 
