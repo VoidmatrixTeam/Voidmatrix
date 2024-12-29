@@ -4,7 +4,7 @@ const math_config = {
 
 const mathjs = math.create(math.all, math_config);
 
-class Converter {    
+class Converter {
     safeEval(input, variables) {
         if (!input) {
             return null;
@@ -109,12 +109,12 @@ class Converter {
 
     convertValueToByteArray(value, bitCount) {
         const byteArray = [];
-      
+
         for (let i = 0; i < bitCount; i += 8) {
-          const byte = (value >> i) & 0xFF;
-          byteArray.push(byte);
+        const byte = (value >> i) & 0xFF;
+        byteArray.push(byte);
         }
-      
+
         return byteArray;
     }
 
@@ -169,7 +169,7 @@ class Converter {
 
         const rawBytesRepeatInput = rawBytesElement.querySelector(".raw-bytes-repeat-input");
         const sanitizedRawBytesRepeat = this.safeEval(rawBytesRepeatInput.value, variables) || 0x0;
-        
+
         const byteArray = [];
 
         for (let i = 0; i < sanitizedRawBytesRepeat; i++) {
@@ -216,7 +216,7 @@ class Converter {
                     break;
                 case 'memory-editor':
                     byteCode.push(...this.convertMemoryEditorToByteArray(scriptElement, variables));
-                    break;          
+                    break;
             }
 
         }
@@ -265,74 +265,51 @@ class DotArtistConverter extends Converter {
     convertByteCodeToDotArtist(byteCode) {
         this.clearDotArtist();
         const binaryCode = this.convertByteCodeToBinary(byteCode);
-    
-        outer_loop:
-        for (let i=0;i<20;i++) {
-            let row = this.dotArtistGridElement.children[i];
-            for (let j=0;j<24;j++) {  
-                let idx = i*24+j;
-                let bit = binaryCode[idx]; 
-                let pixel = row.children[j]; // set class to bit-1, bit-2, or bit-3
-                pixel.classList.add(`bit-${bit}`);
 
-                pixel.classList.remove("uninitialized")
-                pixel.classList.add("highlight-bit");
-                if (i == 0) {
-                    pixel.classList.add("first-row");
-                }
-                if (j == 23) { // if we're at the end of the row, highlight the last bit
-                    pixel.classList.add("last-bit");
-                }
-                if (idx == binaryCode.length - 1) {
-                    pixel.classList.add("last-bit");
-                    // loop over all pixels in this row until this one, and give the tag last-row
-                    for (let k=0;k<=j;k++) {
-                        row.children[k].classList.add("last-row");
-                    }
-                    // loop over the remaining pixels, in the row above, given that current row is not the first row
-                    if (i > 0) {
-                        let prev_row = this.dotArtistGridElement.children[i-1];
-                        for (let k=j+1;k<24;k++) {
-                            prev_row.children[k].classList.add("last-row");
-                        }
-                    }
-                }
+        const addClasses = (pixel, bit, i, j, idx, row) => {
+            pixel.classList.add(`bit-${bit}`);
+            pixel.classList.remove("uninitialized");
+            pixel.classList.add("highlight-bit");
 
-                if (idx  == binaryCode.length -1) {
-                    break outer_loop;
+            if (i === 0) pixel.classList.add("first-row");
+            if (j === 23) pixel.classList.add("last-bit");
+
+            if (idx === binaryCode.length - 1) {
+                pixel.classList.add("last-bit");
+                // Mark all pixels up to the current one in this row as part of the last row.
+                for (let k = 0; k <= j; k++) row.children[k].classList.add("last-row");
+
+                // Mark the pixels in the previous row as "last-row", for those above pixels that aren't part of the code.
+                if (i > 0) {
+                    const prevRow = this.dotArtistGridElement.children[i - 1];
+                    for (let k = j + 1; k < 24; k++) prevRow.children[k].classList.add("last-row");
                 }
+                return false;
             }
+            return true;
         };
+
+        for (let i = 0; i < 20; i++) {
+            const row = this.dotArtistGridElement.children[i];
+            for (let j = 0; j < 24; j++) {
+                const idx = i * 24 + j;
+                const bit = binaryCode[idx];
+                const pixel = row.children[j];
+
+                if (!addClasses(pixel, bit, i, j, idx, row))
+                    return;
+            }
+        }
     }
 
     setDotInnerValue(dotElement, showUninitialized=true) {
         dotElement.classList.add("show-bit");
-        let classList = dotElement.classList;
-        if (classList.contains("uninitialized")) {
-            if (showUninitialized) {
-                dotElement.innerHTML = "-";
-                return;
-            }
-            dotElement.innerHTML = "";
-            return;
-        } else {
-            for (let i=0;i<dotElement.classList.length;i++) {
-                let className = classList[i];
-                if (className.startsWith("bit-")) {
-                    let bit = className.slice(4);
-                    if ((bit === 'undefined') || (bit === '0')) {
-                        if (showUninitialized) {
-                            dotElement.innerHTML = "-";
-                            return;
-                        }
-                        dotElement.innerHTML = "";
-                        return;
-                    }
-                    dotElement.innerHTML = bit;
-                    break;
-                }
-            }
-        }
+        let bit = Array.from(dotElement.classList)
+            .find(className => /^bit-/.test(className))?.slice(4);
+
+        dotElement.innerHTML = (bit && bit !== 'undefined' && bit !== '0')
+            ? bit
+            : (showUninitialized ? "-" : "");
     }
 
     removeDotInnerValue(dotElement) {
@@ -341,9 +318,9 @@ class DotArtistConverter extends Converter {
     }
 
     setAllDotInnerValues(showUninitialized=true) {
-        for (let i=0;i<20;i++) {
+        for (let i=0; i<20; i++) {
             let row = this.dotArtistGridElement.children[i];
-            for (let j=0;j<24;j++) {
+            for (let j=0; j<24; j++) {
                 let pixel = row.children[j];
                 this.setDotInnerValue(pixel, showUninitialized);
             }
@@ -351,9 +328,9 @@ class DotArtistConverter extends Converter {
     }
 
     removeAllDotInnerValues() {
-        for (let i=0;i<20;i++) {
+        for (let i=0; i<20; i++) {
             let row = this.dotArtistGridElement.children[i];
-            for (let j=0;j<24;j++) {
+            for (let j=0; j<24; j++) {
                 let pixel = row.children[j];
                 this.removeDotInnerValue(pixel);
             }
@@ -366,19 +343,15 @@ class DotArtistConverter extends Converter {
         dotElement.classList.add(`bit-${bit}`);
 
         dotElement.addEventListener("mouseover", () => {
-            if (this.forceShowNumbers) {
-                return;
+            if (!this.forceShowNumbers) {
+                this.setDotInnerValue(dotElement);
             }
-
-            this.setDotInnerValue(dotElement);
         });
 
         dotElement.addEventListener("mouseout", () => {
-            if (this.forceShowNumbers) {
-                return;
+            if (!this.forceShowNumbers) {
+                this.removeDotInnerValue(dotElement);
             }
-
-            this.removeDotInnerValue(dotElement);
         });
         return dotElement;
     }
@@ -478,84 +451,84 @@ class DotArtistConverter extends Converter {
 
 class JsonExporter extends Converter {
     convertScriptToJson(script) {
-      const scriptElement = script.scriptElement;
-      const variableGroup = script.variableGroup;
-      const language = document.querySelector('.language-config').value || 'All';
-       
-      let json = {
-        'title': script.title.titleElement.firstElementChild.value,
-        'color': script.color,
-        'language': language,
-        'input_fields': [],
-        'variables': this.getVariables(variableGroup)
-      };
-  
-      let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes, .memory-editor");
-      for (let scriptElement of scriptElements) {
-        switch (scriptElement.className) {
-            case 'command':
-                json.input_fields.push(this.convertCommandToJson(scriptElement));
-                break;
-            case 'raw-bytes':
-                json.input_fields.push(this.convertRawBytesToJson(scriptElement));
-                break;
-            case 'memory-editor':
-                json.input_fields.push(this.convertMemoryEditorToJson(scriptElement));
-                break;
-        }
-      }
+        const scriptElement = script.scriptElement;
+        const variableGroup = script.variableGroup;
+        const language = document.querySelector('.language-config').value || 'All';
 
-      json.documentation = script.title.documentation.getDocumentation();
-      return json;
+        let json = {
+            'title': script.title.titleElement.firstElementChild.value,
+            'color': script.color,
+            'language': language,
+            'input_fields': [],
+            'variables': this.getVariables(variableGroup)
+        };
+
+        let scriptElements = scriptElement.querySelectorAll(".command, .raw-bytes, .memory-editor");
+        for (let scriptElement of scriptElements) {
+            switch (scriptElement.className) {
+                case 'command':
+                    json.input_fields.push(this.convertCommandToJson(scriptElement));
+                    break;
+                case 'raw-bytes':
+                    json.input_fields.push(this.convertRawBytesToJson(scriptElement));
+                    break;
+                case 'memory-editor':
+                    json.input_fields.push(this.convertMemoryEditorToJson(scriptElement));
+                    break;
+            }
+        }
+
+        json.documentation = script.title.documentation.getDocumentation();
+        return json;
     }
-  
+
     convertCommandToJson(commandElement) {
-      let commandInput = commandElement.querySelector(".command-input");
-      let selectedCommand = commandInput.querySelector(".command-input-cmd").firstElementChild;
-      let paramElements = commandInput.querySelectorAll("input");
+        let commandInput = commandElement.querySelector(".command-input");
+        let selectedCommand = commandInput.querySelector(".command-input-cmd").firstElementChild;
+        let paramElements = commandInput.querySelectorAll("input");
 
-      const command = {
-        'type': 'command',
-        'name': selectedCommand.value,
-        'parameters': []
-      };
+        const command = {
+            'type': 'command',
+            'name': selectedCommand.value,
+            'parameters': []
+        };
 
-      for (let i = 1; i < paramElements.length; i++) {
-        const paramElement = paramElements[i];
-        const paramInfo = {
-            'name': paramElement.placeholder,
-            'type': paramElement.type,
-            'value': paramElement.value
+        for (let i = 1; i < paramElements.length; i++) {
+            const paramElement = paramElements[i];
+            const paramInfo = {
+                'name': paramElement.placeholder,
+                'type': paramElement.type,
+                'value': paramElement.value
+            }
+            command.parameters.push(paramInfo);
         }
-        command.parameters.push(paramInfo);
-      }
-      return command;
+        return command;
     }
-  
+
     convertRawBytesToJson(rawBytesElement) {
-      const rawBytes = {
-        'type': 'raw_bytes',
-        'raw_bytes': rawBytesElement.querySelector('.raw-bytes-input').value,
-        'repetitions': rawBytesElement.querySelector('.raw-bytes-repeat-input').value
-      };
-  
-      return rawBytes;
+        const rawBytes = {
+            'type': 'raw_bytes',
+            'raw_bytes': rawBytesElement.querySelector('.raw-bytes-input').value,
+            'repetitions': rawBytesElement.querySelector('.raw-bytes-repeat-input').value
+        };
+
+        return rawBytes;
     }
 
     convertMemoryEditorToJson(memoryEditorElement) {
-      const memoryEditor = {
-        'type': 'memory_editor',
-        'memory': []
-      };
-  
-      const byteInputs = Array.from(memoryEditorElement.querySelectorAll('.memory-byte')).filter(byteInput => !byteInput.classList.contains('no-show'));
-      for (let byteInput of byteInputs) {
-        memoryEditor.memory.push(byteInput.value);
-      }
-  
-      return memoryEditor;
+        const memoryEditor = {
+            'type': 'memory_editor',
+            'memory': []
+        };
+
+        const byteInputs = Array.from(memoryEditorElement.querySelectorAll('.memory-byte')).filter(byteInput => !byteInput.classList.contains('no-show'));
+        for (let byteInput of byteInputs) {
+            memoryEditor.memory.push(byteInput.value);
+        }
+
+        return memoryEditor;
     }
-  
+
     exportScripts(scripts) {
         const convertedScripts = [];
         for (let script of scripts) {

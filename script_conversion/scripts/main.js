@@ -1,4 +1,3 @@
-// Global variables
 let datalists = {};
 let debug = false;
 let variableWrapper = null;
@@ -6,9 +5,7 @@ let scriptHandler = null;
 let currentDrag = null;
 
 class IconFactory {
-    // function that returns a delete icon
     static getDeleteIcon(tag, parent=null, message=null,  eventListener=true) {
-        // create the delete icon
         const deleteIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         deleteIcon.setAttribute('viewBox', '0 0 24 24');
         deleteIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
@@ -22,19 +19,16 @@ class IconFactory {
                 }
             });
         }
-        // return the delete icon
+
         return deleteIcon;
     }
 
-    // function that returns a add icon
     static getAdditionIcon(tag) {
-        // create the add icon
         const addIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         addIcon.setAttribute('viewBox', '0 0 24 24');
         addIcon.setAttribute('preserveAspectRatio', 'xMidYMid meet')
         addIcon.classList.add('icon-0', tag, 'add-icon');
         addIcon.innerHTML = `<path d="M10.8,22.8V13.2H1.2a1.2,1.2,0,0,1,0-2.4h9.6V1.2a1.2,1.2,0,1,1,2.4,0v9.6h9.6a1.2,1.2,0,1,1,0,2.4H13.2v9.6a1.2,1.2,0,0,1-2.4,0Z"></path>`;
-        // return the add icon
         return addIcon;
     }
 
@@ -48,21 +42,18 @@ class IconFactory {
     }
 }
 
-// VariableGroup: this class will be used to store variables
-
 class VariableGroup {
     variableGroupElement = null;
     variableElements = [];
     titleElement = null;
     callback = null
-  
+
     constructor(parent, script, callback, isGlobal = false) {
         this.callback = callback
         this.createVariableGroup(parent, script, isGlobal);
         if (isGlobal) { this.variableGroupElement.classList.add('global-variables'); }
     }
-  
-    // function to create the variable group
+
     createVariableGroup(parent, script, isGlobal = false) {
         let title = script ? script.title.titleElement.firstElementChild.value || "Script Title" : "Script Title";
         if (isGlobal) {
@@ -82,24 +73,23 @@ class VariableGroup {
         });
 
         variableTitleElement.appendChild(addButtonElement);
-    
+
         const titleHeadingElement = document.createElement('h4');
         titleHeadingElement.innerText = title;
         variableTitleElement.appendChild(titleHeadingElement);
         this.titleElement = titleHeadingElement;
-    
+
         variableGroupElement.appendChild(variableTitleElement);
-        
+
         this.variableGroupElement = variableGroupElement;
 
         parent.appendChild(variableGroupElement);
     }
-  
-    // function to add a variable element
+
     addVariableElement(parent) {
         const variableElement = document.createElement('div');
         variableElement.classList.add('variable');
-    
+
         const languageElement = document.createElement('div');
         const languageInputElement = document.createElement('input');
         languageInputElement.classList.add('variable-language');
@@ -125,31 +115,28 @@ class VariableGroup {
         variableElement.appendChild(languageElement);
         variableElement.appendChild(variableNameElement);
         variableElement.appendChild(variableValueElement);
-    
+
         parent.appendChild(variableElement);
-        this.variableElements.push(variableElement);   
-        
+        this.variableElements.push(variableElement);
+
         this.addLanguageVisibilityListener(variableElement, languageElement);
         return variableElement;
     }
 
     addLanguageVisibilityListener(parent, languageElement) {
-        if (this.callback !== null) {
-            languageElement.addEventListener('change', () => {
-                this.callback(parent);
-            });
-            
+        if (this.callback === null) { return; }
+
+        languageElement.addEventListener('change', () => {
             this.callback(parent);
-        }
+        });
+        this.callback(parent);
     }
 
-    // function to update the title
     updateTitle(title) {
         if (title == "" || title == null) { title = "Script Title" }
         this.titleElement.innerText = title;
     }
 
-    // function to update the variable group from json
     updateVariableGroupFromJson(variableGroupJson) {
         for (const variableJson of variableGroupJson) {
             const variableElement = this.addVariableElement(this.variableGroupElement);
@@ -162,10 +149,10 @@ class VariableGroup {
     }
 
     addEventListeners(script) {
-        // if any update is made to the variable group, update the dot artist
         this.variableGroupElement.addEventListener('change', () => {
             scriptHandler.updateSelectedScript();
         });
+
         if (!script) { return; }
 
         script.title.titleElement.firstElementChild.addEventListener('input', () => {
@@ -173,8 +160,6 @@ class VariableGroup {
         });
     }
 }
-  
-// VariableWrapper: this class will be used to store variable groups
 
 class VariableWrapper {
     variableWrapperElement = null;
@@ -196,7 +181,7 @@ class VariableWrapper {
             scriptHandler.updateSelectedScript();
         })
 
-        this.setLanguageVisibilityAll(); // initialize once
+        this.setLanguageVisibilityAll();
     }
 
 
@@ -228,12 +213,9 @@ class VariableWrapper {
         }
     }
 
-    // function to create the variable wrapper
     createVariableWrapper() {
-        // the variable wrapper is already created in the html file, tag with id 'variable-wrapper'
         this.variableWrapperElement = document.querySelector('.variable-container');
         this.globalVariableGroup = this.addVariableGroup(null, true)
-        // load global variables from json
         const globalVariableJson = [
             {
             "language": "All",
@@ -244,7 +226,6 @@ class VariableWrapper {
         this.globalVariableGroup.updateVariableGroupFromJson(globalVariableJson);
     }
 
-    // function to add a variable group
     addVariableGroup(script, isGlobal = false) {
         const variableGroup = new VariableGroup(this.variableWrapperElement, script, this.setLanguageVisibility, isGlobal);
         variableGroup.addEventListeners(script);
@@ -254,8 +235,6 @@ class VariableWrapper {
     }
 
 }
-
-// CommandInput: this class handles multiple commands
 
 class CommandInput {
     commandInputElement = null;
@@ -270,7 +249,6 @@ class CommandInput {
         this.createCommandInputElement(parent);
     }
 
-    // function to create the command input element
     createCommandInputElement(parent) {
         const commandInputElement = document.createElement('div');
         commandInputElement.classList.add('command-input');
@@ -281,7 +259,6 @@ class CommandInput {
         this.commandInputElement = commandInputElement;
     }
 
-    // function to add an empty command to the command input
     addCommandItems(parent) {
         const commandInputItem = document.createElement('div');
         commandInputItem.classList.add('command-input-cmd');
@@ -290,7 +267,6 @@ class CommandInput {
         parent.appendChild(commandInputItem);
     }
 
-    // function to get the command options
     setCommandOptions(parent) {
         const commandSelection = new DynamicValidationInput(datalists['datalist-commands'], null, this.variableGroup, this.converter);
 
@@ -298,30 +274,24 @@ class CommandInput {
         commandSelection.conversionType = 'options';
         commandSelection.bitSize = "u16";
 
-        // Add event listener for input selection
         commandSelection.addEventListener('input', this.handleCommandSelection.bind(this));
         parent.appendChild(commandSelection);
     }
 
-    // function to handle command selection
     handleCommandSelection(event) {
         const selectedCommand = event.target.value;
         const commandId = datalists["datalist-commands"].getOptionIdByName(selectedCommand, false);
-        if (commandId === null) {return; }
-        // Clear previous command parameters
+        if (commandId === null) { return; }
         this.clearCommandParams();
 
-        // Add command parameters based on selection
         this.command = datalists["datalist-commands"].json[commandId];
         const parameters = this.command.parameters || [];
 
         for (let i = 0; i < parameters.length; i++) {
-            const parameter = parameters[i];
-            this.addCommandParameter(parameter, i);
+            this.addCommandParameter(parameters[i]);
         }
     }
 
-    // function to clear command parameters
     clearCommandParams() {
         for (const paramName in this.paramElements) {
             const paramElement = this.paramElements[paramName];
@@ -330,13 +300,11 @@ class CommandInput {
         this.paramElements = {};
     }
 
-    // function to add a command parameter
-    addCommandParameter(parameter, index) {
+    addCommandParameter(parameter) {
         const paramName = parameter.name;
         const paramSize = parameter.size;
         const paramType = parameter.type || "number";
         const paramDescription = parameter.description || "No description available";
-        
 
         const paramContainer = document.createElement('div');
         paramContainer.classList.add('command-input-param');
@@ -354,7 +322,6 @@ class CommandInput {
         } else if (paramType === 'number') {
             paramInput.type = 'text'; // Change the input type to 'text' to allow hexadecimal input
             paramInput.placeholder = paramName;
-         
         } else {
             console.log(`Unsupported parameter type: ${paramType}`); return;
         }
@@ -366,14 +333,11 @@ class CommandInput {
         this.commandInputElement.appendChild(paramContainer);
     }
 
-    // function to set the commandName
     setCommandName(commandName) {
         this.commandInputElement.firstElementChild.firstElementChild.value = commandName;
-        // Trigger the input event to update the command parameters
         this.commandInputElement.firstElementChild.firstElementChild.dispatchEvent(new Event('input'));
     }
 
-    // function to set the command parameters
     setCommandParameters(commandParams) {
         for (let commandParam of commandParams) {
             const paramName = commandParam.name;
@@ -388,7 +352,6 @@ class CommandInput {
 
 
 class DraggableScriptChild {
-    // dummy constructor
     constructor() {
         if (this.constructor === DraggableScriptChild) {
             throw new TypeError('Cannot construct DraggableScriptChild instances directly');
@@ -406,7 +369,7 @@ class DraggableScriptChild {
             event.dataTransfer.effectAllowed = 'move';
             event.dataTransfer.setData('text/html', this.innerHTML);
         }
-    
+
         function handleDragOver(event) {
             let activeElement = document.activeElement;
             if (activeElement.tagName === 'INPUT') {
@@ -416,12 +379,12 @@ class DraggableScriptChild {
             event.dataTransfer.dropEffect = 'move';
             return false;
         }
-    
+
         function handleDrop(event) {
             if (currentDrag && currentDrag !== this) {
                 const targetRect = this.getBoundingClientRect();
                 const halfwayPoint = targetRect.top + targetRect.height / 2;
-    
+
                 if (event.clientY < halfwayPoint) {
                     parent.insertBefore(currentDrag, this);
                 } else {
@@ -447,9 +410,6 @@ class DraggableScriptChild {
     }
 }
 
-
-
-// Command: this class will be used to store the command data, must inherit from DraggableScriptChild
 class Command extends DraggableScriptChild {
     commandElement = null;
     commandInput = null;
@@ -461,13 +421,12 @@ class Command extends DraggableScriptChild {
         this.createCommandElement(parent, variableGroup, converter);
     }
 
-    // function to create the command element
     createCommandElement(parent, variableGroup, converter) {
         const commandElement = document.createElement('div');
         commandElement.classList.add('command');
 
         const commandInputDeleteButton = IconFactory.getDeleteIcon("command-delete", commandElement, 'Are you sure you want to to delete this command?');
-        commandElement.appendChild(commandInputDeleteButton);        
+        commandElement.appendChild(commandInputDeleteButton);
 
         const commandInput = new CommandInput(commandElement, variableGroup, converter);
         this.commandInput = commandInput;
@@ -481,19 +440,16 @@ class Command extends DraggableScriptChild {
         this.addDragandDrop(parent, commandElement);
     }
 
-    // function to set the command name
     setCommandName(commandName) {
         this.commandInput.setCommandName(commandName);
     }
 
-    // function to set the command parameters
     setCommandParameters(commandParameters) {
         this.commandInput.setCommandParameters(commandParameters);
     }
 
 }
 
-// RawBytes: this class will be used to store the raw bytes data
 
 class RawBytes extends DraggableScriptChild {
     rawBytesElement = null;
@@ -503,7 +459,6 @@ class RawBytes extends DraggableScriptChild {
         this.createRawBytesElement(parent);
     }
 
-    // function to create the raw bytes element
     createRawBytesElement(parent) {
         const rawBytesElement = document.createElement('div');
         rawBytesElement.classList.add('raw-bytes');
@@ -532,22 +487,18 @@ class RawBytes extends DraggableScriptChild {
         this.addDragandDrop(parent, rawBytesElement);
     }
 
-    // function to set the raw bytes
     setRawBytes(rawBytes) {
         this.rawBytesElement.querySelector('.raw-bytes-input').value = rawBytes;
     }
 
-    // function to set the repetitions
     setRepetitions(repetitions) {
         this.rawBytesElement.querySelector('.raw-bytes-repeat-input').value = repetitions;
     }
 
-    // function to set both the raw bytes and the repetitions
     setRawBytesAndRepetitions(rawBytes, repetitions) {
         this.setRawBytes(rawBytes);
         this.setRepetitions(repetitions);
     }
-
 }
 
 class MemoryEditorByte {
@@ -575,7 +526,7 @@ class MemoryEditorView {
     maxMemorySize = 120;
     MemoryEditorViewElement = null;
     memoryByteElements = [];
-    
+
     variableGroup = null;
     converter = null;
     memorySizeInput = null;
@@ -583,7 +534,7 @@ class MemoryEditorView {
     constructor(parent, memorySizeInput, variableGroup, converter, bytes=[]) {
         this.variableGroup = variableGroup;
         this.converter = converter;
-        this.memorySizeInput = memorySizeInput;        
+        this.memorySizeInput = memorySizeInput;
         this.createMemoryEditorViewElement(parent, converter, bytes);
     }
 
@@ -744,7 +695,6 @@ class CommandWrapper {
                 break;
         }
     }
-   
 }
 
 class CommandCreate {
@@ -767,7 +717,7 @@ class CommandCreate {
 
         const optionWrapperElement = document.createElement('div');
         optionWrapperElement.classList.add('option-wrapper');
-    
+
         const options = [
             { type: 'command', icon: 'command-add', text: 'Add Command' },
             { type: 'raw-bytes', icon: 'raw-bytes-add', text: 'Add Raw Bytes' },
@@ -777,11 +727,11 @@ class CommandCreate {
         options.forEach(option => {
             const addWrapperElement = document.createElement('div');
             addWrapperElement.classList.add(`${option.type}-create`, 'dropdown-content');
-    
+
             const addButtonElement = IconFactory.getAdditionIcon(option.icon);
             addButtonElement.alt = 'add icon';
             addWrapperElement.appendChild(addButtonElement);
-    
+
             const addTextElement = document.createElement('span');
             addTextElement.classList.add(`${option.type}-add-text`);
             addTextElement.innerText = option.text;
@@ -791,8 +741,7 @@ class CommandCreate {
         });
 
         addInputWrapperElement.appendChild(optionWrapperElement);
-    
-        // Dropdown icon
+
         const dropdownIconElement = document.createElement('span');
         dropdownIconElement.classList.add('dropdown-icon');
         dropdownIconElement.innerText = '▼';
@@ -809,7 +758,7 @@ class CommandCreate {
         this.addRawBytesButtonElement = addInputWrapperElement.querySelector('.raw-bytes-create');
         this.addMemoryEditorButtonElement = addInputWrapperElement.querySelector('.memory-editor-create');
         this.addInputWrapperElement = addInputWrapperElement;
-    }    
+    }
 }
 
 class ScriptTitle {
@@ -825,7 +774,7 @@ class ScriptTitle {
     createScriptTitleElement(parent, scriptElement) {
         const scriptTitleElement = document.createElement('div');
         scriptTitleElement.classList.add('script-toolbar');
-    
+
         const titleText = document.createElement('input');
         titleText.classList.add('title-text');
         titleText.placeholder = 'Script Title';
@@ -839,9 +788,9 @@ class ScriptTitle {
         scriptTitleElement.appendChild(scriptInfoIcon);
 
         const scriptDeleteButton = IconFactory.getDeleteIcon("script-delete", scriptElement, 'Would you like to delete this script?' , false);
-        scriptTitleElement.appendChild(scriptDeleteButton);  
+        scriptTitleElement.appendChild(scriptDeleteButton);
         this.deleteButton = scriptDeleteButton;
-  
+
         parent.appendChild(scriptTitleElement);
         this.titleElement = scriptTitleElement;
     }
@@ -1003,7 +952,7 @@ s
         scriptElements.forEach((element) => {
           element.classList.remove('selected');
         });
-      
+
         const scriptElementArray = [...scriptElements];
         if (!scriptElementArray.includes(scriptElement)) {
             return;
@@ -1072,7 +1021,7 @@ s
         script.title.updateFromJson(json.title, json.documentation)
         for (let inputField of json.input_fields) {
             script.addInputFieldFromJson(inputField);
-        }        
+        }
         script.updateVariableGroupFromJson(json.variables);
         script.scriptElement.dispatchEvent(new Event('change'));
         return script;
@@ -1106,11 +1055,10 @@ s
             const fileInput = document.createElement('input');
             fileInput.type = 'file';
             fileInput.accept = '.json';
-        
             fileInput.addEventListener('change', (event) => {
                 const file = event.target.files[0];
                 const reader = new FileReader();
-        
+
                 reader.onload = (fileEvent) => {
                     try {
                         const json = JSON.parse(fileEvent.target.result);
@@ -1119,10 +1067,9 @@ s
                         console.error('Error parsing JSON:', error);
                     }
                 };
-        
+
                 reader.readAsText(file);
             });
-        
             fileInput.click();
         });
 
@@ -1137,7 +1084,7 @@ s
             downloadLink.href = url;
             let title = "exported_scripts";
             downloadLink.download = `${title}.json`;
-        
+
             downloadLink.click();
             URL.revokeObjectURL(url);
         });
@@ -1170,12 +1117,12 @@ s
 }
 
 const getJsonFromUrl = async function(url) {
-    return fetch(url).then((response) => 
+    return fetch(url).then((response) =>
         response.json()).then((responseJson) => {
             return responseJson;
         }).catch((error) => {
         console.error('Error:', error);
-    });   
+    });
 }
 
 const getFilesFromGithub = async function(user, repository, directory="") {
@@ -1193,31 +1140,24 @@ const importScriptsFromSearch = async function(file) {
     scriptHandler.importScripts(json);
 }
 
-
-
 document.addEventListener("DOMContentLoaded", async function () {
-    // add data lists to the document
     const commands = await getJsonFromUrl(`data/command_data.json`);
-    datalists["datalist-commands"] = new CommandDataList(document.documentElement, commands);
     const species = await getJsonFromUrl(`data/species_data.json`);
-    datalists["datalist-species"] = new SpeciesDataList(document.documentElement, species);
     const items = await getJsonFromUrl(`data/item_data.json`);
-    datalists["datalist-items"] = new ItemDataList(document.documentElement, items);
     const maps = await getJsonFromUrl(`data/map_data.json`);
-    datalists["datalist-maps"] = new MapDataList(document.documentElement, maps);
     const moves = await getJsonFromUrl(`data/move_data.json`);
-    datalists["datalist-moves"] = new MoveDataList(document.documentElement, moves);
     const languages = ["All", "English", "Japanese Rev5", "Japanese Rev6", "French", "Italian", "German", "Spanish", "Korean"];
-    datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
     const scriptFiles = await getFilesFromGithub(`VoidmatrixTeam`, `Voidmatrix`, `script_conversion/market`)
+
+    datalists["datalist-commands"] = new CommandDataList(document.documentElement, commands);
+    datalists["datalist-species"] = new SpeciesDataList(document.documentElement, species);
+    datalists["datalist-items"] = new ItemDataList(document.documentElement, items);
+    datalists["datalist-maps"] = new MapDataList(document.documentElement, maps);
+    datalists["datalist-moves"] = new MoveDataList(document.documentElement, moves);
+    datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
     datalists["datalist-scripts"] = new ScriptDataList(document.documentElement, scriptFiles);
 
-
-
-    // global VariableWrapper
     variableWrapper = new VariableWrapper();
-
-    // initialize the script handler
     scriptHandler = new ScriptHandler();
     scriptHandler.addEventListeners();
     scriptHandler.addToolbarEventListeners();

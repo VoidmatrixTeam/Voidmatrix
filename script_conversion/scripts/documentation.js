@@ -10,7 +10,7 @@ class Documentation {
 
     constructor() {
         this.createDocumentationWindow();
-        this.switchToPreview(); // Default to 
+        this.switchToPreview();
         this.clearDocumentation();
     }
 
@@ -31,7 +31,7 @@ class Documentation {
         this.editorButton = document.createElement("div");
         this.editorButton.classList.add("editor-button");
         this.editorButton.innerHTML = '<img class="icon-0 editor-icon" src="assets/edit.svg" alt="editor icon"><h2>edit</h2>';
-        
+
         this.closeButton = document.createElement("div");
         this.closeButton.innerHTML = '<img class="icon-0 close-icon close-button" src="assets/close.svg" alt="close icon">';
 
