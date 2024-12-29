@@ -228,6 +228,7 @@ class Converter {
 class DotArtistConverter extends Converter {
     dotArtistElement = null;
     dotArtistGridElement = null;
+    currentScript = null;
     forceShowNumbers = true;
 
     constructor() {
@@ -397,6 +398,7 @@ class DotArtistConverter extends Converter {
     }
 
     convertScriptToDotArtist(script) {
+        this.currentScript = script;
         this.changeDotArtistBackgroundColor(`rgb(${script.color})`);
         let byteCode = this.convertScriptToByteCode(script);
 
@@ -430,23 +432,19 @@ class DotArtistConverter extends Converter {
         const optionsIcon = outerDiv.querySelector('.dot-artist-options-icon');
 
         const allElements = outerDiv.querySelectorAll('img, svg');
-        allElements.forEach((element) => {
-            element.addEventListener('click', () => {
-                element.classList.toggle('inactive');
-            });
-        });
-
         optionsIcon.addEventListener('click', () => {
             allElements.forEach((element) => {
                 if (element !== optionsIcon) {
                     element.classList.toggle('show');
                 }
             });
+            optionsIcon.classList.toggle('inactive');
         });
 
         const highlightCode = outerDiv.querySelector('.dot-artist-highlight-icon');
         highlightCode.addEventListener('click', () => {
             this.dotArtistElement.classList.toggle("highlight_selection")
+            highlightCode.classList.toggle('inactive');
         });
 
         const showNumbers = outerDiv.querySelector('.dot-artist-number-overlay-icon');
@@ -458,7 +456,23 @@ class DotArtistConverter extends Converter {
             } else {
                 this.removeAllDotInnerValues();
             }
+            showNumbers.classList.toggle('inactive');
         });
+
+        const copyByteStream = outerDiv.querySelector('.dot-artist-copy-icon');
+        copyByteStream.addEventListener('click', () => {
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text).catch(err => {
+                    console.error(err);
+                });
+            }
+
+            if (this.currentScript) {
+                const byteCode = this.convertScriptToByteCode(this.currentScript);
+                const byteCodeStr = byteCode.map(x => x.toString(16).padStart(2, "0")).join(" ");
+                copyToClipboard(byteCodeStr);
+            }
+        })
     }
 }
 
