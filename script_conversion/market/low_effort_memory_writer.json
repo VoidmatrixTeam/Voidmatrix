@@ -3,7 +3,7 @@
     "title": "Minimal Effort Memory Writer: Setup",
     "color": "82, 167, 135",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -123,7 +123,7 @@
     "title": "Minimal Effort Memory Writer: Use",
     "color": "143, 91, 91",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "raw_bytes",
         "raw_bytes": "[destination]",

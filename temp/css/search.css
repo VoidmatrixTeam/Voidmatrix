@@ -1,0 +1,136 @@
+.search-wrapper {
+    background-color: var(--bg-dark-3);
+    height: var(--variable-section-height);
+    width: var(--right-panel-no-config-width);
+
+    display: flex;
+    flex-direction: column;
+
+    & search-area {
+        width: calc(100% - 16px);
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+
+        & search-bar {
+            height: 40px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            background-color: var(--bg-dark-1);
+
+            & .search-icon {
+                margin-left: 8px;
+                margin-right: 8px;
+            }
+
+            & search-input {
+                width: 100%
+            }
+
+            & language-input select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background: transparent;
+                border: none;
+                color: white;
+                font-family: inherit;
+                font-size: inherit;
+                padding: 0;
+                outline: none;
+                margin-right: 8px;
+            }
+
+            & language-input select:focus {
+                outline: none;
+            }
+
+            & language-input select option {
+                background: darkgrey;
+                color: white;
+            }
+
+            & game-selector {
+                margin: 0;
+                margin-right: 8px;
+                display: flex;
+                align-items: center;
+                position: relative;
+                & img {
+                    width: 32px;
+                }
+
+                & game-selector-dropdown {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background-color: gray;
+                    border: 1px solid #ccc;
+                    display: block;
+                    z-index: 10;
+                }
+
+                & game-selector-dropdown.hidden {
+                    display: none;
+                }
+            }
+        }
+
+        & search-results {
+            height: calc(100% - 40px - 16px);
+            display: block;
+            overflow-y: auto;
+
+            & search-result {
+                display:flex;
+                margin-top: 8px;
+                background-color: var(--bg-dark-2);
+                height: 64px;
+                align-items: center;
+
+                & search-result-info {
+                    display: flex;
+                    flex-direction: column;
+                    margin-left: 16px;
+
+                    & h5 {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    & search-result-meta-data {
+                        display:flex;
+                        align-items: center;
+                        gap: 8px;
+                        & h5 {
+                            padding: 0;
+                            margin: 0;
+                        }
+                    }
+                }
+
+                & supported-games {
+                    padding: 0;
+                    margin-left: auto;
+                    margin-right: 20px;
+                    display: flex;
+                    gap: 8px;
+                    flex-direction: row-reverse;
+
+                    & img {
+                        width: 32px;
+                    }
+                }
+            }
+
+            & search-result.hidden {
+                display: none;
+            }
+
+            & search-result:hover {
+                background-color: var(--bg-dark-4);
+            }
+        }
+    }
+}

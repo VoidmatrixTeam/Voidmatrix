@@ -1,0 +1,250 @@
+{
+    "title": "Show Tid Sid Of Pokemon",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Apr. 01 2024",
+    "scripts": [
+        {
+            "title": "Show TID/SID of Pokémon in party",
+            "color": [
+                40,
+                154,
+                68
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "ImageClipSetProc",
+                    "parameters": [
+                        {
+                            "name": "ppi",
+                            "type": "text",
+                            "value": "[party_index]"
+                        },
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x4000"
+                        },
+                        {
+                            "name": "workvalue",
+                            "type": "text",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "SetMapProc",
+                    "parameters": []
+                },
+                {
+                    "type": "command",
+                    "name": "WipeFadeStart",
+                    "parameters": [
+                        {
+                            "name": "div",
+                            "type": "text",
+                            "value": ""
+                        },
+                        {
+                            "name": "syn",
+                            "type": "text",
+                            "value": ""
+                        },
+                        {
+                            "name": "type",
+                            "type": "text",
+                            "value": "1"
+                        },
+                        {
+                            "name": "col",
+                            "type": "text",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_GetGold]"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0x59C04F01"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_GetGold] + 0x4"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0x4770"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_GetGold] + 0x8"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0x4358"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_GoldWindowCreate] + 0x5C"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xA"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_NumberToString] + 0x28"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "GoldWinWrite",
+                    "parameters": [
+                        {
+                            "name": "x pos",
+                            "type": "text",
+                            "value": "0xB"
+                        },
+                        {
+                            "name": "y pos",
+                            "type": "text",
+                            "value": "0x4"
+                        }
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039ACC"
+                },
+                {
+                    "language": "French",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B3C"
+                },
+                {
+                    "language": "German",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B3C"
+                },
+                {
+                    "language": "Italian",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B3C"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B3C"
+                },
+                {
+                    "language": "English",
+                    "name": "FUN_GetGold",
+                    "value": "0x02023a10"
+                },
+                {
+                    "language": "English",
+                    "name": "FUN_GoldWindowCreate",
+                    "value": "0x021e28a0"
+                },
+                {
+                    "language": "English",
+                    "name": "FUN_NumberToString",
+                    "value": "0x02021b04"
+                },
+                {
+                    "language": "All",
+                    "name": "[party_index]",
+                    "value": "0x0"
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

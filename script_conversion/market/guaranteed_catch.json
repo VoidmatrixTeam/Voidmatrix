@@ -3,7 +3,7 @@
     "title": "Write u32 Functionality for Command 0x10",
     "color": "40, 154, 68",
     "language": "All",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -70,7 +70,7 @@
     "title": "Guaranteed Catch Code",
     "color": "110, 194, 196",
     "language": "All",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "CmpAdrsAdrs",
@@ -137,7 +137,7 @@
     "title": "Allow Wild Encounters",
     "color": "165, 161, 34",
     "language": "All",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

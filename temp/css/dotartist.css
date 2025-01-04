@@ -1,0 +1,102 @@
+dot-artist-wrapper {
+    display:flex;
+    margin-top: var(--application-container-margin);
+    height: var(--dot-artist-section-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & dot-artist-canvas {
+        width: var(--right-panel-no-config-width);
+        height: 100%;
+        background-color: var(--bg-dark-2);
+    }
+
+    & dot-artist-config-options {
+        margin-left: var(--right-panel-config-margin);
+        width: var(--right-panel-config-width);
+        height: var(--right-panel-config-height);
+        float: left;
+        margin-bottom: auto;
+    }
+}
+
+.dot-artist-container {
+    border: var(--dot-artist-border);
+    background-color: var(--dot-artist-background);
+}
+
+.dot-artist-container .canvas {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dot-artist-container .canvas .row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.dot-artist-container .canvas .row .pixel {
+    width: 100%;
+    box-sizing: border-box;
+    border: var(--dot-artist-border);
+    overflow: hidden;
+    text-align: center;
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot-artist-container .canvas .row .bit-0{
+    background-color: var(--dot-artist-bit-0);
+}
+
+.dot-artist-container .canvas .row .bit-1{
+    background-color: var(--dot-artist-bit-1);
+}
+
+.dot-artist-container .canvas .row .bit-2{
+    background-color: var(--dot-artist-bit-2);
+}
+
+.dot-artist-container .canvas .row .bit-3{
+    background-color: var(--dot-artist-bit-3);
+}
+
+.dot-artist-container.highlight_selection .canvas .row .uninitialized {
+    background-color: var(--dot-artist-no-highlight);
+    border: var(--dot-artist-uninitialized-border);
+}
+
+.dot-artist-container.highlight_selection .canvas .row .highlight-bit:first-child {
+    border-left: var(--dot-artist-highlight-border);
+}
+
+.dot-artist-container.highlight_selection .canvas .row .last-bit {
+    border-right: var(--dot-artist-highlight-border);
+}
+
+.dot-artist-container.highlight_selection .canvas .row .last-row {
+    border-bottom: var(--dot-artist-highlight-border);
+}
+
+.dot-artist-container.highlight_selection .canvas .row .first-row {
+    border-top: var(--dot-artist-highlight-border);
+}
+
+.dot-artist-config-options img {
+    display: none;
+}
+
+.dot-artist-config-options .show {
+    display: inline;
+}
+
+.dot-artist-config-options .inactive:not(:hover) {
+    opacity: 0.5;
+}

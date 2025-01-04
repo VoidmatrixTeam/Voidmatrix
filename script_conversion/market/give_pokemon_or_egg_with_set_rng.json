@@ -3,7 +3,7 @@
     "title": "Give Egg with custom RNG state",
     "color": "181, 115, 217",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -154,7 +154,7 @@
     "title": "Give Pokemon with custom RNG state",
     "color": "83, 198, 163",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

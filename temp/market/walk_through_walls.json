@@ -1,0 +1,96 @@
+{
+    "title": "Walk Through Walls",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Jul. 21 2024",
+    "scripts": [
+        {
+            "title": "Walk Through Walls",
+            "color": [
+                182,
+                93,
+                93
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[collision]"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[collision] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x10"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "collision",
+                    "value": "0x2056C06"
+                },
+                {
+                    "language": "French",
+                    "name": "collision",
+                    "value": "0x2056C76"
+                },
+                {
+                    "language": "German",
+                    "name": "collision",
+                    "value": "0x2056C76"
+                },
+                {
+                    "language": "Italian",
+                    "name": "collision",
+                    "value": "0x2056C76"
+                },
+                {
+                    "language": "Japanese Rev5",
+                    "name": "collision",
+                    "value": "0x20593E0"
+                },
+                {
+                    "language": "Korean",
+                    "name": "collision",
+                    "value": "0x20570DE"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "collision",
+                    "value": "0x2056C76"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,83 @@
+{
+    "title": "Hover Over Glitch Items",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Mar. 12 2024",
+    "scripts": [
+        {
+            "title": "Allow hover over glitch item",
+            "color": [
+                194,
+                153,
+                255
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_GetItemData] + 0x2D"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xD0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_GetItemData] + 0x47"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xD0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_GetItemData] + 0x53"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xD0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "FUN_GetItemData",
+                    "value": "0x0206e640"
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

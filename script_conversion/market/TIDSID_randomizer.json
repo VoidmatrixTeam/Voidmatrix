@@ -3,7 +3,7 @@
     "title": "TIDSID Randomizer",
     "color": "206, 145, 105",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

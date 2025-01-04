@@ -1,0 +1,170 @@
+{
+    "title": "Random Background Generator",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Jul. 21 2024",
+    "scripts": [
+        {
+            "title": "Random Background Generator",
+            "color": [
+                181,
+                104,
+                79
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "WipeFadeStart",
+                    "parameters": [
+                        {
+                            "name": "div",
+                            "type": "text",
+                            "value": ""
+                        },
+                        {
+                            "name": "syn",
+                            "type": "text",
+                            "value": ""
+                        },
+                        {
+                            "name": "type",
+                            "type": "text",
+                            "value": "3"
+                        },
+                        {
+                            "name": "col",
+                            "type": "text",
+                            "value": "0x5595"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[base_value] + 0x13A3"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "[rng_address]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[base_value] + 0x13A4"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "[rng_address] + 0x1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "GetRand",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x4000"
+                        },
+                        {
+                            "name": "lim",
+                            "type": "text",
+                            "value": "0x1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "TimeWait",
+                    "parameters": [
+                        {
+                            "name": "number",
+                            "type": "text",
+                            "value": "[frames]"
+                        },
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "GlobalJump",
+                    "parameters": [
+                        {
+                            "name": "jump",
+                            "type": "text",
+                            "value": "0xFFFFFFD0"
+                        }
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "base_value",
+                    "value": "0x226D300"
+                },
+                {
+                    "language": "English",
+                    "name": "RNG_address",
+                    "value": "0x021C4D48"
+                },
+                {
+                    "language": "German",
+                    "name": "RNG_address",
+                    "value": "0x021C4E88"
+                },
+                {
+                    "language": "French",
+                    "name": "RNG_address",
+                    "value": "0x021C4EC8"
+                },
+                {
+                    "language": "Italian",
+                    "name": "RNG_address",
+                    "value": "0x021C4E28"
+                },
+                {
+                    "language": "Japanese Rev5",
+                    "name": "RNG_address",
+                    "value": "0x021C65A0"
+                },
+                {
+                    "language": "Korean",
+                    "name": "RNG_address",
+                    "value": "0x021C2348"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "RNG_address",
+                    "value": "0x021C4EE8"
+                },
+                {
+                    "language": "All",
+                    "name": "frames",
+                    "value": "6"
+                }
+            ]
+        }
+    ]
+}

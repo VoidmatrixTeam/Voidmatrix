@@ -3,7 +3,7 @@
     "title": "",
     "color": "220, 111, 155",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

@@ -3,7 +3,7 @@
     "title": "Execute ASE Anywhere With RETIRE Menu",
     "color": "70, 149, 86",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

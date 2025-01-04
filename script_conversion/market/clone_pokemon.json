@@ -3,7 +3,7 @@
     "title": "Clone Box Pokémon (Grab, Put Down)",
     "color": "179, 230, 224",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

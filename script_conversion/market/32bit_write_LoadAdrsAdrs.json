@@ -3,7 +3,7 @@
     "title": "Write u32 Functionality for Command 0xA",
     "color": "40, 154, 68",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

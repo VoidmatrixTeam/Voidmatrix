@@ -3,7 +3,7 @@
     "title": "Set Fateful Flag",
     "color": "109, 159, 91",
     "language": "All",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "ChgPokeWaza",

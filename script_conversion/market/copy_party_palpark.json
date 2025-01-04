@@ -3,7 +3,7 @@
     "title": "Copy Party to Pal Park",
     "color": "111, 172, 211",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

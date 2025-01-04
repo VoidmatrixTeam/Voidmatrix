@@ -1,0 +1,315 @@
+{
+    "title": "Give Pokemon Or Egg With Set Rng",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Jul. 21 2024",
+    "scripts": [
+        {
+            "title": "Give Egg with custom RNG state",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "AddTamago",
+                    "parameters": [
+                        {
+                            "name": "species",
+                            "type": "text",
+                            "value": "Manaphy"
+                        },
+                        {
+                            "name": "org",
+                            "type": "text",
+                            "value": "0x2"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x21ED410"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x89"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "RNG_address",
+                    "value": "0x021C4D48"
+                },
+                {
+                    "language": "German",
+                    "name": "RNG_address",
+                    "value": "0x021C4E88"
+                },
+                {
+                    "language": "French",
+                    "name": "RNG_address",
+                    "value": "0x021C4EC8"
+                },
+                {
+                    "language": "Italian",
+                    "name": "RNG_address",
+                    "value": "0x021C4E28"
+                },
+                {
+                    "language": "Japanese Rev5",
+                    "name": "RNG_address",
+                    "value": "0x021C65A0"
+                },
+                {
+                    "language": "Korean",
+                    "name": "RNG_address",
+                    "value": "0x021C2348"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "RNG_address",
+                    "value": "0x021C4EE8"
+                },
+                {
+                    "language": "All",
+                    "name": "rng_state",
+                    "value": "0x7EB30525"
+                }
+            ],
+            "documentation": "# Give Egg with custom RNG state\n\nThis code sets a custom RNG state and generates any egg for this state. This allows you to generate legitimate Eggs that are shiny or\nhave really good IVs and natures. If you're interested in trying this out, you'll need a couple things first.\n\n1. [PokeFinder](https://github.com/Admiral-Fish/PokeFinder/releases). This is the most up to date RNG tool, with tons of features.\n2. Your Trainer ID and Secret ID. If you don't know these, simply change it to anything using the TIDSID Editor code.\n\n## Finding the RNG state with PokeFinder\n\nWhile this won't be a full tutorial on PokeFinder, we will use it to generate a custom Pokémon. \nWe'll create a shiny manaphy with great IVs and a Modest nature.\n\nAfter opening the tool up select the `Gen 4` tab, followed by `Static'. This will open up a new tab. \n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635725&authkey=%21AKDkpAHuvquR1K4&width=500)\n\n### Create a profile\n\nIf you've never used Pokefinder before, or you don't have a profile for this save file yet, we can create one now. Click on Manager to do this.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635727&authkey=%21APrR-qaLGcO7Z8E&width=500)\n\nIn this tab set a name and the TID/SID combo on your save file. You can always use the TIDSID code editor to set any value you want, so\nyou can choose any values you want, or the one already matching your save file. In my case, both TID and SID are 0.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635729&authkey=%21ABrUNfLwKGTqsEo&width=616&height=173)\n\nIf properly added you can now close the extra window and select the profile.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635733&authkey=%21AFCJzFsLO2WE8e8&width=800)\n\n### Generating a custom Pokémon\n\nThis process starts out similar to regular RNG manipulating, by setting the constraints of the Pokémon we want to find. In my case, I made\nsure to select high minimum IVs, a Modest nature and set Shiny to Star/Square, which just means any shiny for this TID/SID combo.\n\nyou can increase the max advances, and set a seed value. Then, simply click generate. If you don't get any (good) matches immediately,\nrun it with different seeds. If you still can't find anything it may be time to lower some of the requirements. Eventually I found this pretty decent result\nfor seed 0xF.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635719&authkey=%21AMsC7FCQ-d4VBng&width=1000)\n\nThose that are used to RNG manipulation may know `3843878` advances is ridiculously high. But, this doesn't matter for our purposes.\nWe can simply calculate the RNG state after all the advances, from our starting seed. This can be done under `Tools -> Researcher`.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635735&authkey=%21AAFKQnMuvWstm7E&width=876&height=546)\n\nFrom here, we give in the original seed, in my case `0xF`and set the initial advances, in my case `3843878`. Max advances can be set to 1, as we only care\nabout the first result after our initial advances. This result will have a 32bit value in the second column, which is the RNG state.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635718&authkey=%21ACsTYlm_Z4a5bjc&width=1000)\n\nAfter entering this state as the variable RNG_state on the site we can enter the code in the dot artist and execute it. This code includes a fast-hatch mechanism, but it only works if you don't open any menus. Just run around right after executing, it should hatch soon. If everything went well, you got your custom RNG'd Pokémon!\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635721&authkey=%21AEV5wNHlxtHg5a0&width=512&height=383)\n\n\n\n"
+        },
+        {
+            "title": "Give Pokemon with custom RNG state",
+            "color": [
+                83,
+                198,
+                163
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "AddPokemon",
+                    "parameters": [
+                        {
+                            "name": "species",
+                            "type": "text",
+                            "value": "Manaphy"
+                        },
+                        {
+                            "name": "level",
+                            "type": "text",
+                            "value": "100"
+                        },
+                        {
+                            "name": "item",
+                            "type": "text",
+                            "value": ""
+                        },
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "RNG_address",
+                    "value": "0x021C4D48"
+                },
+                {
+                    "language": "German",
+                    "name": "RNG_address",
+                    "value": "0x021C4E88"
+                },
+                {
+                    "language": "French",
+                    "name": "RNG_address",
+                    "value": "0x021C4EC8"
+                },
+                {
+                    "language": "Italian",
+                    "name": "RNG_address",
+                    "value": "0x021C4E28"
+                },
+                {
+                    "language": "Japanese Rev5",
+                    "name": "RNG_address",
+                    "value": "0x021C65A0"
+                },
+                {
+                    "language": "Korean",
+                    "name": "RNG_address",
+                    "value": "0x021C2348"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "RNG_address",
+                    "value": "0x021C4EE8"
+                },
+                {
+                    "language": "All",
+                    "name": "rng_state",
+                    "value": "0x7EB30525"
+                }
+            ],
+            "documentation": "# Give Pokémon with custom RNG state\n\nThis code sets a custom RNG state and generates any Pokémon for this state. This allows you to generate legitimate Pokémon that are shiny or\nhave really good IVs and natures. If you're interested in trying this out, you'll need a couple things first.\n\n1. [PokeFinder](https://github.com/Admiral-Fish/PokeFinder/releases). This is the most up to date RNG tool, with tons of features.\n2. Your Trainer ID and Secret ID. If you don't know these, simply change it to anything using the TIDSID Editor code.\n\n## Finding the RNG state with PokeFinder\n\nWhile this won't be a full tutorial on PokeFinder, we will use it to generate a custom Pokémon. \nWe'll create a shiny manaphy with great IVs and a Modest nature.\n\nAfter opening the tool up select the `Gen 4` tab, followed by `Static'. This will open up a new tab. \n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635725&authkey=%21AKDkpAHuvquR1K4&width=500)\n\n### Create a profile\n\nIf you've never used Pokefinder before, or you don't have a profile for this save file yet, we can create one now. Click on Manager to do this.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635727&authkey=%21APrR-qaLGcO7Z8E&width=500)\n\nIn this tab set a name and the TID/SID combo on your save file. You can always use the TIDSID code editor to set any value you want, so\nyou can choose any values you want, or the one already matching your save file. In my case, both TID and SID are 0.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635729&authkey=%21ABrUNfLwKGTqsEo&width=616&height=173)\n\nIf properly added you can now close the extra window and select the profile.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635733&authkey=%21AFCJzFsLO2WE8e8&width=800)\n\n### Generating a custom Pokémon\n\nThis process starts out similar to regular RNG manipulating, by setting the constraints of the Pokémon we want to find. In my case, I made\nsure to select high minimum IVs, a Modest nature and set Shiny to Star/Square, which just means any shiny for this TID/SID combo.\n\nyou can increase the max advances, and set a seed value. Then, simply click generate. If you don't get any (good) matches immediately,\nrun it with different seeds. If you still can't find anything it may be time to lower some of the requirements. Eventually I found this pretty decent result\nfor seed 0xF.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635719&authkey=%21AMsC7FCQ-d4VBng&width=1000)\n\nThose that are used to RNG manipulation may know `3843878` advances is ridiculously high. But, this doesn't matter for our purposes.\nWe can simply calculate the RNG state after all the advances, from our starting seed. This can be done under `Tools -> Researcher`.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635735&authkey=%21AAFKQnMuvWstm7E&width=876&height=546)\n\nFrom here, we give in the original seed, in my case `0xF`and set the initial advances, in my case `3843878`. Max advances can be set to 1, as we only care\nabout the first result after our initial advances. This result will have a 32bit value in the second column, which is the RNG state.\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635718&authkey=%21ACsTYlm_Z4a5bjc&width=1000)\n\nAfter entering this state as the variable RNG_state on the site we can enter the code in the dot artist and execute it. If everything went well, you got your custom RNG'd Pokémon!\n\n![image](https://onedrive.live.com/embed?resid=131055fcc9659dc9%21635723&authkey=%21AL-1mHS4ONEg2hc&width=513&height=385)\n\n\n\n"
+        }
+    ]
+}

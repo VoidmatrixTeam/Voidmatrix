@@ -442,7 +442,14 @@ class DotArtistConverter extends Converter {
 
             if (this.currentScript) {
                 const byteCode = this.convertScriptToByteCode(this.currentScript);
-                const byteCodeStr = byteCode.map(x => x.toString(16).padStart(2, "0")).join(" ");
+                const byteCodeStr = byteCode
+                    .map(x => x.toString(16).padStart(2, "0"))
+                    .reduce((acc, hex, index) => {
+                        acc.push(hex);
+                        acc.push((index % 16 === 15) ? "\n" : " ");
+                        return acc;
+                    }, [])
+                    .join("");
                 copyToClipboard(byteCodeStr);
             }
         })
@@ -459,7 +466,7 @@ class JsonExporter extends Converter {
             'title': script.title.titleElement.firstElementChild.value,
             'color': script.color,
             'language': language,
-            'input_fields': [],
+            'code': [],
             'variables': this.getVariables(variableGroup)
         };
 
@@ -467,13 +474,13 @@ class JsonExporter extends Converter {
         for (let scriptElement of scriptElements) {
             switch (scriptElement.className) {
                 case 'command':
-                    json.input_fields.push(this.convertCommandToJson(scriptElement));
+                    json.code.push(this.convertCommandToJson(scriptElement));
                     break;
                 case 'raw-bytes':
-                    json.input_fields.push(this.convertRawBytesToJson(scriptElement));
+                    json.code.push(this.convertRawBytesToJson(scriptElement));
                     break;
                 case 'memory-editor':
-                    json.input_fields.push(this.convertMemoryEditorToJson(scriptElement));
+                    json.code.push(this.convertMemoryEditorToJson(scriptElement));
                     break;
             }
         }

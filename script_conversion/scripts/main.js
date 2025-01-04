@@ -166,10 +166,12 @@ class VariableWrapper {
     variableGroups = [];
     globalVariableGroup = null;
     languageConfig = null;
+    gameConfig = null;
 
     constructor() {
         this.createVariableWrapper();
-        this.addLanguageListeners()
+        this.addLanguageListeners();
+        this.addGamesListeners();
     }
 
     addLanguageListeners() {
@@ -183,7 +185,6 @@ class VariableWrapper {
 
         this.setLanguageVisibilityAll();
     }
-
 
     setLanguageVisibilityAll() {
         const language = document.querySelector('.language-config').value;
@@ -211,6 +212,11 @@ class VariableWrapper {
         if (!valueOptions.includes(element.value) && !(language == 'All')) {
             parent.classList.add("hidden")
         }
+    }
+
+    addGamesListeners() {
+        this.gameConfig = document.querySelector('.games-config');
+        datalists["datalist-games"].addDynamicEventListeners(this.gameConfig);
     }
 
     createVariableWrapper() {
@@ -1019,7 +1025,7 @@ s
         const color = json.color.split(',').map(val => parseInt(val));
         const script = this.addScriptElement(color, select, false);
         script.title.updateFromJson(json.title, json.documentation)
-        for (let inputField of json.input_fields) {
+        for (let inputField of json.code) {
             script.addInputFieldFromJson(inputField);
         }
         script.updateVariableGroupFromJson(json.variables);
@@ -1151,6 +1157,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const maps = await getJsonFromUrl(`data/map_data.json`);
     const moves = await getJsonFromUrl(`data/move_data.json`);
     const languages = ["All", "English", "Japanese Rev5", "Japanese Rev6", "French", "Italian", "German", "Spanish", "Korean"];
+    const games = ["Diamond", "Pearl", "Platinum", "HeartGold", "SoulSilver"];
     const scriptFiles = await getFilesFromGithub(`VoidmatrixTeam`, `Voidmatrix`, `script_conversion/market`)
 
     datalists["datalist-commands"] = new CommandDataList(document.documentElement, commands);
@@ -1159,6 +1166,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     datalists["datalist-maps"] = new MapDataList(document.documentElement, maps);
     datalists["datalist-moves"] = new MoveDataList(document.documentElement, moves);
     datalists["datalist-languages"] = new LanguageDataList(document.documentElement, languages);
+    datalists["datalist-games"] = new GameDataList(document.documentElement, games);
     datalists["datalist-scripts"] = new ScriptDataList(document.documentElement, scriptFiles);
 
     variableWrapper = new VariableWrapper();

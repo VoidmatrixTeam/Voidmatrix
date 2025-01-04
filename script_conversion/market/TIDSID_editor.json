@@ -3,7 +3,7 @@
       "title": "Write custom TID/SID",
       "color": "184, 119, 46",
       "language": "English",
-      "input_fields": [
+      "code": [
         {
           "type": "command",
           "name": "LoadAdrsValue",

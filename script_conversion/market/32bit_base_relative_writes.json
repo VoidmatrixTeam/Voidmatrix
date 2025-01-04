@@ -3,7 +3,7 @@
     "title": "32-bit, base-relative write using CmpAdrsAdrs",
     "color": "184, 119, 46",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

@@ -3,7 +3,7 @@
     "title": "Mystery Gift Postman ACE",
     "color": "40, 154, 68",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -261,7 +261,7 @@
     "title": "Postman Check",
     "color": "180, 180, 180",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "MePlay",

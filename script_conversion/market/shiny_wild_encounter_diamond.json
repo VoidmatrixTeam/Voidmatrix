@@ -3,7 +3,7 @@
     "title": "Shiny Wild Encounter Anywhere",
     "color": "74, 196, 78",
     "language": "Italian",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

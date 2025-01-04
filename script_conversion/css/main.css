@@ -234,9 +234,13 @@ input:focus, input:active {
     display:none;
 }
 
-.language-config {
+.games-config {
     margin-left: auto;
-    width: 120px;
+    width: 85px;
+}
+
+.language-config {
+    width:120px;
 }
 
 .variable-name {

@@ -306,6 +306,12 @@ class LanguageDataList extends DynamicValidationDataList  {
     }
 }
 
+class GameDataList extends DynamicValidationDataList  {
+    constructor(parent, dataListOptions) {
+        super(parent, 'datalist-games', dataListOptions);
+    }
+}
+
 class DynamicValidationInput {
     input = null
 

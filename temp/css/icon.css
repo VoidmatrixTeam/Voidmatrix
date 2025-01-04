@@ -1,0 +1,29 @@
+.icon-0 {
+    width: 24px;
+    height: 24px;
+    margin-right: 6px;
+    fill: var(--icon-color);
+}
+
+.icon-1 {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+
+.add-icon {
+    width:20px;
+    height:20px;
+}
+
+.search-icon {
+    margin-left: auto;
+}
+
+.config-icon-0 {
+    background-color:var(--bg-dark-2);
+}
+
+.config-icon-0:hover {
+    background-color:var(--bg-dark-3);
+}

@@ -3,7 +3,7 @@
     "title": "Allow hover over glitch item",
     "color": "194, 153, 255",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

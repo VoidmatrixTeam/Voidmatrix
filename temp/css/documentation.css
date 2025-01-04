@@ -1,0 +1,109 @@
+.documentation-container {
+    position:relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+}
+
+.documentation {
+    top: 8vh;
+    width: 80vw; 
+    height: 90vh;
+    margin: auto;
+    position: absolute;
+    background-color: var(--bg-dark-2);
+    z-index: 3;
+    display: none;
+}
+
+.documentation-toolbar {
+    display:flex;
+    height: 40px;
+    gap: 10px;
+    align-items: center;
+}
+
+.documentation-toolbar * {
+    margin: 0;
+    margin-left: 8px;
+    height: 24px;
+}
+
+.documentation-toolbar div img {
+    margin-right: 8px;
+}
+
+.documentation-toolbar div {
+    display: flex;
+    align-items: center;
+    padding: 4px 12px 4px 0px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.documentation-toolbar div.active {
+    background-color: var(--bg-dark-3);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.documentation-toolbar div:last-child {
+    margin-left: auto;
+    margin-right: 4px;
+}
+
+.documentation .preview, .documentation .editor {
+    all: unset;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    height: calc(100% - 40px);
+    display: none;
+    overflow: auto;
+}
+
+.preview-button, .editor-button {
+    display:flex;
+}
+
+.preview-button h2, .editor-button h2 {
+    margin: 0;
+    padding: 0;
+    color: var(--light-1);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.documentation .preview.active, .documentation .editor.active {
+    display: block;
+}
+
+.documentation.active {
+    display: block;
+}
+
+.documentation .editor::-webkit-scrollbar, .documentation .preview::-webkit-scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+.documentation .editor::-webkit-scrollbar-track, .documentation .preview::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.documentation .editor::-webkit-scrollbar-thumb, .documentation .preview::-webkit-scrollbar-thumb {
+    background-color: var(--light-1);
+    border-radius: 4px;
+}
+
+.application-container.as-background {
+    filter: brightness(0.8);
+}
+
+.preview a {
+    color: #FFEE88;
+}
+
+.preview a:hover {
+    color: #FF8888
+}

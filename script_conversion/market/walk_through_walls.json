@@ -3,7 +3,7 @@
     "title": "Walk Through Walls",
     "color": "182, 93, 93",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

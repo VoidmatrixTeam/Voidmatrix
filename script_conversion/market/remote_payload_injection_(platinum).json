@@ -3,7 +3,7 @@
         "title": "Remote payload injection (platinum)",
         "color": "62, 147, 63",
         "language": "English",
-        "input_fields": [
+        "code": [
             {
                 "type": "command",
                 "name": "Nop",

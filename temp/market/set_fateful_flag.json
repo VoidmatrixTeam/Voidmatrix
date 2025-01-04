@@ -1,0 +1,55 @@
+{
+    "title": "Set Fateful Flag",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "May. 16 2024",
+    "scripts": [
+        {
+            "title": "Set Fateful Flag",
+            "color": [
+                109,
+                159,
+                91
+            ],
+            "language": "All",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "ChgPokeWaza",
+                    "parameters": [
+                        {
+                            "name": "party index",
+                            "type": "text",
+                            "value": "[pokemon_slot]"
+                        },
+                        {
+                            "name": "move slot",
+                            "type": "text",
+                            "value": "0x34"
+                        },
+                        {
+                            "name": "move",
+                            "type": "text",
+                            "value": "0x10"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "All",
+                    "name": "pokemon_slot",
+                    "value": "0"
+                }
+            ]
+        }
+    ]
+}

@@ -3,7 +3,7 @@
     "title": "Show TID/SID of Pokémon in party",
     "color": "40, 154, 68",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "ImageClipSetProc",

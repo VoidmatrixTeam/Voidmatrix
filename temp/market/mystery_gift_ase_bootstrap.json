@@ -1,0 +1,329 @@
+{
+    "title": "Mystery Gift Ase Bootstrap",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "May. 04 2024",
+    "scripts": [
+        {
+            "title": "Mystery Gift Postman ACE",
+            "color": [
+                40,
+                154,
+                68
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CmpWkValue] + 0x8"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0xE0040005"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CmpWkValue] + 0x1C"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0x18691808"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CmpWkValue] + 0x20"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0xF094221C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CmpWkValue] + 0x24"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0xBD38EBF0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x961E"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[data_offset] + 0x4"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x9644"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[data_offset] + 0x2"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x5012"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "[data_offset]"
+                        }
+                    ]
+                },
+                {
+                    "type": "memory_editor",
+                    "memory": [
+                        "0x20",
+                        "0x83",
+                        "0xB8",
+                        "0xED",
+                        "([giftId] & 0xFF)",
+                        "([giftId] & 0xFF00) >> 8",
+                        "0x0",
+                        "0x0",
+                        "0xD",
+                        "0x0",
+                        "0x82",
+                        "0xE2",
+                        "0x10",
+                        "0xFF",
+                        "0x2F",
+                        "0xE1",
+                        "0x01",
+                        "0x20",
+                        "0x10",
+                        "0x60",
+                        "0x18",
+                        "0x32",
+                        "0x30",
+                        "0xCA",
+                        "0x31",
+                        "0xC3",
+                        "0xF7",
+                        "0x46",
+                        "0x16",
+                        "0x0",
+                        "0x44",
+                        "0x7C",
+                        "0xFD",
+                        "0xFF"
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039ACC"
+                },
+                {
+                    "language": "French",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B14"
+                },
+                {
+                    "language": "German",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B14"
+                },
+                {
+                    "language": "Italian",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B14"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B14"
+                },
+                {
+                    "language": "English",
+                    "name": "FUN_CmpWkValue",
+                    "value": "0x02039BDC"
+                },
+                {
+                    "language": "French",
+                    "name": "FUN_CmpWkValue",
+                    "value": "0x02039C24"
+                },
+                {
+                    "language": "German",
+                    "name": "FUN_CmpWkValue",
+                    "value": "0x02039C24"
+                },
+                {
+                    "language": "Italian",
+                    "name": "FUN_CmpWkValue",
+                    "value": "0x02039C24"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "FUN_CmpWkValue",
+                    "value": "0x02039C24"
+                },
+                {
+                    "language": "All",
+                    "name": "data_offset",
+                    "value": "0x8"
+                },
+                {
+                    "language": "English",
+                    "name": "giftId",
+                    "value": "0xCF9F"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "giftID",
+                    "value": "0xCFB4"
+                }
+            ],
+            "documentation": "### Mystery Gift Postman ACE\n\nThis is a bootstrap that sets up **permanent ASE/ACE** for your savefile, that allows you to\nplay the game freely. The ASE/ACE will be triggered by talking to a Postman in any Pokémon Market.\n\n### Usage\nThis assumes you have set up the newest ase bootstrap as listed on the site. \nThe green, long code taking up the entire dot artist should be executed first. Feel free to save before executing it,\nthis code is the most important part.\n\nOnce executed, you can either use a walk through walls code, or fly to any town in the game that has a Pokémon Market.\nEnter the Pokémon Market. There should be a Mystery Gift Postman present inside.\n\nThe grey smaller code should be inserted now. You don't have to wipe the entire dot artist,  you can click the 'highlight' button at the right of the\ndot artist to see what section of the dot artist has to be edited. The remaining code in the non-highlighted section doesn't have to be edited,\nbut can if you prefer.\n\nOnce the new code is in, make sure to reload graphics. Talk to the Postman. Given everything worked properly, you'll hear a badge acquisition sound effect,\nand the game will freeze while it plays. Once you are able to move again you can simply soft reset. During the sound playing the game saved. You can't save\nusing the usual save menu, just soft/hard reset.\n\nAfter rebooting the game you should be in the Pokémon Market where you saved. Talking to the Postman at any time will execute ASE from the dot artist by default.\n\n### Restrictions\nYou are able to play the game and do anything you want, including beating the game. There is only one restriction: **Do not record a new Chatter sound**.\n\nIf you are planning on performing RNG manipulation, make sure to **use chatter before doing this setup**. Some may be aware that putting Chatot in a box\nwill remove the sound effect. **This is not entirely true.** The sound effect never gets automatically deleted, only a flag that says the sound exists. The Postman code includes automatically setting the chatter exists flag whenever you talk to him. So if you want to RNG manip, just run any empty code with the Postman to enable the chatter cry again.\n\nAlso, since this ACE makes use of the Postman obviously you won't be able to receive new Mystery Gifts as long as the code is active.\n\n### Technical Details\nFor those interested in how this ACE exploit functions, it is based on Attack vector 1 as noted in my\n[Mystery Gift/Wonder Card ACE research](https://jorikdevreese.com/index.php/2024/02/17/remote-code-execution-in-generation-4-pokemon-games-through-mystery-gifts/).\n\nThe specific implementation here makes use of Gift Id 0xCF9F. Upon receival, the game reads an out of bounds validity check function for this gift ID. (ironic, I know)\nSpecifically, the function pointer is read from address **0x221bc54** (on English), which points to the Chatot Chatter sound.\n\nThis pointer automatically adjusts to ASLR, and is therefore ideal. The remaining code writes a bootstrap in the Chatter sound data.\nThe Chatter sound data is read as code whenever you talk to a Postman, and performs the following:\n\n1. Sets the Chatot Chatter 'Exists' flag to true. This is necessary for RNG manipulation.\n2.  Modifies the next script command the Postman will execute to jump to Dot Artist\n\n"
+        },
+        {
+            "title": "Postman Check",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "MePlay",
+                    "parameters": [
+                        {
+                            "name": "sound",
+                            "type": "text",
+                            "value": "0x489"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "TimeWait",
+                    "parameters": [
+                        {
+                            "name": "number",
+                            "type": "text",
+                            "value": "1"
+                        },
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "ReportSave",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "type": "text",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [],
+            "documentation": ""
+        }
+    ]
+}

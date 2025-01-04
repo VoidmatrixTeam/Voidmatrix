@@ -1,0 +1,109 @@
+{
+    "title": "Show Tid Sid",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Apr. 01 2024",
+    "scripts": [
+        {
+            "title": "Show player TID/SID on screen",
+            "color": [
+                40,
+                154,
+                68
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_GetGold]"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_GoldWindowCreate] + 0x5C"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xA"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_NumberToString] + 0x28"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "GoldWinWrite",
+                    "parameters": [
+                        {
+                            "name": "x pos",
+                            "type": "text",
+                            "value": "0xB"
+                        },
+                        {
+                            "name": "y pos",
+                            "type": "text",
+                            "value": "0x4"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "FUN_GetGold",
+                    "value": "0x02023a10"
+                },
+                {
+                    "language": "English",
+                    "name": "FUN_GoldWindowCreate",
+                    "value": "0x021e28a0"
+                },
+                {
+                    "language": "English",
+                    "name": "FUN_NumberToString",
+                    "value": "0x02021b04"
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

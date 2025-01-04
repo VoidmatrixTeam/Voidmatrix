@@ -3,7 +3,7 @@
     "title": "Pokémon Editor",
     "color": "88, 165, 198",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

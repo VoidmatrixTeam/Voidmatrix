@@ -1,0 +1,280 @@
+{
+    "title": "Low Effort Memory Writer",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "May. 04 2024",
+    "scripts": [
+        {
+            "title": "Minimal Effort Memory Writer: Setup",
+            "color": [
+                82,
+                167,
+                135
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_DotArt_SetBitData] + 0x5"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x1D"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_DotArt_SetBitData] + 0x6"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x9"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_DotArt_SetBitData] + 0x7"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x68"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_DotArt_SetBitData] + 0x8"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_DotArt_SetBitData] + 0xA"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x74"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "FUN_DotArt_SetBitData",
+                    "value": "0x204c0e8"
+                },
+                {
+                    "language": "French",
+                    "name": "FUN_DotArt_SetBitData",
+                    "value": "0x204c158"
+                },
+                {
+                    "language": "German",
+                    "name": "FUN_DotArt_SetBitData",
+                    "value": "0x204c158"
+                },
+                {
+                    "language": "Italian",
+                    "name": "FUN_DotArt_SetBitData",
+                    "value": "0x204c158"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "FUN_DotArt_SetBitData",
+                    "value": "0x204c158"
+                }
+            ],
+            "documentation": ""
+        },
+        {
+            "title": "Minimal Effort Memory Writer: Use",
+            "color": [
+                143,
+                91,
+                91
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "raw_bytes",
+                    "raw_bytes": "[destination]",
+                    "repetitions": "1"
+                },
+                {
+                    "type": "memory_editor",
+                    "memory": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "language": "All",
+                    "name": "destination",
+                    "value": "0x2200000"
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "title": "Clone Pokemon",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Feb. 16 2024",
+    "scripts": [
+        {
+            "title": "Clone Box Pokémon (Grab, Put Down)",
+            "color": [
+                179,
+                230,
+                224
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[Box_ClearPokemon] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x8"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "Box_ClearPokemon",
+                    "value": "0x0206B2FC"
+                },
+                {
+                    "language": "French",
+                    "name": "Box_ClearPokemon",
+                    "value": "0x0206B358"
+                },
+                {
+                    "language": "German",
+                    "name": "Box_ClearPokemon",
+                    "value": "0x0206B358"
+                },
+                {
+                    "language": "Italian",
+                    "name": "Box_ClearPokemon",
+                    "value": "0x0206B338"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "Box_ClearPokemon",
+                    "value": "0x0206B358"
+                }
+            ]
+        }
+    ]
+}

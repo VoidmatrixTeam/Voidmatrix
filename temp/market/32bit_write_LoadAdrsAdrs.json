@@ -1,0 +1,113 @@
+{
+    "title": "32Bit Write Loadadrsadrs",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Mar. 16 2024",
+    "scripts": [
+        {
+            "title": "Write u32 Functionality for Command 0xA",
+            "color": [
+                40,
+                154,
+                68
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[target_address]"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "[value]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039ACC"
+                },
+                {
+                    "language": "French",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B3C"
+                },
+                {
+                    "language": "German",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B3C"
+                },
+                {
+                    "language": "Italian",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B3C"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x02039B3C"
+                },
+                {
+                    "language": "All",
+                    "name": "target_address",
+                    "value": "0xFFFFFFFF"
+                },
+                {
+                    "language": "All",
+                    "name": "value",
+                    "value": "0xFFFFFFFF"
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

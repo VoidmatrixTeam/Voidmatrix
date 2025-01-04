@@ -3,7 +3,7 @@
     "title": "Show player TID/SID on screen",
     "color": "40, 154, 68",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

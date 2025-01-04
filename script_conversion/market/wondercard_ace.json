@@ -3,7 +3,7 @@
     "title": "Generate Bootstrap Pokémon",
     "color": "40, 154, 68",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -227,7 +227,7 @@
     "title": "ACE transfer Wonder Card (Platinum)",
     "color": "180, 180, 180",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -397,7 +397,7 @@
     "title": "Platinum NPC ASE Bootstrap",
     "color": "184, 119, 46",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",
@@ -619,7 +619,7 @@
     "title": "NPC ACE check",
     "color": "125, 202, 222",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "MePlay",

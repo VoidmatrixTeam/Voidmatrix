@@ -1,0 +1,7547 @@
+{
+    "0x0": {
+        "command_name": "Nop",
+        "parameters": []
+    },
+    "0x1": {
+        "command_name": "Dummy",
+        "parameters": []
+    },
+    "0x2": {
+        "command_name": "End",
+        "parameters": []
+    },
+    "0x3": {
+        "command_name": "TimeWait",
+        "parameters": [
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x4": {
+        "command_name": "LoadRegValue",
+        "parameters": [
+            {
+                "name": "register",
+                "size": "u8"
+            },
+            {
+                "name": "value",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x5": {
+        "command_name": "LoadRegWData",
+        "parameters": [
+            {
+                "name": "register",
+                "size": "u8"
+            },
+            {
+                "name": "value",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x6": {
+        "command_name": "LoadRegAdrs",
+        "parameters": [
+            {
+                "name": "register",
+                "size": "u8"
+            },
+            {
+                "name": "address",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x7": {
+        "command_name": "LoadAdrsValue",
+        "parameters": [
+            {
+                "name": "address",
+                "size": "u32"
+            },
+            {
+                "name": "value",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x8": {
+        "command_name": "LoadAdrsReg",
+        "parameters": [
+            {
+                "name": "address",
+                "size": "u32"
+            },
+            {
+                "name": "register",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x9": {
+        "command_name": "LoadRegReg",
+        "parameters": [
+            {
+                "name": "tg",
+                "size": "u8"
+            },
+            {
+                "name": "src",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xa": {
+        "command_name": "LoadAdrsAdrs",
+        "parameters": [
+            {
+                "name": "tg",
+                "size": "u32"
+            },
+            {
+                "name": "src",
+                "size": "u32"
+            }
+        ]
+    },
+    "0xb": {
+        "command_name": "CmpRegReg",
+        "parameters": [
+            {
+                "name": "register1",
+                "size": "u8"
+            },
+            {
+                "name": "register2",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xc": {
+        "command_name": "CmpRegValue",
+        "parameters": [
+            {
+                "name": "register",
+                "size": "u8"
+            },
+            {
+                "name": "value",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xd": {
+        "command_name": "CmpRegAdrs",
+        "parameters": [
+            {
+                "name": "register",
+                "size": "u8"
+            },
+            {
+                "name": "address",
+                "size": "u32"
+            }
+        ]
+    },
+    "0xe": {
+        "command_name": "CmpAdrsReg",
+        "parameters": [
+            {
+                "name": "address",
+                "size": "u32"
+            },
+            {
+                "name": "register",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xf": {
+        "command_name": "CmpAdrsValue",
+        "parameters": [
+            {
+                "name": "address",
+                "size": "u32"
+            },
+            {
+                "name": "value",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x10": {
+        "command_name": "CmpAdrsAdrs",
+        "parameters": [
+            {
+                "name": "address1",
+                "size": "u32"
+            },
+            {
+                "name": "address2",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x11": {
+        "command_name": "CmpWkValue",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x12": {
+        "command_name": "CmpWkWk",
+        "parameters": [
+            {
+                "name": "work1",
+                "size": "u16"
+            },
+            {
+                "name": "work2",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x13": {
+        "command_name": "VMMachineAdd",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x14": {
+        "command_name": "ChangeCommonScr",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x15": {
+        "command_name": "ChangeLocalScr",
+        "parameters": []
+    },
+    "0x16": {
+        "command_name": "GlobalJump",
+        "parameters": [
+            {
+                "name": "jump",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x17": {
+        "command_name": "ObjIDJump",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "jump",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x18": {
+        "command_name": "BgIDJump",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "jump",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x19": {
+        "command_name": "PlayerDirJump",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u8"
+            },
+            {
+                "name": "jump",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x1a": {
+        "command_name": "GlobalCall",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x1b": {
+        "command_name": "Ret",
+        "parameters": []
+    },
+    "0x1c": {
+        "command_name": "IfJump",
+        "parameters": [
+            {
+                "name": "conditional",
+                "size": "u8"
+            },
+            {
+                "name": "jump",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x1d": {
+        "command_name": "IfCall",
+        "parameters": [
+            {
+                "name": "conditional",
+                "size": "u8"
+            },
+            {
+                "name": "jump",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x1e": {
+        "command_name": "FlagSet",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1f": {
+        "command_name": "FlagReset",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x20": {
+        "command_name": "FlagCheck",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x21": {
+        "command_name": "FlagCheckWk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "rwk",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x22": {
+        "command_name": "FlagSetWk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x23": {
+        "command_name": "TrainerFlagSet",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x24": {
+        "command_name": "TrainerFlagReset",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x25": {
+        "command_name": "TrainerFlagCheck",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x26": {
+        "command_name": "WkAdd",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x27": {
+        "command_name": "WkSub",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x28": {
+        "command_name": "LoadWkValue",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x29": {
+        "command_name": "LoadWkWk",
+        "parameters": [
+            {
+                "name": "work1",
+                "size": "u16"
+            },
+            {
+                "name": "work2",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2a": {
+        "command_name": "LoadWkWkValue",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2b": {
+        "command_name": "TalkMsgAllPut",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x2c": {
+        "command_name": "TalkMsg",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x2d": {
+        "command_name": "TalkMsgSp",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2e": {
+        "command_name": "TalkMsgNoSkip",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2f": {
+        "command_name": "TalkConSioMsg",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x30": {
+        "command_name": "ABKeyWait",
+        "parameters": []
+    },
+    "0x31": {
+        "command_name": "LastKeyWait",
+        "parameters": []
+    },
+    "0x32": {
+        "command_name": "NextAnmLastKeyWait",
+        "parameters": []
+    },
+    "0x33": {
+        "command_name": "TalkWinOpen",
+        "parameters": []
+    },
+    "0x34": {
+        "command_name": "TalkWinClose",
+        "parameters": []
+    },
+    "0x35": {
+        "command_name": "TalkWinCloseNoClear",
+        "parameters": []
+    },
+    "0x36": {
+        "command_name": "BoardMake",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u8"
+            },
+            {
+                "name": "type",
+                "size": "u8"
+            },
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x37": {
+        "command_name": "InfoBoardMake",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u8"
+            },
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            }
+        ]
+    },
+    "0x38": {
+        "command_name": "BoardReq",
+        "parameters": [
+            {
+                "name": "req",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x39": {
+        "command_name": "BoardWait",
+        "parameters": []
+    },
+    "0x3a": {
+        "command_name": "BoardMsg",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x3b": {
+        "command_name": "BoardEndWait",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x3c": {
+        "command_name": "MenuReq",
+        "parameters": []
+    },
+    "0x3d": {
+        "command_name": "BgScroll_vertical",
+        "parameters": [
+            {
+                "name": "r0",
+                "size": "u8"
+            },
+            {
+                "name": "t0",
+                "size": "u8"
+            },
+            {
+                "name": "r1",
+                "size": "u8"
+            },
+            {
+                "name": "r2",
+                "size": "u8"
+            },
+            {
+                "name": "t1",
+                "size": "u8"
+            },
+            {
+                "name": "r3",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x3e": {
+        "command_name": "YesNoWin",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x3f": {
+        "command_name": "GuinnessWin",
+        "parameters": []
+    },
+    "0x40": {
+        "command_name": "BmpMenuInit",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u8"
+            },
+            {
+                "name": "y pos",
+                "size": "u8"
+            },
+            {
+                "name": "cur",
+                "size": "u8"
+            },
+            {
+                "name": "can",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x41": {
+        "command_name": "BmpMenuInitEx",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u8"
+            },
+            {
+                "name": "y pos",
+                "size": "u8"
+            },
+            {
+                "name": "cur",
+                "size": "u8"
+            },
+            {
+                "name": "can",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x42": {
+        "command_name": "BmpMenuMakeList",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u8"
+            },
+            {
+                "name": "param",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x43": {
+        "command_name": "BmpMenuStart",
+        "parameters": []
+    },
+    "0x44": {
+        "command_name": "BmpListInit",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u8"
+            },
+            {
+                "name": "y pos",
+                "size": "u8"
+            },
+            {
+                "name": "cur",
+                "size": "u8"
+            },
+            {
+                "name": "can",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x45": {
+        "command_name": "BmpListInitEx",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u8"
+            },
+            {
+                "name": "y pos",
+                "size": "u8"
+            },
+            {
+                "name": "cur",
+                "size": "u8"
+            },
+            {
+                "name": "can",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x46": {
+        "command_name": "BmpListMakeList",
+        "parameters": []
+    },
+    "0x47": {
+        "command_name": "BmpListStart",
+        "parameters": []
+    },
+    "0x48": {
+        "command_name": "BmpMenuHVStart",
+        "parameters": [
+            {
+                "name": "max",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x49": {
+        "command_name": "SePlay",
+        "parameters": [
+            {
+                "name": "sound",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x4a": {
+        "command_name": "SeStop",
+        "parameters": [
+            {
+                "name": "sound",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x4b": {
+        "command_name": "SeWait",
+        "parameters": [
+            {
+                "name": "sound",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x4c": {
+        "command_name": "VoicePlay",
+        "parameters": [
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "vol",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x4d": {
+        "command_name": "VoicePlayWait",
+        "parameters": []
+    },
+    "0x4e": {
+        "command_name": "MePlay",
+        "parameters": [
+            {
+                "name": "sound",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x4f": {
+        "command_name": "MeWait",
+        "parameters": []
+    },
+    "0x50": {
+        "command_name": "BgmPlay",
+        "parameters": [
+            {
+                "name": "sid",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x51": {
+        "command_name": "BgmStop",
+        "parameters": []
+    },
+    "0x52": {
+        "command_name": "BgmNowMapPlay",
+        "parameters": []
+    },
+    "0x53": {
+        "command_name": "BgmSpecialSet",
+        "parameters": [
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            }
+        ]
+    },
+    "0x54": {
+        "command_name": "BgmFadeOut",
+        "parameters": [
+            {
+                "name": "vol",
+                "size": "u16"
+            },
+            {
+                "name": "frm",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x55": {
+        "command_name": "BgmFadeIn",
+        "parameters": [
+            {
+                "name": "frm",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x56": {
+        "command_name": "BgmPlayerPause",
+        "parameters": [
+            {
+                "name": "ply",
+                "size": "u8"
+            },
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x57": {
+        "command_name": "PlayerFieldDemoBgmPlay",
+        "parameters": [
+            {
+                "name": "dem",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x58": {
+        "command_name": "CtrlBgmFlagSet",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x59": {
+        "command_name": "PerapDataCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x5a": {
+        "command_name": "PerapRecStart",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x5b": {
+        "command_name": "PerapRecStop",
+        "parameters": []
+    },
+    "0x5c": {
+        "command_name": "PerapSave",
+        "parameters": []
+    },
+    "0x5d": {
+        "command_name": "SndClimaxDataLoad",
+        "parameters": []
+    },
+    "0x5e": {
+        "command_name": "ObjAnime",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "position",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x5f": {
+        "command_name": "ObjAnimeWait",
+        "parameters": []
+    },
+    "0x60": {
+        "command_name": "ObjPauseAll",
+        "parameters": []
+    },
+    "0x61": {
+        "command_name": "ObjPauseClearAll",
+        "parameters": []
+    },
+    "0x62": {
+        "command_name": "ObjPause",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x63": {
+        "command_name": "ObjPauseClear",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x64": {
+        "command_name": "ObjAdd",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x65": {
+        "command_name": "ObjDel",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x66": {
+        "command_name": "VanishDummyObjAdd",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x67": {
+        "command_name": "VanishDummyObjDel",
+        "parameters": []
+    },
+    "0x68": {
+        "command_name": "ObjTurn",
+        "parameters": []
+    },
+    "0x69": {
+        "command_name": "PlayerPosGet",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x6a": {
+        "command_name": "ObjPosGet",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u8"
+            },
+            {
+                "name": "z pos",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x6b": {
+        "command_name": "PlayerPosOffsetSet",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "y pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x6c": {
+        "command_name": "NotZoneDelSet",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x6d": {
+        "command_name": "MoveCodeChange",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "cod",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x6e": {
+        "command_name": "PairObjIdSet",
+        "parameters": []
+    },
+    "0x6f": {
+        "command_name": "AddGold",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x70": {
+        "command_name": "SubGold",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x71": {
+        "command_name": "CompGold",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "value",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x72": {
+        "command_name": "GoldWinWrite",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "y pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x73": {
+        "command_name": "GoldWinDel",
+        "parameters": []
+    },
+    "0x74": {
+        "command_name": "GoldWrite",
+        "parameters": []
+    },
+    "0x75": {
+        "command_name": "CoinWinWrite",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x76": {
+        "command_name": "CoinWinDel",
+        "parameters": []
+    },
+    "0x77": {
+        "command_name": "CoinWrite",
+        "parameters": []
+    },
+    "0x78": {
+        "command_name": "CheckCoin",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x79": {
+        "command_name": "AddCoin",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x7a": {
+        "command_name": "SubCoin",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x7b": {
+        "command_name": "AddItem",
+        "parameters": [
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x7c": {
+        "command_name": "SubItem",
+        "parameters": [
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x7d": {
+        "command_name": "AddItemChk",
+        "parameters": [
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x7e": {
+        "command_name": "CheckItem",
+        "parameters": [
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x7f": {
+        "command_name": "WazaMachineItemNoCheck",
+        "parameters": [
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "MoveMachineItemNumberCheck"
+        ]
+    },
+    "0x80": {
+        "command_name": "GetPocketNo",
+        "parameters": [
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x81": {
+        "command_name": "AddPCBoxItem",
+        "parameters": []
+    },
+    "0x82": {
+        "command_name": "CheckPCBoxItem",
+        "parameters": []
+    },
+    "0x83": {
+        "command_name": "AddGoods",
+        "parameters": [
+            {
+                "name": "goods",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x84": {
+        "command_name": "SubGoods",
+        "parameters": [
+            {
+                "name": "goods",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x85": {
+        "command_name": "AddGoodsChk",
+        "parameters": [
+            {
+                "name": "goods",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x86": {
+        "command_name": "CheckGoods",
+        "parameters": [
+            {
+                "name": "goods",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x87": {
+        "command_name": "AddTrap",
+        "parameters": [
+            {
+                "name": "trap",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x88": {
+        "command_name": "SubTrap",
+        "parameters": [
+            {
+                "name": "trap",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x89": {
+        "command_name": "AddTrapChk",
+        "parameters": [
+            {
+                "name": "trap",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x8a": {
+        "command_name": "CheckTrap",
+        "parameters": [
+            {
+                "name": "trap",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x8b": {
+        "command_name": "AddTreasure",
+        "parameters": [
+            {
+                "name": "treasure",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x8c": {
+        "command_name": "SubTreasure",
+        "parameters": [
+            {
+                "name": "treasure",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x8d": {
+        "command_name": "AddTreasureChk",
+        "parameters": [
+            {
+                "name": "treasure",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x8e": {
+        "command_name": "CheckTreasure",
+        "parameters": [
+            {
+                "name": "treasure",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x8f": {
+        "command_name": "AddTama",
+        "parameters": [
+            {
+                "name": "sphere",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x90": {
+        "command_name": "SubTama",
+        "parameters": [
+            {
+                "name": "sphere",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x91": {
+        "command_name": "AddTamaChk",
+        "parameters": [
+            {
+                "name": "sphere",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x92": {
+        "command_name": "CheckTama",
+        "parameters": [
+            {
+                "name": "sphere",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x93": {
+        "command_name": "CBItemNumGet",
+        "parameters": [
+            {
+                "name": "seal",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x94": {
+        "command_name": "CBItemNumAdd",
+        "parameters": [
+            {
+                "name": "seal",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x95": {
+        "command_name": "UnknownFormGet",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x96": {
+        "command_name": "AddPokemon",
+        "parameters": [
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "level",
+                "size": "u16"
+            },
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x97": {
+        "command_name": "AddTamago",
+        "parameters": [
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "org",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "AddEgg",
+            "GiveEgg"
+        ]
+    },
+    "0x98": {
+        "command_name": "ChgPokeWaza",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "move slot",
+                "size": "u16"
+            },
+            {
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
+            }
+        ],
+        "aliases": [
+            "ChangePokemonMove"
+        ]
+    },
+    "0x99": {
+        "command_name": "ChkPokeWaza",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "CheckPokemonMove"
+        ]
+    },
+    "0x9a": {
+        "command_name": "ChkPokeWazaGroup",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
+            }
+        ],
+        "aliases": [
+            "CheckPokemonMoveGroup"
+        ]
+    },
+    "0x9b": {
+        "command_name": "RevengeTrainerSearch",
+        "parameters": [
+            {
+                "name": "tid",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x9c": {
+        "command_name": "SetWeather",
+        "parameters": []
+    },
+    "0x9d": {
+        "command_name": "InitWeather",
+        "parameters": []
+    },
+    "0x9e": {
+        "command_name": "UpdateWeather",
+        "parameters": []
+    },
+    "0x9f": {
+        "command_name": "GetMapPosition",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "y pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xa0": {
+        "command_name": "GetTemotiPokeNum",
+        "parameters": []
+    },
+    "0xa1": {
+        "command_name": "SetMapProc",
+        "parameters": []
+    },
+    "0xa2": {
+        "command_name": "WiFiAutoReg",
+        "parameters": []
+    },
+    "0xa3": {
+        "command_name": "WiFiP2PMatchEventCall",
+        "parameters": []
+    },
+    "0xa4": {
+        "command_name": "WiFiP2PMatchSetDel",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xa5": {
+        "command_name": "MsgBoyEvent",
+        "parameters": []
+    },
+    "0xa6": {
+        "command_name": "ImageClipSetProc",
+        "parameters": [
+            {
+                "name": "ppi",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "workvalue",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xa7": {
+        "command_name": "ImageClipPreviewTvProc",
+        "parameters": [
+            {
+                "name": "ppi",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "workvalue",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xa8": {
+        "command_name": "ImageClipPreviewConProc",
+        "parameters": [
+            {
+                "name": "ppi",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "workvalue",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xa9": {
+        "command_name": "CustomBallEventCall",
+        "parameters": []
+    },
+    "0xaa": {
+        "command_name": "TMapBGSetProc",
+        "parameters": []
+    },
+    "0xab": {
+        "command_name": "BoxSetProc",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xac": {
+        "command_name": "OekakiBoardSetProc",
+        "parameters": []
+    },
+    "0xad": {
+        "command_name": "CallTrCard",
+        "parameters": []
+    },
+    "0xae": {
+        "command_name": "TradeListSetProc",
+        "parameters": []
+    },
+    "0xaf": {
+        "command_name": "RecordCornerSetProc",
+        "parameters": []
+    },
+    "0xb0": {
+        "command_name": "DendouSetProc",
+        "parameters": []
+    },
+    "0xb1": {
+        "command_name": "PcDendouSetProc",
+        "parameters": []
+    },
+    "0xb2": {
+        "command_name": "WorldTradeSetProc",
+        "parameters": [
+            {
+                "name": "no",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xb3": {
+        "command_name": "DPWInitProc",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xb4": {
+        "command_name": "FirstPokeSelectProc",
+        "parameters": []
+    },
+    "0xb5": {
+        "command_name": "FirstPokeSelectSetAndDel",
+        "parameters": []
+    },
+    "0xb6": {
+        "command_name": "EyeTrainerMoveSet",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xb7": {
+        "command_name": "EyeTrainerMoveCheck",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xb8": {
+        "command_name": "EyeTrainerTypeGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xb9": {
+        "command_name": "EyeTrainerIdGet",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xba": {
+        "command_name": "NameIn",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "ChangeName"
+        ]
+    },
+    "0xbb": {
+        "command_name": "NameInPoke",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "ChangeNamePokemon"
+        ]
+    },
+    "0xbc": {
+        "command_name": "WipeFadeStart",
+        "parameters": [
+            {
+                "name": "div",
+                "size": "u16"
+            },
+            {
+                "name": "syn",
+                "size": "u16"
+            },
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "col",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xbd": {
+        "command_name": "WipeFadeCheck",
+        "parameters": []
+    },
+    "0xbe": {
+        "command_name": "MapChange",
+        "parameters": [
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "door",
+                "size": "u16"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            },
+            {
+                "name": "direction",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "MapWarp"
+        ]
+    },
+    "0xbf": {
+        "command_name": "KabeNobori",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xc0": {
+        "command_name": "Naminori",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xc1": {
+        "command_name": "Takinobori",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xc2": {
+        "command_name": "Sorawotobu",
+        "parameters": [
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xc3": {
+        "command_name": "HidenFlash",
+        "parameters": []
+    },
+    "0xc4": {
+        "command_name": "HidenKiribarai",
+        "parameters": []
+    },
+    "0xc5": {
+        "command_name": "CutIn",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xc6": {
+        "command_name": "ConHeroChange",
+        "parameters": []
+    },
+    "0xc7": {
+        "command_name": "BicycleCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xc8": {
+        "command_name": "BicycleReq",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xc9": {
+        "command_name": "CyclingRoadSet",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xca": {
+        "command_name": "PlayerFormGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xcb": {
+        "command_name": "PlayerReqBitOn",
+        "parameters": [
+            {
+                "name": "bit",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xcc": {
+        "command_name": "PlayerReqStart",
+        "parameters": []
+    },
+    "0xcd": {
+        "command_name": "PlayerName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xce": {
+        "command_name": "RivalName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xcf": {
+        "command_name": "SupportName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xd0": {
+        "command_name": "PokemonName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xd1": {
+        "command_name": "ItemName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            }
+        ]
+    },
+    "0xd2": {
+        "command_name": "PocketName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "pkt",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xd3": {
+        "command_name": "ItemWazaName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            }
+        ],
+        "aliases": [
+            "ItemMoveName"
+        ]
+    },
+    "0xd4": {
+        "command_name": "WazaName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
+            }
+        ],
+        "aliases": [
+            "MoveName"
+        ]
+    },
+    "0xd5": {
+        "command_name": "NumberName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xd6": {
+        "command_name": "NickName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xd7": {
+        "command_name": "PoketchName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "app",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xd8": {
+        "command_name": "TrTypeName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "type",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xd9": {
+        "command_name": "MyTrTypeName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xda": {
+        "command_name": "PokemonNameExtra",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "sex",
+                "size": "u16"
+            },
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xdb": {
+        "command_name": "FirstPokemonName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xdc": {
+        "command_name": "RivalPokemonName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xdd": {
+        "command_name": "SupportPokemonName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xde": {
+        "command_name": "FirstPokeNoGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xdf": {
+        "command_name": "GoodsName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0xe0": {
+        "command_name": "TrapName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "trap",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xe1": {
+        "command_name": "TamaName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "sphere",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xe2": {
+        "command_name": "ZoneName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            }
+        ]
+    },
+    "0xe3": {
+        "command_name": "GenerateInfoGet",
+        "parameters": [
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            }
+        ]
+    },
+    "0xe4": {
+        "command_name": "TrainerIdGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xe5": {
+        "command_name": "TrainerBattleSet",
+        "parameters": [
+            {
+                "name": "tr0",
+                "size": "u16"
+            },
+            {
+                "name": "tr1",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xe6": {
+        "command_name": "TrainerMessageSet",
+        "parameters": [
+            {
+                "name": "trainer",
+                "size": "u16"
+            },
+            {
+                "name": "knd",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xe7": {
+        "command_name": "TrainerTalkTypeGet",
+        "parameters": [
+            {
+                "name": "work1",
+                "size": "u16"
+            },
+            {
+                "name": "work2",
+                "size": "u16"
+            },
+            {
+                "name": "work3",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xe8": {
+        "command_name": "RevengeTrainerTalkTypeGet",
+        "parameters": [
+            {
+                "name": "work1",
+                "size": "u16"
+            },
+            {
+                "name": "work2",
+                "size": "u16"
+            },
+            {
+                "name": "work3",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xe9": {
+        "command_name": "TrainerTypeGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xea": {
+        "command_name": "TrainerBgmSet",
+        "parameters": [
+            {
+                "name": "trainer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xeb": {
+        "command_name": "TrainerLose",
+        "parameters": []
+    },
+    "0xec": {
+        "command_name": "TrainerLoseCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xed": {
+        "command_name": "SeacretPokeRetryCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xee": {
+        "command_name": "2vs2BattleCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xef": {
+        "command_name": "DebugBattleSet",
+        "parameters": []
+    },
+    "0xf0": {
+        "command_name": "DebugTrainerFlagSet",
+        "parameters": []
+    },
+    "0xf1": {
+        "command_name": "DebugTrainerFlagOnJump",
+        "parameters": [
+            {
+                "name": "jump",
+                "size": "u32"
+            }
+        ]
+    },
+    "0xf2": {
+        "command_name": "ConnectSelParentWin",
+        "parameters": []
+    },
+    "0xf3": {
+        "command_name": "ConnectSelChildWin",
+        "parameters": []
+    },
+    "0xf4": {
+        "command_name": "ConnectDebugParentWin",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xf5": {
+        "command_name": "ConnectDebugChildWin",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0xf6": {
+        "command_name": "DebugSioEncount",
+        "parameters": []
+    },
+    "0xf7": {
+        "command_name": "DebugSioContest",
+        "parameters": []
+    },
+    "0xf8": {
+        "command_name": "ConSioTimingSend",
+        "parameters": [
+            {
+                "name": "tim",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xf9": {
+        "command_name": "ConSioTimingCheck",
+        "parameters": [
+            {
+                "name": "tim",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xfa": {
+        "command_name": "ConSystemCreate",
+        "parameters": [
+            {
+                "name": "rank",
+                "size": "u16"
+            },
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "mod",
+                "size": "u16"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xfb": {
+        "command_name": "ConSystemExit",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xfc": {
+        "command_name": "ConJudgeNameGet",
+        "parameters": [
+            {
+                "name": "judge",
+                "size": "u16"
+            },
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xfd": {
+        "command_name": "ConBreederNameGet",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u16"
+            },
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xfe": {
+        "command_name": "ConNickNameGet",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u16"
+            },
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0xff": {
+        "command_name": "ConNumTagSet",
+        "parameters": [
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x100": {
+        "command_name": "ConSioParamInitSet",
+        "parameters": []
+    },
+    "0x101": {
+        "command_name": "ContestProc",
+        "parameters": []
+    },
+    "0x102": {
+        "command_name": "ConRankNameGet",
+        "parameters": [
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x103": {
+        "command_name": "ConTypeNameGet",
+        "parameters": [
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x104": {
+        "command_name": "ConVictoryBreederNameGet",
+        "parameters": [
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x105": {
+        "command_name": "ConVictoryItemNoGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x106": {
+        "command_name": "ConVictoryNickNameGet",
+        "parameters": [
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x107": {
+        "command_name": "ConRankingCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x108": {
+        "command_name": "ConVictoryEntryNoGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x109": {
+        "command_name": "ConMyEntryNoGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x10a": {
+        "command_name": "ConObjCodeGet",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x10b": {
+        "command_name": "ConPopularityGet",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x10c": {
+        "command_name": "ConDeskModeGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x10d": {
+        "command_name": "ConHaveRibbonCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x10e": {
+        "command_name": "ConRibbonNameGet",
+        "parameters": [
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x10f": {
+        "command_name": "ConAcceNoGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x110": {
+        "command_name": "ConEntryParamGet",
+        "parameters": [
+            {
+                "name": "rank",
+                "size": "u16"
+            },
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "mod",
+                "size": "u16"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x111": {
+        "command_name": "ConCameraFlashSet",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x112": {
+        "command_name": "ConCameraFlashCheck",
+        "parameters": []
+    },
+    "0x113": {
+        "command_name": "ConHBlankStop",
+        "parameters": []
+    },
+    "0x114": {
+        "command_name": "ConHBlankStart",
+        "parameters": []
+    },
+    "0x115": {
+        "command_name": "ConEndingSkipCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x116": {
+        "command_name": "ConRecordDisp",
+        "parameters": []
+    },
+    "0x117": {
+        "command_name": "ConMsgPrintFlagSet",
+        "parameters": []
+    },
+    "0x118": {
+        "command_name": "ConMsgPrintFlagReset",
+        "parameters": []
+    },
+    "0x119": {
+        "command_name": "ChkTemotiPokerus",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x11a": {
+        "command_name": "TemotiPokeSexGet",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x11b": {
+        "command_name": "SpLocationSet",
+        "parameters": [
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "door",
+                "size": "u16"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            },
+            {
+                "name": "direction",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x11c": {
+        "command_name": "ElevatorNowFloorGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x11d": {
+        "command_name": "ElevatorFloorWrite",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u8"
+            },
+            {
+                "name": "y pos",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x11e": {
+        "command_name": "GetShinouZukanSeeNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x11f": {
+        "command_name": "GetShinouZukanGetNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x120": {
+        "command_name": "GetZenkokuZukanSeeNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x121": {
+        "command_name": "GetZenkokuZukanGetNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x122": {
+        "command_name": "ChkZenkokuZukan",
+        "parameters": []
+    },
+    "0x123": {
+        "command_name": "GetZukanHyoukaMsgID",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x124": {
+        "command_name": "WildBattleSet",
+        "parameters": [
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "level",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x125": {
+        "command_name": "FirstBattleSet",
+        "parameters": [
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "level",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x126": {
+        "command_name": "CaptureBattleSet",
+        "parameters": []
+    },
+    "0x127": {
+        "command_name": "HoneyTree",
+        "parameters": []
+    },
+    "0x128": {
+        "command_name": "GetHoneyTreeState",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x129": {
+        "command_name": "HoneyTreeBattleSet",
+        "parameters": []
+    },
+    "0x12a": {
+        "command_name": "HoneyAfterTreeBattleSet",
+        "parameters": []
+    },
+    "0x12b": {
+        "command_name": "TSignSetProc",
+        "parameters": []
+    },
+    "0x12c": {
+        "command_name": "ReportSaveCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x12d": {
+        "command_name": "ReportSave",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x12e": {
+        "command_name": "ImageClipTvSaveDataCheck",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x12f": {
+        "command_name": "ImageClipConSaveDataCheck",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x130": {
+        "command_name": "ImageClipTvSaveTitle",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x131": {
+        "command_name": "GetPoketch",
+        "parameters": []
+    },
+    "0x132": {
+        "command_name": "GetPoketchFlag",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x133": {
+        "command_name": "PoketchAppAdd",
+        "parameters": [
+            {
+                "name": "app",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x134": {
+        "command_name": "PoketchAppCheck",
+        "parameters": [
+            {
+                "name": "app",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x135": {
+        "command_name": "CommTimingSyncStart",
+        "parameters": [
+            {
+                "name": "no",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x136": {
+        "command_name": "CommTempDataReset",
+        "parameters": []
+    },
+    "0x137": {
+        "command_name": "UnionParentCardTalkNo",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x138": {
+        "command_name": "UnionGetInfoTalkNo",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x139": {
+        "command_name": "UnionBeaconChange",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x13a": {
+        "command_name": "UnionConnectTalkDenied",
+        "parameters": []
+    },
+    "0x13b": {
+        "command_name": "UnionConnectTalkOk",
+        "parameters": []
+    },
+    "0x13c": {
+        "command_name": "UnionTrainerNameRegist",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x13d": {
+        "command_name": "UnionReturnSetUp",
+        "parameters": []
+    },
+    "0x13e": {
+        "command_name": "UnionConnectCutRestart",
+        "parameters": []
+    },
+    "0x13f": {
+        "command_name": "UnionGetTalkNumber",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x140": {
+        "command_name": "UnionIdSet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x141": {
+        "command_name": "UnionResultGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x142": {
+        "command_name": "UnionObjAllVanish",
+        "parameters": []
+    },
+    "0x143": {
+        "command_name": "UnionScriptResultSet",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x144": {
+        "command_name": "UnionParentStartCommandSet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x145": {
+        "command_name": "UnionChildSelectCommandSet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x146": {
+        "command_name": "UnionConnectStart",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x147": {
+        "command_name": "ShopCall",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x148": {
+        "command_name": "FixShopCall",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x149": {
+        "command_name": "FixGoodsCall",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x14a": {
+        "command_name": "FixSealCall",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x14b": {
+        "command_name": "GameOverCall",
+        "parameters": []
+    },
+    "0x14c": {
+        "command_name": "SetWarpId",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x14d": {
+        "command_name": "GetMySex",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x14e": {
+        "command_name": "PcKaifuku",
+        "parameters": []
+    },
+    "0x14f": {
+        "command_name": "UgManShopNpcRandomPlace",
+        "parameters": []
+    },
+    "0x150": {
+        "command_name": "CommDirectEnd",
+        "parameters": []
+    },
+    "0x151": {
+        "command_name": "CommDirectEnterBtlRoom",
+        "parameters": []
+    },
+    "0x152": {
+        "command_name": "CommPlayerSetDir",
+        "parameters": [
+            {
+                "name": "direction",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x153": {
+        "command_name": "UnionMapChange",
+        "parameters": []
+    },
+    "0x154": {
+        "command_name": "UnionViewSetUpTrainerTypeSelect",
+        "parameters": []
+    },
+    "0x155": {
+        "command_name": "UnionViewGetTrainerType",
+        "parameters": [
+            {
+                "name": "ans",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x156": {
+        "command_name": "UnionViewMyStatusSet",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x157": {
+        "command_name": "SysFlagZukanGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x158": {
+        "command_name": "SysFlagZukanSet",
+        "parameters": []
+    },
+    "0x159": {
+        "command_name": "SysFlagShoesGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x15a": {
+        "command_name": "SysFlagShoesSet",
+        "parameters": []
+    },
+    "0x15b": {
+        "command_name": "SysFlagBadgeGet",
+        "parameters": [
+            {
+                "name": "no",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x15c": {
+        "command_name": "SysFlagBadgeSet",
+        "parameters": [
+            {
+                "name": "no",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x15d": {
+        "command_name": "SysFlagBadgeCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x15e": {
+        "command_name": "SysFlagBagGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x15f": {
+        "command_name": "SysFlagBagSet",
+        "parameters": []
+    },
+    "0x160": {
+        "command_name": "SysFlagPairGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x161": {
+        "command_name": "SysFlagPairSet",
+        "parameters": []
+    },
+    "0x162": {
+        "command_name": "SysFlagPairReset",
+        "parameters": []
+    },
+    "0x163": {
+        "command_name": "SysFlagOneStepGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x164": {
+        "command_name": "SysFlagOneStepSet",
+        "parameters": []
+    },
+    "0x165": {
+        "command_name": "SysFlagOneStepReset",
+        "parameters": []
+    },
+    "0x166": {
+        "command_name": "SysFlagGameClearGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x167": {
+        "command_name": "SysFlagGameClearSet",
+        "parameters": []
+    },
+    "0x168": {
+        "command_name": "SetUpDoorAnime",
+        "parameters": [
+            {
+                "name": "bx",
+                "size": "u16"
+            },
+            {
+                "name": "bz",
+                "size": "u16"
+            },
+            {
+                "name": "lx",
+                "size": "u16"
+            },
+            {
+                "name": "lz",
+                "size": "u16"
+            },
+            {
+                "name": "ent",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x169": {
+        "command_name": "Wait3DAnime",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x16a": {
+        "command_name": "Free3DAnime",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x16b": {
+        "command_name": "OpenDoor",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x16c": {
+        "command_name": "CloseDoor",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x16d": {
+        "command_name": "GetSodateyaName",
+        "parameters": [],
+        "aliases": [
+            "GetDaycareName"
+        ]
+    },
+    "0x16e": {
+        "command_name": "GetSodateyaZiisan",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "GetDaycareGrandfather"
+        ]
+    },
+    "0x16f": {
+        "command_name": "InitWaterGym",
+        "parameters": []
+    },
+    "0x170": {
+        "command_name": "PushWaterGymButton",
+        "parameters": []
+    },
+    "0x171": {
+        "command_name": "InitGhostGym",
+        "parameters": []
+    },
+    "0x172": {
+        "command_name": "MoveGhostGymLift",
+        "parameters": []
+    },
+    "0x173": {
+        "command_name": "InitSteelGym",
+        "parameters": []
+    },
+    "0x174": {
+        "command_name": "InitCombatGym",
+        "parameters": []
+    },
+    "0x175": {
+        "command_name": "InitElecGym",
+        "parameters": [
+            {
+                "name": "room",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x176": {
+        "command_name": "RotElecGymGear",
+        "parameters": [
+            {
+                "name": "rot",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x177": {
+        "command_name": "GetPokeCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x178": {
+        "command_name": "BagSetProc",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x179": {
+        "command_name": "BagGetResult",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x17a": {
+        "command_name": "PocketCheck",
+        "parameters": [
+            {
+                "name": "pkt",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x17b": {
+        "command_name": "NutsName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "nut",
+                "size": "u16"
+            },
+            {
+                "name": "count",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x17c": {
+        "command_name": "SeikakuName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "nat",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x17d": {
+        "command_name": "SeedGetStatus",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x17e": {
+        "command_name": "SeedGetType",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x17f": {
+        "command_name": "SeedGetCompost",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x180": {
+        "command_name": "SeedGetGroundStatus",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x181": {
+        "command_name": "SeedGetNutsCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x182": {
+        "command_name": "SeedSetCompost",
+        "parameters": [
+            {
+                "name": "mul",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x183": {
+        "command_name": "SeedSetNuts",
+        "parameters": [
+            {
+                "name": "nut",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x184": {
+        "command_name": "SeedSetWater",
+        "parameters": [
+            {
+                "name": "swt",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x185": {
+        "command_name": "SeedTakeNuts",
+        "parameters": []
+    },
+    "0x186": {
+        "command_name": "SxyPosChange",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "gx",
+                "size": "u16"
+            },
+            {
+                "name": "gz",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x187": {
+        "command_name": "ObjPosChange",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "y pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            },
+            {
+                "name": "direction",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x188": {
+        "command_name": "SxyMoveCodeChange",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "mv",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x189": {
+        "command_name": "SxyDirChange",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "direction",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x18a": {
+        "command_name": "SxyExitPosChange",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x18b": {
+        "command_name": "SxyBgPosChange",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x18c": {
+        "command_name": "ObjDirChange",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "direction",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x18d": {
+        "command_name": "TimeWaitIconAdd",
+        "parameters": []
+    },
+    "0x18e": {
+        "command_name": "TimeWaitIconDel",
+        "parameters": []
+    },
+    "0x18f": {
+        "command_name": "ReturnScriptWkSet",
+        "parameters": [
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x190": {
+        "command_name": "ABKeyTimeWait",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x191": {
+        "command_name": "PokeListSetProc",
+        "parameters": []
+    },
+    "0x192": {
+        "command_name": "UnionPokeListSetProc",
+        "parameters": []
+    },
+    "0x193": {
+        "command_name": "PokeListGetResult",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x194": {
+        "command_name": "ConPokeListSetProc",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            },
+            {
+                "name": "rank",
+                "size": "u16"
+            },
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "sio",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x195": {
+        "command_name": "ConPokeListGetResult",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "mod",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x196": {
+        "command_name": "ConPokeStatusSetProc",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x197": {
+        "command_name": "PokeStatusGetResult",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x198": {
+        "command_name": "TemotiMonsNo",
+        "parameters": [
+            {
+                "name": "iwk",
+                "size": "u16"
+            },
+            {
+                "name": "owk",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x199": {
+        "command_name": "MonsOwnChk",
+        "parameters": [
+            {
+                "name": "iwk",
+                "size": "u16"
+            },
+            {
+                "name": "owk",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x19a": {
+        "command_name": "GetPokeCount2",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x19b": {
+        "command_name": "GetPokeCount3",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x19c": {
+        "command_name": "GetPokeCount4",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x19d": {
+        "command_name": "GetTamagoCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "GetEggCount"
+        ]
+    },
+    "0x19e": {
+        "command_name": "UgShopMenuInit",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x19f": {
+        "command_name": "UgShopTalkStart",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1a0": {
+        "command_name": "UgShopTalkEnd",
+        "parameters": []
+    },
+    "0x1a1": {
+        "command_name": "UgShopTalkRegisterItemName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "type",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1a2": {
+        "command_name": "UgShopTalkRegisterTrapName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "type",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1a3": {
+        "command_name": "SubMyGold",
+        "parameters": [
+            {
+                "name": "gld",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1a4": {
+        "command_name": "HikitoriPoke",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "no",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1a5": {
+        "command_name": "HikitoriList",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "PickupList"
+        ]
+    },
+    "0x1a6": {
+        "command_name": "MsgSodateyaAishou",
+        "parameters": [],
+        "aliases": [
+            "MessageDaycareAishou"
+        ]
+    },
+    "0x1a7": {
+        "command_name": "MsgExpandBuf",
+        "parameters": []
+    },
+    "0x1a8": {
+        "command_name": "DelSodateyaEgg",
+        "parameters": [],
+        "aliases": [
+            "DeleteDaycareEgg"
+        ]
+    },
+    "0x1a9": {
+        "command_name": "GetSodateyaEgg",
+        "parameters": [],
+        "aliases": [
+            "GetDaycareEgg"
+        ]
+    },
+    "0x1aa": {
+        "command_name": "HikitoriRyoukin",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "no",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "PickupPrice"
+        ]
+    },
+    "0x1ab": {
+        "command_name": "CompMyGold",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "gld",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1ac": {
+        "command_name": "TamagoDemo",
+        "parameters": [],
+        "aliases": [
+            "EggDemo"
+        ]
+    },
+    "0x1ad": {
+        "command_name": "SodateyaPokeList",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "DaycarePokemonList"
+        ]
+    },
+    "0x1ae": {
+        "command_name": "SodatePokeLevelStr",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "no",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "DaycarePokemonLevelStr"
+        ]
+    },
+    "0x1af": {
+        "command_name": "MsgAzukeSet",
+        "parameters": [
+            {
+                "name": "workno",
+                "size": "u16"
+            },
+            {
+                "name": "no",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1b0": {
+        "command_name": "SetSodateyaPoke",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u8"
+            }
+        ],
+        "aliases": [
+            "SetDaycarePokemon"
+        ]
+    },
+    "0x1b1": {
+        "command_name": "ObjVisible",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1b2": {
+        "command_name": "ObjInvisible",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1b3": {
+        "command_name": "MailBox",
+        "parameters": []
+    },
+    "0x1b4": {
+        "command_name": "GetMailBoxDataNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1b5": {
+        "command_name": "RankingView",
+        "parameters": []
+    },
+    "0x1b6": {
+        "command_name": "GetTimeZone",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1b7": {
+        "command_name": "GetRand",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "lim",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1b8": {
+        "command_name": "GetRandNext",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "lim",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1b9": {
+        "command_name": "GetNatsuki",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1ba": {
+        "command_name": "AddNatsuki",
+        "parameters": [
+            {
+                "name": "add",
+                "size": "u16"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1bb": {
+        "command_name": "SubNatsuki",
+        "parameters": [
+            {
+                "name": "add",
+                "size": "u16"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1bc": {
+        "command_name": "HikitoriListNameSet",
+        "parameters": [
+            {
+                "name": "buffer1",
+                "size": "u16"
+            },
+            {
+                "name": "buffer2",
+                "size": "u16"
+            },
+            {
+                "name": "buffer3",
+                "size": "u16"
+            },
+            {
+                "name": "no",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1bd": {
+        "command_name": "PlayerDirGet",
+        "parameters": [
+            {
+                "name": "direction",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1be": {
+        "command_name": "GetSodateyaAishou",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1bf": {
+        "command_name": "GetSodateyaTamagoCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1c0": {
+        "command_name": "TemotiPokeChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            }
+        ]
+    },
+    "0x1c1": {
+        "command_name": "OokisaRecordChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1c2": {
+        "command_name": "OokisaRecordSet",
+        "parameters": [
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1c3": {
+        "command_name": "OokisaTemotiSet",
+        "parameters": [
+            {
+                "name": "buffer1",
+                "size": "u16"
+            },
+            {
+                "name": "buffer2",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1c4": {
+        "command_name": "OokisaKirokuSet",
+        "parameters": [
+            {
+                "name": "buffer1",
+                "size": "u16"
+            },
+            {
+                "name": "buffer2",
+                "size": "u16"
+            },
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            }
+        ]
+    },
+    "0x1c5": {
+        "command_name": "OokisaKurabeInit",
+        "parameters": []
+    },
+    "0x1c6": {
+        "command_name": "WazaListSetProc",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "MoveListSetProc"
+        ]
+    },
+    "0x1c7": {
+        "command_name": "WazaListGetResult",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "MoveListGetResult"
+        ]
+    },
+    "0x1c8": {
+        "command_name": "WazaCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "MoveCount"
+        ]
+    },
+    "0x1c9": {
+        "command_name": "WazaDel",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
+            }
+        ],
+        "aliases": [
+            "MoveDelete"
+        ]
+    },
+    "0x1ca": {
+        "command_name": "TemotiWazaNo",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
+            }
+        ],
+        "aliases": [
+            "MoveNumber"
+        ]
+    },
+    "0x1cb": {
+        "command_name": "TemotiWazaName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
+            }
+        ],
+        "aliases": [
+            "MoveName"
+        ]
+    },
+    "0x1cc": {
+        "command_name": "FNoteStartSet",
+        "parameters": []
+    },
+    "0x1cd": {
+        "command_name": "FNoteDataMake",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "work1",
+                "size": "u16"
+            },
+            {
+                "name": "work2",
+                "size": "u16"
+            },
+            {
+                "name": "work3",
+                "size": "u16"
+            },
+            {
+                "name": "work4",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1ce": {
+        "command_name": "FNoteDataSave",
+        "parameters": []
+    },
+    "0x1cf": {
+        "command_name": "SysFlagKairiki",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1d0": {
+        "command_name": "SysFlagFlash",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1d1": {
+        "command_name": "SysFlagKiribarai",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1d2": {
+        "command_name": "ImcAcceAddItem",
+        "parameters": [
+            {
+                "name": "acc",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1d3": {
+        "command_name": "ImcAcceAddItemChk",
+        "parameters": [
+            {
+                "name": "acc",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1d4": {
+        "command_name": "ImcAcceCheckItem",
+        "parameters": [
+            {
+                "name": "acc",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1d5": {
+        "command_name": "ImcBgAddItem",
+        "parameters": [
+            {
+                "name": "background",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1d6": {
+        "command_name": "ImcBgCheckItem",
+        "parameters": [
+            {
+                "name": "background",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1d7": {
+        "command_name": "NutMixerProc",
+        "parameters": []
+    },
+    "0x1d8": {
+        "command_name": "NutMixerPlayStateCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1d9": {
+        "command_name": "BTowerAppSetProc",
+        "parameters": []
+    },
+    "0x1da": {
+        "command_name": "BattleTowerWorkClear",
+        "parameters": []
+    },
+    "0x1db": {
+        "command_name": "BattleTowerWorkInit",
+        "parameters": [
+            {
+                "name": "ini",
+                "size": "u16"
+            },
+            {
+                "name": "mod",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1dc": {
+        "command_name": "BattleTowerWorkRelease",
+        "parameters": []
+    },
+    "0x1dd": {
+        "command_name": "BattleTowerTools",
+        "parameters": [
+            {
+                "name": "com",
+                "size": "u16"
+            },
+            {
+                "name": "param",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1de": {
+        "command_name": "BattleTowerGetSevenPokeData",
+        "parameters": [
+            {
+                "name": "index1",
+                "size": "u16"
+            },
+            {
+                "name": "index2",
+                "size": "u16"
+            },
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "mov",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1df": {
+        "command_name": "BattleTowerIsPrizeGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1e0": {
+        "command_name": "BattleTowerIsPrizemanSet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1e1": {
+        "command_name": "BattleTowerSendBuf",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u16"
+            },
+            {
+                "name": "param",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1e2": {
+        "command_name": "BattleTowerRecvBuf",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1e3": {
+        "command_name": "BattleTowerGetLeaderRoomID",
+        "parameters": [
+            {
+                "name": "rt1",
+                "size": "u16"
+            },
+            {
+                "name": "rt2",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1e4": {
+        "command_name": "BattleTowerIsLeaderDataExist",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1e5": {
+        "command_name": "RecordInc",
+        "parameters": [
+            {
+                "name": "rec",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1e6": {
+        "command_name": "RecordGet",
+        "parameters": [
+            {
+                "name": "rec",
+                "size": "u16"
+            },
+            {
+                "name": "hwk",
+                "size": "u16"
+            },
+            {
+                "name": "lwk",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1e7": {
+        "command_name": "RecordSet",
+        "parameters": [
+            {
+                "name": "rec",
+                "size": "u16"
+            },
+            {
+                "name": "vl1",
+                "size": "u16"
+            },
+            {
+                "name": "vl2",
+                "size": "u16"
+            },
+            {
+                "name": "mod",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x1e8": {
+        "command_name": "ZukanChkShinou",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1e9": {
+        "command_name": "ZukanChkNational",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1ea": {
+        "command_name": "ZukanRecongnizeShinou",
+        "parameters": []
+    },
+    "0x1eb": {
+        "command_name": "ZukanRecongnizeNational",
+        "parameters": []
+    },
+    "0x1ec": {
+        "command_name": "UrayamaEncountSet",
+        "parameters": []
+    },
+    "0x1ed": {
+        "command_name": "UrayamaEncountNoChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1ee": {
+        "command_name": "PokeMailChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1ef": {
+        "command_name": "PaperplaneSet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1f0": {
+        "command_name": "PokeMailDel",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1f1": {
+        "command_name": "KasekiCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x1f2": {
+        "command_name": "ItemListSetProc",
+        "parameters": []
+    },
+    "0x1f3": {
+        "command_name": "ItemListGetResult",
+        "parameters": []
+    },
+    "0x1f4": {
+        "command_name": "ItemNoToMonsNo",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            }
+        ]
+    },
+    "0x1f5": {
+        "command_name": "KasekiItemNo",
+        "parameters": [
+            {
+                "name": "worki",
+                "size": "u16"
+            },
+            {
+                "name": "workm",
+                "size": "u16"
+            },
+            {
+                "name": "tno",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1f6": {
+        "command_name": "PokeLevelChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "level",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1f7": {
+        "command_name": "ApprovePoisonDead",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1f8": {
+        "command_name": "FinishMapProc",
+        "parameters": []
+    },
+    "0x1f9": {
+        "command_name": "DebugWatch",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1fa": {
+        "command_name": "TalkMsgAllPutOtherArc",
+        "parameters": [
+            {
+                "name": "arc",
+                "size": "u16"
+            },
+            {
+                "name": "message",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1fb": {
+        "command_name": "TalkMsgOtherArc",
+        "parameters": [
+            {
+                "name": "arc",
+                "size": "u16"
+            },
+            {
+                "name": "message",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1fc": {
+        "command_name": "TalkMsgAllPutPMS",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "wd0",
+                "size": "u16"
+            },
+            {
+                "name": "wd1",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1fd": {
+        "command_name": "TalkMsgPMS",
+        "parameters": [
+            {
+                "name": "type",
+                "size": "u16"
+            },
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "wd0",
+                "size": "u16"
+            },
+            {
+                "name": "wd1",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1fe": {
+        "command_name": "TalkMsgTowerApper",
+        "parameters": [
+            {
+                "name": "tr",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x1ff": {
+        "command_name": "TalkMsgNgPokeName",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u8"
+            },
+            {
+                "name": "pkn",
+                "size": "u16"
+            },
+            {
+                "name": "sex",
+                "size": "u16"
+            },
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x200": {
+        "command_name": "GetBeforeZoneID",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x201": {
+        "command_name": "GetNowZoneID",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x202": {
+        "command_name": "SafariControl",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x203": {
+        "command_name": "ColosseumMapChangeIn",
+        "parameters": [
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "door",
+                "size": "u16"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            },
+            {
+                "name": "direction",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x204": {
+        "command_name": "ColosseumMapChangeOut",
+        "parameters": []
+    },
+    "0x205": {
+        "command_name": "WifiEarthSetProc",
+        "parameters": []
+    },
+    "0x206": {
+        "command_name": "CallSafariScope",
+        "parameters": []
+    },
+    "0x207": {
+        "command_name": "CommGetCurrentID",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x208": {
+        "command_name": "PokeWindowPut",
+        "parameters": [
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "sex",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x209": {
+        "command_name": "PokeWindowDel",
+        "parameters": []
+    },
+    "0x20a": {
+        "command_name": "BtlSearcherEventCall",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x20b": {
+        "command_name": "BtlSearcherDirMvSet",
+        "parameters": []
+    },
+    "0x20c": {
+        "command_name": "MsgAutoGet",
+        "parameters": []
+    },
+    "0x20d": {
+        "command_name": "ClimaxDemoCall",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x20e": {
+        "command_name": "InitSafariTrain",
+        "parameters": []
+    },
+    "0x20f": {
+        "command_name": "MoveSafariTrain",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            },
+            {
+                "name": "type",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x210": {
+        "command_name": "CheckSafariTrain",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x211": {
+        "command_name": "PlayerHeightValid",
+        "parameters": [
+            {
+                "name": "vld",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x212": {
+        "command_name": "GetPokeSeikaku",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x213": {
+        "command_name": "ChkPokeSeikakuAll",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "nat",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x214": {
+        "command_name": "UnderGroundTalkCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x215": {
+        "command_name": "NaturalParkWalkCountClear",
+        "parameters": []
+    },
+    "0x216": {
+        "command_name": "NaturalParkWalkCountGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x217": {
+        "command_name": "NaturalParkAccessoryNoGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            }
+        ]
+    },
+    "0x218": {
+        "command_name": "GetNewsPokeNo",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x219": {
+        "command_name": "NewsCountSet",
+        "parameters": [
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x21a": {
+        "command_name": "NewsCountChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x21b": {
+        "command_name": "StartGenerate",
+        "parameters": []
+    },
+    "0x21c": {
+        "command_name": "AddMovePoke",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x21d": {
+        "command_name": "RandomGroup",
+        "parameters": [
+            {
+                "name": "swt",
+                "size": "u16"
+            },
+            {
+                "name": "gid",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x21e": {
+        "command_name": "OshieWazaCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "TaughtMoveCount"
+        ]
+    },
+    "0x21f": {
+        "command_name": "RemaindWazaCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "RemainingMoveCount"
+        ]
+    },
+    "0x220": {
+        "command_name": "OshieWazaListSetProc",
+        "parameters": [],
+        "aliases": [
+            "TaughtMoveListSetProc"
+        ]
+    },
+    "0x221": {
+        "command_name": "RemaindWazaListSetProc",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "RemainingMoveListSetProc"
+        ]
+    },
+    "0x222": {
+        "command_name": "OshieWazaListGetResult",
+        "parameters": [],
+        "aliases": [
+            "TaughtMoveListGetResult"
+        ]
+    },
+    "0x223": {
+        "command_name": "RemaindWazaListGetResult",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "RemainingMoveListGetResult"
+        ]
+    },
+    "0x224": {
+        "command_name": "NormalWazaListSetProc",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "move",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-moves"
+            }
+        ],
+        "aliases": [
+            "NormalMoveListSetProc"
+        ]
+    },
+    "0x225": {
+        "command_name": "NormalWazaListGetResult",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ],
+        "aliases": [
+            "NormalMoveListGetResult"
+        ]
+    },
+    "0x226": {
+        "command_name": "FldTradeAlloc",
+        "parameters": [
+            {
+                "name": "trd",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x227": {
+        "command_name": "FldTradeMonsno",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x228": {
+        "command_name": "FldTradeChgMonsno",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x229": {
+        "command_name": "FldTradeEvent",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x22a": {
+        "command_name": "FldTradeDel",
+        "parameters": []
+    },
+    "0x22b": {
+        "command_name": "ZukanTextVerUp",
+        "parameters": []
+    },
+    "0x22c": {
+        "command_name": "ZukanSexVerUp",
+        "parameters": []
+    },
+    "0x22d": {
+        "command_name": "ZenkokuZukanFlag",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x22e": {
+        "command_name": "ChkRibbonCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x22f": {
+        "command_name": "ChkRibbonCountAll",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x230": {
+        "command_name": "ChkRibbon",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "rib",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x231": {
+        "command_name": "SetRibbon",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "rib",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x232": {
+        "command_name": "RibbonName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "rib",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x233": {
+        "command_name": "ChkPrmExp",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x234": {
+        "command_name": "ChkWeek",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x235": {
+        "command_name": "BroadcastTV",
+        "parameters": [
+            {
+                "name": "swt",
+                "size": "u16"
+            },
+            {
+                "name": "??",
+                "size": "u48"
+            }
+        ]
+    },
+    "0x236": {
+        "command_name": "TVEntryWatchHideItem",
+        "parameters": []
+    },
+    "0x237": {
+        "command_name": "TVInterview",
+        "parameters": [
+            {
+                "name": "swt",
+                "size": "u16"
+            },
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "??",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x238": {
+        "command_name": "TVInterviewerCheck",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x239": {
+        "command_name": "RegulationListCall",
+        "parameters": []
+    },
+    "0x23a": {
+        "command_name": "AshiatoChk",
+        "parameters": [
+            {
+                "name": "work1",
+                "size": "u16"
+            },
+            {
+                "name": "work2",
+                "size": "u16"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x23b": {
+        "command_name": "PcRecoverAnm",
+        "parameters": []
+    },
+    "0x23c": {
+        "command_name": "ElevatorAnm",
+        "parameters": [
+            {
+                "name": "direction",
+                "size": "u16"
+            },
+            {
+                "name": "loo",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x23d": {
+        "command_name": "CallShipDemo",
+        "parameters": [
+            {
+                "name": "sdi",
+                "size": "u8"
+            },
+            {
+                "name": "pdi",
+                "size": "u8"
+            },
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "y pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x23e": {
+        "command_name": "MysteryPostMan",
+        "parameters": [
+            {
+                "name": "swt",
+                "size": "u16"
+            },
+            {
+                "name": "??",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x23f": {
+        "command_name": "DebugPrintWork",
+        "parameters": []
+    },
+    "0x240": {
+        "command_name": "DebugPrintFlag",
+        "parameters": []
+    },
+    "0x241": {
+        "command_name": "DebugPrintWorkStationed",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x242": {
+        "command_name": "DebugPrintFlagStationed",
+        "parameters": [
+            {
+                "name": "flag",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x243": {
+        "command_name": "PMSInputSingleProc",
+        "parameters": [
+            {
+                "name": "dmumm",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "ans",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x244": {
+        "command_name": "PMSInputDoubleProc",
+        "parameters": [
+            {
+                "name": "dmumm",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "an1",
+                "size": "u16"
+            },
+            {
+                "name": "an2",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x245": {
+        "command_name": "PMSBuf",
+        "parameters": [
+            {
+                "name": "buffer",
+                "size": "u16"
+            },
+            {
+                "name": "word",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x246": {
+        "command_name": "PMVersionGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x247": {
+        "command_name": "FrontPokemon",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x248": {
+        "command_name": "TemotiPokeType",
+        "parameters": [
+            {
+                "name": "work1",
+                "size": "u16"
+            },
+            {
+                "name": "work2",
+                "size": "u16"
+            },
+            {
+                "name": "tr",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x249": {
+        "command_name": "AikotobaKabegamiSet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "ak1",
+                "size": "u16"
+            },
+            {
+                "name": "ak2",
+                "size": "u16"
+            },
+            {
+                "name": "ak3",
+                "size": "u16"
+            },
+            {
+                "name": "ak4",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x24a": {
+        "command_name": "GetUgHataNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x24b": {
+        "command_name": "SetUpPasoAnime",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x24c": {
+        "command_name": "StartPasoOnAnime",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x24d": {
+        "command_name": "StartPasoOffAnime",
+        "parameters": [
+            {
+                "name": "ent",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x24e": {
+        "command_name": "GetKujiAtariNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x24f": {
+        "command_name": "KujiAtariChk",
+        "parameters": [
+            {
+                "name": "work1",
+                "size": "u16"
+            },
+            {
+                "name": "work2",
+                "size": "u16"
+            },
+            {
+                "name": "work3",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x250": {
+        "command_name": "KujiAtariInit",
+        "parameters": []
+    },
+    "0x251": {
+        "command_name": "NickNamePC",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x252": {
+        "command_name": "PokeBoxCountEmptySpace",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x253": {
+        "command_name": "PokeParkControl",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x254": {
+        "command_name": "PokeParkDepositCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x255": {
+        "command_name": "PokeParkTransMons",
+        "parameters": []
+    },
+    "0x256": {
+        "command_name": "PokeParkGetScore",
+        "parameters": [
+            {
+                "name": "score",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x257": {
+        "command_name": "AcceShopCall",
+        "parameters": []
+    },
+    "0x258": {
+        "command_name": "ReportDrawProcSet",
+        "parameters": []
+    },
+    "0x259": {
+        "command_name": "ReportDrawProcDel",
+        "parameters": []
+    },
+    "0x25a": {
+        "command_name": "DendouBallAnm",
+        "parameters": [
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x25b": {
+        "command_name": "InitFldLift",
+        "parameters": []
+    },
+    "0x25c": {
+        "command_name": "MoveFldLift",
+        "parameters": []
+    },
+    "0x25d": {
+        "command_name": "CheckFldLift",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x25e": {
+        "command_name": "SetupRAHCyl",
+        "parameters": []
+    },
+    "0x25f": {
+        "command_name": "StartRAHCyl",
+        "parameters": []
+    },
+    "0x260": {
+        "command_name": "AddScore",
+        "parameters": [
+            {
+                "name": "score",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x261": {
+        "command_name": "AcceName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "acc",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x262": {
+        "command_name": "PartyMonsNoCheck",
+        "parameters": [
+            {
+                "name": "pk",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x263": {
+        "command_name": "PartyDeokisisuFormChange",
+        "parameters": [
+            {
+                "name": "frm",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x264": {
+        "command_name": "CheckMinomuchiComp",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x265": {
+        "command_name": "PoketchHookSet",
+        "parameters": []
+    },
+    "0x266": {
+        "command_name": "PoketchHookReset",
+        "parameters": []
+    },
+    "0x267": {
+        "command_name": "SlotMachine",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x268": {
+        "command_name": "GetNowHour",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x269": {
+        "command_name": "ObjShakeAnm",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "count",
+                "size": "u16"
+            },
+            {
+                "name": "speed",
+                "size": "u16"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x26a": {
+        "command_name": "ObjBlinkAnm",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "count",
+                "size": "u16"
+            },
+            {
+                "name": "time",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x26b": {
+        "command_name": "_D20R0106Legend_IsUnseal",
+        "parameters": [
+            {
+                "name": "ret",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x26c": {
+        "command_name": "DressingImcAcceCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x26d": {
+        "command_name": "TalkMsgUnknownFont",
+        "parameters": [
+            {
+                "name": "mid",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x26e": {
+        "command_name": "AgbCartridgeVerGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x26f": {
+        "command_name": "UnderGroundTalkCountClear",
+        "parameters": []
+    },
+    "0x270": {
+        "command_name": "HideMapStateChange",
+        "parameters": [
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x271": {
+        "command_name": "NameInStone",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x272": {
+        "command_name": "MonumantName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x273": {
+        "command_name": "ImcBgNameSet",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "background",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x274": {
+        "command_name": "CompCoin",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "value",
+                "size": "u32"
+            }
+        ]
+    },
+    "0x275": {
+        "command_name": "SlotRentyanChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x276": {
+        "command_name": "AddCoinChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x277": {
+        "command_name": "LevelJijiiNo",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x278": {
+        "command_name": "PokeLevelGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x279": {
+        "command_name": "ImcAcceSubItem",
+        "parameters": [
+            {
+                "name": "acc",
+                "size": "u16"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x27a": {
+        "command_name": "c08r0801ScopeCameraSet",
+        "parameters": []
+    },
+    "0x27b": {
+        "command_name": "LevelJijiiInit",
+        "parameters": []
+    },
+    "0x27c": {
+        "command_name": "TVEntryParkInfo",
+        "parameters": [
+            {
+                "name": "swt",
+                "size": "u16"
+            },
+            {
+                "name": "??",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x27d": {
+        "command_name": "NewNankaiWordSet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "buffer",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x27e": {
+        "command_name": "RegularCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x27f": {
+        "command_name": "NankaiWordCompleteCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x280": {
+        "command_name": "NumberNameEx",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "type",
+                "size": "u8"
+            },
+            {
+                "name": "keta",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x281": {
+        "command_name": "TemotiPokeContestStatusGet",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            },
+            {
+                "name": "con",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x282": {
+        "command_name": "BirthDayCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x283": {
+        "command_name": "SndInitialVolSet",
+        "parameters": [
+            {
+                "name": "number",
+                "size": "u16"
+            },
+            {
+                "name": "vol",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x284": {
+        "command_name": "AnoonSeeNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x285": {
+        "command_name": "D17SystemMapSelect",
+        "parameters": [
+            {
+                "name": "pt",
+                "size": "u16"
+            },
+            {
+                "name": "tot",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x286": {
+        "command_name": "UnderGroundToolGiveCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x287": {
+        "command_name": "UnderGroundKasekiDigCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x288": {
+        "command_name": "UnderGroundTrapHitCount",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x289": {
+        "command_name": "PofinAdd",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "param",
+                "size": "u8"
+            },
+            {
+                "name": "tst",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x28a": {
+        "command_name": "PofinAddCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x28b": {
+        "command_name": "IsHaihuEventEnable",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x28c": {
+        "command_name": "PokeWindowPutPP",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x28d": {
+        "command_name": "PokeWindowAnm",
+        "parameters": []
+    },
+    "0x28e": {
+        "command_name": "PokeWindowAnmWait",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x28f": {
+        "command_name": "DendouNumGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x290": {
+        "command_name": "SodateyaPokeListSetProc",
+        "parameters": [
+            {
+                "name": "position",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "DaycarePokemonListSetProc"
+        ]
+    },
+    "0x291": {
+        "command_name": "SodateyaPokeListGetResult",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "mod",
+                "size": "u16"
+            }
+        ],
+        "aliases": [
+            "DaycarePokemonListGetResult"
+        ]
+    },
+    "0x292": {
+        "command_name": "GetRandomHit",
+        "parameters": [
+            {
+                "name": "per",
+                "size": "u8"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x293": {
+        "command_name": "UnderGroundTalkCount2",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x294": {
+        "command_name": "BtlPointWinWrite",
+        "parameters": [
+            {
+                "name": "x pos",
+                "size": "u8"
+            },
+            {
+                "name": "y pos",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x295": {
+        "command_name": "BtlPointWinDel",
+        "parameters": []
+    },
+    "0x296": {
+        "command_name": "BtlPointWrite",
+        "parameters": []
+    },
+    "0x297": {
+        "command_name": "CheckBtlPoint",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x298": {
+        "command_name": "AddBtlPoint",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x299": {
+        "command_name": "SubBtlPoint",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x29a": {
+        "command_name": "CompBtlPoint",
+        "parameters": [
+            {
+                "name": "value",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x29b": {
+        "command_name": "GetBtlPointGift",
+        "parameters": [
+            {
+                "name": "lst",
+                "size": "u16"
+            },
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "bp",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x29c": {
+        "command_name": "UnionViewGetTrainerTypeNo",
+        "parameters": [
+            {
+                "name": "ans",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x29d": {
+        "command_name": "BmpMenuMakeList16",
+        "parameters": [
+            {
+                "name": "mid",
+                "size": "u8"
+            },
+            {
+                "name": "position",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x29e": {
+        "command_name": "HidenEffStart",
+        "parameters": [
+            {
+                "name": "eff",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x29f": {
+        "command_name": "Zishin",
+        "parameters": [
+            {
+                "name": "pat",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2a0": {
+        "command_name": "TrainerMultiBattleSet",
+        "parameters": [
+            {
+                "name": "tr0",
+                "size": "u16"
+            },
+            {
+                "name": "tr1",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2a1": {
+        "command_name": "ObjAnimePos",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "tx",
+                "size": "u16"
+            },
+            {
+                "name": "tz",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2a2": {
+        "command_name": "UgBallCheck",
+        "parameters": [
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            }
+        ]
+    },
+    "0x2a3": {
+        "command_name": "CheckMyGSID",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2a4": {
+        "command_name": "GetFriendDataNum",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2a5": {
+        "command_name": "NpcTradePokeListSetProc",
+        "parameters": []
+    },
+    "0x2a6": {
+        "command_name": "GetCoinGift",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u16"
+            },
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "bp",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2a7": {
+        "command_name": "AusuItemCheck",
+        "parameters": [
+            {
+                "name": "item",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-items"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2a8": {
+        "command_name": "SubWkCoin",
+        "parameters": [
+            {
+                "name": "cwk",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2a9": {
+        "command_name": "CompWkCoin",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "cwk",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2aa": {
+        "command_name": "AikotobaOkurimonoChk",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "w0",
+                "size": "u16"
+            },
+            {
+                "name": "w1",
+                "size": "u16"
+            },
+            {
+                "name": "w2",
+                "size": "u16"
+            },
+            {
+                "name": "w3",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2ab": {
+        "command_name": "CBSealKindNumGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2ac": {
+        "command_name": "WifiHusiginaokurimonoOpenFlagSet",
+        "parameters": []
+    },
+    "0x2ad": {
+        "command_name": "MoveCodeGet",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            },
+            {
+                "name": "object",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2ae": {
+        "command_name": "BgmPlayCheck",
+        "parameters": [
+            {
+                "name": "mus",
+                "size": "u16"
+            },
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2af": {
+        "command_name": "UnionGetCardTalkNo",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2b0": {
+        "command_name": "WirelessIconEasy",
+        "parameters": []
+    },
+    "0x2b1": {
+        "command_name": "WirelessIconEasyEnd",
+        "parameters": []
+    },
+    "0x2b2": {
+        "command_name": "SaveFieldObj",
+        "parameters": []
+    },
+    "0x2b3": {
+        "command_name": "SealName",
+        "parameters": [
+            {
+                "name": "index",
+                "size": "u8"
+            },
+            {
+                "name": "seal",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2b4": {
+        "command_name": "TalkObjPauseAll",
+        "parameters": []
+    },
+    "0x2b5": {
+        "command_name": "SetEscapeLocation",
+        "parameters": [
+            {
+                "name": "map",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-maps"
+            },
+            {
+                "name": "x pos",
+                "size": "u16"
+            },
+            {
+                "name": "z pos",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2b6": {
+        "command_name": "FieldObjBitSetFellowHit",
+        "parameters": [
+            {
+                "name": "object",
+                "size": "u16"
+            },
+            {
+                "name": "flag",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x2b7": {
+        "command_name": "DameTamagoChkAll",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2b8": {
+        "command_name": "TVEntryWatchChangeName",
+        "parameters": [
+            {
+                "name": "party index",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2b9": {
+        "command_name": "UnionBmpMenuStart",
+        "parameters": []
+    },
+    "0x2ba": {
+        "command_name": "UnionBattleStartCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2bb": {
+        "command_name": "CommDirectEndTiming",
+        "parameters": []
+    },
+    "0x2bc": {
+        "command_name": "HaifuPokeRetryCheck",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2bd": {
+        "command_name": "SpWildBattleSet",
+        "parameters": [
+            {
+                "name": "species",
+                "size": "u16",
+                "type": "options",
+                "datalist_name": "datalist-species"
+            },
+            {
+                "name": "level",
+                "size": "u16"
+            }
+        ]
+    },
+    "0x2be": {
+        "command_name": "GetCardRank",
+        "parameters": [
+            {
+                "name": "work",
+                "size": "u16",
+                "default_value":"0x4000"
+            }
+        ]
+    },
+    "0x2bf": {
+        "command_name": "BicycleReqNonBgm",
+        "parameters": []
+    },
+    "0x2c0": {
+        "command_name": "TalkMsgSpAuto",
+        "parameters": [
+            {
+                "name": "message",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x2c1": {
+        "command_name": "ReportInfoWinOpen",
+        "parameters": []
+    },
+    "0x2c2": {
+        "command_name": "ReportInfoWinClose",
+        "parameters": []
+    },
+    "0x2c3": {
+        "command_name": "FieldScopeModeSet",
+        "parameters": [
+            {
+                "name": "mod",
+                "size": "u8"
+            }
+        ]
+    },
+    "0x2c6": {
+        "command_name": "SpinTradeUnion",
+        "parameters": []
+    },
+    "0x2c7": {
+        "command_name": "CheckVersionGame",
+        "parameters": []
+    }
+}

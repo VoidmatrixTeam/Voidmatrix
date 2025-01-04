@@ -3,7 +3,7 @@
     "title": "Random Background Generator",
     "color": "181, 104, 79",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "WipeFadeStart",

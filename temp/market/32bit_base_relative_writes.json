@@ -1,0 +1,236 @@
+{
+    "title": "32Bit Base Relative Writes",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Jul. 21 2024",
+    "scripts": [
+        {
+            "title": "32-bit, base-relative write using CmpAdrsAdrs",
+            "color": [
+                184,
+                119,
+                46
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_CompAdrsAdrs] + 0x9"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x1C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CompAdrsAdrs] + 0x10"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0x68094902"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CompAdrsAdrs] + 0x14"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0xBD385060"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CompAdrsAdrs] + 0x1E"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "[base_address]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "type": "text",
+                            "value": "[offset]"
+                        },
+                        {
+                            "name": "address2",
+                            "type": "text",
+                            "value": "[value]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "language": "All",
+                    "name": "offset",
+                    "value": "0xFFFFFFFF"
+                },
+                {
+                    "language": "All",
+                    "name": "value",
+                    "value": "0xFFFFFFFF"
+                },
+                {
+                    "language": "English",
+                    "name": "FUN_CompAdrsAdrs",
+                    "value": "0x02039BBC"
+                },
+                {
+                    "language": "French",
+                    "name": "FUN_CompAdrsAdrs",
+                    "value": "0x02039C2C"
+                },
+                {
+                    "language": "German",
+                    "name": "FUN_CompAdrsAdrs",
+                    "value": "0x02039C2C"
+                },
+                {
+                    "language": "Italian",
+                    "name": "FUN_CompAdrsAdrs",
+                    "value": "0x02039C2C"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "FUN_CompAdrsAdrs",
+                    "value": "0x02039C2C"
+                },
+                {
+                    "language": "English",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x2039ACC"
+                },
+                {
+                    "language": "French",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x2039B3C"
+                },
+                {
+                    "language": "German",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x2039B3C"
+                },
+                {
+                    "language": "Italian",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x2039B3C"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "FUN_LoadAdrsAdrs",
+                    "value": "0x2039B3C"
+                },
+                {
+                    "language": "English",
+                    "name": "base_address",
+                    "value": "0x02106FC0"
+                },
+                {
+                    "language": "German",
+                    "name": "base_address",
+                    "value": "0x02107100"
+                },
+                {
+                    "language": "French",
+                    "name": "base_address",
+                    "value": "0x02107140"
+                },
+                {
+                    "language": "Italian",
+                    "name": "base_address",
+                    "value": "0x021070A0"
+                },
+                {
+                    "language": "Japanese Rev5",
+                    "name": "base_address",
+                    "value": "0x02108818"
+                },
+                {
+                    "language": "Korean",
+                    "name": "base_address",
+                    "value": "0x021045C0"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "base_address",
+                    "value": "0x02107160"
+                }
+            ]
+        }
+    ]
+}

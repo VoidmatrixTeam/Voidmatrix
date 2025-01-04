@@ -3,7 +3,7 @@
     "title": "Change Form of Pokémon",
     "color": "78, 176, 183",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",

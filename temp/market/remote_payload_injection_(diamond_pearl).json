@@ -1,0 +1,169 @@
+{
+    "title": "Remote Payload Injection (Diamond Pearl)",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "author": "RETIRE",
+    "date": "Dec. 29 2024",
+    "scripts": [
+        {
+            "title": "Remote payload injection (diamond_pearl)",
+            "color": [
+                62,
+                147,
+                63
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "Nop",
+                    "parameters": []
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_EvCmdNameInStone] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x47"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "BicycleReq",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "type": "text",
+                            "value": "0x1"
+                        }
+                    ]
+                },
+                {
+                    "type": "memory_editor",
+                    "memory": [
+                        "0x71",
+                        "0x02"
+                    ]
+                },
+                {
+                    "type": "memory_editor",
+                    "memory": [
+                        "0x07",
+                        "0xB5",
+                        "0x11",
+                        "0x33",
+                        "0x17",
+                        "0xCB",
+                        "0x02",
+                        "0x60",
+                        "0x20",
+                        "0x22",
+                        "0x18",
+                        "0x1C",
+                        "0xA0",
+                        "0x47",
+                        "0x1F",
+                        "0xBD",
+                        "0xD8",
+                        "0x75",
+                        "0x0D",
+                        "0x02",
+                        "0x20",
+                        "0x93",
+                        "0x3A",
+                        "0x02",
+                        "0x50",
+                        "0x47",
+                        "0x0B",
+                        "0xEA",
+                        "0xE0",
+                        "0xE3",
+                        "0x0C",
+                        "0x02"
+                    ]
+                },
+                {
+                    "type": "memory_editor",
+                    "memory": [
+                        "0x01",
+                        "0x30",
+                        "0x8F",
+                        "0xE2",
+                        "0x13",
+                        "0xFF",
+                        "0x2F",
+                        "0xE1",
+                        "0xFF",
+                        "0xB5",
+                        "0x02",
+                        "0x4B",
+                        "0x02",
+                        "0x4A",
+                        "0x1A",
+                        "0x80",
+                        "0xFF",
+                        "0xBD",
+                        "0x00",
+                        "0x00",
+                        "0xF8",
+                        "0x31",
+                        "0x23",
+                        "0x02",
+                        "0x00",
+                        "0x47",
+                        "0x00",
+                        "0x00"
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "language": "English",
+                    "name": "FUN_EvCmdNameInStone",
+                    "value": "0x0203c58c"
+                },
+                {
+                    "language": "French",
+                    "name": "FUN_EvCmdNameInStone",
+                    "value": "0x203C5D4"
+                },
+                {
+                    "language": "German",
+                    "name": "FUN_EvCmdNameInStone",
+                    "value": "0x203C5D4"
+                },
+                {
+                    "language": "Italian",
+                    "name": "FUN_EvCmdNameInStone",
+                    "value": "0x203C5D4"
+                },
+                {
+                    "language": "Spanish",
+                    "name": "FUN_EvCmdNameInStone",
+                    "value": "0x203C5D4"
+                },
+                {
+                    "language": "Japanese Rev5",
+                    "name": "FUN_EvCmdNameInStone",
+                    "value": "0x203F75C"
+                },
+                {
+                    "language": "Japanese Rev6",
+                    "name": "FUN_EvCmdNameInStone",
+                    "value": "0x203F800"
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

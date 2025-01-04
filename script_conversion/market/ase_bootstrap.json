@@ -3,7 +3,7 @@
     "title": "Arbitrary Script Execution bootstrap",
     "color": "199, 151, 143",
     "language": "English",
-    "input_fields": [
+    "code": [
       {
         "type": "command",
         "name": "LoadAdrsValue",
