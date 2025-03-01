@@ -18,6 +18,13 @@ class LanguageInput extends DropDownElement {
 
         super(languages, defaultLanguage, 'language');
         LanguageInput.instance = this;
+
+        this.addEventListener('change', () => {
+            const languageUpdateEvent = new CustomEvent('languageUpdate', {
+                detail: this.getValue()
+            });
+            document.dispatchEvent(languageUpdateEvent);
+        });
     }
 }
 
@@ -100,10 +107,11 @@ class SearchBar extends HTMLElement {
         this.searchInput = new SearchInput();
         this.gameSelector = new GameSelector();
         this.languageInput = new LanguageInput();
+
         this.append(
             icon,
             this.searchInput,
-            // this.gameSelector,
+            this.gameSelector,
             this.languageInput
         );
     }
@@ -140,8 +148,8 @@ class SupportedGames extends HTMLElement {
         this.games = [];
         for (const game of games) {
             const icon = new GameIcon(game);
-            if (!json.supported.includes(game)) {
-                icon.classList.add('hidden');
+            if (!json || !json.supported || !json.supported.includes(game)) {
+                icon.classList.add('faded');
             }
             this.games.push(icon);
         }
@@ -223,10 +231,3 @@ customElements.define('supported-games', SupportedGames);
 customElements.define('search-result', SearchResult);
 customElements.define('search-results', SearchResults);
 customElements.define('search-area', SearchArea);
-
-
-document.addEventListener("DOMContentLoaded", async function () {
-    const wrapper = document.querySelector('.search-wrapper');
-    const searchArea = new SearchArea(await ScriptRequestHandler.getScripts());
-    wrapper.appendChild(searchArea);
-});

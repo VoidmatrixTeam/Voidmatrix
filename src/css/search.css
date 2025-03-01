@@ -121,6 +121,11 @@
                     & img {
                         width: 32px;
                     }
+
+                    & img.faded {
+                        filter: grayscale(80%);
+                        opacity: 0.2;
+                    }
                 }
             }
 

@@ -13,6 +13,10 @@ class GithubHandler {
 class ScriptRequestHandler extends GithubHandler {
     static async getScripts(branch = "feature/version-overhaul") {
         const files = await GithubHandler.getFiles('VoidmatrixTeam', 'Voidmatrix', 'temp/market', branch);
+        if (!files || files.message === "Not Found") {
+            console.error('Error fetching files:', files);
+            return [];
+        }
         const downloadUrls = files.map(file => file.download_url);
         try {
             return await Promise.all(downloadUrls.map(url => fetch(url).then(res => res.json())));
