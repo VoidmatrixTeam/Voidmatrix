@@ -316,12 +316,12 @@ script-group-manager {
                                         }
                                     }
                                 }
-            
+
                                 & div.content.hidden {
                                     display: none;
                                 }
                             }
-            
+
                             & code-option {
                                 background-color: rgba(var(--main-color), 0.6);
                                 & div.content {
@@ -329,25 +329,25 @@ script-group-manager {
                                     flex-direction: column;
                                     padding-left: 8px;
                                     height: 100%;
-            
+
                                     & code-group {
                                         width: 100%;
                                         & code-block {
                                             display: flex;
                                             height: 32px;
                                             align-items: center;
-            
+
                                             & input {
                                                 background-color: var(--bg-dark-2);
                                                 padding-left: 8px;
                                                 width: 140px;
                                             }
-            
+
                                             & code-parameter {
                                                 margin-left: 8px;
                                             }
                                         }
-            
+
                                         & img {
                                             width: 16px;
                                             margin-right: 8px;
@@ -380,20 +380,33 @@ script-group-manager {
                                                 }
                                             }
                                         }
-            
+
+                                        & assembly-block {
+                                            & auto-grow-textarea {
+                                                & textarea {
+                                                    all: unset;
+                                                    font-family: monospace;
+                                                    background-color: var(--bg-dark-2);
+                                                    display: block;
+                                                    width: calc(100% - 12px);
+                                                    padding-left: 8px;
+                                                    margin-bottom: 8px;
+                                                }
+                                            }
+                                        }
                                     }
-            
+
                                     & code-create-block {
                                         display: flex;
                                         flex-direction: row;
                                         width: 100%;
                                         align-items: center;
-            
+
                                         & div {
                                             display: flex;
                                             flex-direction: column;
                                             margin: 0;
-            
+
                                             & code-create-option {
                                                 display:flex;
                                                 align-items: center;
@@ -406,24 +419,25 @@ script-group-manager {
                                                     width: 16px;
                                                 }
                                             }
-            
+
                                             & code-create-option.hidden {
                                                 display: none;
                                             }
                                         }
                                     }
-            
+
                                     & code-create-block.dropdown {
+                                        z-index: 1;
                                         & code-create-option.hidden {
                                             display: flex;
                                         }
                                     }
-            
+
                                     & span {
                                         align-self: start;
                                     }
                                 }
-            
+
                                 & div.content.hidden  {
                                     display: none;
                                 }

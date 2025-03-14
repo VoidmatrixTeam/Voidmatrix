@@ -12,7 +12,7 @@ class GithubHandler {
 
 class ScriptRequestHandler extends GithubHandler {
     static async getScripts(branch = "feature/version-overhaul") {
-        const files = await GithubHandler.getFiles('VoidmatrixTeam', 'Voidmatrix', 'temp/market', branch);
+        const files = await GithubHandler.getFiles('VoidmatrixTeam', 'Voidmatrix', 'src/market', branch);
         if (!files || files.message === "Not Found") {
             console.error('Error fetching files:', files);
             return [];

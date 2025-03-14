@@ -530,13 +530,13 @@ class MemoryEditorBlock extends DraggableHTMLElement {
     }
 
     fromJson(json) {
-        this.sizeOption.getSizeInput().setValue(size);
+        this.sizeOption.getSizeInput().setValue(json.size);
         const size = this.varEvaluator.evaluateString(json.size);
         const memoryInputs = this.getMemoryInputs();
         for (let i = 0; i < size; i++) {
             memoryInputs[i].setValue(json.memory[i]);
         }
-        this.updateMemorySize(size);
+        this.updateMemorySize(json.size);
     }
 
     toJson(parsed=false) {
@@ -774,6 +774,48 @@ class CommandBlock extends DraggableHTMLElement {
     }
 }
 
+class AssemblyBlock extends DraggableHTMLElement {
+    constructor(varEvaluator) {
+        super();
+        this.varEvaluator = varEvaluator;
+        this.assemblyInput = new AutoGrowTextArea('assembly code');
+        this.append(this.assemblyInput);
+    }
+
+    fromJson(json) {
+        this.assemblyInput.setValue(json.assembly);
+    }
+
+    toJson(parsed) {
+        if (parsed) {
+            return {
+                type: 'assembly',
+                assembly: this.varEvaluator.evaluateString(this.assemblyInput.getValue(), true)
+            }
+        }
+        return {
+            type: 'assembly',
+            assembly: this.assemblyInput.getValue()
+        };
+    }
+
+    toDataArray() {
+        var assembler = new ks.Keystone(ks.ARCH_ARM, ks.MODE_THUMB);
+        var result = assembler.asm(this.toJson(true).assembly);
+        assembler.close();
+
+        if (result.failed)
+            return [];
+
+        return Array.from(result.mc).map(byte => {
+            return {
+                size: 'u8',
+                value: byte
+            }
+        });
+    }
+}
+
 class CodeCreateOption extends HTMLElement {
     constructor(option) {
         super();
@@ -795,7 +837,7 @@ class CodeCreateOption extends HTMLElement {
     }
 }
 class CodeCreateBlock extends HTMLElement {
-    constructor(options={'Add Command' : 'command', 'Add Memory Editor': 'memory_editor'}) {
+    constructor(options={'Add Command' : 'command', 'Add Memory Editor': 'memory_editor', 'Add Assembly': 'assembly'}) {
         super();
         this.optionWrapper = document.createElement('div');
         this.options = [];
@@ -858,6 +900,9 @@ class CodeGroup extends HTMLElement {
                 break;
             case 'memory_editor':
                 block = new MemoryEditorBlock(this.varEvaluator);
+                break;
+            case 'assembly':
+                block = new AssemblyBlock(this.varEvaluator);
                 break;
             default:
                 console.error('Invalid block type:', type);
@@ -1086,6 +1131,12 @@ class Script extends HTMLElement {
         this.colorSwatch.onColorChange(() => {
             callback(this);
         });
+
+        this.addEventListener('input', (event) => {
+            if (this.contains(event.target)) {
+                callback(this);
+            }
+        });
     }
 
     fromJson(json) {
@@ -1129,23 +1180,6 @@ class ScriptList extends HTMLElement {
     constructor() {
         super();
     }
-
-    fromJson(json) {
-        for (const scriptObject of json.scripts) {
-            this.addScript(scriptObject);
-        }
-    }
-
-    toJson() {
-        const json = {
-            scripts: []
-        };
-        for (const script of this.children) {
-            json.scripts.push(script.toJson());
-        }
-        return json;
-    }
-
     setSelectedScript(script) {
         for (const child of this.children) {
             child.setSelected(child === script);
@@ -1169,6 +1203,20 @@ class ScriptList extends HTMLElement {
                 break;
             }
         }
+    }
+
+    fromJson(json) {
+        for (const scriptObject of json.scripts) {
+            this.addScript(scriptObject);
+        }
+    }
+
+    toJson() {
+        const json = [];
+        for (const script of this.children) {
+            json.push(script.toJson());
+        }
+        return json;
     }
 }
 
@@ -1562,6 +1610,7 @@ customElements.define('memory-block', MemoryEditorBlock);
 customElements.define('command-datalist', CommandDataList);
 customElements.define('command-input', CommandInput);
 customElements.define('code-block', CommandBlock);
+customElements.define('assembly-block', AssemblyBlock);
 customElements.define('code-create-option', CodeCreateOption);
 customElements.define('code-create-block', CodeCreateBlock);
 customElements.define('code-parameter', ParamInput);
