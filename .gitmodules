@@ -1,0 +1,9 @@
+[submodule "src/libs/keystone.js"]
+	path = src/libs/keystone.js
+	url = git@github.com:DevreeseJorik/keystone.js.git
+[submodule "src/libs/DOMPurify"]
+	path = src/libs/DOMPurify
+	url = git@github.com:DevreeseJorik/DOMPurify.git
+[submodule "src/libs/marked"]
+	path = src/libs/marked
+	url = git@github.com:DevreeseJorik/marked.git
