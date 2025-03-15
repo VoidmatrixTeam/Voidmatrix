@@ -1,0 +1,115 @@
+{
+    "title": "Pokemon Form Editor",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Change Form of Pok\u00c3\u00a9mon",
+            "color": [
+                78,
+                176,
+                183
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_ChangeDeoxiesForm] + 0x54"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[PartySlot]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_ChangeDeoxiesForm] + 0x55"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x2D"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "PartyDeokisisuFormChange",
+                    "parameters": [
+                        {
+                            "name": "frm",
+                            "size": "u8",
+                            "value": "[FormId]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_ChangeDeoxiesForm",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x0203eed8",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "PartySlot",
+                    "default": "0",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FormId",
+                    "default": "1",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

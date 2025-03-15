@@ -1,0 +1,196 @@
+{
+    "title": "Copy Party Palpark",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Copy Party to Pal Park",
+            "color": [
+                111,
+                172,
+                211
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x9"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x1C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x10"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x20"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[FUN_GetFrontPokemon] + 0x8"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "0x21B93008"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[FUN_GetFrontPokemon] + 0xC"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "0x31900209"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[FUN_GetFrontPokemon] + 0x10"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "0x225A4401"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[FUN_GetFrontPokemon] + 0x14"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "0xF0790112"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[FUN_GetFrontPokemon] + 0x18"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "0xBDF8EAEE"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FrontPokemon",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_GetFrontPokemon",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02054dec",
+                        "SP": "0x02054e5c",
+                        "GER": "0x02054e5c",
+                        "FR": "0x02054e5c",
+                        "IT": "0x02054e5c",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_CompAdrsAdrs",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02039BBC",
+                        "SP": "0x02039C2C",
+                        "GER": "0x02039C2C",
+                        "FR": "0x02039C2C",
+                        "IT": "0x02039C2C",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

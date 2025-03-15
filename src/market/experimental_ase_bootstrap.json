@@ -1,0 +1,150 @@
+{
+    "title": "Experimental Ase Bootstrap",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "ASE Bootstrap",
+            "color": [
+                62,
+                147,
+                63
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "C10R0101"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "8"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "4"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_EvCmdNameInStone] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x47"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "PokeParkControl",
+                    "parameters": [
+                        {
+                            "name": "mod",
+                            "size": "u8",
+                            "value": "0x1"
+                        }
+                    ]
+                },
+                {
+                    "type": "memory_editor",
+                    "size": "0x21",
+                    "memory": [
+                        "0x71",
+                        "0x02",
+                        "0x0F",
+                        "0xB4",
+                        "0x11",
+                        "0x33",
+                        "0x17",
+                        "0xCB",
+                        "0x1A",
+                        "0x44",
+                        "0x03",
+                        "0xC2",
+                        "0x09",
+                        "0x0C",
+                        "0xE1",
+                        "0x52",
+                        "0x1F",
+                        "0xBD",
+                        "0x16",
+                        "0x00",
+                        "0xCC",
+                        "0x10",
+                        "0xEF",
+                        "0xFF",
+                        "0x50",
+                        "0x3D",
+                        "0x50",
+                        "0xF9",
+                        "0xFF",
+                        "0xFF",
+                        "0x20",
+                        "0x3B",
+                        "0x02"
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "name": "byte_code_offset",
+                    "default": "0x11",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_EvCmdNameInStone",
+                    "default": "0x203F800",
+                    "overrulingValues": {
+                        "ENG": "0x0203c58c",
+                        "SP": "0x203C5D4",
+                        "GER": "0x203C5D4",
+                        "FR": "0x203C5D4",
+                        "IT": "0x203C5D4",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

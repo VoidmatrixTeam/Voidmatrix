@@ -693,16 +693,23 @@ class ParamList extends HTMLElement {
     constructor(varEvaluator) {
         super();
         this.varEvaluator = varEvaluator;
-        this.previousCommandInfo = null;
+        this.currentCommandInfo = null;
+    }
+
+    updateCommandInfo(command) {
+        const commandInfo = CommandDataList.instance.getCommandInfo(command);
+        if (!commandInfo || commandInfo == this.currentCommandInfo)
+            return;
+
+        this.currentCommandInfo = commandInfo;
+        return true;
     }
 
     fromCommand(command) {
-        const commandInfo = CommandDataList.instance.getCommandInfo(command);
-        if (!commandInfo || commandInfo == this.previousCommandInfo) {
+        if (!this.updateCommandInfo(command))
             return;
-        }
-        this.previousCommandInfo = commandInfo;
-        this.fromJson(commandInfo.parameters);
+
+        this.fromJson(this.currentCommandInfo.parameters);
     }
 
     fromJson(json) {
@@ -713,6 +720,13 @@ class ParamList extends HTMLElement {
         json.forEach(param => {
             this.appendChild(new ParamInput(param));
         });
+    }
+
+    updateValues(json) {
+        const inputs = this.children;
+        for (let i = 0; i < inputs.length; i++) {
+            inputs[i].input.value = json[i].value;
+        }
     }
 
     toJson(parsed=false) {
@@ -756,7 +770,8 @@ class CommandBlock extends DraggableHTMLElement {
 
     fromJson(json) {
         this.command.input.value = json.name;
-        this.parameters.fromJson(json.parameters);
+        this.parameters.fromCommand(this.command.toJson(true));
+        this.parameters.updateValues(json.parameters);
     }
 
     toJson(parsed=false) {

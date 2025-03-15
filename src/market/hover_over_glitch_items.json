@@ -1,0 +1,92 @@
+{
+    "title": "Hover Over Glitch Items",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Allow hover over glitch item",
+            "color": [
+                194,
+                153,
+                255
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_GetItemData] + 0x2D"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0xD0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_GetItemData] + 0x47"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0xD0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_GetItemData] + 0x53"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0xD0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_GetItemData",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x0206e640",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

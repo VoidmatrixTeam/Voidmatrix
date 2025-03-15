@@ -1,0 +1,269 @@
+{
+    "title": "Gba Give Pokemon To Gen 3",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "GBA: give any Pok\u00c3\u00a9mon to gen 3 game",
+            "color": [
+                40,
+                154,
+                68
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_Sys_RebootSystem] + 0x24"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "0xEB0F1ECC"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_EvCmdPaperPlane] + 0xC"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "0x04910018"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_EvCmdPaperPlane] + 0x10"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "0xEF7AF08F"
+                        }
+                    ]
+                },
+                {
+                    "type": "memory_editor",
+                    "size": "0x3",
+                    "memory": [
+                        "0xEF",
+                        "0x01",
+                        "0x8F"
+                    ]
+                },
+                {
+                    "type": "memory_editor",
+                    "size": "0x1c",
+                    "memory": [
+                        "0xEF",
+                        "0xE0",
+                        "0xF0",
+                        "0xEB",
+                        "0x08",
+                        "0x00",
+                        "0x9F",
+                        "0xE5",
+                        "0x08",
+                        "0x10",
+                        "0x9F",
+                        "0xE5",
+                        "0x00",
+                        "0x10",
+                        "0x00",
+                        "0xE5",
+                        "0x67",
+                        "0xE0",
+                        "0xF0",
+                        "0xEB",
+                        "0x60",
+                        "0x68",
+                        "0x00",
+                        "0x02",
+                        "0xB9",
+                        "0xF3",
+                        "0xDC",
+                        "0xFB"
+                    ]
+                },
+                {
+                    "type": "memory_editor",
+                    "size": "0x2d",
+                    "memory": [
+                        "0x7D",
+                        "0x46",
+                        "0x12",
+                        "0x35",
+                        "0x07",
+                        "0xB4",
+                        "0xDF",
+                        "0xCD",
+                        "0x08",
+                        "0x60",
+                        "0x6E",
+                        "0x31",
+                        "0x0E",
+                        "0x80",
+                        "0x1A",
+                        "0x60",
+                        "0x24",
+                        "0x70",
+                        "0xFF",
+                        "0xBD",
+                        "0x1A",
+                        "0x4D",
+                        "0x2D",
+                        "0x0C",
+                        "0xBC",
+                        "0x4E",
+                        "0x23",
+                        "0x02",
+                        "0x00",
+                        "0x20",
+                        "0x70",
+                        "0x47",
+                        "0x48",
+                        "0x65",
+                        "0x23",
+                        "0x02",
+                        "0x11",
+                        "0x6B",
+                        "0x23",
+                        "0x02",
+                        "[poke_id] & 0xFF",
+                        "([poke_id] >> 0x8) & 0xFF",
+                        "",
+                        "0x0",
+                        "0x0"
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_LoadAdrsAdrs",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02039ACC",
+                        "SP": "0x02039B3C",
+                        "GER": "0x02039B3C",
+                        "FR": "0x02039B3C",
+                        "IT": "0x02039B3C",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "target_address",
+                    "default": "0xFFFFFFFF",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_EvCmdPaperPlane",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x0203e4d8",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_Sys_RebootSystem",
+                    "default": "0x01ff84a4",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "poke_id",
+                    "default": "0x97",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "# GBA: give any Pok\u00c3\u00a9mon to gen 3 game\n\nThis code lets you edit the save data of any gen 3 game. It should even function before unlocking elite four, as it ignores certain error conditions. The only requirement should be needing 6 Pok\u00c3\u00a9mon in the gen 3 game.\n\nNote: only supports english at the moment\n\n# Prerequisites:\nObtain at least 1 pok\u00c3\u00a9mon. (This Pok\u00c3\u00a9mon's species ID will be modified).\nUnlock Pal Park migration on gen 4 game.\n\n# How To Use\nSet the desired Pok\u00c3\u00a9mon's id in the variables section. This is set to Mew's id by default. Invalid ID's are allowed, and this code can thus be used to transfer ACE.\n\nAfter executing this code, soft reset and select \"Migrate from Emerald\" on the main menu. Select the Pok\u00c3\u00a9mon you wish to modify and save. You can tell the code works if you immediately go to the save menu after selecting a single Pok\u00c3\u00a9mon. The remaining 5 Pok\u00c3\u00a9mon will be glitch Pok\u00c3\u00a9mon with a question mark as icon.\n\nTo check whether it worked, select \"Migrate from Emerald\" once more. You should not get a 24 hour warning, and your Pok\u00c3\u00a9mon should have been modifed."
+        }
+    ]
+}

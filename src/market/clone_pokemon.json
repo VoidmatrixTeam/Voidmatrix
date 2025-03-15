@@ -1,0 +1,59 @@
+{
+    "title": "Clone Pokemon",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Clone Box Pok\u00c3\u00a9mon (Grab, Put Down)",
+            "color": [
+                179,
+                230,
+                224
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[Box_ClearPokemon] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x8"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "Box_ClearPokemon",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x0206B2FC",
+                        "SP": "0x0206B358",
+                        "GER": "0x0206B358",
+                        "FR": "0x0206B358",
+                        "IT": "0x0206B338",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

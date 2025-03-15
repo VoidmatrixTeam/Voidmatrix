@@ -1,0 +1,274 @@
+{
+    "title": "Low Effort Memory Writer",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Minimal Effort Memory Writer: Setup",
+            "color": [
+                82,
+                167,
+                135
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_DotArt_SetBitData] + 0x5"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x1D"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_DotArt_SetBitData] + 0x6"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x9"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_DotArt_SetBitData] + 0x7"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x68"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_DotArt_SetBitData] + 0x8"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_DotArt_SetBitData] + 0xA"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x74"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_DotArt_SetBitData",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x204c0e8",
+                        "SP": "0x204c158",
+                        "GER": "0x204c158",
+                        "FR": "0x204c158",
+                        "IT": "0x204c158",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": ""
+        },
+        {
+            "title": "Minimal Effort Memory Writer: Use",
+            "color": [
+                143,
+                91,
+                91
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "memory_editor",
+                    "size": "0x74",
+                    "memory": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "name": "destination",
+                    "default": "0x2200000",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

@@ -1,0 +1,75 @@
+{
+    "title": "Walk Through Walls",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Walk Through Walls",
+            "color": [
+                182,
+                93,
+                93
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[collision]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[collision] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x10"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "collision",
+                    "default": "0x20593E0",
+                    "overrulingValues": {
+                        "ENG": "0x2056C06",
+                        "SP": "0x2056C76",
+                        "GER": "0x2056C76",
+                        "FR": "0x2056C76",
+                        "IT": "0x2056C76",
+                        "KOR": "0x20570DE",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

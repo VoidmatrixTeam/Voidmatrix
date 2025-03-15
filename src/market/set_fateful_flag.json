@@ -1,0 +1,64 @@
+{
+    "title": "Set Fateful Flag",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Set Fateful Flag",
+            "color": [
+                109,
+                159,
+                91
+            ],
+            "language": "All",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "ChgPokeWaza",
+                    "parameters": [
+                        {
+                            "name": "party index",
+                            "size": "u8",
+                            "value": "[pokemon_slot]"
+                        },
+                        {
+                            "name": "move slot",
+                            "size": "u8",
+                            "value": "0x34"
+                        },
+                        {
+                            "name": "move",
+                            "size": "u8",
+                            "value": "0x10"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "pokemon_slot",
+                    "default": "0",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

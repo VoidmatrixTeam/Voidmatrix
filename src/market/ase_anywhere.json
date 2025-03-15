@@ -1,0 +1,197 @@
+{
+    "title": "Ase Anywhere",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Execute ASE Anywhere With RETIRE Menu",
+            "color": [
+                70,
+                149,
+                86
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_InitRetireScript] + 0x38"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x3D"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_InitRetireScript] + 0x39"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x21"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_InitRetireScript] + 0x3A"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x9"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_InitRetireScript] + 0x3B"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x2"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_InitRetireScript] + 0x4E"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x21"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_InitRetireScript] + 0x4F"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x31"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CreateFieldMenu] + 0xC"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x13"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CreateFieldMenu] + 0x9C"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "PokeParkControl",
+                    "parameters": [
+                        {
+                            "name": "mod",
+                            "size": "u8",
+                            "value": "1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_InitRetireScript",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x020367E8",
+                        "SP": "0x02036830",
+                        "GER": "0x02036830",
+                        "FR": "0x02036830",
+                        "IT": "0x02036830",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_CreateFieldMenu",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x0203566C",
+                        "SP": "0x020356B4",
+                        "GER": "0x020356B4",
+                        "FR": "0x020356B4",
+                        "IT": "0x020356B4",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "### ASE Anywhere with RETIRE menu\nThis code adds the 'RETIRE' option to the regular Field Menu. \nUnlike the usual Pal Park menu, you have access to all other menus, can encounter wild Pok\u00c3\u00a9mon and make use\nof items and field moves.\n\nIt also hacks the RETIRE option to execute ASE in any map.\nIf you want to set up ASE again afterwards, use the 'npc ase bootstrap'. It works similarly to the regular ase bootstrap,\nbut doesn't modify the items since they've already been modified. It does rely on already having set up the regular ase bootstrap at least once before."
+        }
+    ]
+}

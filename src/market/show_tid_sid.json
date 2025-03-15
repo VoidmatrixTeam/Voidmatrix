@@ -1,0 +1,136 @@
+{
+    "title": "Show Tid Sid",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Show player TID/SID on screen",
+            "color": [
+                40,
+                154,
+                68
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_GetGold]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_GoldWindowCreate] + 0x5C"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0xA"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_NumberToString] + 0x28"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "GoldWinWrite",
+                    "parameters": [
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "0xB"
+                        },
+                        {
+                            "name": "y pos",
+                            "size": "u8",
+                            "value": "0x4"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_GetGold",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02023a10",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_GoldWindowCreate",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x021e28a0",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_NumberToString",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02021b04",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

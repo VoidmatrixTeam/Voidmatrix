@@ -1,0 +1,167 @@
+{
+    "title": "Random Background Generator",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Random Background Generator",
+            "color": [
+                181,
+                104,
+                79
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "WipeFadeStart",
+                    "parameters": [
+                        {
+                            "name": "div",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "syn",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "type",
+                            "size": "u8",
+                            "value": "3"
+                        },
+                        {
+                            "name": "col",
+                            "size": "u8",
+                            "value": "0x5595"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[base_value] + 0x13A3"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "[rng_address]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[base_value] + 0x13A4"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "[rng_address] + 0x1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "GetRand",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4000"
+                        },
+                        {
+                            "name": "lim",
+                            "size": "u8",
+                            "value": "0x1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "TimeWait",
+                    "parameters": [
+                        {
+                            "name": "number",
+                            "size": "u8",
+                            "value": "[frames]"
+                        },
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "GlobalJump",
+                    "parameters": [
+                        {
+                            "name": "jump",
+                            "size": "u8",
+                            "value": "0xFFFFFFD0"
+                        }
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "name": "base_value",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x226D300",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "frames",
+                    "default": "6",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ]
+        }
+    ]
+}

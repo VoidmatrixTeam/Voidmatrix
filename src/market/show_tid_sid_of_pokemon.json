@@ -1,0 +1,275 @@
+{
+    "title": "Show Tid Sid Of Pokemon",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Show TID/SID of Pok\u00c3\u00a9mon in party",
+            "color": [
+                40,
+                154,
+                68
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "ImageClipSetProc",
+                    "parameters": [
+                        {
+                            "name": "ppi",
+                            "size": "u8",
+                            "value": "[party_index]"
+                        },
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4000"
+                        },
+                        {
+                            "name": "workvalue",
+                            "size": "u8",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "SetMapProc",
+                    "parameters": []
+                },
+                {
+                    "type": "command",
+                    "name": "WipeFadeStart",
+                    "parameters": [
+                        {
+                            "name": "div",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "syn",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "type",
+                            "size": "u8",
+                            "value": "1"
+                        },
+                        {
+                            "name": "col",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_GetGold]"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "0x59C04F01"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_GetGold] + 0x4"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "0x4770"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_GetGold] + 0x8"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "0x4358"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_GoldWindowCreate] + 0x5C"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0xA"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_NumberToString] + 0x28"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "GoldWinWrite",
+                    "parameters": [
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "0xB"
+                        },
+                        {
+                            "name": "y pos",
+                            "size": "u8",
+                            "value": "0x4"
+                        }
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_LoadAdrsAdrs",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02039ACC",
+                        "SP": "0x02039B3C",
+                        "GER": "0x02039B3C",
+                        "FR": "0x02039B3C",
+                        "IT": "0x02039B3C",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_GetGold",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02023a10",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_GoldWindowCreate",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x021e28a0",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_NumberToString",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02021b04",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "[party_index]",
+                    "default": "0x0",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

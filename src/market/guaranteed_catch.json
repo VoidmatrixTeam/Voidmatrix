@@ -1,0 +1,231 @@
+{
+    "title": "Guaranteed Catch",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Write u32 Functionality for Command 0x10",
+            "color": [
+                40,
+                154,
+                68
+            ],
+            "language": "All",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x9"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x1C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x10"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x20"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_CompAdrsAdrs",
+                    "default": "0x02039BBC",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Guaranteed Catch Code",
+            "color": [
+                110,
+                194,
+                196
+            ],
+            "language": "All",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[FUN_GetItemName] + 0x34"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "0x221D4801"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[FUN_GetItemName] + 0x38"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "0xBDF87002"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[FUN_GetItemName] + 0x3C"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "0x223BFE6"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_GetItemName",
+                    "default": "0x200ae38",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Allow Wild Encounters",
+            "color": [
+                165,
+                161,
+                34
+            ],
+            "language": "All",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "0x02035678"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x13"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "0x02035708"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "PokeParkControl",
+                    "parameters": [
+                        {
+                            "name": "mod",
+                            "size": "u8",
+                            "value": "1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": []
+        }
+    ]
+}

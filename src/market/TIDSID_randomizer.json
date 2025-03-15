@@ -1,0 +1,145 @@
+{
+    "title": "Tidsid Randomizer",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "TIDSID Randomizer",
+            "color": [
+                206,
+                145,
+                105
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_UnusedCommand] + 0x8"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x3"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_UnusedCommand] + 0x9"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x31"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_UnusedCommand] + 0xA"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x8"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_UnusedCommand] + 0xB"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x47"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "PaperplaneSet",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x1124"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                },
+                {
+                    "type": "memory_editor",
+                    "size": "0x14",
+                    "memory": [
+                        "0x3",
+                        "0xb4",
+                        "0x3",
+                        "0x48",
+                        "0x80",
+                        "0x47",
+                        "0x3",
+                        "0xbc",
+                        "0x9",
+                        "0x1a",
+                        "0xa",
+                        "0x60",
+                        "0x10",
+                        "0xbd",
+                        "0x0",
+                        "0x0",
+                        "0xed",
+                        "0xb9",
+                        "0x1",
+                        "0x2"
+                    ]
+                }
+            ],
+            "variables": [
+                {
+                    "name": "FUN_UnusedCommand",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x0203E4D8",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": ""
+        }
+    ]
+}

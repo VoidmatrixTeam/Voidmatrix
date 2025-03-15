@@ -1,0 +1,253 @@
+{
+    "title": "Tidsid Editor",
+    "description": "",
+    "author": "RETIRE",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Write custom TID/SID",
+            "color": [
+                184,
+                119,
+                46
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x9"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x1C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x10"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "0x68094902"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x14"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "0xBD385060"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "size": "u8",
+                            "value": "[FUN_CompAdrsAdrs] + 0x1E"
+                        },
+                        {
+                            "name": "src",
+                            "size": "u8",
+                            "value": "[base_address]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "size": "u8",
+                            "value": "[offset]"
+                        },
+                        {
+                            "name": "address2",
+                            "size": "u8",
+                            "value": "[value]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "Trainer ID",
+                    "default": "0xFFFF",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Secret ID",
+                    "default": "0xFFFF",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "TIDSID_offset",
+                    "default": "0x288",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "offset",
+                    "default": "[TIDSID_offset]",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "value",
+                    "default": "([Secret ID] << 0x10) + [Trainer ID]",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_CompAdrsAdrs",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02039BBC",
+                        "SP": "0x02039C2C",
+                        "GER": "0x02039C2C",
+                        "FR": "0x02039C2C",
+                        "IT": "0x02039C2C",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_LoadAdrsAdrs",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x2039ACC",
+                        "SP": "0x2039B3C",
+                        "GER": "0x2039B3C",
+                        "FR": "0x2039B3C",
+                        "IT": "0x2039B3C",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "base_address",
+                    "default": "0x02108818",
+                    "overrulingValues": {
+                        "ENG": "0x02106FC0",
+                        "SP": "0x02107160",
+                        "GER": "0x02107100",
+                        "FR": "0x02107140",
+                        "IT": "0x021070A0",
+                        "KOR": "0x021045C0",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ]
+        }
+    ]
+}
