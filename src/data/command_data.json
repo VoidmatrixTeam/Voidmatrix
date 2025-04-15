@@ -21,7 +21,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -200,7 +200,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "value",
@@ -363,7 +363,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "rwk",
@@ -377,7 +377,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -414,7 +414,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "value",
@@ -428,7 +428,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "value",
@@ -442,7 +442,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "value",
@@ -469,7 +469,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "value",
@@ -561,12 +561,12 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -581,7 +581,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             }
         ]
     },
@@ -608,7 +608,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -618,7 +618,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -661,7 +661,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -691,7 +691,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -717,7 +717,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -760,7 +760,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -786,7 +786,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -841,7 +841,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "vol",
@@ -890,7 +890,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             }
         ]
     },
@@ -953,7 +953,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -963,7 +963,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1158,7 +1158,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "value",
@@ -1214,7 +1214,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1243,7 +1243,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "number",
@@ -1252,7 +1252,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1263,7 +1263,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "number",
@@ -1272,7 +1272,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1283,7 +1283,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "number",
@@ -1292,7 +1292,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1303,7 +1303,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "number",
@@ -1312,7 +1312,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1323,12 +1323,12 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -1342,12 +1342,12 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1373,7 +1373,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1391,7 +1391,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1409,7 +1409,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1427,7 +1427,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1445,7 +1445,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1463,7 +1463,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1481,7 +1481,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1499,7 +1499,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1517,7 +1517,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1535,7 +1535,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1553,7 +1553,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1571,7 +1571,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1589,7 +1589,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1607,7 +1607,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1625,7 +1625,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1643,7 +1643,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1657,7 +1657,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1684,7 +1684,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1695,7 +1695,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "level",
@@ -1705,12 +1705,12 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1721,7 +1721,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "org",
@@ -1748,7 +1748,7 @@
                 "name": "move",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-moves"
+                "datalist_name": "moves-datalist"
             }
         ],
         "aliases": [
@@ -1761,13 +1761,13 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "move",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-moves"
+                "datalist_name": "moves-datalist"
             },
             {
                 "name": "party index",
@@ -1784,13 +1784,13 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "move",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-moves"
+                "datalist_name": "moves-datalist"
             }
         ],
         "aliases": [
@@ -1807,7 +1807,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1858,7 +1858,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1876,12 +1876,12 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "workvalue",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1895,12 +1895,12 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "workvalue",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1914,12 +1914,12 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "workvalue",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1974,7 +1974,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -1984,7 +1984,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2015,7 +2015,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2025,7 +2025,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2039,7 +2039,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2049,7 +2049,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -2066,7 +2066,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -2105,7 +2105,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "door",
@@ -2162,7 +2162,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "x pos",
@@ -2201,7 +2201,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2229,7 +2229,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2297,7 +2297,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             }
         ]
     },
@@ -2325,7 +2325,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             }
         ],
         "aliases": [
@@ -2343,7 +2343,7 @@
                 "name": "move",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-moves"
+                "datalist_name": "moves-datalist"
             }
         ],
         "aliases": [
@@ -2422,7 +2422,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "sex",
@@ -2467,7 +2467,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2517,7 +2517,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             }
         ]
     },
@@ -2528,13 +2528,13 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             }
         ]
     },
@@ -2544,7 +2544,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2614,7 +2614,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2637,7 +2637,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2647,7 +2647,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2657,7 +2657,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2692,7 +2692,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2702,7 +2702,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2855,7 +2855,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2874,7 +2874,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2884,7 +2884,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2894,7 +2894,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2908,7 +2908,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2922,7 +2922,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2932,7 +2932,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2942,7 +2942,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -2961,7 +2961,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3013,7 +3013,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3035,7 +3035,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3049,7 +3049,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3060,7 +3060,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "door",
@@ -3086,7 +3086,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3104,7 +3104,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3114,7 +3114,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3124,7 +3124,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3134,7 +3134,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3144,7 +3144,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3162,7 +3162,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3173,7 +3173,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "level",
@@ -3188,7 +3188,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "level",
@@ -3210,7 +3210,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3232,7 +3232,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3242,7 +3242,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3256,7 +3256,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3270,7 +3270,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3293,7 +3293,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3316,7 +3316,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3339,7 +3339,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3349,7 +3349,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3397,7 +3397,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3407,7 +3407,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3417,7 +3417,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3444,7 +3444,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3454,7 +3454,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3468,7 +3468,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3527,7 +3527,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3574,7 +3574,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3593,7 +3593,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3607,7 +3607,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3625,7 +3625,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3644,7 +3644,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3654,7 +3654,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3668,7 +3668,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3686,7 +3686,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3704,7 +3704,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3786,7 +3786,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -3841,7 +3841,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3860,7 +3860,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3874,7 +3874,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3914,7 +3914,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3924,7 +3924,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3934,7 +3934,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3944,7 +3944,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -3954,7 +3954,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4127,7 +4127,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4145,7 +4145,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4176,7 +4176,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "mod",
@@ -4199,7 +4199,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4235,7 +4235,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4245,7 +4245,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "number",
@@ -4259,7 +4259,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4269,7 +4269,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -4286,7 +4286,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4344,7 +4344,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "no",
@@ -4358,7 +4358,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -4396,7 +4396,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "no",
@@ -4413,7 +4413,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "gld",
@@ -4434,7 +4434,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -4447,7 +4447,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "no",
@@ -4472,7 +4472,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4516,7 +4516,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4530,7 +4530,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4540,7 +4540,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "lim",
@@ -4554,7 +4554,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "lim",
@@ -4568,7 +4568,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -4638,7 +4638,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4648,7 +4648,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4658,13 +4658,13 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             }
         ]
     },
@@ -4674,7 +4674,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "number",
@@ -4723,7 +4723,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             }
         ]
     },
@@ -4749,7 +4749,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -4762,7 +4762,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -4784,7 +4784,7 @@
                 "name": "move",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-moves"
+                "datalist_name": "moves-datalist"
             }
         ],
         "aliases": [
@@ -4797,7 +4797,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -4807,7 +4807,7 @@
                 "name": "move",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-moves"
+                "datalist_name": "moves-datalist"
             }
         ],
         "aliases": [
@@ -4829,7 +4829,7 @@
                 "name": "move",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-moves"
+                "datalist_name": "moves-datalist"
             }
         ],
         "aliases": [
@@ -4879,7 +4879,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4893,7 +4893,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4907,7 +4907,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4938,7 +4938,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4956,7 +4956,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4979,7 +4979,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -4993,7 +4993,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5036,7 +5036,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5055,7 +5055,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "mov",
@@ -5069,7 +5069,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5079,7 +5079,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5106,7 +5106,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5129,7 +5129,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5186,7 +5186,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5196,7 +5196,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5218,7 +5218,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5228,7 +5228,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -5242,7 +5242,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5261,7 +5261,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5279,13 +5279,13 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             }
         ]
     },
@@ -5312,7 +5312,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "level",
@@ -5326,7 +5326,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -5451,7 +5451,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5461,7 +5461,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5481,7 +5481,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "door",
@@ -5519,7 +5519,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5530,7 +5530,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "sex",
@@ -5548,7 +5548,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5570,7 +5570,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5601,7 +5601,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5620,7 +5620,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -5634,7 +5634,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "nat",
@@ -5648,7 +5648,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5662,7 +5662,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5672,13 +5672,13 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             }
         ]
     },
@@ -5688,7 +5688,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5707,7 +5707,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5738,7 +5738,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5748,7 +5748,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -5765,7 +5765,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -5808,7 +5808,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -5826,7 +5826,7 @@
                 "name": "move",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-moves"
+                "datalist_name": "moves-datalist"
             }
         ],
         "aliases": [
@@ -5839,7 +5839,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ],
         "aliases": [
@@ -5861,7 +5861,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5871,7 +5871,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5906,7 +5906,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5916,7 +5916,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -5930,7 +5930,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -5940,7 +5940,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -5984,7 +5984,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -5998,7 +5998,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6046,7 +6046,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6103,7 +6103,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "x pos",
@@ -6142,7 +6142,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6165,7 +6165,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "ans",
@@ -6183,7 +6183,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "an1",
@@ -6214,7 +6214,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6224,7 +6224,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6251,7 +6251,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "ak1",
@@ -6277,7 +6277,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6314,7 +6314,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6362,7 +6362,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6381,7 +6381,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6399,7 +6399,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6438,7 +6438,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6482,7 +6482,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6501,7 +6501,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6528,7 +6528,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6589,7 +6589,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6608,7 +6608,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6623,7 +6623,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "flag",
@@ -6637,7 +6637,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6669,7 +6669,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "value",
@@ -6683,7 +6683,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6693,7 +6693,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "value",
@@ -6707,7 +6707,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6717,7 +6717,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "party index",
@@ -6765,7 +6765,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "buffer",
@@ -6779,7 +6779,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6789,7 +6789,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6828,7 +6828,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6838,7 +6838,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6861,7 +6861,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6884,7 +6884,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6894,7 +6894,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6904,7 +6904,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6914,7 +6914,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "param",
@@ -6932,7 +6932,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6946,7 +6946,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6969,7 +6969,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -6979,7 +6979,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7001,7 +7001,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "mod",
@@ -7022,7 +7022,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7032,7 +7032,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7063,7 +7063,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7095,7 +7095,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7114,7 +7114,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "bp",
@@ -7132,7 +7132,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7159,7 +7159,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7209,7 +7209,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             }
         ]
     },
@@ -7219,7 +7219,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7229,7 +7229,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7248,7 +7248,7 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "bp",
@@ -7263,12 +7263,12 @@
                 "name": "item",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-items"
+                "datalist_name": "items-datalist"
             },
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7287,7 +7287,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "cwk",
@@ -7301,7 +7301,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "w0",
@@ -7327,7 +7327,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7341,7 +7341,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             },
             {
                 "name": "object",
@@ -7359,7 +7359,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7369,7 +7369,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7409,7 +7409,7 @@
                 "name": "map",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-maps"
+                "datalist_name": "maps-datalist"
             },
             {
                 "name": "x pos",
@@ -7440,7 +7440,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7463,7 +7463,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7477,7 +7477,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
@@ -7488,7 +7488,7 @@
                 "name": "species",
                 "size": "u16",
                 "type": "options",
-                "datalist_name": "datalist-species"
+                "datalist_name": "species-datalist"
             },
             {
                 "name": "level",
@@ -7502,7 +7502,7 @@
             {
                 "name": "work",
                 "size": "u16",
-                "default_value":"0x4000"
+                "default_value": "0x4000"
             }
         ]
     },
