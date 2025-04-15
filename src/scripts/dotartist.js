@@ -4,14 +4,15 @@ class DotArtistPixel extends HTMLElement {
     }
 
     clear() {
-        for (let i=0; i<4; i++) {
-            this.classList.remove(`bit-${i}`);
-        }
+        this.classList.remove(...this.classList);
+        this.innerText = '';
     }
 
     setValue(value) {
         this.clear();
         this.classList.add(`bit-${value}`);
+        this.classList.add('active');
+        this.innerText = value;
     }
 }
 
@@ -24,8 +25,16 @@ class DotArtistRow extends HTMLElement {
         }
     }
 
+    clearPixel(index) {
+        this.children[index].clear();
+    }
+
     setPixel(index, value) {
         this.children[index].setValue(value);
+    }
+
+    setPixelInfo(index, info) {
+        this.children[index].classList.add(info);
     }
 }
 
@@ -58,11 +67,29 @@ class DotArtistCanvas extends HTMLElement {
 
     fromByteArray(byteArray) {
         const pixelArray = this.toPixelArray(byteArray);
+        const lastIndex = pixelArray.length - 1;
+        const lastRow = Math.floor(lastIndex / this.colCount);
+        const lastCol = lastIndex % this.colCount;
+
         for (let row = 0; row < this.rowCount; row++) {
             for (let col = 0; col < this.colCount; col++) {
                 const index = row * this.colCount + col;
-                const value = index < pixelArray.length ? pixelArray[index] : 0;
-                this.children[row].setPixel(col, value);
+                this.children[row].clearPixel(col);
+
+                if (index < pixelArray.length) {
+                    this.children[row].setPixel(col, pixelArray[index]);
+
+                    if (row === lastRow ||
+                        (row === lastRow - 1 && col > lastCol)) {
+                        this.children[row].setPixelInfo(col, 'last-row');
+                    }
+
+                    if (row === lastRow && col === lastCol) {
+                        this.children[row].setPixelInfo(col, 'last-pixel');
+                    }
+                } else {
+                    this.children[row].setPixelInfo(col, 'unset-pixel');
+                }
             }
         }
     }

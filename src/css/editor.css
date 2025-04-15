@@ -14,7 +14,7 @@ script-group-manager {
         display: flex;
         padding: 0;
         margin: 0;
-        height:24px;
+        height: 24px;
 
         & script-group-list {
             display: flex;
@@ -30,8 +30,9 @@ script-group-manager {
 
                 & script-file-selector {
                     background-color: #202020;
-                    display:flex;
+                    display: flex;
                     align-items: center;
+
                     & img {
                         width: 16px;
                         background-color: transparent;
@@ -56,11 +57,12 @@ script-group-manager {
     }
 
     & script-group-area {
-        display:block;
+        display: block;
         height: calc(100% - 24px);
 
         & div {
             height: 100%;
+
             & script-group-toolbar {
                 display: flex;
                 height: 32px;
@@ -77,9 +79,9 @@ script-group-manager {
                     }
 
                     & h5 {
-                        margin:0;
-                        padding:0;
-                        height:18px;
+                        margin: 0;
+                        padding: 0;
+                        height: 18px;
                         font-weight: 200;
                     }
                 }
@@ -97,14 +99,15 @@ script-group-manager {
                 display: block;
                 height: calc(100% - 32px);
                 overflow-y: auto;
+
                 & custom-script {
                     display: flex;
                     margin-bottom: 20px;
-            
+
                     & script-color-swatch {
                         width: var(--color-swatch-width);
                         height: inherit;
-            
+
                         & input {
                             all: unset;
                             width: 100%;
@@ -118,44 +121,49 @@ script-group-manager {
                             box-shadow: none;
                         }
                     }
-            
+
                     & script-option-list {
                         width: 100%;
-            
+
                         & script-toolbar {
-                            display:flex;
+                            display: flex;
                             width: 100%;
                             height: 24px;
                             background-color: var(--bg-dark-2);
-            
+
                             & input {
-                                margin-left:12px;
+                                margin-left: 12px;
                                 display: flex;
                                 justify-content: flex-start;
                                 align-items: center;
                                 width: 100%;
-            
+
                                 & .title-text {
                                     margin-left: 16px;
                                     width: 100%;
                                 }
                             }
+
+                            & img {
+                                width: 16px;
+                                margin-right: 8px;
+                            }
                         }
-            
+
                         & div {
                             height: unset;
                             display: flex;
                             flex-direction: column;
                             background-color: var(--bg-dark-2);
-            
+
                             & div {
                                 background-color: transparent;
                                 display: flex;
                                 flex-direction: row;
                                 align-items: center;
                                 height: 32px;
-                                margin-left:12px;
-            
+                                margin-left: 12px;
+
                                 & img {
                                     width: 24px;
                                     height: 24px;
@@ -163,144 +171,156 @@ script-group-manager {
                                     fill: var(--icon-color);
                                 }
                             }
-            
+
                             & div.hidden {
                                 display: none;
                             }
-            
+
                             & div.content {
                                 margin: 0;
                                 background-color: rgba(0, 0, 0, 0.5);
                             }
-            
+
                             & documentation-option {
                                 background-color: rgba(0, 172, 255, 0.6);
-            
+
                                 & div.content {
                                     display: flex;
                                     flex-direction: column;
                                     height: 100%;
                                     width: 100%;
-            
+                                    position: relative;
+                                    min-height: 64px;
+
                                     & auto-grow-textarea {
                                         width: 100%;
                                         height: 100%;
-            
+                                        padding: 4px 10px;
+                                        box-sizing: border-box;
+
                                         & textarea {
                                             all: unset;
                                             display: block;
                                             width: 100%;
                                             height: auto;
                                             margin: 0;
-                                            padding: 4px 10px;
-                                            box-sizing: border-box;
                                             resize: none;
                                             overflow: auto;
                                             overflow-x: hidden;
                                         }
                                     }
-            
+
                                     & .preview {
                                         display: block;
                                         width: 100%;
                                         height: 100%;
                                         margin: 0;
-                                        padding: 10px;
+                                        padding: 4px 10px;
                                         box-sizing: border-box;
                                         max-height: 400px;
                                         overflow: auto;
                                         overflow-x: hidden;
-            
+
+                                        & *:first-child {
+                                            margin-top: 0;
+                                            padding-top: 0;
+                                        }
+
                                         & img {
                                             width: unset;
                                             height: unset;
                                         }
                                     }
-            
+
                                     & .preview::-webkit-scrollbar {
                                         width: 6px;
                                         background-color: transparent;
                                     }
-            
+
                                     & .preview::-webkit-scrollbar-track {
                                         background-color: transparent;
                                     }
-            
+
                                     & .preview::-webkit-scrollbar-thumb {
                                         background-color: var(--light-1);
                                         border-radius: 4px;
                                     }
-            
+
                                     & .hidden {
                                         display: none;
                                     }
-            
+
                                     &.hidden {
                                         display: none;
                                     }
+
+                                    & img {
+                                        position: absolute;
+                                        top: 0;
+                                        right: 0;
+                                    }
                                 }
-            
                             }
-            
+
                             & variables-option {
                                 background-color: rgba(255, 220, 80, 0.7);
-            
+
                                 & div.content {
                                     display: flex;
                                     flex-direction: column;
                                     height: 100%;
-            
+
                                     & variable-group {
                                         width: 100%;
-            
+
                                         & variable-element {
                                             display: flex;
                                             flex-direction: column;
                                             padding-left: 8px;
-            
+
                                             & variable-header {
                                                 display: flex;
                                                 align-items: center;
                                                 height: 32px;
-            
+
                                                 & input {
                                                     background-color: var(--bg-dark-2);
                                                 }
-            
+
                                                 & h5 {
                                                     font-weight: 200;
                                                     margin: 0;
                                                     padding: 0;
                                                     color: rgba(255, 255, 255, 0.8);
                                                 }
-            
+
                                                 & img {
                                                     width: 16px;
                                                     margin-right: 8px;
-            
+
                                                     &.dropdown {
                                                         transform: rotate(180deg);
                                                     }
                                                 }
-            
+
                                             }
-            
+
                                             & variable-editor {
                                                 display: flex;
                                                 flex-direction: column;
-            
+
                                                 & input-element {
                                                     margin-bottom: 4px;
                                                 }
-            
+
                                                 & input {
                                                     background-color: var(--bg-dark-2);
                                                 }
-            
+
                                                 & variable-option {
-                                                    display:flex;
+                                                    display: flex;
                                                     align-items: center;
-            
+
                                                     h5 {
                                                         font-weight: 200;
                                                         margin: 0;
@@ -309,7 +329,7 @@ script-group-manager {
                                                     }
                                                 }
                                             }
-            
+
                                             & .hidden {
                                                 display: none;
                                             }
@@ -324,18 +344,30 @@ script-group-manager {
 
                             & code-option {
                                 background-color: rgba(var(--main-color), 0.6);
+
                                 & div.content {
-                                    display:flex;
+                                    display: flex;
                                     flex-direction: column;
-                                    padding-left: 8px;
                                     height: 100%;
+                                    padding: 0;
+                                    box-sizing: border-box;
+
+                                    &>* {
+                                        box-sizing: border-box;
+                                    }
 
                                     & code-group {
                                         width: 100%;
+
+                                        &>* {
+                                            border-bottom: 1px solid var(--bg-dark-3);
+                                            padding: 4px 0 4px 8px;
+                                        }
+
                                         & code-block {
                                             display: flex;
-                                            height: 32px;
                                             align-items: center;
+                                            position: relative;
 
                                             & input {
                                                 background-color: var(--bg-dark-2);
@@ -346,6 +378,12 @@ script-group-manager {
                                             & code-parameter {
                                                 margin-left: 8px;
                                             }
+
+                                            & img {
+                                                position: absolute;
+                                                top: 0;
+                                                right: 0;
+                                            }
                                         }
 
                                         & img {
@@ -354,16 +392,25 @@ script-group-manager {
                                         }
 
                                         & memory-block {
+                                            display: block;
+                                            width: 100%;
+                                            height: 100%;
+                                            position: relative;
+                                            box-sizing: border-box;
 
                                             & memory-size-input {
-                                                margin-left: 12px;
-                                                width: 64px;
-                                                background-color: var(--bg-dark-2);
-                                                padding-left: 4px;
+                                                display: block;
+
+                                                & input {
+                                                    width: 140px;
+                                                    background-color: var(--bg-dark-2);
+                                                    padding-left: 8px;
+                                                }
                                             }
+
                                             & div {
                                                 display: grid;
-                                                width: calc(100% - 12px);
+                                                width: calc(100% - 32px);
                                                 height: 100%;
                                                 margin: 0;
                                                 grid-template-columns: repeat(16, 1fr);
@@ -372,6 +419,7 @@ script-group-manager {
 
                                                 & memory-byte-input {
                                                     width: 100%;
+
                                                     & input {
                                                         width: inherit;
                                                         background-color: var(--bg-dark-2);
@@ -379,19 +427,40 @@ script-group-manager {
                                                     }
                                                 }
                                             }
+
+                                            & img {
+                                                position: absolute;
+                                                top: 0;
+                                                right: 0;
+                                            }
                                         }
 
                                         & assembly-block {
+                                            display: block;
+                                            width: 100%;
+                                            position: relative;
+                                            box-sizing: border-box;
+
                                             & auto-grow-textarea {
+                                                display: block;
+                                                width: calc(100% - 24px);
+                                                height: 100%;
+
                                                 & textarea {
                                                     all: unset;
                                                     font-family: monospace;
                                                     background-color: var(--bg-dark-2);
                                                     display: block;
-                                                    width: calc(100% - 12px);
                                                     padding-left: 8px;
-                                                    margin-bottom: 8px;
+                                                    width: calc(100% - 8px);
+                                                    height: 100%;
                                                 }
+                                            }
+
+                                            & img {
+                                                position: absolute;
+                                                top: 0;
+                                                right: 0;
                                             }
                                         }
                                     }
@@ -399,46 +468,59 @@ script-group-manager {
                                     & code-create-block {
                                         display: flex;
                                         flex-direction: row;
+                                        align-self: start;
                                         width: 100%;
-                                        align-items: center;
+                                        margin-top: 8px;
+                                        padding-left: 8px;
+                                        position: relative;
+                                        border-bottom: 1px solid var(--bg-dark-3);
 
                                         & div {
                                             display: flex;
                                             flex-direction: column;
+                                            width: 170px;
                                             margin: 0;
 
                                             & code-create-option {
-                                                display:flex;
+                                                display: flex;
                                                 align-items: center;
                                                 align-self: start;
-                                                width: 165px;
-                                                background-color: var(--bg-dark-2);
+                                                width: inherit;
+                                                height: 20px;
+                                                padding: 0px;
                                                 padding-left: 4px;
-                                                box-shadow: 20px 0 0 0 var(--bg-dark-2);
+                                                background-color: var(--bg-dark-2);
+
                                                 & img {
                                                     width: 16px;
                                                 }
+
+                                                &.hidden {
+                                                    display: none;
+                                                }
                                             }
+                                        }
+
+                                        &.dropdown {
+                                            z-index: 1;
 
                                             & code-create-option.hidden {
-                                                display: none;
+                                                display: flex;
                                             }
                                         }
-                                    }
 
-                                    & code-create-block.dropdown {
-                                        z-index: 1;
-                                        & code-create-option.hidden {
-                                            display: flex;
+                                        & img {
+                                            position: absolute;
+                                            top: 0;
+                                            left: 156px;
+                                            padding: 0;
+                                            margin: 0;
+                                            margin-top: -2px;
                                         }
-                                    }
-
-                                    & span {
-                                        align-self: start;
                                     }
                                 }
 
-                                & div.content.hidden  {
+                                & div.content.hidden {
                                     display: none;
                                 }
                             }
@@ -461,7 +543,8 @@ script-group-manager {
     left: 0;
     right: 0;
     height: 100%;
-    background-color: rgba(145, 145, 193, 0.5); /* Half-transparent blue */
+    background-color: rgba(145, 145, 193, 0.5);
+    /* Half-transparent blue */
     pointer-events: none;
 }
 
@@ -475,7 +558,7 @@ script-group-manager {
     margin-top: 100%;
 }
 
-download-popup  {
+download-popup {
     position: fixed;
     width: 800px;
     height: 300px;
@@ -571,19 +654,24 @@ download-popup  {
     fill: white;
 }
 
-.command, .raw-bytes, .memory-editor {
-    background-color: rgba(40,40,40,0.8);
+.command,
+.raw-bytes,
+.memory-editor {
+    background-color: rgba(40, 40, 40, 0.8);
     border-bottom: 1px solid var(--bg-dark-3);
     position: relative;
 }
 
-.command, .raw-bytes {
+.command,
+.raw-bytes {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.command-input, .raw-bytes, .memory-editor {
+.command-input,
+.raw-bytes,
+.memory-editor {
     padding: 8px 16px;
 }
 
@@ -606,7 +694,8 @@ download-popup  {
     border-radius: 4px;
 }
 
-.command-input, .raw-bytes-container {
+.command-input,
+.raw-bytes-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -614,23 +703,29 @@ download-popup  {
 }
 
 input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
+    padding: 0;
 }
+
 input[type="color"]::-webkit-color-swatch {
-	border: none;
+    border: none;
 }
 
 .script-info {
     width: calc(100% - var(--color-swatch-width));
 }
 
-.script-delete, .command-delete, .raw-bytes-delete, .memory-editor-delete {
+.script-delete,
+.command-delete,
+.raw-bytes-delete,
+.memory-editor-delete {
     margin-right: 10px;
     fill: rgb(var(--main-color));
     cursor: pointer;
 }
 
-.command-delete, .raw-bytes-delete, .memory-editor-delete{
+.command-delete,
+.raw-bytes-delete,
+.memory-editor-delete {
     display: none;
     position: absolute;
     top: 4px;
@@ -643,21 +738,25 @@ input[type="color"]::-webkit-color-swatch {
     fill: white;
 }
 
-.command:hover .command-delete, .raw-bytes:hover .raw-bytes-delete, .memory-editor:hover .memory-editor-delete {
+.command:hover .command-delete,
+.raw-bytes:hover .raw-bytes-delete,
+.memory-editor:hover .memory-editor-delete {
     display: block;
 }
 
-.command-input > * > input, .raw-bytes-container > input {
+.command-input>*>input,
+.raw-bytes-container>input {
     color: var(--light-color);
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     border: None;
     padding: 4px;
 }
 
-.memory-editor > input, .memory-editor-bytes > input, .memory-size-input
-{
+.memory-editor>input,
+.memory-editor-bytes>input,
+.memory-size-input {
     color: var(--light-color);
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     border: None;
     padding: 4px;
     margin-bottom: 4px;
@@ -678,14 +777,14 @@ input[type="color"]::-webkit-color-swatch {
 
 .command-create-wrapper {
     padding: 9px 16px 11px 16px;
-    background-color: rgba(40,40,40,0.8);
+    background-color: rgba(40, 40, 40, 0.8);
     display: flex;
     position: relative;
 }
 
 .option-wrapper {
     position: absolute;
-    height:24px;
+    height: 24px;
 }
 
 .option-wrapper .dropdown-content {
@@ -696,6 +795,7 @@ input[type="color"]::-webkit-color-swatch {
     padding: 2px 0 2px 4px;
     background-color: var(--bg-dark-2);
 }
+
 .option-wrapper .dropdown-content span {
     font-size: 14px;
     font-weight: 400;
