@@ -191,7 +191,7 @@
                     }
                 }
             ],
-            "documentation": "### ASE Anywhere with RETIRE menu\nThis code adds the 'RETIRE' option to the regular Field Menu. \nUnlike the usual Pal Park menu, you have access to all other menus, can encounter wild Pok\u00c3\u00a9mon and make use\nof items and field moves.\n\nIt also hacks the RETIRE option to execute ASE in any map.\nIf you want to set up ASE again afterwards, use the 'npc ase bootstrap'. It works similarly to the regular ase bootstrap,\nbut doesn't modify the items since they've already been modified. It does rely on already having set up the regular ase bootstrap at least once before."
+            "documentation": "### ASE Anywhere with RETIRE menu\nThis code adds the 'RETIRE' option to the regular Field Menu. \nUnlike the usual Pal Park menu, you have access to all other menus, can encounter wild Pokémon and make use\nof items and field moves.\n\nIt also hacks the RETIRE option to execute ASE in any map.\nIf you want to set up ASE again afterwards, use the 'npc ase bootstrap'. It works similarly to the regular ase bootstrap,\nbut doesn't modify the items since they've already been modified. It does rely on already having set up the regular ase bootstrap at least once before."
         }
     ]
 }

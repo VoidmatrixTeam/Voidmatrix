@@ -2,7 +2,10 @@
   "title": "Item based bootstrap",
   "description": "",
   "author": "",
-  "supported": [],
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
   "scripts": [
     {
       "color": [

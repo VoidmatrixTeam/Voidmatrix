@@ -8,7 +8,7 @@
     ],
     "scripts": [
         {
-            "title": "GBA: give any Pok\u00c3\u00a9mon to gen 3 game",
+            "title": "GBA: give any Pokémon to gen 3 game",
             "color": [
                 40,
                 154,
@@ -263,7 +263,7 @@
                     }
                 }
             ],
-            "documentation": "# GBA: give any Pok\u00c3\u00a9mon to gen 3 game\n\nThis code lets you edit the save data of any gen 3 game. It should even function before unlocking elite four, as it ignores certain error conditions. The only requirement should be needing 6 Pok\u00c3\u00a9mon in the gen 3 game.\n\nNote: only supports english at the moment\n\n# Prerequisites:\nObtain at least 1 pok\u00c3\u00a9mon. (This Pok\u00c3\u00a9mon's species ID will be modified).\nUnlock Pal Park migration on gen 4 game.\n\n# How To Use\nSet the desired Pok\u00c3\u00a9mon's id in the variables section. This is set to Mew's id by default. Invalid ID's are allowed, and this code can thus be used to transfer ACE.\n\nAfter executing this code, soft reset and select \"Migrate from Emerald\" on the main menu. Select the Pok\u00c3\u00a9mon you wish to modify and save. You can tell the code works if you immediately go to the save menu after selecting a single Pok\u00c3\u00a9mon. The remaining 5 Pok\u00c3\u00a9mon will be glitch Pok\u00c3\u00a9mon with a question mark as icon.\n\nTo check whether it worked, select \"Migrate from Emerald\" once more. You should not get a 24 hour warning, and your Pok\u00c3\u00a9mon should have been modifed."
+            "documentation": "# GBA: give any Pokémon to gen 3 game\n\nThis code lets you edit the save data of any gen 3 game. It should even function before unlocking elite four, as it ignores certain error conditions. The only requirement should be needing 6 Pokémon in the gen 3 game.\n\nNote: only supports english at the moment\n\n# Prerequisites:\nObtain at least 1 pokémon. (This Pokémon's species ID will be modified).\nUnlock Pal Park migration on gen 4 game.\n\n# How To Use\nSet the desired Pokémon's id in the variables section. This is set to Mew's id by default. Invalid ID's are allowed, and this code can thus be used to transfer ACE.\n\nAfter executing this code, soft reset and select \"Migrate from Emerald\" on the main menu. Select the Pokémon you wish to modify and save. You can tell the code works if you immediately go to the save menu after selecting a single Pokémon. The remaining 5 Pokémon will be glitch Pokémon with a question mark as icon.\n\nTo check whether it worked, select \"Migrate from Emerald\" once more. You should not get a 24 hour warning, and your Pokémon should have been modifed."
         }
     ]
 }
