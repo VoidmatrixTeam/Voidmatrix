@@ -152,7 +152,19 @@ class DotArtistCopyOption extends DotArtistOption {
     }
 
     copy()  {
-        console.error("Copy Not implemented");
+        const scriptGroup = ScriptGroupManager.instance.getSelectedScriptGroup();
+        if (scriptGroup) {
+            const script = scriptGroup.getSelectedScript();
+            if (script) {
+                const byteArray = script.toByteArray();
+                const byteString = byteArray.map(byte => byte.toString(16).padStart(2, '0')).join(' ');
+                navigator.clipboard.writeText(byteString).then(() => {
+                    console.log('Copied to clipboard:', byteString);
+                }).catch(err => {
+                    console.error('Failed to copy:', err);
+                });
+            }
+        }
     }
 }
 
