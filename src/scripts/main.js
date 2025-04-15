@@ -4,8 +4,15 @@ document.addEventListener("DOMContentLoaded", async function () {
     wrapper.appendChild(dotArtistWrapper);
 
     const body = document.querySelector('body');
-    const commandDataList = new CommandDataList();
-    body.appendChild(commandDataList);
+    let datalists = [
+        new CommandDataList(),
+        new SpeciesDataList(),
+        new ItemDataList(),
+        new MoveDataList(),
+        new MapDataList()
+    ];
+    body.append(...datalists);
+
     const leftPanelWrapper = document.querySelector('.left-panel-content');
     const script = new ScriptGroupManager();
     leftPanelWrapper.appendChild(script);

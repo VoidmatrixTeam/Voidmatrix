@@ -101,13 +101,12 @@ class DocumentationOption extends Option {
         this.previewDiv = document.createElement('div');
         this.previewDiv.classList.add('hidden', 'preview');
 
-        const toggleButton = document.createElement('button');
-        toggleButton.innerText = 'Toggle Preview';
-        toggleButton.addEventListener('click', () => {
+        this.toggleButton = new Icon('assets/edit.svg', 'preview icon');
+        this.toggleButton.addEventListener('click', () => {
             this.togglePreview();
         });
 
-        this.content.append(this.textarea, this.previewDiv, toggleButton);
+        this.content.append(this.textarea, this.previewDiv, this.toggleButton);
         this.isPreview = true;
         this.togglePreview();
     }
@@ -119,6 +118,7 @@ class DocumentationOption extends Option {
         }
         this.textarea.classList.toggle('hidden', this.isPreview);
         this.previewDiv.classList.toggle('hidden', !this.isPreview);
+        this.toggleButton.setSrc(this.isPreview ? 'assets/edit.svg' : 'assets/article.svg');
     }
 
     fromJson(json) {
@@ -202,7 +202,7 @@ class VariableHeader extends InputElement {
 }
 
 class VariableOption extends HTMLElement {
-    constructor(title, defaultValue='using default value') {
+    constructor(title, defaultValue = 'using default value') {
         super();
         this.headingTitle = new simpleHeading(title);
         this.input = new InputElement(defaultValue);
@@ -235,7 +235,7 @@ class VariableOption extends HTMLElement {
 }
 
 class VariableEditor extends HTMLElement {
-    constructor(languages=['ENG', 'SP', 'GER', 'FR', 'IT', 'KOR', 'JP5', 'JP6']) {
+    constructor(languages = ['ENG', 'SP', 'GER', 'FR', 'IT', 'KOR', 'JP5', 'JP6']) {
         super();
         this.default = new VariableOption('default', 'default value');
         this.overrulingValues = new Map();
@@ -340,7 +340,7 @@ class VariableGroup extends HTMLElement {
         }
     }
 
-    toJson(includeParsed=false) {
+    toJson(includeParsed = false) {
         const jsonArray = [];
         for (const variable of this.children) {
             const json = variable.toJson();
@@ -407,7 +407,7 @@ class VariablesOption extends Option {
         }
     }
 
-    evaluateExpression(expression, variables, returnExpression, maxDepth=15) {
+    evaluateExpression(expression, variables, returnExpression, maxDepth = 15) {
         try {
             const regex = /\[(.*?)\]/g;
             let previousExpression;
@@ -452,7 +452,7 @@ class VariablesOption extends Option {
         return this.getEvaluatedVariables()[name];
     }
 
-    evaluateString(expression, returnExpression=false) {
+    evaluateString(expression, returnExpression = false) {
         const variables = this.getParsableVariables();
         return this.evaluateExpression(expression || '', variables, returnExpression);
     }
@@ -461,17 +461,15 @@ class VariablesOption extends Option {
 class MemorySizeInput extends InputElement {
     constructor() {
         super();
-        this.input.placeholder = "0x0";
+        this.input.placeholder = "Bytes (max 120)";
     }
 }
 
 class MemorySizeOption extends HTMLElement {
     constructor() {
         super();
-        const textField = document.createElement('span');
-        textField.textContent = 'Size:'
         this.sizeInput = new MemorySizeInput();
-        this.append(textField, this.sizeInput);
+        this.append(this.sizeInput);
     }
 
     getSizeInput() {
@@ -499,10 +497,7 @@ class MemoryEditorBlock extends DraggableHTMLElement {
         super();
         this.varEvaluator = varEvaluator;
         this.maxByteCount = 120;
-        this.createMemoryInputs();
-    }
 
-    createMemoryInputs() {
         this.sizeOption = new MemorySizeOption();
         this.sizeOption.getSizeInput().onInput(this.updateMemorySize.bind(this));
 
@@ -513,8 +508,12 @@ class MemoryEditorBlock extends DraggableHTMLElement {
             this.memory.appendChild(new MemoryByteInput());
         }
 
-        this.appendChild(this.sizeOption);
-        this.appendChild(this.memory);
+        const deleteButton = new Icon('assets/delete.svg', 'delete icon');
+        deleteButton.addEventListener('click', () => {
+            this.remove();
+        });
+
+        this.append(this.sizeOption, this.memory, deleteButton);
     }
 
     getMemoryInputs() {
@@ -522,7 +521,7 @@ class MemoryEditorBlock extends DraggableHTMLElement {
     }
 
     updateMemorySize(size) {
-        size = this.varEvaluator.evaluateString(size);
+        size = this.getActualSize(size);
         const memoryInputs = this.getMemoryInputs();
         for (let i = 0; i < memoryInputs.length; i++) {
             memoryInputs[i].setActive(i < size);
@@ -531,7 +530,7 @@ class MemoryEditorBlock extends DraggableHTMLElement {
 
     fromJson(json) {
         this.sizeOption.getSizeInput().setValue(json.size);
-        const size = this.varEvaluator.evaluateString(json.size);
+        const size = this.getActualSize(json.size);
         const memoryInputs = this.getMemoryInputs();
         for (let i = 0; i < size; i++) {
             memoryInputs[i].setValue(json.memory[i]);
@@ -539,9 +538,22 @@ class MemoryEditorBlock extends DraggableHTMLElement {
         this.updateMemorySize(json.size);
     }
 
-    toJson(parsed=false) {
-        const sizeString = this.sizeOption.getSizeInput().getValue();
+    getActualSize(sizeString) {
+        sizeString = sizeString || this.sizeOption.getSizeInput().getValue();
         const size = this.varEvaluator.evaluateString(sizeString);
+
+        if (!sizeString || size > this.maxByteCount)
+            return this.maxByteCount;
+
+        if (size < 0)
+            return 0;
+
+        return size;
+    }
+
+    toJson(parsed = false) {
+        const sizeString = this.sizeOption.getSizeInput().getValue();
+        const size = this.getActualSize();
 
         const values = [];
         const memoryInputs = this.getMemoryInputs();
@@ -601,7 +613,7 @@ class CommandDataList extends DataList {
         }
     }
 
-    getCommandInfo(command) {
+    parse(command) {
         for (const id in this.json) {
             const commandData = this.json[id];
             switch (typeof command) {
@@ -653,9 +665,9 @@ class CommandInput extends InputElement {
         });
     }
 
-    toJson(parsed=false) {
+    toJson(parsed = false) {
         if (parsed) {
-            const commandData = CommandDataList.instance.getCommandInfo(this.evaluateString(this.getValue(), true));
+            const commandData = CommandDataList.instance.parse(this.evaluateString(this.getValue(), true));
             return commandData ? commandData.id : 0;
         }
         return this.getValue();
@@ -671,16 +683,212 @@ class CommandInput extends InputElement {
     }
 }
 
+class SpeciesDataList extends DataList {
+    constructor() {
+        if (SpeciesDataList.instance) {
+            return SpeciesDataList.instance;
+        }
+        super('species');
+        this.addOptions();
+        SpeciesDataList.instance = this;
+    }
+
+    async addOptions() {
+        try {
+            const response = await fetch('data/species_data.json');
+            const json = await response.json();
+            this.json = json
+                .map((species_name, id) => ({ id, species_name }))
+                .filter((_, id) => id !== 0);
+            for (const speciesData of this.json) {
+                this.addOption(speciesData.species_name, speciesData);
+            }
+        } catch (error) {
+            console.error('Error loading species data:', error);
+        }
+    }
+
+    parse(species) {
+        for (const id in this.json) {
+            const speciesData = this.json[id];
+            switch (typeof species) {
+                case 'number':
+                    if (speciesData.id === species) {
+                        return speciesData;
+                    }
+                    break;
+                case 'string':
+                    if (speciesData.species_name === species) {
+                        return speciesData;
+                    }
+                    break;
+            }
+        }
+    }
+}
+
+class ItemDataList extends DataList {
+    constructor() {
+        if (ItemDataList.instance) {
+            return ItemDataList.instance;
+        }
+        super('items');
+        this.addOptions();
+        ItemDataList.instance = this;
+    }
+
+    async addOptions() {
+        try {
+            const response = await fetch('data/item_data.json');
+            const json = await response.json();
+            this.json = json
+                .map((item_name, id) => ({ id, item_name }))
+                .filter((_, id) => id !== 0);
+            for (const itemData of this.json) {
+                this.addOption(itemData.item_name, itemData);
+            }
+        } catch (error) {
+            console.error('Error loading item data:', error);
+        }
+    }
+
+    parse(item) {
+        for (const id in this.json) {
+            const itemData = this.json[id];
+            switch (typeof item) {
+                case 'number':
+                    if (itemData.id === item) {
+                        return itemData;
+                    }
+                    break;
+                case 'string':
+                    if (itemData.item_name === item) {
+                        return itemData;
+                    }
+                    break;
+            }
+        }
+    }
+}
+
+class MoveDataList extends DataList {
+    constructor() {
+        if (MoveDataList.instance) {
+            return MoveDataList.instance;
+        }
+        super('moves');
+        this.addOptions();
+        MoveDataList.instance = this;
+    }
+
+    async addOptions() {
+        try {
+            const response = await fetch('data/move_data.json');
+            const json = await response.json();
+            this.json = json.map((move_name, id) => ({ id, move_name })); // Map array of strings to objects
+            for (const moveData of this.json) {
+                this.addOption(moveData.move_name, moveData);
+            }
+        } catch (error) {
+            console.error('Error loading move data:', error);
+        }
+    }
+
+    parse(move) {
+        for (const moveData of this.json) {
+            switch (typeof move) {
+                case 'number':
+                    if (moveData.id === move) {
+                        return moveData;
+                    }
+                    break;
+                case 'string':
+                    if (moveData.move_name === move) {
+                        return moveData;
+                    }
+                    break;
+            }
+        }
+    }
+}
+
+class MapDataList extends DataList {
+    constructor() {
+        if (MapDataList.instance) {
+            return MapDataList.instance;
+        }
+        super('maps');
+        this.addOptions();
+        MapDataList.instance = this;
+    }
+
+    async addOptions() {
+        try {
+            const response = await fetch('data/map_data.json');
+            const json = await response.json();
+            this.json = Object.entries(json).map(([id, mapData]) => ({
+                id: parseInt(id, 16), // Convert hex string to integer
+                map_code: mapData.map_code,
+                map_name: mapData.map_name
+            }));
+            for (const mapData of this.json) {
+                this.addOption(mapData.map_name, mapData);
+            }
+        } catch (error) {
+            console.error('Error loading map data:', error);
+        }
+    }
+
+    parse(map) {
+        for (const mapData of this.json) {
+            switch (typeof map) {
+                case 'number':
+                    if (mapData.id === map) {
+                        return mapData;
+                    }
+                    break;
+                case 'string':
+                    if (mapData.map_name === map || mapData.map_code === map) {
+                        return mapData;
+                    }
+                    break;
+            }
+        }
+    }
+}
+
+function getDatalistByName(datalistName) {
+    if (!datalistName)
+        return null;
+
+    switch (datalistName?.replace('datalist', '').replace('-', '')) {
+        case 'species':
+            return SpeciesDataList.instance;
+        case 'items':
+            return ItemDataList.instance;
+        case 'moves':
+            return MoveDataList.instance;
+        case 'maps':
+            return MapDataList.instance;
+        default:
+            console.error('Invalid datalist name:', datalistName);
+            return null;
+    }
+}
+
 class ParamInput extends InputElement {
     constructor(param) {
         super();
-        switch(param.type) {
+        switch (param.type) {
             case undefined:
             case 'text':
                 break;
             case 'options':
-                this.input.setAttribute('list', param.datalist_name);
-                this.input.autocomplete = 'on';
+                const datalist = getDatalistByName(param.datalist_name);
+                if (datalist) {
+                    this.input.setAttribute('list', datalist.getId());
+                    this.input.autocomplete = 'on';
+                }
                 break;
         }
         this.input.placeholder = param.name
@@ -697,7 +905,7 @@ class ParamList extends HTMLElement {
     }
 
     updateCommandInfo(command) {
-        const commandInfo = CommandDataList.instance.getCommandInfo(command);
+        const commandInfo = CommandDataList.instance.parse(command);
         if (!commandInfo || commandInfo == this.currentCommandInfo)
             return;
 
@@ -729,19 +937,29 @@ class ParamList extends HTMLElement {
         }
     }
 
-    toJson(parsed=false) {
+    toJson(parsed = false) {
         const json = [];
         for (const param of this.children) {
             const paramJson = {
                 name: param.input.placeholder,
                 size: param.size
-            }
+            };
             if (parsed) {
-                paramJson['value'] = this.varEvaluator.evaluateString(param.input.value)
+                const datalistName = param.input.getAttribute('list');
+                const datalist = getDatalistByName(datalistName);
+                if (datalist) {
+                    const parsedValue = datalist.parse(param.input.value);
+                    if (parsedValue) {
+                        paramJson['value'] = parsedValue.id;
+                        json.push(paramJson);
+                        continue;
+                    }
+                }
+                paramJson['value'] = this.varEvaluator.evaluateString(param.input.value);
             } else {
                 paramJson['value'] = param.input.value;
             }
-            json.push(paramJson)
+            json.push(paramJson);
         }
         return json;
     }
@@ -774,7 +992,7 @@ class CommandBlock extends DraggableHTMLElement {
         this.parameters.updateValues(json.parameters);
     }
 
-    toJson(parsed=false) {
+    toJson(parsed = false) {
         return {
             type: 'command',
             name: this.command.toJson(parsed),
@@ -794,7 +1012,11 @@ class AssemblyBlock extends DraggableHTMLElement {
         super();
         this.varEvaluator = varEvaluator;
         this.assemblyInput = new AutoGrowTextArea('assembly code');
-        this.append(this.assemblyInput);
+        const deleteButton = new Icon('assets/delete.svg', 'delete icon');
+        deleteButton.addEventListener('click', () => {
+            this.remove();
+        });
+        this.append(this.assemblyInput, deleteButton);
     }
 
     fromJson(json) {
@@ -819,8 +1041,9 @@ class AssemblyBlock extends DraggableHTMLElement {
         var result = assembler.asm(this.toJson(true).assembly);
         assembler.close();
 
-        if (result.failed)
+        if (result.failed) {
             return [];
+        }
 
         return Array.from(result.mc).map(byte => {
             return {
@@ -834,10 +1057,9 @@ class AssemblyBlock extends DraggableHTMLElement {
 class CodeCreateOption extends HTMLElement {
     constructor(option) {
         super();
-        this.icon = new Icon('assets/add.svg', 'add icon');
         this.option = document.createElement('span');
         this.option.textContent = option;
-        this.append(this.icon, this.option);
+        this.append(this.option);
     }
 
     onClick(callback) {
@@ -852,7 +1074,7 @@ class CodeCreateOption extends HTMLElement {
     }
 }
 class CodeCreateBlock extends HTMLElement {
-    constructor(options={'Add Command' : 'command', 'Add Memory Editor': 'memory_editor', 'Add Assembly': 'assembly'}) {
+    constructor(options = { 'Add Command': 'command', 'Add Memory Editor': 'memory_editor', 'Add Assembly': 'assembly' }) {
         super();
         this.optionWrapper = document.createElement('div');
         this.options = [];
@@ -909,7 +1131,7 @@ class CodeGroup extends HTMLElement {
 
     addBlock(type, json) {
         let block;
-        switch(type) {
+        switch (type) {
             case 'command':
                 block = new CommandBlock(this.varEvaluator);
                 break;
@@ -939,7 +1161,7 @@ class CodeGroup extends HTMLElement {
         }
     }
 
-    toJson(parsed=false) {
+    toJson(parsed = false) {
         const json = [];
         for (const block of this.children) {
             json.push(block.toJson(parsed));
@@ -973,7 +1195,7 @@ class CodeOption extends Option {
         this.codeGroup.fromJson(json);
     }
 
-    toJson(parsed=false) {
+    toJson(parsed = false) {
         return this.codeGroup.toJson(parsed);
     }
 
@@ -1020,6 +1242,15 @@ class Toolbar extends InputElement {
     constructor() {
         super();
         this.input.placeholder = 'Script Title';
+        this.delete = new Icon('assets/delete.svg', 'delete icon');
+        this.append(this.delete);
+    }
+
+    onDelete(callback) {
+        this.delete.addEventListener('click', (event) => {
+            event.stopPropagation();
+            callback(this);
+        });
     }
 
     onTitleChange(callback) {
@@ -1048,6 +1279,12 @@ class ScriptOptionList extends HTMLElement {
         )
 
         this.append(this.toolbar, optionContainer);
+    }
+
+    onDelete(callback) {
+        this.toolbar.onDelete(() => {
+            callback(this);
+        });
     }
 
     fromJson(json) {
@@ -1087,6 +1324,12 @@ class Script extends HTMLElement {
         this.attachSignals();
     }
 
+    onDelete(callback) {
+        this.optionList.onDelete(() => {
+            callback(this);
+        });
+    }
+
     getColor() {
         return this.colorSwatch.getColor();
     }
@@ -1105,10 +1348,6 @@ class Script extends HTMLElement {
                 document.dispatchEvent(scriptChangeEvent);
             }
         });
-    }
-
-    onDelete(callback) {
-
     }
 
     dispatchSelectEvent() {
@@ -1195,10 +1434,36 @@ class ScriptList extends HTMLElement {
     constructor() {
         super();
     }
+
     setSelectedScript(script) {
         for (const child of this.children) {
             child.setSelected(child === script);
         }
+    }
+
+    getSelectedScript() {
+        for (const child of this.children) {
+            if (child.enabled) {
+                return child;
+            }
+        }
+        return null;
+    }
+
+    removeScript(script) {
+        if (script === this.getSelectedScript()) {
+            const nextScript = script.nextElementSibling || this.firstElementChild;
+            if (nextScript) {
+                this.setSelectedScript(nextScript);
+            }
+            else {
+                const firstScript = this.firstElementChild;
+                if (firstScript) {
+                    this.setSelectedScript(firstScript);
+                }
+            }
+        }
+        this.removeChild(script);
     }
 
     addScript(json) {
@@ -1209,6 +1474,7 @@ class ScriptList extends HTMLElement {
         this.append(script);
         this.setSelectedScript(script);
         script.onSelect(this.setSelectedScript.bind(this));
+        script.onDelete(this.removeScript.bind(this));
     }
 
     dispatchSelectedScript() {
@@ -1284,7 +1550,7 @@ class ScriptCreate extends HTMLElement {
 }
 
 class GameSelectorMulti extends HTMLElement {
-    constructor(games=['diamond', 'pearl', 'platinum']) {
+    constructor(games = ['diamond', 'pearl', 'platinum']) {
         super();
         this.games = new Map();
         for (const game of games) {
@@ -1361,17 +1627,6 @@ class DownloadPopup extends HTMLElement {
         a.click();
         URL.revokeObjectURL(url);
         this.remove();
-
-        const downloadEvent = new CustomEvent('downloadScript', {
-            detail: json
-        });
-        this.dispatchEvent(downloadEvent);
-    }
-
-    onDownload(callback) {
-        this.downloadButton.addEventListener('downloadScript', () => {
-            callback(this);
-        });
     }
 }
 
@@ -1382,16 +1637,6 @@ class ScriptGroupToolbar extends HTMLElement {
         this.download = new Icon('assets/download.svg', 'download icon');
         this.upload = new Icon('assets/upload.svg', 'upload icon');
         this.append(this.create, this.download, this.upload);
-}
-
-    onCreateScript(callback) {
-        this.create.addEventListener('click', () => {
-            callback();
-        })
-    }
-
-    onDownload(callback) {
-        this.download.onDownload(callback);
     }
 
     onCreateScript(callback) {
@@ -1443,7 +1688,9 @@ class ScriptGroup extends HTMLElement {
             fileInput.click();
         });
 
-        this.toolbar.onCreateScript(this.scripts.addScript.bind(this.scripts));
+        this.toolbar.onCreateScript(() => {
+            this.scripts.addScript(this.getNewScriptJson().scripts[0]);
+        });
 
         this.onSelect(this.setSelected.bind(this));
         this.setSelected();
@@ -1462,6 +1709,10 @@ class ScriptGroup extends HTMLElement {
         this.scripts.dispatchSelectedScript();
     }
 
+    getSelectedScript() {
+        return this.scripts.getSelectedScript();
+    }
+
     setVisibility(enabled) {
         if (enabled) {
             this.classList.remove('hidden');
@@ -1471,7 +1722,7 @@ class ScriptGroup extends HTMLElement {
     }
 
     fromJson(json) {
-        json = json  || this.getNewScriptJson();
+        json = json || this.getNewScriptJson();
         this.fileSelector.fromJson(json);
         this.scripts.fromJson(json);
     }
@@ -1575,6 +1826,15 @@ class ScriptGroupListWrapper extends HTMLElement {
             callback();
         })
     }
+
+    getSelectedScriptGroup() {
+        for (const group of this.scriptGroups.children) {
+            if (group.fileSelector.selected) {
+                return group;
+            }
+        }
+        return null;
+    }
 }
 
 class ScriptGroupArea extends HTMLElement {
@@ -1606,6 +1866,10 @@ class ScriptGroupManager extends HTMLElement {
         );
         ScriptGroupManager.instance = this;
     }
+
+    getSelectedScriptGroup() {
+        return this.scriptGroupListWrapper.getSelectedScriptGroup();
+    }
 }
 
 customElements.define('option-title', OptionTitle, { extends: 'h5' });
@@ -1623,6 +1887,10 @@ customElements.define('memory-size-option', MemorySizeOption);
 customElements.define('memory-byte-input', MemoryByteInput);
 customElements.define('memory-block', MemoryEditorBlock);
 customElements.define('command-datalist', CommandDataList);
+customElements.define('species-datalist', SpeciesDataList);
+customElements.define('item-datalist', ItemDataList);
+customElements.define('move-datalist', MoveDataList);
+customElements.define('map-datalist', MapDataList);
 customElements.define('command-input', CommandInput);
 customElements.define('code-block', CommandBlock);
 customElements.define('assembly-block', AssemblyBlock);
