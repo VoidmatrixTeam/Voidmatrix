@@ -229,6 +229,7 @@ script-group-manager {
                                         & img {
                                             width: unset;
                                             height: unset;
+                                            position: relative;
                                         }
                                     }
 
