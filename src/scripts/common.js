@@ -99,6 +99,10 @@ class Icon extends HTMLImageElement {
     onClick(callback) {
         this.addEventListener('click', callback);
     }
+
+    setSrc(src) {
+        this.src = src;
+    }
 }
 
 class DropDownElement extends HTMLElement {
