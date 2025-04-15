@@ -1,0 +1,233 @@
+{
+  "title": "Item based bootstrap",
+  "description": "",
+  "author": "",
+  "supported": [],
+  "scripts": [
+    {
+      "color": [
+        115,
+        181,
+        115
+      ],
+      "title": "Item based bootstrap",
+      "documentation": "For the new item based bootstrap! Installs mystery gift ACE.",
+      "variables": [
+        {
+          "name": "FUN_EvCmdNameInStone",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0x0203c58c",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        }
+      ],
+      "code": [
+        {
+          "type": "command",
+          "name": "MapChange",
+          "parameters": [
+            {
+              "name": "map",
+              "size": "u16",
+              "value": "0x4"
+            },
+            {
+              "name": "door",
+              "size": "u16",
+              "value": ""
+            },
+            {
+              "name": "x pos",
+              "size": "u16",
+              "value": "0x8"
+            },
+            {
+              "name": "z pos",
+              "size": "u16",
+              "value": "0x8"
+            },
+            {
+              "name": "direction",
+              "size": "u16",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_EvCmdNameInStone] + 0x1"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x47"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "BicycleReq",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u8",
+              "value": "0x1"
+            }
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "2",
+          "memory": [
+            "0x71",
+            "0x2"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x16",
+          "memory": [
+            "0x17",
+            "0x33",
+            "0x18",
+            "0x1C",
+            "0x1",
+            "0x88",
+            "0x00",
+            "0x29",
+            "0x04",
+            "0xD0",
+            "0x42",
+            "0x88",
+            "0x41",
+            "0x18",
+            "0x0B",
+            "0xDF",
+            "0x80",
+            "0x18",
+            "0xF7",
+            "0xE7",
+            "0x10",
+            "0xBD"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x8",
+          "memory": [
+            "0x28",
+            "0x96",
+            "0x8",
+            "",
+            "0x20",
+            "0x83",
+            "0xB8",
+            "0xED"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x6",
+          "memory": [
+            "0x4C",
+            "0x96",
+            "0x6",
+            "",
+            "0x9F",
+            "0xCF"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x4",
+          "memory": [
+            "0x1A",
+            "0x50",
+            "0x1E",
+            ""
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x1A",
+          "memory": [
+            "0x0D",
+            "0x00",
+            "0x82",
+            "0xE2",
+            "0x10",
+            "0xFF",
+            "0x2F",
+            "0xE1",
+            "0x01",
+            "0x20",
+            "0x10",
+            "0x60",
+            "0x18",
+            "0x32",
+            "0x30",
+            "0xCA",
+            "0x31",
+            "0xC3",
+            "0xF7",
+            "0x46",
+            "0x16",
+            "0x0",
+            "0x44",
+            "0x7C",
+            "0xFD",
+            "0xFF"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x1E",
+          "memory": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "0x16",
+            "",
+            "0x88",
+            "0xFF",
+            "0xFF",
+            "0xFF"
+          ]
+        }
+      ]
+    }
+  ]
+}
