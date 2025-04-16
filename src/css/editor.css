@@ -589,9 +589,16 @@ download-popup {
         margin-top: 10px;
     }
 
+    & img {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
     & game-selector-multi {
         & img {
             width: 24px;
+            position: unset;
 
             &.faded {
                 opacity: 0.5;

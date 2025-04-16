@@ -1600,13 +1600,19 @@ class DownloadPopup extends HTMLElement {
             );
         });
 
+        this.delete = new Icon('assets/delete.svg', 'delete icon');
+        this.delete.addEventListener('click', () => {
+            this.remove();
+        });
+
         this.append(
             new SearchHeading('Download Script'),
             titleInput,
             descriptionInput,
             authorInput,
             supportedGames,
-            downloadButton
+            downloadButton,
+            this.delete
         );
     }
 
