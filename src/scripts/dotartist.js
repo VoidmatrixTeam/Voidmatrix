@@ -47,7 +47,7 @@ class DotArtistCanvas extends HTMLElement {
         this.rowCount = 20;
         this.colCount = 24;
 
-        for (let row=0; row < this.rowCount; row++) {
+        for (let row = 0; row < this.rowCount; row++) {
             this.append(new DotArtistRow(this.colCount));
         }
 
@@ -151,7 +151,7 @@ class DotArtistCopyOption extends DotArtistOption {
         this.onClick(this.copy.bind(this));
     }
 
-    copy()  {
+    copy() {
         const scriptGroup = ScriptGroupManager.instance.getSelectedScriptGroup();
         if (scriptGroup) {
             const script = scriptGroup.getSelectedScript();
@@ -222,11 +222,11 @@ class DotArtistWrapper extends HTMLElement {
 customElements.define('dot-artist-pixel', DotArtistPixel);
 customElements.define('dot-artist-row', DotArtistRow);
 customElements.define('dot-artist-canvas', DotArtistCanvas);
-customElements.define('dot-artist-option', DotArtistOption, { extends: 'img'});
-customElements.define('dot-artist-toggle-option', ToggleableDotArtistOption, { extends: 'img'});
-customElements.define('dot-artist-dropdown', DotArtistDropDownOption, { extends: 'img'});
-customElements.define('dot-artist-highlight', DotArtistHighlightOption, { extends: 'img'});
-customElements.define('dot-artist-number-view', DotArtistNumberViewerOption, { extends: 'img'});
-customElements.define('dot-artist-copy', DotArtistCopyOption, { extends: 'img'});
+customElements.define('dot-artist-option', DotArtistOption, { extends: 'img' });
+customElements.define('dot-artist-toggle-option', ToggleableDotArtistOption, { extends: 'img' });
+customElements.define('dot-artist-dropdown', DotArtistDropDownOption, { extends: 'img' });
+customElements.define('dot-artist-highlight', DotArtistHighlightOption, { extends: 'img' });
+customElements.define('dot-artist-number-view', DotArtistNumberViewerOption, { extends: 'img' });
+customElements.define('dot-artist-copy', DotArtistCopyOption, { extends: 'img' });
 customElements.define('dot-artist-config-options', DotArtistConfigOptions);
 customElements.define('dot-artist-wrapper', DotArtistWrapper);
