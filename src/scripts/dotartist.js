@@ -116,12 +116,12 @@ class ToggleableDotArtistOption extends DotArtistOption {
     }
 
     setEnabled(enabled) {
+        this.enabled = enabled;
         this.classList.toggle('enabled', enabled);
     }
 
     toggle() {
-        this.enabled = !this.enabled;
-        this.setEnabled(this.enabled);
+        this.setEnabled(!this.enabled);
     }
 }
 
@@ -136,6 +136,15 @@ class DotArtistHighlightOption extends ToggleableDotArtistOption {
     constructor() {
         super('assets/highlight_selection.svg', 'highlight icon');
         this.setEnabled(true);
+        this.toggleHighlight();
+        this.onClick(this.toggleHighlight.bind(this));
+    }
+
+    toggleHighlight() {
+        const canvas = DotArtistCanvas.instance;
+        if (canvas) {
+            canvas.classList.toggle('highlight', this.enabled);
+        }
     }
 }
 
@@ -143,6 +152,15 @@ class DotArtistNumberViewerOption extends ToggleableDotArtistOption {
     constructor() {
         super('assets/123.svg', 'numbers icon');
         this.setEnabled(true);
+        this.toggleNumbers();
+        this.onClick(this.toggleNumbers.bind(this));
+    }
+
+    toggleNumbers() {
+        const canvas = DotArtistCanvas.instance;
+        if (canvas) {
+            canvas.classList.toggle('show-numbers', this.enabled);
+        }
     }
 }
 

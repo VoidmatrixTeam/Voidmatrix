@@ -1,5 +1,5 @@
 dot-artist-wrapper {
-    display:flex;
+    display: flex;
     margin-top: var(--application-container-margin);
     height: var(--dot-artist-section-height);
     display: flex;
@@ -13,11 +13,45 @@ dot-artist-wrapper {
         display: flex;
         flex-direction: column;
 
+        &.highlight {
+            & dot-artist-row {
+                & dot-artist-pixel {
+                    &.last-pixel {
+                        border-right: var(--dot-artist-highlight-border);
+                    }
+
+                    &.last-row {
+                        border-bottom: var(--dot-artist-highlight-border);
+                    }
+
+                    &.unset-pixel {
+                        background-color: var(--dot-artist-no-highlight);
+                        border: var(--dot-artist-uninitialized-border);
+                    }
+                }
+            }
+        }
+
+        & dot-artist-row {
+            & dot-artist-pixel {
+                color: transparent;
+            }
+        }
+
+        &.show-numbers {
+            & dot-artist-row {
+                & dot-artist-pixel {
+                    color: inherit;
+                }
+            }
+        }
+
         & dot-artist-row {
             display: flex;
             height: 100%;
             width: 100%;
             overflow: hidden;
+
             & dot-artist-pixel {
                 height: 100%;
                 display: flex;
@@ -30,18 +64,6 @@ dot-artist-wrapper {
                 flex: 1;
 
                 border: var(--dot-artist-border);
-                &.last-pixel {
-                    border-right: var(--dot-artist-highlight-border);
-                }
-
-                &.last-row {
-                    border-bottom: var(--dot-artist-highlight-border);
-                }
-
-                &.unset-pixel {
-                    background-color: var(--dot-artist-no-highlight);
-                    border: var(--dot-artist-uninitialized-border);
-                }
             }
 
             & .bit-1 {
@@ -68,7 +90,7 @@ dot-artist-wrapper {
         & .hidden {
             display: none;
         }
-    
+
         & .enabled {
             background-color: var(--bg-dark-2);
         }
