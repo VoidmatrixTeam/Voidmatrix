@@ -12,7 +12,8 @@ class DotArtistPixel extends HTMLElement {
         this.clear();
         this.classList.add(`bit-${value}`);
         this.classList.add('active');
-        this.innerText = value;
+        if (value > 0)
+            this.innerText = value;
     }
 }
 
