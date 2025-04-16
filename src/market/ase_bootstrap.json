@@ -1,266 +1,322 @@
 {
-    "title": "Ase Bootstrap",
-    "description": "",
-    "author": "RETIRE",
-    "supported": [
-        "diamond",
-        "pearl"
-    ],
-    "scripts": [
+  "title": "Ase Bootstrap",
+  "description": "",
+  "author": "RETIRE",
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        199,
+        151,
+        143
+      ],
+      "title": "Arbitrary Script Execution bootstrap",
+      "documentation": "## New Bootstrap\n\nThis script sets up an NPC ASE bootstrap and edits the player's items in the Mail Pocket to add some additional features.\nWhen successfully executed, the script will perform the following:\n\n1. Edits the 'setMoveCode' function, which usually sets the movement commands for NPCs. Instead, it will now edit an NPC's event Id. \nInteracting with the affected NPC will now execute ASE. The benefit is that this effect persists after save resetting.\n2. Warp to the Pokémon League. This location is ideal as it contains a PC, which is necessary for viewing the Hall of Fame after rebooting the game.\n3. Edits the player's Mail Pocket items. The ASE setup you initially performed required specific items in the medicine and ball pocket, and also required\na specific Dot Artist and Calendar App to be saved in the backup save. The editing performed here will bypass these necessities, directly making code be executed from the Dot Artist during current gameplay. It also ensures that the code will be executed from the first byte in the dot artist, allowing for precious extra bytes to be used for code execution.\n\n### Check if the code worked\n\n1. Press X and B to flash the Field Menu\n2. Talk to the nurse. You should get warped again.\n3. Check your Bag's Mail pocket.\n\nThe contents should be identical to the image below. Do NOT hover over the second item. This will crash the game.\n\n![image](https://onedrive.live.com/embed?resid=131055FCC9659DC9%21626038&authkey=%21AIiNxJBdX1JOrYw&width=510&height=381)\n\n### Executing NPC ASE after reboot\n\nIf all the above worked as intended, swap to the Dot Artist Poketch app. Now, make sure you **don't** stand in front of the nurse. \nYou should now save and reset **twice**.\nAfter resetting, you will notice you swapped places with another NPC. This is a small side effect you don't have to worry about.\n\n#### Execution:\n\nView the Hall of Fame once after you boot up the game.\n\nEdit your dot artist as desired with the new script to executed.\nReload graphics by opening any menu.\nTalk to the Nurse to execute the code.\n\nIf you want to repeatedly execute the same code, reload graphics between each interaction.\n\n#### Mystery Gift ACE\n\nIf you'd like to be able to play the game again as regular, and no longer have to:\n1. Be stuck in Pokémon League building\n2. Specific items in the bag\n3. View Hall Of Fame every time you boot up the game\n4. Just be unable to play the game, really\n\nYou should look for the Mystery Gift ASE bootstrap code on this website. It lets you execute code\nwhenever you talk to the Mystery Gift Postman, with virtually no restrictions on your game anymore!\n",
+      "variables": [
         {
-            "title": "Arbitrary Script Execution bootstrap",
-            "color": [
-                199,
-                151,
-                143
-            ],
-            "language": "English",
-            "code": [
-                {
-                    "type": "command",
-                    "name": "LoadAdrsValue",
-                    "parameters": [
-                        {
-                            "name": "address",
-                            "size": "u8",
-                            "value": "[FUN_setMoveCode]"
-                        },
-                        {
-                            "name": "value",
-                            "size": "u8",
-                            "value": "0x01"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "LoadAdrsValue",
-                    "parameters": [
-                        {
-                            "name": "address",
-                            "size": "u8",
-                            "value": "[FUN_setMoveCode] + 0x1"
-                        },
-                        {
-                            "name": "value",
-                            "size": "u8",
-                            "value": "0x62"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "MapChange",
-                    "parameters": [
-                        {
-                            "name": "map",
-                            "size": "u8",
-                            "value": "0xAF"
-                        },
-                        {
-                            "name": "door",
-                            "size": "u8",
-                            "value": "0x0"
-                        },
-                        {
-                            "name": "x pos",
-                            "size": "u8",
-                            "value": "8"
-                        },
-                        {
-                            "name": "z pos",
-                            "size": "u8",
-                            "value": "4"
-                        },
-                        {
-                            "name": "direction",
-                            "size": "u8",
-                            "value": "0"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "MoveCodeChange",
-                    "parameters": [
-                        {
-                            "name": "object",
-                            "size": "u8",
-                            "value": "0x3"
-                        },
-                        {
-                            "name": "cod",
-                            "size": "u8",
-                            "value": "0x3D50"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "LoadAdrsValue",
-                    "parameters": [
-                        {
-                            "name": "address",
-                            "size": "u8",
-                            "value": "[FUN_GetItemData] + 0x14"
-                        },
-                        {
-                            "name": "value",
-                            "size": "u8",
-                            "value": "0x5"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "LoadAdrsValue",
-                    "parameters": [
-                        {
-                            "name": "address",
-                            "size": "u8",
-                            "value": "[FUN_GetItemData] + 0x15"
-                        },
-                        {
-                            "name": "value",
-                            "size": "u8",
-                            "value": "0x20"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "AddItem",
-                    "parameters": [
-                        {
-                            "name": "item",
-                            "size": "u8",
-                            "value": "0x16"
-                        },
-                        {
-                            "name": "number",
-                            "size": "u8",
-                            "value": "0x10CC"
-                        },
-                        {
-                            "name": "work",
-                            "size": "u8",
-                            "value": "0x4000"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "AddItem",
-                    "parameters": [
-                        {
-                            "name": "item",
-                            "size": "u8",
-                            "value": "0xFFEF"
-                        },
-                        {
-                            "name": "number",
-                            "size": "u8",
-                            "value": "0x1"
-                        },
-                        {
-                            "name": "work",
-                            "size": "u8",
-                            "value": "0x4000"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "LoadAdrsValue",
-                    "parameters": [
-                        {
-                            "name": "address",
-                            "size": "u8",
-                            "value": "[SetMailMax]"
-                        },
-                        {
-                            "name": "value",
-                            "size": "u8",
-                            "value": "0x0"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "PokeParkControl",
-                    "parameters": [
-                        {
-                            "name": "mod",
-                            "size": "u8",
-                            "value": "0x1"
-                        }
-                    ]
-                },
-                {
-                    "type": "command",
-                    "name": "End",
-                    "parameters": []
-                }
-            ],
-            "variables": [
-                {
-                    "name": "byte_code_offset",
-                    "default": "0x11",
-                    "overrulingValues": {
-                        "ENG": "",
-                        "SP": "",
-                        "GER": "",
-                        "FR": "",
-                        "IT": "",
-                        "KOR": "",
-                        "JP5": "",
-                        "JP6": ""
-                    }
-                },
-                {
-                    "name": "FUN_setMoveCode",
-                    "default": "0x0205b5CC",
-                    "overrulingValues": {
-                        "ENG": "0x0205847c",
-                        "SP": "0x020584ec",
-                        "GER": "0x020584ec",
-                        "FR": "0x020584ec",
-                        "IT": "0x020584ec",
-                        "KOR": "",
-                        "JP5": "",
-                        "JP6": ""
-                    }
-                },
-                {
-                    "name": "FUN_GetItemData",
-                    "default": "0x02073A42",
-                    "overrulingValues": {
-                        "ENG": "0x0206ebd4",
-                        "SP": "0x206ec30",
-                        "GER": "0x206ec30",
-                        "FR": "0x206ec30",
-                        "IT": "0x206ec10",
-                        "KOR": "",
-                        "JP5": "",
-                        "JP6": ""
-                    }
-                },
-                {
-                    "name": "SetMailMax",
-                    "default": "[FUN_GetItemData]+0x7E",
-                    "overrulingValues": {
-                        "ENG": "",
-                        "SP": "",
-                        "GER": "",
-                        "FR": "",
-                        "IT": "",
-                        "KOR": "",
-                        "JP5": "",
-                        "JP6": ""
-                    }
-                }
-            ],
-            "documentation": "## New Bootstrap\n\nThis script sets up an NPC ASE bootstrap and edits the player's items in the Mail Pocket to add some additional features.\nWhen successfully executed, the script will perform the following:\n\n1. Edits the 'setMoveCode' function, which usually sets the movement commands for NPCs. Instead, it will now edit an NPC's event Id. \nInteracting with the affected NPC will now execute ASE. The benefit is that this effect persists after save resetting.\n2. Warp to the Pokémon League. This location is ideal as it contains a PC, which is necessary for viewing the Hall of Fame after rebooting the game.\n3. Edits the player's Mail Pocket items. The ASE setup you initially performed required specific items in the medicine and ball pocket, and also required\na specific Dot Artist and Calendar App to be saved in the backup save. The editing performed here will bypass these necessities, directly making code be executed from the Dot Artist during current gameplay. It also ensures that the code will be executed from the first byte in the dot artist, allowing for precious extra bytes to be used for code execution.\n\n### Check if the code worked\n\n1. Press X and B to flash the Field Menu\n2. Talk to the nurse. You should get warped again.\n3. Check your Bag's Mail pocket.\n\nThe contents should be identical to the image below. Do NOT hover over the second item. This will crash the game.\n\n![image](https://onedrive.live.com/embed?resid=131055FCC9659DC9%21626038&authkey=%21AIiNxJBdX1JOrYw&width=510&height=381)\n\n### Executing NPC ASE after reboot\n\nIf all the above worked as intended, swap to the Dot Artist Poketch app. Now, make sure you **don't** stand in front of the nurse. \nYou should now save and reset **twice**.\nAfter resetting, you will notice you swapped places with another NPC. This is a small side effect you don't have to worry about.\n\n#### Execution:\n\nView the Hall of Fame once after you boot up the game.\n\nEdit your dot artist as desired with the new script to executed.\nReload graphics by opening any menu.\nTalk to the Nurse to execute the code.\n\nIf you want to repeatedly execute the same code, reload graphics between each interaction.\n\n#### Mystery Gift ACE\n\nIf you'd like to be able to play the game again as regular, and no longer have to:\n1. Be stuck in Pokémon League building\n2. Specific items in the bag\n3. View Hall Of Fame every time you boot up the game\n4. Just be unable to play the game, really\n\nYou should look for the Mystery Gift ASE bootstrap code on this website. It lets you execute code\nwhenever you talk to the Mystery Gift Postman, with virtually no restrictions on your game anymore!\n"
+          "name": "byte_code_offset",
+          "default": "0x11",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "FUN_setMoveCode",
+          "default": "0x0205b5CC",
+          "overrulingValues": {
+            "ENG": "0x0205847c",
+            "SP": "0x020584ec",
+            "GER": "0x020584ec",
+            "FR": "0x020584ec",
+            "IT": "0x020584ec",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "FUN_GetItemData",
+          "default": "0x02073A42",
+          "overrulingValues": {
+            "ENG": "0x0206ebd4",
+            "SP": "0x206ec30",
+            "GER": "0x206ec30",
+            "FR": "0x206ec30",
+            "IT": "0x206ec10",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "SetMailMax",
+          "default": "[FUN_GetItemData]+0x7E",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
         }
-    ]
+      ],
+      "code": [
+        {
+          "type": "memory_editor",
+          "size": "[byte_code_offset]",
+          "memory": [
+            "0x0",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_setMoveCode]"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x01"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_setMoveCode] + 0x1"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x62"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "MapChange",
+          "parameters": [
+            {
+              "name": "map",
+              "size": "u16",
+              "value": "0xAF"
+            },
+            {
+              "name": "door",
+              "size": "u16",
+              "value": "0x0"
+            },
+            {
+              "name": "x pos",
+              "size": "u16",
+              "value": "8"
+            },
+            {
+              "name": "z pos",
+              "size": "u16",
+              "value": "4"
+            },
+            {
+              "name": "direction",
+              "size": "u16",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "MoveCodeChange",
+          "parameters": [
+            {
+              "name": "object",
+              "size": "u16",
+              "value": "0x3"
+            },
+            {
+              "name": "cod",
+              "size": "u16",
+              "value": "0x3D50"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_GetItemData] + 0x14"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x5"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_GetItemData] + 0x15"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x20"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "AddItem",
+          "parameters": [
+            {
+              "name": "item",
+              "size": "u16",
+              "value": "0x16"
+            },
+            {
+              "name": "number",
+              "size": "u16",
+              "value": "0x10CC"
+            },
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "AddItem",
+          "parameters": [
+            {
+              "name": "item",
+              "size": "u16",
+              "value": "0xFFEF"
+            },
+            {
+              "name": "number",
+              "size": "u16",
+              "value": "0x1"
+            },
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[SetMailMax]"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "PokeParkControl",
+          "parameters": [
+            {
+              "name": "mod",
+              "size": "u16",
+              "value": "0x1"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x2D - [byte_code_offset]",
+          "memory": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "0x16"
+          ]
+        }
+      ]
+    }
+  ]
 }
