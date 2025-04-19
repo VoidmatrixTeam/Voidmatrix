@@ -1335,27 +1335,14 @@ class Script extends HTMLElement {
     }
 
     attachSignals() {
-        const scriptChangeEvent = new CustomEvent('scriptChange', {
-            detail: this
-        });
-
         this.onSelect(() => {
-            document.dispatchEvent(scriptChangeEvent);
-            if (this.enabled) {
-                const scriptChangeEvent = new CustomEvent('scriptSelected', {
-                    detail: this
-                });
-                document.dispatchEvent(scriptChangeEvent);
-            }
+            this.dispatchSelectEvent();
         });
     }
 
     dispatchSelectEvent() {
         if (this.enabled) {
-            const scriptChangeEvent = new CustomEvent('scriptSelected', {
-                detail: this
-            });
-            document.dispatchEvent(scriptChangeEvent);
+            document.dispatchEvent(new CustomEvent('scriptSelected', { detail: this }));
         }
     }
 
@@ -1864,6 +1851,7 @@ class ScriptGroupManager extends HTMLElement {
         if (ScriptGroupManager.instance) {
             return ScriptGroupManager.instance;
         }
+
         this.scriptGroupArea = new ScriptGroupArea();
         this.scriptGroupListWrapper = new ScriptGroupListWrapper();
         this.append(
