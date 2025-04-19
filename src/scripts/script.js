@@ -1315,7 +1315,7 @@ class Script extends HTMLElement {
         this.optionList = new ScriptOptionList();
 
         this.colorSwatch.onColorChange(this.optionList.code.setColor.bind(this.optionList.code));
-        this.colorSwatch.setColor([115, 181, 115]);
+        this.colorSwatch.setColor([40, 155, 65]);
 
         this.append(this.colorSwatch, this.optionList);
 
@@ -1734,7 +1734,7 @@ class ScriptGroup extends HTMLElement {
             'scripts': [
                 {
                     'title': 'script title',
-                    'color': [115, 181, 115],
+                    'color': [40, 155, 65],
                     'documentation': '',
                     'variables': [],
                     'code': [
