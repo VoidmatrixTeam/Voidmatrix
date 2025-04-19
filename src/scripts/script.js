@@ -893,7 +893,7 @@ class ParamInput extends InputElement {
         }
         this.input.placeholder = param.name
         this.size = param.size;
-        this.input.value = param.value || '';
+        this.input.value = param.value || param.default_value || '';
     }
 }
 
