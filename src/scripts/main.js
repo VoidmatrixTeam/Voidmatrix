@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     body.append(...datalists);
 
     const leftPanelWrapper = document.querySelector('.left-panel-content');
-    const script = new ScriptGroupManager();
-    leftPanelWrapper.appendChild(script);
+    const scriptGroupManager = new ScriptGroupManager();
+    leftPanelWrapper.appendChild(scriptGroupManager);
 
     const searchWrapper = document.querySelector('.search-wrapper');
     const searchArea = new SearchArea(await ScriptRequestHandler.getScripts());
