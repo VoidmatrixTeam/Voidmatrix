@@ -20,10 +20,8 @@ class LanguageInput extends DropDownElement {
         LanguageInput.instance = this;
 
         this.addEventListener('change', () => {
-            const languageUpdateEvent = new CustomEvent('languageUpdate', {
-                detail: this.getValue()
-            });
-            document.dispatchEvent(languageUpdateEvent);
+            document.dispatchEvent(new CustomEvent('languageUpdate', { detail: this.getValue() }));
+            document.dispatchEvent(new CustomEvent('updateDotArtist', {}));
         });
     }
 }
@@ -74,14 +72,14 @@ class GameSelectorDropDown extends HTMLElement {
 }
 
 class GameSelector extends HTMLElement {
-    constructor(game='diamond', games=['diamond', 'pearl', 'platinum']) {
+    constructor(game = 'diamond', games = ['diamond', 'pearl', 'platinum']) {
         if (GameSelector.instance) {
             return GameSelector.instance;
         }
 
         super();
         this.gameIcon = new GameIcon(game);
-        this.dropdown= new GameSelectorDropDown(games);
+        this.dropdown = new GameSelectorDropDown(games);
         this.dropdown.onSelect(this.setSelectedGame.bind(this))
         this.onSelect(this.dropdown.toggleVisibility.bind(this.dropdown));
         this.append(this.gameIcon, this.dropdown);
@@ -100,7 +98,7 @@ class GameSelector extends HTMLElement {
 }
 
 class SearchBar extends HTMLElement {
-    constructor(){
+    constructor() {
         super();
         const icon = new Icon('assets/search.svg', 'search icon');
         icon.classList.add('search-icon')
@@ -143,7 +141,7 @@ class SearchResultInfo extends HTMLElement {
 }
 
 class SupportedGames extends HTMLElement {
-    constructor(json, games=['diamond', 'pearl', 'platinum']) {
+    constructor(json, games = ['diamond', 'pearl', 'platinum']) {
         super();
         this.games = [];
         for (const game of games) {
@@ -220,7 +218,7 @@ class SearchArea extends HTMLElement {
 
 customElements.define('search-input', SearchInput);
 customElements.define('language-input', LanguageInput);
-customElements.define('game-icon', GameIcon, { extends: 'img'});
+customElements.define('game-icon', GameIcon, { extends: 'img' });
 customElements.define('game-selector-dropdown', GameSelectorDropDown);
 customElements.define('game-selector', GameSelector);
 customElements.define('search-bar', SearchBar);

@@ -231,6 +231,17 @@ class DotArtistWrapper extends HTMLElement {
             this.setColor(script.getColor());
             this.canvas.fromByteArray(script.toByteArray());
         });
+
+        document.addEventListener('updateDotArtist', (event) => {
+            const scriptGroup = ScriptGroupManager.instance?.getSelectedScriptGroup();
+            if (scriptGroup) {
+                const script = scriptGroup.getSelectedScript();
+                if (script) {
+                    this.setColor(script.getColor());
+                    this.canvas.fromByteArray(script.toByteArray());
+                }
+            }
+        });
     }
 
     setColor(color) {
