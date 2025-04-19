@@ -1,0 +1,165 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+h1 {
+    padding: 0;
+    margin: 8px 0 4px 0;
+}
+
+h2,
+h3 {
+    padding: 0;
+    margin: 8px 0 0 0;
+}
+
+ul {
+    padding: 0px 20px;
+    list-style-type: none;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+}
+
+select {
+    width: 200px;
+    height: 300px;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.auto-selected {
+    color: blue;
+    font-style: italic;
+}
+
+.bad-item {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.safe-item {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.side-effect-item {
+    background-color: #fcdda8;
+    color: #856404;
+}
+
+.good-item {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#resultSection {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+}
+
+#resultSection>div {
+    flex: 1;
+    margin: 0;
+    width: 150px;
+}
+
+#resultSection h3 {
+    text-align: center;
+}
+
+.item-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+}
+
+#itemList {
+    overflow-y: auto;
+    max-height: 500px;
+    width: 100%;
+}
+
+.item-list-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 14px;
+    position: relative;
+}
+
+.item-list-header .obtained,
+.item-list-header .suggest {
+    position: absolute;
+    right: 32px;
+}
+
+.item-list-header .obtained {
+    right: 100px;
+}
+
+.item-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 5px;
+    align-items: center;
+}
+
+.item-row span {
+    flex: 3;
+    text-align: left;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.item-row input {
+    flex: 1;
+    height: 20px;
+}
+
+.obtained-checkbox,
+.suggest-checkbox {
+    margin: 0;
+}
+
+.autoselected {
+    border: 2px dashed #9e1bbf;
+    font-weight: bold;
+    padding: 2px;
+}

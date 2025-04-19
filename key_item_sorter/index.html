@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Sorter</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Item Sorter</h1>
+        <div class="item-list">
+            <div class="item-list-header">
+                <span>Item</span>
+                <span class="obtained">Obtained</span>
+                <span class="suggest">Suggest</span>
+            </div>
+            <div id="itemList">
+                <!-- Items will be dynamically added by JavaScript -->
+            </div>
+        </div>
+        <div>
+            <button onclick="sortItems()">Sort!</button>
+            <button onclick="toggleCheats()">Allow Cheated Items</button>
+        </div>
+        <h2>Sorted Items</h2>
+        <div id="resultSection"></div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
