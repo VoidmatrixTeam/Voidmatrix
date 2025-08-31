@@ -1,8 +1,10 @@
 {
   "title": "script_file",
-  "description": "",
-  "author": "",
-  "supported": [],
+  "description": "Generates shiny pokémon for Platinum",
+  "author": "RETIRE",
+  "supported": [
+    "platinum"
+  ],
   "scripts": [
     {
       "color": [
@@ -12,7 +14,36 @@
       ],
       "title": "Shiny Pokémon Generator",
       "documentation": "This generates a shiny pokémon of choice, and adds it to your party. You need at least one empty slot in your party to use this code.\n\nThis code only support english platinum at the moment.",
-      "variables": [],
+      "variables": [
+        {
+          "name": "FUN_SetPokeParam",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0x02073E18",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "FUN_SetPokeParamTrainerId",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0x020932A4",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        }
+      ],
       "code": [
         {
           "type": "command",
@@ -21,7 +52,7 @@
             {
               "name": "address",
               "size": "u32",
-              "value": "0x02073e51"
+              "value": "[FUN_SetPokeParam] + 0x39"
             },
             {
               "name": "value",
@@ -37,7 +68,7 @@
             {
               "name": "address",
               "size": "u32",
-              "value": "0x02073e86"
+              "value": "[FUN_SetPokeParam] + 0x6E"
             },
             {
               "name": "value",
@@ -53,7 +84,7 @@
             {
               "name": "address",
               "size": "u32",
-              "value": "0x02073e87"
+              "value": "[FUN_SetPokeParam] + 0x6F"
             },
             {
               "name": "value",
@@ -69,7 +100,7 @@
             {
               "name": "address",
               "size": "u32",
-              "value": "0x02073e88"
+              "value": "[FUN_SetPokeParam] + 0x70"
             },
             {
               "name": "value",
@@ -85,7 +116,7 @@
             {
               "name": "address",
               "size": "u32",
-              "value": "0x02073e89"
+              "value": "[FUN_SetPokeParam] + 0x71"
             },
             {
               "name": "value",
@@ -101,7 +132,7 @@
             {
               "name": "address",
               "size": "u32",
-              "value": "0x020932ce"
+              "value": "[FUN_SetPokeParamTrainerId] + 0x2A"
             },
             {
               "name": "value",
@@ -117,7 +148,7 @@
             {
               "name": "address",
               "size": "u32",
-              "value": "0x020932cf"
+              "value": "[FUN_SetPokeParamTrainerId] + 0x2B"
             },
             {
               "name": "value",
@@ -133,12 +164,12 @@
             {
               "name": "species",
               "size": "u16",
-              "value": ""
+              "value": "Mewtwo"
             },
             {
               "name": "level",
               "size": "u16",
-              "value": ""
+              "value": "100"
             },
             {
               "name": "item",
