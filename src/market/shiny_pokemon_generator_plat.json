@@ -1,0 +1,163 @@
+{
+  "title": "script_file",
+  "description": "",
+  "author": "",
+  "supported": [],
+  "scripts": [
+    {
+      "color": [
+        40,
+        155,
+        65
+      ],
+      "title": "Shiny Pokémon Generator",
+      "documentation": "This generates a shiny pokémon of choice, and adds it to your party. You need at least one empty slot in your party to use this code.\n\nThis code only support english platinum at the moment.",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "0x02073e51"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0xD0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "0x02073e86"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x04"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "0x02073e87"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0xD3"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "0x02073e88"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0xE5"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "0x02073e89"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0xE7"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "0x020932ce"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "0x020932cf"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "AddPokemon",
+          "parameters": [
+            {
+              "name": "species",
+              "size": "u16",
+              "value": ""
+            },
+            {
+              "name": "level",
+              "size": "u16",
+              "value": ""
+            },
+            {
+              "name": "item",
+              "size": "u16",
+              "value": ""
+            },
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}
