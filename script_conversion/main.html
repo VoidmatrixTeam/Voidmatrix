@@ -2,71 +2,66 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/icon.css">
-  <link rel="stylesheet" href="css/documentation.css">
+    <meta charset="UTF-8">
+    <title>Dot Artist Script Generation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
 
-  <!-- external libraries  -->
-  <script src="https://unpkg.com/mathjs@12.3.1/lib/browser/math.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="scripts/purify.min.js"></script>
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-  <!-- internal scripts -->
-  <script src="scripts/converters.js"></script>
-  <script src="scripts/datalists.js"></script>
-  <script src="scripts/main.js"></script>
-  <script src="scripts/documentation.js"></script>
+        button {
+            background-color: #0078D7;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
 
-  <title>Script Conversion Tool</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+        button:hover {
+            background-color: #005fa3;
+        }
+
+        .fallback {
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .fallback a {
+            color: #0078D7;
+            text-decoration: none;
+        }
+
+        .fallback a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-  <div class="application-container">
-
-    <div class="left-panel-content">
-      <div class="toolbar">
-        <img class="icon-0 add-icon create-script" src="assets/add.svg" alt="addition icon">
-        <span>Create New Script</span>
-        <img class="icon-0 search-icon" src="assets/search.svg" alt="search icon">
-
-        <input class="script-search" autocomplete="on" list="datalist-scripts" placeholder="Search Scripts">
-        <img class="icon-0 upload-icon" src="assets/upload.svg" alt="plus icon">
-        <img class="icon-0 download-icon" src="assets/download.svg" alt="plus icon">
-      </div>
-
-      <div class="script-editor-wrapper">
-        <div class="script-editor"></div>
-      </div>
+    <div class="container">
+        <h2>This is the old Dot Artist Script Generation website.</h2>
+        <p>To access the new one, please click below:</p>
+        <a href="../src/index.html"><button>Go to New Website</button></a>
+        <div class="fallback">
+            <p>If you still need to access the old website for some specific reason, <a href="./index.html">click
+                    here</a>.</p>
+        </div>
     </div>
-
-    <div class="right-panel-content">
-
-      <div class="variable-section">
-        <div class="variable-toolbar">
-          <h4>Variables</h4>
-          <input class="games-config" list="datalist-games" placeholder="Diamond" value="Diamond" autocomplete="off">
-          <input class="language-config" list="datalist-languages" placeholder="English" value="English" autocomplete="off">
-        </div>
-        <div class="variable-container"></div>
-      </div>
-
-      <div class="dot-artist-section">
-        <div class="dot-artist-container highlight_selection"></div>
-
-        <!-- Enable highlight by default: set highlight_selection in above container. Remove highlight-icon inactive -->
-        <div class="dot-artist-config-options">
-          <img class="icon-0 config-icon-0 dot-artist-options-icon show" src="assets/list_menu.svg" alt="options icon">
-          <img class="icon-0 config-icon-0 dot-artist-highlight-icon show" src="assets/highlight_selection.svg" alt="highlight icon">
-          <img class="icon-0 config-icon-0 dot-artist-number-overlay-icon show" src="assets/123.svg" alt="123 icon">
-          <img class="icon-0 config-icon-0 dot-artist-copy-icon show inactive" src="assets/copy.svg" alt="copy icon">
-        </div>
-      </div>
-
-
-  </div>
 </body>
 
 </html>
