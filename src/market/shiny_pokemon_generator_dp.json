@@ -1,9 +1,10 @@
 {
-  "title": "Shiny Pokémon Generator (Platinum)",
-  "description": "Generates shiny pokémon for Platinum",
+  "title": "Shiny Pokémon Generator (DP)",
+  "description": "Shiny pokémon generator for diamond and pearl",
   "author": "RETIRE",
   "supported": [
-    "platinum"
+    "diamond",
+    "pearl"
   ],
   "scripts": [
     {
@@ -13,13 +14,13 @@
         65
       ],
       "title": "Shiny Pokémon Generator",
-      "documentation": "This generates a shiny pokémon of choice, and adds it to your party. You need at least one empty slot in your party to use this code.\n\nThis code only support english platinum at the moment.",
+      "documentation": "This generates a shiny pokémon of choice, and adds it to your party. You need at least one empty slot in your party to use this code.\n\nThis code only support english dp at the moment.",
       "variables": [
         {
           "name": "FUN_SetPokeParam",
           "default": "",
           "overrulingValues": {
-            "ENG": "0x02073E18",
+            "ENG": "0x02066B64",
             "SP": "",
             "GER": "",
             "FR": "",
@@ -33,7 +34,7 @@
           "name": "FUN_SetPokeParamTrainerId",
           "default": "",
           "overrulingValues": {
-            "ENG": "0x020932A4",
+            "ENG": "0x02080AE4",
             "SP": "",
             "GER": "",
             "FR": "",
