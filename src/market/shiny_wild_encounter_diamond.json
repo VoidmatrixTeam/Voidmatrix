@@ -198,7 +198,7 @@
                 },
                 {
                     "name": "mov_value",
-                    "default": "[pokemon_id]>>1",
+                    "default": "([pokemon_id]>>1)",
                     "overrulingValues": {
                         "ENG": "",
                         "SP": "",
