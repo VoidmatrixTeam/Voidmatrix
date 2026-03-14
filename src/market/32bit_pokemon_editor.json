@@ -32,7 +32,7 @@
         },
         {
           "name": "param_choice",
-          "default": "7",
+          "default": "54",
           "overrulingValues": {
             "ENG": "",
             "SP": "",
@@ -46,7 +46,7 @@
         },
         {
           "name": "param_value",
-          "default": "0x12345678",
+          "default": "120",
           "overrulingValues": {
             "ENG": "",
             "SP": "",
@@ -60,7 +60,7 @@
         },
         {
           "name": "party_index",
-          "default": "undefined",
+          "default": "0x0",
           "overrulingValues": {
             "ENG": "",
             "SP": "",
@@ -203,8 +203,11 @@
         },
         {
           "type": "memory_editor",
-          "size": "undefined",
-          "memory": []
+          "size": "2",
+          "memory": [
+            "([param_value] >> 24) & 0xFF",
+            "([param_value] >> 16) & 0xFF"
+          ]
         },
         {
           "type": "command",
