@@ -1,0 +1,217 @@
+{
+  "title": "32 bit Pokemon Editor",
+  "description": "Pokemon Editor for 32 bit values, use for TID/SID changes. param_choice and param_value can be found here: https://docs.google.com/spreadsheets/d/1ggx-qds-txThvSBAbt4ecpzx9OKalHF4_uorJnEPrUI/edit?gid=187112851#gid=187112851",
+  "author": "RETIRE",
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        88,
+        165,
+        198
+      ],
+      "title": "Pokémon Editor",
+      "documentation": "undefined",
+      "variables": [
+        {
+          "name": "FUN_SetMove",
+          "default": "0x020697CC",
+          "overrulingValues": {
+            "ENG": "0x020697cc",
+            "SP": "0x02069828",
+            "GER": "0x02069828",
+            "FR": "0x02069828",
+            "IT": "0x02069808",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "param_choice",
+          "default": "7",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "param_value",
+          "default": "0x12345678",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "party_index",
+          "default": "undefined",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "FUN_ChgPokeWaza",
+          "default": "0x0204449c",
+          "overrulingValues": {
+            "ENG": "0x0204449C",
+            "SP": "0x204450C",
+            "GER": "0x204450C",
+            "FR": "0x204450C",
+            "IT": "0x204450C",
+            "KOR": "",
+            "JP5": "0x2047944",
+            "JP6": "0x20479FC"
+          }
+        },
+        {
+          "name": "WazaReadOffset",
+          "default": "undefined",
+          "overrulingValues": {
+            "ENG": "0x2E",
+            "SP": "0x2E",
+            "GER": "0x2E",
+            "FR": "0x2E",
+            "IT": "0x2E",
+            "KOR": "",
+            "JP5": "0x30",
+            "JP6": "0x30"
+          }
+        },
+        {
+          "name": "WazaValue",
+          "default": "0xAA",
+          "overrulingValues": {
+            "ENG": "0x22",
+            "SP": "0xAA",
+            "GER": "0xAA",
+            "FR": "0xAA",
+            "IT": "0xAA",
+            "KOR": "",
+            "JP5": "0x19",
+            "JP6": "0x07"
+          }
+        }
+      ],
+      "code": [
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_SetMove] + 0x10"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_SetMove] + 0x1A"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x12"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_SetMove] + 0x1B"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0xE0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_ChgPokeWaza] + [WazaReadOffset]"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "[WazaValue]"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "ChgPokeWaza",
+          "parameters": [
+            {
+              "name": "party index",
+              "size": "u16",
+              "value": "[party_index]"
+            },
+            {
+              "name": "move slot",
+              "size": "u16",
+              "value": "[param_choice]"
+            },
+            {
+              "name": "move",
+              "size": "u16",
+              "value": "[param_value]"
+            }
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "undefined",
+          "memory": []
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}
