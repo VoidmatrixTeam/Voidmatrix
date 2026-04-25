@@ -1,0 +1,228 @@
+{
+  "title": "Instant HP Bars",
+  "description": "",
+  "author": "Kvist",
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        180,
+        180,
+        180
+      ],
+      "title": "Instant HP Bars",
+      "documentation": "",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "0x0203c58d"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x47"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "BicycleReq",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u8",
+              "value": "0x00"
+            }
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "2",
+          "memory": [
+            "0x71",
+            "0x02"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "26",
+          "memory": [
+            "0xFF",
+            "0xB4",
+            "0x05",
+            "0xA0",
+            "0x0E",
+            "0xC8",
+            "0x11",
+            "0x60",
+            "0x1A",
+            "0x60",
+            "0x3E",
+            "0xC8",
+            "0x3C",
+            "0xC1",
+            "0x3C",
+            "0xC8",
+            "0x3C",
+            "0xC1",
+            "0x03",
+            "0xC8",
+            "0x01",
+            "0x80",
+            "0xFF",
+            "0xBC",
+            "0x10",
+            "0xBD"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x66",
+            "0x13",
+            "0x00",
+            "0xEA"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0xF0",
+            "0x77",
+            "0x03",
+            "0x02"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x94",
+            "0x2D",
+            "0x0F",
+            "0x02"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x90",
+            "0xC5",
+            "0x03",
+            "0x02"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x14",
+            "0x00",
+            "0x9F",
+            "0xE5"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x07",
+            "0x1N",
+            "0xA0",
+            "0xE3"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x20",
+            "0x10",
+            "0x81",
+            "0xE2"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0xB0",
+            "0x10",
+            "0xC0",
+            "0xE1"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0xBE",
+            "0x10",
+            "0xC0",
+            "0xE1"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x01",
+            "0x00",
+            "0xA0",
+            "0xE3"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x1E",
+            "0xFF",
+            "0x2F",
+            "0xE1"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0x88",
+            "0x7E",
+            "0x25",
+            "0x02"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "4",
+          "memory": [
+            "0xD0",
+            "0x60",
+            "0x07",
+            "0x02"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "2",
+          "memory": [
+            "0x21",
+            "0x1C"
+          ]
+        }
+      ]
+    }
+  ]
+}
