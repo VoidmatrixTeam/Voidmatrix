@@ -1,0 +1,464 @@
+{
+  "title": "Wondercard ACE (NEW)",
+  "description": "",
+  "author": "RETIRE + rebsillycon",
+  "supported": [
+        "diamond",
+        "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        40,
+        154,
+        68
+      ],
+      "title": "Generate Bootstrap Pokémon",
+      "documentation": "# Wondercard ACE Distribution Code\nVersion Support: English DP/English Platinum\n\nThis code allows you to distribute Wonder Cards to Platinum that allow transferring ACE to it. If you're interested in how this ACE method functions, you can refer to RETIRE's blogpost (currently down so just use the Wayback Machine) '[Remote Code Execution in Generation IV Pokémon Games Through Mystery Gifts](https://jorikdevreese.com/index.php/2024/02/17/remote-code-execution-in-generation-4-pokemon-games-through-mystery-gifts/)'.\n\nSome prerequisites have to be met, but the ACE can be transferred as soon as half an hour or less into Platinum's gameplay.\n\n## Prerequisites\n1. Both games [unlocked Mystery Gifts](https://www.serebii.net/platinum/mysterygift.shtml).\n2. Both games added each other as friends in the Pal Pad, obtained at the bottom of the Pokémon Center.\n3. Diamond/Pearl has a form of ASE set up. It's recommended to use the Mystery Gift bootstrap, but not required.\n4. Diamond/Pearl has a **manually** cleared Calendar app. If it is already cleared, enable one of the dates and disable it again.\n5. Platinum has obtained at least 5 Pokémon, of which 1 is a dummy that can be traded.\n\nIf you want to perform the setup as early as Jubilife City in Platinum, you must obtain a fishing rod. \nOtherwise, you must progress at least past Oreburgh City. The details of this will be explained later.\n\n## Setup Details\nThis section explains some of the details behind the setup, just enough to perform the setup. If you want to know more, refer to the Technical Details.\nThe concept behind this setup is that we abuse a flaw in how Mystery Gifts are obtained to modify memory of the game. Specifically, we'll obtain a gift in Platinum that alters what script an NPC executes when interacted with.\n\nThe gift causes the location of the script to be determined by the PID of the 5th Pokémon in your party, after a battle. We'll specify that the script we execute is located in the Dot Artist, similarly to the ASE in Diamond and Pearl.\n\nThe PID that we read can be overwriting by almost any action, such as opening a menu. So after we have done a battle to load the PID, it's essential we only receive the gift and talk to the NPC that executes our Dot Artist code. The initial bootstrap code will then make it so instead of needing the PID after battle, we can use the nickname of a Pokémon in our party to specify where the code is executed. This allows us to simply open and close a party, then execute the code by talking to the NPC.\n\nThe Mystery Gifts we want to obtain in Platinum will be sent from Pokémon Diamond and Pearl, generated through ACE. Since we also require the Dot Artist on Platinum, which is only obtainable lategame, the code actually generates both an ACE Wondercard and a Dot Artist Poketch App Wondercard. If Platinum does not yet have the Dot Artist, it should receive this gift first.\n\nAdditionally, we also need the Pokémon with the specific PID and Nickname for the ACE on Platinum. The first code to execute lets you generate this Pokémon, simply trade it and put it in the 5th party slot (bottom left) in Pokémon Platinum.\n\n## Steps to perform\n\n### 1. Generate the Pokémon\nStart out by generating the bootstrap Pokémon. Make sure that your party has an empty slot in it, to generate the Pokémon in. If the code is correctly executed, the game will automatically open a Nickname screen for Porygon-Z. You'll notice that the `A` and `B` characters are empty. \nThe first two characters in the name can be anything. The next two should be the `A` and `B` characters, although they will present as empty. The remaining characters do not matter. You may clone the Pokémon with the clone code on the site if you intend to distribute it multiple times.\n\nNickname: `_ _ A B _ _ _ _ _ _` \n\nTrade it to Platinum, and put it in the 5th party slot (bottom left) in Pokémon Platinum.\n\n### 2. Generate the Wonder Card\nBE VERY CAREFUL WHEN ENTERING THIS CODE, THERE IS NO VALIDATION. Use the Wondercard Installer code to generate the Card that results in ACE (currently saved as wondercard_installer.webp) and gives the Dot Artist. After saving and rebooting, select the Mystery Gift option in the Title Screen. The option to check cards should be present. Select it. The ACE card is now available without any name and has a Porygon in the top right.\n\nIf you press A, you should be able to share the Wonder Card. Otherwise, there will be a mistake in your Dot Artist. There is no harm in fixing the Dot Artist and executing until it works as intended.\n\nOn the Platinum side, also select the Mystery Gift Option. Request a gift from a friend, and follow up by sending the gift from Diamond/Pearl. If everything goes well, you'll receive a mail with a long glitchy description. Make sure to send and receive the Dot Artist gift FIRST if you haven't obtained it on Platinum yet.\n\nOnce the bootstrap Pokémon is in the 5th slot, we can execute the code. To do this, we need to load the PID during a battle, talk to the Postman to receive the gift, then talk to the Pokemon Market employee on the right side. Below you can find the exact steps for Jubilife City and Oreburgh.\n\nIMPORTANT NOTICE: **Do not open any menus, press X to open the Field Menu, talk to NPCs... during this procedure. Perform the steps exactly as told.**\n\n#### Jubilife City: \nJubilife City sadly overwrites the PID if we enter the city by walking in. The only way to circumvent this is to enter the city through a warp. Luckily for us, on the left side of Jubilife City there is a Gate to route 218. We can obtain a fishing rod here. Then, save next to the water (in case anything goes wrong, and you need to redo steps).\n\n1. Fish until you get an exclamation mark. It doesn't matter whether you enter battle, it's faster if you don't.\n2. Walk/Bicycle to the Pokémon Market.\n3. Receive the Gift from the Postman\n4. Talk to the Poke Market employee to the right, behind the counter.\n\n#### Oreburgh City:\nIn Oreburgh City the setup is slightly faster, as we can simply get a grass encounter above the city. Save next to it in case anything goes wrong.\n\n1. Get into a wild encounter. Either on the grass above Oreburgh City, or one of the caves.\n2. Walk/Bicycle to the Pokémon Market.\n3. Receive the Gift from the Postman\n4. Talk to the Poke Market employee to the right, behind the counter.\n\nAfter talking to her once, put any code in the Dot Artist for testing (the Dot Artist was just installed by talking to her). Then, swap the bootstrap Pokémon to the first slot in the party. Now close the party, open the party again (to load the Nickname in first slot), and close out of all menus.\n\nNow talk to the lady again. If the code worked, you can save the game! Congratulations, you just transferred ACE to Platinum.\n\n\n\n\n\n\n\n\n\n",
+      "variables": [
+        {
+          "name": "FUN_LoadAdrsAdrs",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0x02039ACC",
+            "SP": "0x02039B3C",
+            "GER": "0x02039B3C",
+            "FR": "0x02039B3C",
+            "IT": "0x02039B3C",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "CapitalWordsetAdrs",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0x020F9E6C",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "CharacterValues",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0xFFFC63A7",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "FUN_LoadPokeData",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0x02066b64",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "PID",
+          "default": "0xFFFE2CF7",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "FUN_GetPokeCount",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0x02044B00",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        }
+      ],
+      "code": [
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_LoadAdrsAdrs] + 0x11"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_LoadAdrsAdrs] + 0x13"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x60"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsAdrs",
+          "parameters": [
+            {
+              "name": "tg",
+              "size": "u32",
+              "value": "[FUN_LoadPokeData] + 0x14"
+            },
+            {
+              "name": "src",
+              "size": "u32",
+              "value": "0xE0074800"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsAdrs",
+          "parameters": [
+            {
+              "name": "tg",
+              "size": "u32",
+              "value": "[FUN_LoadPokeData] + 0x18"
+            },
+            {
+              "name": "src",
+              "size": "u32",
+              "value": "[PID]"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "AddPokemon",
+          "parameters": [
+            {
+              "name": "species",
+              "size": "u16",
+              "value": "Porygon-Z"
+            },
+            {
+              "name": "level",
+              "size": "u16",
+              "value": ""
+            },
+            {
+              "name": "item",
+              "size": "u16",
+              "value": ""
+            },
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsAdrs",
+          "parameters": [
+            {
+              "name": "tg",
+              "size": "u32",
+              "value": "[CapitalWordsetAdrs]"
+            },
+            {
+              "name": "src",
+              "size": "u32",
+              "value": "[CharacterValues]"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsAdrs",
+          "parameters": [
+            {
+              "name": "tg",
+              "size": "u32",
+              "value": "[FUN_GetPokeCount] + 0x24"
+            },
+            {
+              "name": "src",
+              "size": "u32",
+              "value": "0x80283801"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "GetPokeCount",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4040"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "NameInPoke",
+          "parameters": [
+            {
+              "name": "party index",
+              "size": "u16",
+              "value": "0x4040"
+            },
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "WipeFadeStart",
+          "parameters": [
+            {
+              "name": "div",
+              "size": "u16",
+              "value": ""
+            },
+            {
+              "name": "syn",
+              "size": "u16",
+              "value": ""
+            },
+            {
+              "name": "type",
+              "size": "u16",
+              "value": "1"
+            },
+            {
+              "name": "col",
+              "size": "u16",
+              "value": ""
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    },
+    {
+"color": [
+        255,
+        179,
+        107
+      ],
+      "title": "ACE transfer Wonder Card (Platinum)",
+      "documentation": "",
+      "variables": [
+        {
+          "name": "FUN_EvCmdNameInStone",
+          "default": "0x203F800",
+          "overrulingValues": {
+            "ENG": "0x0203c58c",
+            "SP": "0x203C5D4",
+            "GER": "0x203C5D4",
+            "FR": "0x203C5D4",
+            "IT": "0x203C5D4",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        }
+      ],
+      "code": [
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_EvCmdNameInStone] + 0x1"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x47"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "BicycleReq",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u8",
+              "value": "0x1"
+            }
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "2",
+          "memory": [
+            "0x71",
+            "0x2"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x6C",
+          "memory": [
+            "0x19",
+            "0x33",
+            "0x18",
+            "0x1C",
+            "0x01",
+            "0x88",
+            "0x00",
+            "0x29",
+            "0x05",
+            "0xD0",
+            "0x44",
+            "0x88",
+            "0x62",
+            "0x08",
+            "0x41",
+            "0x18",
+            "0x0B",
+            "0xDF",
+            "0x00",
+            "0x19",
+            "0xF6",
+            "0xE7",
+            "0x10",
+            "0x7D",
+            "0x56",
+            "0x96",
+            "0x04",
+            "0x00",
+            "0x7A",
+            "0xEE",
+            "0x40",
+            "0x00",
+            "0x06",
+            "0x00",
+            "0x00",
+            "0x00",
+            "0x01",
+            "0x00",
+            "0x00",
+            "0x00",
+            "0x6E",
+            "0xD7",
+            "0x01",
+            "0x00",
+            "0x00",
+            "0x07",
+            "0x00",
+            "0x85",
+            "0x27",
+            "0x04",
+            "0x02",
+            "0x47",
+            "0x71",
+            "0x02",
+            "0xFE",
+            "0xB5",
+            "0x06",
+            "0x49",
+            "0x07",
+            "0x4A",
+            "0x15",
+            "0x3B",
+            "0x06",
+            "0x24",
+            "0x1C",
+            "0x70",
+            "0x0D",
+            "0x0C",
+            "0x5D",
+            "0x1B",
+            "0x2A",
+            "0x70",
+            "0x14",
+            "0x35",
+            "0x85",
+            "0x60",
+            "0x7A",
+            "0x35",
+            "0x2A",
+            "0x80",
+            "0x99",
+            "0x52",
+            "0xFE",
+            "0xBD",
+            "0x4E",
+            "0x9C",
+            "0x4C",
+            "0xA4",
+            "0x40",
+            "0x86",
+            "0x01",
+            "0x00",
+            "0x86",
+            "0x9F",
+            "0x02",
+            "0x00",
+            "0x80",
+            "0x1D",
+            "0x00",
+            "0x00",
+            "0xEE",
+            "0x00",
+            "0x78",
+            "0xA1",
+            "0x06",
+            "0x00",
+            "0xFF",
+            "0x00"
+          ]
+        }
+      ]
+    }
+  ]
+}
