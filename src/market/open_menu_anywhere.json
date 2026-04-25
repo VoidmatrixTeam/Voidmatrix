@@ -1,0 +1,59 @@
+{
+  "title": "open_menu_anywhere",
+  "description": "Allow opening field menu anywhere.",
+  "author": "RETIRE",
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        40,
+        155,
+        65
+      ],
+      "title": "Open Menu Anywhere",
+      "documentation": "Development script to allow opening menu's in any map on international versions of diamond and pearl",
+      "variables": [
+        {
+          "name": "FUN_CheckCanOpenFieldMenu",
+          "default": "",
+          "overrulingValues": {
+            "ENG": "0x02035068",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        }
+      ],
+      "code": [
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_CheckCanOpenFieldMenu] + 0x12"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x1"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}
