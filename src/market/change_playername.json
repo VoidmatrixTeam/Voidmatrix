@@ -1,0 +1,66 @@
+{
+    "title": "Change Playername",
+    "description": "",
+    "author": "Unknown Author",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "change player name",
+            "color": [
+                255,
+                127,
+                80
+            ],
+            "language": "English",
+            "variables": [],
+            "documentation": "This changes the player name using the window that is shown at the beginning of the game. The male sprite will be shown even if the player is female. This is normal and your player's gender will not be changed.",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "NameIn",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "WipeFadeStart",
+                    "parameters": [
+                        {
+                            "name": "div",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "syn",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "type",
+                            "size": "u8",
+                            "value": "1"
+                        },
+                        {
+                            "name": "col",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        }
+    ]
+}

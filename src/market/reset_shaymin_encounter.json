@@ -1,0 +1,41 @@
+{
+    "title": "Re-Encounter Shaymin",
+    "description": "",
+    "author": "Unknown Author",
+    "supported": [
+        "diamond",
+        "pearl",
+        "platinum"
+    ],
+    "scripts": [
+        {
+            "title": "Re-Encounter Shaymin",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "variables": [],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x026F"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        }
+    ]
+}

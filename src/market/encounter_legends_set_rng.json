@@ -1,0 +1,1749 @@
+{
+    "title": "Legends Warp Rng",
+    "description": "",
+    "author": "Unknown Author",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "variables": [],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "",
+                    "parameters": []
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Arceus Modest 6IV (-2 advances) PID: F9426F72",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0xA78EDF8A",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D05R0116"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "31"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "35"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "VMMachineAdd",
+                    "parameters": [
+                        {
+                            "name": "index",
+                            "size": "u8",
+                            "value": "4"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Darkrai Timid 31/28/31/31/31/31 (-1 advance) PID: 101433B2",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0x462D3060",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D30R0101"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "16"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "14"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Palkia/Dialga Modest 6IV (-1 advance) PID: F9426F72",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0xCEAD9A35",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4098"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "5"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D05R0114"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "31"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "27"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Mesprit Timid 6IV (-5 advances) PID: 7942EF72",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0xCF881D14",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x1FD"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D27R0103"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "12"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "14"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Azelf Timid 31/28/31/31/31/31 (-1 advance) PID: 101433B2",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0x462D3060",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x1FE"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D28R0103"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "16"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "15"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Uxie Timid 31/28/31/31/31/31 (-1 advance) PID: 101433B2",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0x462D3060",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x1FF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D29R0103"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "14"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "11"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Cresselia Bold 31/31/31/30/31/31 (-5 advances) PID: 4167FE3A",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0xC8080A94",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x26D"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D15R0101"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "16"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "16"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Regigigas Adamant 31/31/31/24/31/31 (-1 advance) PID: 3F6A3D8A Ps: remember you need 3 Regis in your party",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0xBB88E030",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x261"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D20R0106"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "11"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "13"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Giratina Modest 6IV (-1 advance) PID: F9426F72",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0xCEAD9A35",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x26E"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D17R0104"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "11"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "15"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Heatran Modest 6IV (-1 advance) PID: F9426F72 Ps: remove both FlagSet commands if already captured/defeated Heatran in the normal way",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0xCEAD9A35",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x409E"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x120"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagSet",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x125"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagSet",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x1FC"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D16R0103"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "7"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "7"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "title": "Shaymin Timid 31/28/31/31/31/31 (-1 advance) PID: 101433B2",
+            "color": [
+                181,
+                115,
+                217
+            ],
+            "language": "English",
+            "variables": [
+                {
+                    "name": "RNG_address",
+                    "default": "0x021C65A0",
+                    "overrulingValues": {
+                        "ENG": "0x021C4D48",
+                        "SP": "0x021C4EE8",
+                        "GER": "0x021C4E88",
+                        "FR": "0x021C4EC8",
+                        "IT": "0x021C4E28",
+                        "KOR": "0x021C2348",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "rng_state",
+                    "default": "0x462D3060",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address]"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x1"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 8 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x2"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 16 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "size": "u8",
+                            "value": "[RNG_address] + 0x3"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "[rng_state] >> 24 & 0xFF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x26F"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "MapChange",
+                    "parameters": [
+                        {
+                            "name": "map",
+                            "size": "u8",
+                            "value": "D18"
+                        },
+                        {
+                            "name": "door",
+                            "size": "u8",
+                            "value": ""
+                        },
+                        {
+                            "name": "x pos",
+                            "size": "u8",
+                            "value": "911"
+                        },
+                        {
+                            "name": "z pos",
+                            "size": "u8",
+                            "value": "204"
+                        },
+                        {
+                            "name": "direction",
+                            "size": "u8",
+                            "value": ""
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        }
+    ]
+}

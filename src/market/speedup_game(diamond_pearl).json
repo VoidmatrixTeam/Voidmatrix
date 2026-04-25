@@ -1,0 +1,335 @@
+{
+    "title": "Speed up (text, healthbar, ...). Uncap FPS",
+    "description": "Allows you to speed up the game by shortening/removing animations.",
+    "author": "Etchy",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "D/P Uncapped FPS",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x02000DB0"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x02000DB1"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [],
+            "documentation": "### Uncap Frame Rate\n\nThis script was made by Etchy, please watch their video for more details: [https://www.youtube.com/watch?v=tMsGowDCVVE](https://www.youtube.com/watch?v=tMsGowDCVVE)"
+        },
+        {
+            "title": "D/P IT",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x2002494"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x2002495"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x21"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201BFDE"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201BFDF"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x1C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201BFE0"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x18"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201BFE1"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x48"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201C00E"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x10"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201C00F"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xBD"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201C010"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x29"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201C011"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x3C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201C012"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xE5"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201C013"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xE7"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9BE"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xDF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9BF"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xD0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201C02A"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xF1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201C02B"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xE7"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [],
+            "documentation": "### D/P IT\n\nThis script was made by Etchy, please watch their video for more details: [https://www.youtube.com/watch?v=tMsGowDCVVE](https://www.youtube.com/watch?v=tMsGowDCVVE)"
+        }
+    ]
+}

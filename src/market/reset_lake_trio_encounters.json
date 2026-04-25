@@ -1,0 +1,63 @@
+{
+    "title": "Re-Encounter Lake Trio",
+    "description": "",
+    "author": "Unknown Author",
+    "supported": [
+        "diamond",
+        "pearl",
+        "platinum"
+    ],
+    "scripts": [
+        {
+            "title": "Re-Encounter Lake Trio",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "variables": [],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x01FD"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x01FE"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x01FF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        }
+    ]
+}

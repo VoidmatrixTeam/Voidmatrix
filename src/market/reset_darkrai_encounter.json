@@ -1,0 +1,41 @@
+{
+    "title": "Re-Encounter Darkrai",
+    "description": "",
+    "author": "Unknown Author",
+    "supported": [
+        "diamond",
+        "pearl",
+        "platinum"
+    ],
+    "scripts": [
+        {
+            "title": "Re-Encounter Darkrai",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "variables": [],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x025E"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        }
+    ]
+}

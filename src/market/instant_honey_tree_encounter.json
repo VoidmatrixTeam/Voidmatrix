@@ -1,0 +1,492 @@
+{
+    "title": "Instant Honey Tree Encounter",
+    "description": "",
+    "author": "blissman2020",
+    "supported": [
+        "diamond",
+        "pearl"
+    ],
+    "scripts": [
+        {
+            "title": "Instant Honey Tree Encounter",
+            "color": [
+                184,
+                119,
+                46
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x11"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_LoadAdrsAdrs] + 0x13"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x60"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "[FUN_CompAdrsAdrs] + 0x9"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x1C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CompAdrsAdrs] + 0x10"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0x68094902"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CompAdrsAdrs] + 0x14"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "0xBD385060"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "tg",
+                            "type": "text",
+                            "value": "[FUN_CompAdrsAdrs] + 0x1E"
+                        },
+                        {
+                            "name": "src",
+                            "type": "text",
+                            "value": "[base_address]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "CmpAdrsAdrs",
+                    "parameters": [
+                        {
+                            "name": "address1",
+                            "type": "text",
+                            "value": "[Southern_Route_205]"
+                        },
+                        {
+                            "name": "address2",
+                            "type": "text",
+                            "value": "[TimerSet]"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [
+                {
+                    "name": "TimerSet",
+                    "default": "0x438",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_CompAdrsAdrs",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x02039BBC",
+                        "SP": "0x02039C2C",
+                        "GER": "0x02039C2C",
+                        "FR": "0x02039C2C",
+                        "IT": "0x02039C2C",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "FUN_LoadAdrsAdrs",
+                    "default": "",
+                    "overrulingValues": {
+                        "ENG": "0x2039ACC",
+                        "SP": "0x2039B3C",
+                        "GER": "0x2039B3C",
+                        "FR": "0x2039B3C",
+                        "IT": "0x2039B3C",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "base_address",
+                    "default": "0x02108818",
+                    "overrulingValues": {
+                        "ENG": "0x02106FC0",
+                        "SP": "0x02107160",
+                        "GER": "0x02107100",
+                        "FR": "0x02107140",
+                        "IT": "0x021070A0",
+                        "KOR": "0x021045C0",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Southern_Route_205",
+                    "default": "0x74F8",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Northern_Route_205",
+                    "default": "0x7500",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_206",
+                    "default": "0x7508",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_207",
+                    "default": "0x7510",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_208",
+                    "default": "0x7518",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_209",
+                    "default": "0x7520",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Southern_Route_210",
+                    "default": "0x7528",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Northern_Route_210",
+                    "default": "0x7530",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Eastern_Route_211",
+                    "default": "0x7538",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Northern_Route_212",
+                    "default": "0x7540",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Southern_Route_212",
+                    "default": "0x7548",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_213",
+                    "default": "0x7550",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_214",
+                    "default": "0x7558",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_215",
+                    "default": "0x7560",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_218",
+                    "default": "0x7568",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_221",
+                    "default": "0x7570",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Route_222",
+                    "default": "0x7578",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Valley_Windworks",
+                    "default": "0x7580",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Eterna_Forest_exterior",
+                    "default": "0x7588",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Fuego_Ironworks",
+                    "default": "0x7590",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                },
+                {
+                    "name": "Floaroma_Meadow",
+                    "default": "0x7598",
+                    "overrulingValues": {
+                        "ENG": "",
+                        "SP": "",
+                        "GER": "",
+                        "FR": "",
+                        "IT": "",
+                        "KOR": "",
+                        "JP5": "",
+                        "JP6": ""
+                    }
+                }
+            ],
+            "documentation": "HOW TO USE:\nPick the honey tree you want to get an encounter from, then pick the corresponding offset. Slather honey on the tree, then execute this ACE using that tree's offset. The pokemon will be ready to encounter immediately. Each time you use a honey at that tree, the pokemon spawned will re-roll. If you do not slather honey on the tree and use this ACE, you will encounter the previous pokemon encountered there. (Sometimes the honey tree will not visually shake, but the encounters should be there regardless)\n\nHONEY TREE OFFSETS:\n\nSouthern Route 205 - Offset: 0x74F8\n\nNorthern Route 205 - Offset: 0x7500\n\nRoute 206  - Offset: 0x7508\n\nRoute 207  - Offset: 0x7510\n\nRoute 208  - Offset: 0x7518\n\nRoute 209  - Offset: 0x7520\n\nSouthern Route 210  - Offset: 0x7528\n\nNorthern Route 210  - Offset: 0x7530\n\nEastern Route 211  - Offset: 0x7538\n\nNorthern Route 212  - Offset: 0x7540\n\nSouthern Route 212  - Offset: 0x7548\n\nRoute 213  - Offset: 0x7550\n\nRoute 214 - Offset: 0x7558\n\nRoute 215 - Offset: 0x7560\n\nRoute 218 - Offset: 0x7568\n\nRoute 221 - Offset: 0x7570\n\nRoute 222 - Offset: 0x7578\n\nValley Windworks - Offset: 0x7580\n\nEterna Forest exterior - Offset: 0x7588\n\nFuego Ironworks - Offset: 0x7590\n\nFloaroma Meadow - Offset: 0x7598\n\n\nHOW IT WORKS: Each honey tree has a value assigned to it, 0-1440. When the player slathers on honey to a honey tree, it sets the value to 1440. Each minute the value will count down by 1. (There is a minor timer bug, more info here on how the game actually counts down the honey tree value... https://sinjohruins.com/timerbug.html)a\n\nWhen the value of a honey tree is 0, there will be no honey on the tree, and the player may slather some on it\nAt 1440-1081, there will be honey on the tree, and the player may slather some one it (setting the value back to 1440)\nAt 1080-1, you will be able to encounter the pokemon at the honey tree. \n\n1080 corresponds to 6 hours passing. 24 hours = 1440, 6 hours = 360. 1440-360=1080. The encounter will remain at the tree until that tree's timer reaches 0, or roughly 18 hours. I access the address of the honey tree, and write its value to 1080, making the encounter instantly available."
+        }
+    ]
+}

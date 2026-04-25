@@ -1,0 +1,109 @@
+{
+    "title": "Re-Spawn Legendary Birds (Platinum)",
+    "description": "",
+    "author": "Unknown Author",
+    "supported": [
+        "platinum"
+    ],
+    "scripts": [
+        {
+            "title": "",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "variables": [],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x405E"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x405F"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4060"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x0119"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x011A"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x0099"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        }
+    ]
+}

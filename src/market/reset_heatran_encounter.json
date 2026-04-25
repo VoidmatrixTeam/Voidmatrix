@@ -1,0 +1,57 @@
+{
+    "title": "Re-Encounter Heatran",
+    "description": "",
+    "author": "Unknown Author",
+    "supported": [
+        "diamond",
+        "pearl",
+        "platinum"
+    ],
+    "scripts": [
+        {
+            "title": "Re-Encounter Heatran",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "variables": [],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x409E"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "FlagReset",
+                    "parameters": [
+                        {
+                            "name": "flag",
+                            "size": "u8",
+                            "value": "0x120"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        }
+    ]
+}

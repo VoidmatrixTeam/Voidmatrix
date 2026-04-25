@@ -1,0 +1,141 @@
+{
+    "title": "Haihuevents",
+    "description": "",
+    "author": "Unknown Author",
+    "supported": [
+        "diamond",
+        "pearl",
+        "platinum"
+    ],
+    "scripts": [
+        {
+            "title": "",
+            "color": [
+                228,
+                154,
+                154
+            ],
+            "language": "English",
+            "variables": [],
+            "documentation": "",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "AddItem",
+                    "parameters": [
+                        {
+                            "name": "item",
+                            "size": "u8",
+                            "value": "Member Card"
+                        },
+                        {
+                            "name": "number",
+                            "size": "u8",
+                            "value": "1"
+                        },
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "AddItem",
+                    "parameters": [
+                        {
+                            "name": "item",
+                            "size": "u8",
+                            "value": "Oak's Letter"
+                        },
+                        {
+                            "name": "number",
+                            "size": "u8",
+                            "value": "1"
+                        },
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "AddItem",
+                    "parameters": [
+                        {
+                            "name": "item",
+                            "size": "u8",
+                            "value": "Azure Flute"
+                        },
+                        {
+                            "name": "number",
+                            "size": "u8",
+                            "value": "1"
+                        },
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4000"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4043"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x1209"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4044"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x1112"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadWkValue",
+                    "parameters": [
+                        {
+                            "name": "work",
+                            "size": "u8",
+                            "value": "0x4045"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "0x1123"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ]
+        }
+    ]
+}

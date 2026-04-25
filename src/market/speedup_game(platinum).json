@@ -1,0 +1,384 @@
+{
+    "title": "Speed up (text, healthbar, ...). Uncap FPS",
+    "description": "Allows you to speed up the game by shortening/removing animations.",
+    "author": "Etchy",
+    "supported": [
+        "platinum"
+    ],
+    "scripts": [
+        {
+            "title": "Uncap Frame Rate",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x02000DF8"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x02000DF9"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [],
+            "documentation": "### Uncap Frame Rate\n\nThis script was made by Etchy, please watch their video for more details: [https://www.youtube.com/watch?v=tMsGowDCVVE](https://www.youtube.com/watch?v=tMsGowDCVVE)"
+        },
+        {
+            "title": "Plat IT",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x20023FC"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x00"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x20023FD"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x21"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D97E"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D97F"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x1C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D980"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x18"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D981"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x48"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9AE"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x10"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9AF"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xBD"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9B0"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x2D"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9B1"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x3C"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9B2"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xE5"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9B3"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xE7"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9BE"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xDF"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9BF"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xD0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9CA"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xF1"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x201D9CB"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xE7"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [],
+            "documentation": "### Plat IT\n\nThis script was made by Etchy, please watch their video for more details: [https://www.youtube.com/watch?v=tMsGowDCVVE](https://www.youtube.com/watch?v=tMsGowDCVVE)"
+        },
+        {
+            "title": "Remove HM Cutscenes (except Fly)",
+            "color": [
+                180,
+                180,
+                180
+            ],
+            "language": "English",
+            "code": [
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x2042C5C"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0x0B"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "LoadAdrsValue",
+                    "parameters": [
+                        {
+                            "name": "address",
+                            "type": "text",
+                            "value": "0x2042C5D"
+                        },
+                        {
+                            "name": "value",
+                            "type": "text",
+                            "value": "0xE0"
+                        }
+                    ]
+                },
+                {
+                    "type": "command",
+                    "name": "End",
+                    "parameters": []
+                }
+            ],
+            "variables": [],
+            "documentation": "### Remove HM Cutscenes (except Fly)\n\nThis script was made by Etchy, please watch their video for more details: [https://www.youtube.com/watch?v=tMsGowDCVVE](https://www.youtube.com/watch?v=tMsGowDCVVE)"
+        }
+    ]
+}
