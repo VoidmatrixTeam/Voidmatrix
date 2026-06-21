@@ -1,0 +1,177 @@
+{
+  "title": "Overwrite TID with SID (Platinum EN)",
+  "description": "Overwrites TID with SID, allowing the user to verify their SID directly.",
+  "author": "TimoVM",
+  "supported": [
+    "platinum"
+  ],
+  "scripts": [
+    {
+      "color": [
+        62,
+        147,
+        63
+      ],
+      "title": "Overwrite TID with SID (Platinum EN)",
+      "documentation": "This code is compatible only with the English release of Platinum.\n\nIt overwrites the TID with the SID. After use, you can verify your SID by checking your trainer card. To restore your original TID, simply reset the game without saving.",
+      "variables": [
+        {
+          "name": "byte_code_offset",
+          "default": "0x0",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "FUN_EvCmdNameInStone",
+          "default": "0x?",
+          "overrulingValues": {
+            "ENG": "0x02042784",
+            "SP": "0x?",
+            "GER": "0x?",
+            "FR": "0x?",
+            "IT": "0x?",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "tid_low_byte",
+          "default": "0x34",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "tid_high_byte",
+          "default": "0x12",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "sid_low_byte",
+          "default": "0x78",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "sid_high_byte",
+          "default": "0x56",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        }
+      ],
+      "code": [
+        {
+          "type": "command",
+          "name": "Nop",
+          "parameters": []
+        },
+        {
+          "type": "command",
+          "name": "LoadAdrsValue",
+          "parameters": [
+            {
+              "name": "address",
+              "size": "u32",
+              "value": "[FUN_EvCmdNameInStone] + 0x1"
+            },
+            {
+              "name": "value",
+              "size": "u8",
+              "value": "0x47"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "BicycleReq",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u8",
+              "value": "0x1"
+            }
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x2",
+          "memory": [
+            "0x71",
+            "0x02"
+          ]
+        },
+        {
+          "type": "memory_editor",
+          "size": "0x18",
+          "memory": [
+            "0xFF",
+            "0xB5",
+            "0x12",
+            "0x33",
+            "0x03",
+            "0xCB",
+            "0x00",
+            "0x68",
+            "0x42",
+            "0x58",
+            "0x12",
+            "0x0C",
+            "0x42",
+            "0x52",
+            "0xFF",
+            "0xBD",
+            "0x40",
+            "0x1D",
+            "0x10",
+            "0x02",
+            "0x8C",
+            "0x00",
+            "0x00",
+            "0x00"
+          ]
+        }
+      ]
+    }
+  ]
+}

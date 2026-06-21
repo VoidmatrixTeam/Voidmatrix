@@ -4,8 +4,7 @@
     "author": "Unknown Author",
     "supported": [
         "diamond",
-        "pearl",
-        "platinum"
+        "pearl"
     ],
     "scripts": [
         {
