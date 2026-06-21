@@ -1,0 +1,81 @@
+{
+  "title": "Re-Encounter Dialga and Palkia (Platinum)",
+  "description": "Code to re-enable the Dialga/Palkia encounters, compatible with Platinum.",
+  "author": "TimoVM",
+  "supported": [
+    "platinum"
+  ],
+  "scripts": [
+    {
+      "color": [
+        180,
+        180,
+        180
+      ],
+      "title": "Re-Encounter Dialga and Palkia (Platinum)",
+      "documentation": "This code alters the necessary event flags to re-enable Dialka and Palkia after they've been caught.\n\nThe first LoadWkValue/FlagReset re-enables Dialga, while the second re-enables Palkia.",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "LoadWkValue",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000 + 196"
+            },
+            {
+              "name": "value",
+              "size": "u16",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "208"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadWkValue",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000 + 197"
+            },
+            {
+              "name": "value",
+              "size": "u16",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "209"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}
