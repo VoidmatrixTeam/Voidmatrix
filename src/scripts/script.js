@@ -1064,37 +1064,23 @@ class AssemblyBlock extends DraggableHTMLElement {
     this.assemblyInput.setValue(json.assembly);
   }
 
-  toJson(parsed) {
-    if (parsed) {
-      return {
-        type: "assembly",
-        assembly: this.varEvaluator.evaluateString(
-          this.assemblyInput.getValue(),
-          true,
-        ),
-      };
-    }
-    return {
-      type: "assembly",
-      assembly: this.assemblyInput.getValue(),
-    };
+  toJson() {
+    return { type: "assembly", assembly: this.assemblyInput.getValue() };
   }
 
   toDataArray() {
-    var assembler = new ks.Keystone(ks.ARCH_ARM, ks.MODE_THUMB);
-    var result = assembler.asm(this.toJson(true).assembly);
-    assembler.close();
+    const source = this.toJson().assembly;
+    const assembler = new ARMv5TAssembler();
+    const result = assembler.assemble(source);
 
-    if (result.failed) {
+    if (!result.success) {
+      for (const error of result.errors) {
+        console.error(error.toString());
+      }
       return [];
     }
 
-    return Array.from(result.mc).map((byte) => {
-      return {
-        size: "u8",
-        value: byte,
-      };
-    });
+    return result.bytes.map((byte) => ({ size: "u8", value: byte }));
   }
 }
 
