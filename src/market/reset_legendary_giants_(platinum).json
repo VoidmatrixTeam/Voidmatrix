@@ -1,0 +1,118 @@
+{
+  "title": "reset_legendary_giants_(platinum)",
+  "description": "Script to reset the status of the legendary giants in Platinum",
+  "author": "TimoVM",
+  "supported": [
+    "platinum"
+  ],
+  "scripts": [
+    {
+      "color": [
+        40,
+        155,
+        65
+      ],
+      "title": "Re-Spawn Legendary Giants (Platinum)",
+      "documentation": "This code resets the caught status of the legendary giants (Regirock, Regice and Registeel). In order to encounter them, you must still have a fateful encounter Regigigas in the party.\n\nThe first command resets Registeel, the second command resets Regice and the last command resets Regirock.",
+      "variables": [
+        {
+          "name": "VAR_IRON_RUINS_STATE",
+          "default": "105",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "VAR_ICEBERG_RUINS_STATE",
+          "default": "106",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        },
+        {
+          "name": "VAR_ROCK_PEAK_RUINS_STATE",
+          "default": "107",
+          "overrulingValues": {
+            "ENG": "",
+            "SP": "",
+            "GER": "",
+            "FR": "",
+            "IT": "",
+            "KOR": "",
+            "JP5": "",
+            "JP6": ""
+          }
+        }
+      ],
+      "code": [
+        {
+          "type": "command",
+          "name": "LoadWkValue",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000 + [VAR_IRON_RUINS_STATE]"
+            },
+            {
+              "name": "value",
+              "size": "u16",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadWkValue",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000 + [VAR_ICEBERG_RUINS_STATE]"
+            },
+            {
+              "name": "value",
+              "size": "u16",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadWkValue",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000 + [VAR_ROCK_PEAK_RUINS_STATE]"
+            },
+            {
+              "name": "value",
+              "size": "u16",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}
