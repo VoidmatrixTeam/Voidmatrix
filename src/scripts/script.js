@@ -1646,7 +1646,7 @@ class DownloadPopup extends HTMLElement {
       scripts: this.scriptData.scripts,
     };
 
-    const blob = new Blob([JSON.stringify(json, null, 2)], {
+    const blob = new Blob([JSON.stringify(json, null, 2) + '\n'], {
       type: "application/json",
     });
     const url = URL.createObjectURL(blob);
