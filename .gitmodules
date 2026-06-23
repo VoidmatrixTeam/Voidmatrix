@@ -1,6 +1,3 @@
-[submodule "src/libs/keystone.js"]
-	path = src/libs/keystone.js
-	url = git@github.com:DevreeseJorik/keystone.js.git
 [submodule "src/libs/DOMPurify"]
 	path = src/libs/DOMPurify
 	url = git@github.com:DevreeseJorik/DOMPurify.git
