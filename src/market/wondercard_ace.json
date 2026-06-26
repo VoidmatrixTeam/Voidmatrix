@@ -1,6 +1,6 @@
 {
-  "title": "Wondercard ACE (NEW)",
-  "description": "Modified version of the Wondercard ACE (NEW) code. This code incorporates some changes from the old version to ensure the whole doesn't crash, the NPC ASE segment has also been modified to jump off of mon #5's nickname instead.",
+  "title": "Wondercard ACE",
+  "description": "Modified version of the Wondercard ACE code. This code incorporates some changes from the old version to ensure the whole doesn't crash, the NPC ASE segment has also been modified to jump off of mon #5's nickname instead.",
   "author": "RETIRE + rebsillycon",
   "supported": [
     "diamond",
