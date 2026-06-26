@@ -4,7 +4,8 @@
     "author": "RETIRE",
     "supported": [
         "diamond",
-        "pearl"
+        "pearl",
+        "platinum"
     ],
     "scripts": [
         {
