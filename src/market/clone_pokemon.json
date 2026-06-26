@@ -1,6 +1,6 @@
 {
-    "title": "Clone Pokemon",
-    "description": "",
+    "title": "Clone Box Pokémon",
+    "description": "# Clone Box Pokémon\n\nOnce executed, this code allows you to clone pokémon in the PC by picking them up and dropping them in another slot. This should be done using the \"Move Pokémon\" option.\n\n## Usage notes\n\nWhile you are picking up and dropping down pokémon, slots containing cloned pokémon will appear as empty within the PC menu. Exiting and reopening the PC menu will correctly display them.\n\nOnly pokémon within the PC will be cloned, party pokémon are unaffected. Until the game is reset, you will not be able to release pokémon.\n\nWhen using the \"Withdraw Pokémon\" option, trying to withdraw the same pokémon twice without exiting back out to the PC menu will cause the game to softlock.\n\n## Technical details\n\nThe function that's responsible for removing pokémon in the PC get passed along an argument that indicates which box number the to-be-removed pokémon is located in. This value can either have a value corresponding to the actual box ID, or it can have a value of 0xFFFFFFFF (-1 if interpreted as a signed integer) which indicates that the pokémon is to be removed from the current active box.\n\nBecause of this, the function first checks if the box ID it received corresponds to -1. If it is, it will overwrite this value with the current box ID. The game then checks whether the pokémon we're trying to move is in a valid slot and a valid box number. If both are valid, then the game removes the pokémon from that specific slot.\n\nThis code works by breaking the first check. By sabotaging this check the box ID value of 0xFFFFFFFF is never overwritten, causing the game to think we're trying to remove a pokémon from an invalid box. This causes the game to completely skip removing the pokémon altogether.",
     "author": "RETIRE",
     "supported": [
         "diamond",
@@ -8,7 +8,7 @@
     ],
     "scripts": [
         {
-            "title": "Clone Box Pokémon (Grab, Put Down)",
+            "title": "Clone Box Pokémon",
             "color": [
                 179,
                 230,
