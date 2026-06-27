@@ -1,10 +1,11 @@
 {
     "title": "Change Playername",
     "description": "",
-    "author": "Unknown Author",
+    "author": "RETIRE",
     "supported": [
         "diamond",
-        "pearl"
+        "pearl",
+        "platinum"
     ],
     "scripts": [
         {

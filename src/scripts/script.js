@@ -1070,7 +1070,7 @@ class AssemblyBlock extends DraggableHTMLElement {
 
   toDataArray() {
     const source = this.toJson().assembly;
-    const assembler = new ARMv5TAssembler();
+    const assembler = new ARMv5TAssembler(this.varEvaluator);
     const result = assembler.assemble(source);
 
     if (!result.success) {
