@@ -237,6 +237,10 @@ class AssemblerState {
 }
 
 class ARMv5TAssembler {
+  constructor(variables) {
+    this.variables = variables;
+  }
+  
   assemble(source) {
     const state = new AssemblerState();
     const raw = this._splitLines(source);
@@ -394,13 +398,13 @@ class ARMv5TAssembler {
     switch (directive) {
       case "BYTE":
         for (const arg of args)
-          bytes.push(this._parseImmediate(arg, lineNumber, line, state) & 0xff);
+          bytes.push(parseInt(this.variables.evaluateExpression(arg, this.variables.getParsableVariables()), 10) & 0xff);
         break;
 
       case "HWORD":
       case "SHORT":
         for (const arg of args) {
-          const v = this._parseImmediate(arg, lineNumber, line, state);
+          const v = parseInt(this.variables.evaluateExpression(arg, this.variables.getParsableVariables()), 10);
           bytes.push(v & 0xff, (v >> 8) & 0xff);
         }
         break;
@@ -408,7 +412,7 @@ class ARMv5TAssembler {
       case "WORD":
       case "LONG":
         for (const arg of args) {
-          const v = this._parseImmediate(arg, lineNumber, line, state);
+          const v = parseInt(this.variables.evaluateExpression(arg, this.variables.getParsableVariables()), 10);
           bytes.push(
             v & 0xff,
             (v >> 8) & 0xff,
@@ -420,8 +424,8 @@ class ARMv5TAssembler {
 
       case "SPACE":
       case "SKIP": {
-        const count = parseInt(args[0]) || 0;
-        const fill = args[1] !== undefined ? parseInt(args[1]) & 0xff : 0;
+        const count = parseInt(this.variables.evaluateExpression(args[0], this.variables.getParsableVariables()), 10) || 0;
+        const fill = args[1] !== undefined ? parseInt(this.variables.evaluateExpression(args[1], this.variables.getParsableVariables()), 10) & 0xff : 0;
         for (let i = 0; i < count; i++) bytes.push(fill);
         break;
       }
