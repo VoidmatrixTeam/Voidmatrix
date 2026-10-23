@@ -1,0 +1,258 @@
+body.scanner-open {
+    overflow: hidden;
+}
+
+dot-artist-scanner {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background-color: var(--bg-dark-1);
+
+    & scanner-toolbar {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        height: var(--toolbar-height);
+        padding: 0 8px 0 16px;
+        background-color: var(--bg-dark-2);
+
+        & img {
+            width: 24px;
+            height: 24px;
+            margin-left: auto;
+            cursor: pointer;
+        }
+    }
+
+    & .scanner-action {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: none;
+        color: var(--light-1);
+        background-color: var(--bg-dark-2);
+        font-family: inherit;
+        font-size: 14px;
+        cursor: pointer;
+
+        & img {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    & .scanner-action:hover {
+        background-color: var(--bg-dark-3);
+    }
+
+    & scanner-camera {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+
+        & .scanner-stage {
+            position: relative;
+            overflow: hidden;
+            width: min(100%, calc(62vh * var(--aspect, 0.5625)));
+            aspect-ratio: var(--aspect, 0.5625);
+            background-color: black;
+
+            & video {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            & .scanner-frame {
+                position: absolute;
+                box-sizing: border-box;
+                border: 2px solid var(--light-1);
+                box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.55);
+                background-image:
+                    linear-gradient(to right, rgba(255, 255, 255, 0.15) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+                background-size: calc(100% / 24) calc(100% / 20);
+            }
+
+            & .scanner-frame.detected {
+                border-color: rgb(40, 155, 65);
+            }
+        }
+
+        & .scanner-status {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 640px;
+            padding: 8px 12px;
+            text-align: center;
+            background-color: var(--bg-dark-2);
+        }
+
+        & .scanner-hint {
+            max-width: 640px;
+            margin: 0;
+            font-size: 13px;
+            text-align: center;
+            color: var(--menu_disabled-color);
+        }
+
+        & .scanner-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        & .scanner-shutter {
+            width: 64px;
+            height: 64px;
+            padding: 0;
+            border: 4px solid var(--light-1);
+            border-radius: 50%;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        & .scanner-shutter::after {
+            content: "";
+            display: block;
+            width: 48px;
+            height: 48px;
+            margin: auto;
+            border-radius: 50%;
+            background-color: var(--light-1);
+        }
+
+        & .scanner-shutter:disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+    }
+
+    & scanner-results {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 12px;
+
+        & .scanner-summary {
+            padding: 10px 12px;
+            font-weight: 500;
+            white-space: pre-line;
+        }
+
+        & .scanner-summary.success {
+            background-color: rgba(40, 155, 65, 0.6);
+        }
+
+        & .scanner-summary.issues {
+            background-color: rgba(255, 60, 60, 0.5);
+        }
+
+        & .scanner-summary.rejected {
+            background-color: rgba(255, 220, 80, 0.7);
+        }
+
+        & .scanner-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+
+            & figure {
+                margin: 0;
+            }
+
+            & figcaption {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 26px;
+                margin-bottom: 4px;
+                font-size: 13px;
+            }
+
+            & canvas {
+                display: block;
+                width: 100%;
+                cursor: pointer;
+                image-rendering: pixelated;
+            }
+        }
+
+        & .scanner-views {
+            display: flex;
+            background-color: var(--bg-dark-2);
+
+            & button {
+                padding: 4px 10px;
+                border: none;
+                background: none;
+                color: var(--menu_disabled-color);
+                font: inherit;
+                cursor: pointer;
+            }
+
+            & button.active {
+                background-color: var(--bg-dark-4);
+                color: var(--light-1);
+            }
+        }
+
+        & .scanner-settings {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
+            padding: 8px 12px;
+            background-color: var(--bg-dark-2);
+        }
+
+        & .scanner-slider {
+            display: grid;
+            grid-template-columns: auto 1fr 4em;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+
+            & input {
+                width: 100%;
+                accent-color: var(--dot-artist-background);
+            }
+
+            & .scanner-slider-value {
+                text-align: right;
+                font-variant-numeric: tabular-nums;
+            }
+        }
+
+        & .scanner-info {
+            min-height: 1.5em;
+            padding: 8px 12px;
+            background-color: var(--bg-dark-2);
+        }
+
+        & .scanner-action {
+            align-self: flex-start;
+        }
+    }
+
+    & [hidden] {
+        display: none !important;
+    }
+}
+
+@media (max-width: 620px) {
+    dot-artist-scanner scanner-results .scanner-pair,
+    dot-artist-scanner scanner-results .scanner-settings {
+        grid-template-columns: 1fr;
+    }
+}
