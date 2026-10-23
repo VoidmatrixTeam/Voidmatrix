@@ -216,25 +216,43 @@ input:focus, input:active {
 }
 
 @media (max-width: 620px) {
-    .left-panel-content {
-        margin-left:0;
-        width: var(--right-panel-no-config-width);
-        float: none;
-        height: 400px;
+    .application-container {
+        margin: 12px;
+        width: auto;
+        height: auto;
     }
-    .right-panel-content {
+
+    .application-container .left-panel-content {
+        width: 100%;
+        height: 60vh;
+        float: none;
+    }
+
+    .application-container .right-panel-content {
         margin-top: var(--application-container-margin);
         margin-left: 0;
         width: 100%;
+        height: auto;
         float: none;
+    }
+
+    .application-container .search-wrapper {
+        width: 100%;
+        height: 60vh;
+    }
+
+    dot-artist-wrapper {
+        height: auto;
+        align-items: flex-start;
+
+        & dot-artist-canvas {
+            height: auto;
+            aspect-ratio: 6 / 5;
+        }
     }
 
     .toolbar span {
         display: none;
-    }
-
-    .dot-artist-container {
-        margin-bottom: 20px;
     }
 }
 
