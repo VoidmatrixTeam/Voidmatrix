@@ -190,6 +190,22 @@ class DotArtistCopyOption extends DotArtistOption {
   }
 }
 
+class DotArtistScanOption extends DotArtistOption {
+  constructor() {
+    super("assets/photo_camera.svg", "camera icon");
+    this.title = "Check my drawing";
+    this.onClick(this.open.bind(this));
+  }
+
+  async open() {
+    const script = ScriptGroupManager.instance
+      ?.getSelectedScriptGroup()
+      ?.getSelectedScript();
+    const { openScanner } = await import("./scanner/scanner-ui.js");
+    openScanner(script ? script.toByteArray() : []);
+  }
+}
+
 class DotArtistConfigOptions extends HTMLElement {
   constructor() {
     super();
@@ -199,9 +215,11 @@ class DotArtistConfigOptions extends HTMLElement {
     this.highlight = new DotArtistHighlightOption();
     this.numbers = new DotArtistNumberViewerOption();
     this.copy = new DotArtistCopyOption();
+    this.scan = new DotArtistScanOption();
     this.dropdownOptions.set("highlight", this.highlight);
     this.dropdownOptions.set("numbers", this.numbers);
     this.dropdownOptions.set("copy", this.copy);
+    this.dropdownOptions.set("scan", this.scan);
     this.append(this.dropdown, ...this.dropdownOptions.values());
 
     this.dropdown.onClick(() => {
@@ -266,6 +284,9 @@ customElements.define("dot-artist-number-view", DotArtistNumberViewerOption, {
   extends: "img",
 });
 customElements.define("dot-artist-copy", DotArtistCopyOption, {
+  extends: "img",
+});
+customElements.define("dot-artist-scan", DotArtistScanOption, {
   extends: "img",
 });
 customElements.define("dot-artist-config-options", DotArtistConfigOptions);
