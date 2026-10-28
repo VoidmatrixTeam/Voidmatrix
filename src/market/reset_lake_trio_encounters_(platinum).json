@@ -1,0 +1,60 @@
+{
+  "title": "Re-Encounter Lake Trio (Platinum)",
+  "description": "",
+  "author": "aestellic",
+  "supported": [
+    "platinum"
+  ],
+  "scripts": [
+    {
+      "color": [
+        180,
+        180,
+        180
+      ],
+      "title": "Re-Encounter Lake Trio (Platinum)",
+      "documentation": "",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "0x01DF"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "0x01E0"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "0x01E1"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

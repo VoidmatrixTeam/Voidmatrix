@@ -1,0 +1,39 @@
+{
+  "title": "Re-Encounter Darkrai (Diamond Pearl)",
+  "description": "Reclaimer Shawn",
+  "author": "",
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        180,
+        180,
+        180
+      ],
+      "title": "Re-Encounter Darkrai (Diamond Pearl)",
+      "documentation": "",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "0x025E"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

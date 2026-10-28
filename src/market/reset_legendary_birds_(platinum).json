@@ -1,5 +1,5 @@
 {
-  "title": "reset_legendary_birds_(platinum)",
+  "title": "Re-Spawn Legendary Birds (Platinum)",
   "description": "Optimisation of the previous code, fixes unrelated flag actions and provides better support for only respawning one bird at a time.",
   "author": "TimoVM",
   "supported": [

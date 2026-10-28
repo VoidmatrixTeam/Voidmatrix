@@ -1,0 +1,38 @@
+{
+  "title": "Re-Encounter Cresselia At Fullmoon Island (Platinum)",
+  "description": "",
+  "author": "aestellic",
+  "supported": [
+    "platinum"
+  ],
+  "scripts": [
+    {
+      "color": [
+        180,
+        180,
+        180
+      ],
+      "title": "Re-Encounter Cresselia at Fullmoon Island (Platinum)",
+      "documentation": "",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "0x024F"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

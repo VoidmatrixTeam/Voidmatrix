@@ -1,0 +1,139 @@
+{
+  "title": "Receive Mythical Event Items (Diamond Pearl)",
+  "description": "Gives you the Member Card, Oak's Letter, and Azure Flute (and sets their associated event flags).",
+  "author": "Stopper4",
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        228,
+        154,
+        154
+      ],
+      "title": "Receive Mythical Event Items (Diamond Pearl)",
+      "documentation": "Gives you the Member Card, Oak's Letter, and Azure Flute (and sets their associated event flags).\n\n**Note that this will not reset the events, and should not be used if you've already obtained/completed them**.",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "AddItem",
+          "parameters": [
+            {
+              "name": "item",
+              "size": "u16",
+              "value": "Member Card"
+            },
+            {
+              "name": "number",
+              "size": "u16",
+              "value": "1"
+            },
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "AddItem",
+          "parameters": [
+            {
+              "name": "item",
+              "size": "u16",
+              "value": "Oak's Letter"
+            },
+            {
+              "name": "number",
+              "size": "u16",
+              "value": "1"
+            },
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "AddItem",
+          "parameters": [
+            {
+              "name": "item",
+              "size": "u16",
+              "value": "Azure Flute"
+            },
+            {
+              "name": "number",
+              "size": "u16",
+              "value": "1"
+            },
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4000"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadWkValue",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4043"
+            },
+            {
+              "name": "value",
+              "size": "u16",
+              "value": "0x1209"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadWkValue",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4044"
+            },
+            {
+              "name": "value",
+              "size": "u16",
+              "value": "0x1112"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "LoadWkValue",
+          "parameters": [
+            {
+              "name": "work",
+              "size": "u16",
+              "value": "0x4045"
+            },
+            {
+              "name": "value",
+              "size": "u16",
+              "value": "0x1123"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

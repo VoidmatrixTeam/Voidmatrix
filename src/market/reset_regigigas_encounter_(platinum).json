@@ -1,0 +1,38 @@
+{
+  "title": "Re-Encounter Regigigas (Platinum)",
+  "description": "",
+  "author": "aestellic",
+  "supported": [
+    "platinum"
+  ],
+  "scripts": [
+    {
+      "color": [
+        180,
+        180,
+        180
+      ],
+      "title": "Re-Encounter Regigigas (Platinum)",
+      "documentation": "",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "0x0243"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "title": "Re-Encounter Giratina (Diamond Pearl)",
+  "description": "",
+  "author": "Reclaimer Shawn",
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        180,
+        180,
+        180
+      ],
+      "title": "Re-Encounter Giratina (Diamond Pearl)",
+      "documentation": "Re-enables the Giratina encounter in Turnback Cave.",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "0x026E"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}

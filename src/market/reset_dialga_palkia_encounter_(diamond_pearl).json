@@ -1,15 +1,14 @@
 {
-    "title": "Re-Encounter Darkrai",
+    "title": "Re-Encounter Dialga-Palkia (Diamond Pearl)",
     "description": "",
     "author": "Reclaimer Shawn",
     "supported": [
         "diamond",
-        "pearl",
-        "platinum"
+        "pearl"
     ],
     "scripts": [
         {
-            "title": "Re-Encounter Darkrai",
+            "title": "Re-Encounter Dialga/Palkia (Diamond Pearl)",
             "color": [
                 180,
                 180,
@@ -21,12 +20,17 @@
             "code": [
                 {
                     "type": "command",
-                    "name": "FlagReset",
+                    "name": "LoadWkValue",
                     "parameters": [
                         {
-                            "name": "flag",
+                            "name": "work",
                             "size": "u8",
-                            "value": "0x025E"
+                            "value": "0x4098"
+                        },
+                        {
+                            "name": "value",
+                            "size": "u8",
+                            "value": "5"
                         }
                     ]
                 },

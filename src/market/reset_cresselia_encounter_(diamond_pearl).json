@@ -1,0 +1,39 @@
+{
+  "title": "Re-Encounter Cresselia At Fullmoon Island (Diamond Pearl)",
+  "description": "Reclaimer Shawn",
+  "author": "",
+  "supported": [
+    "diamond",
+    "pearl"
+  ],
+  "scripts": [
+    {
+      "color": [
+        180,
+        180,
+        180
+      ],
+      "title": "Re-Encounter Cresselia at Fullmoon Island (Diamond Pearl)",
+      "documentation": "",
+      "variables": [],
+      "code": [
+        {
+          "type": "command",
+          "name": "FlagReset",
+          "parameters": [
+            {
+              "name": "flag",
+              "size": "u16",
+              "value": "0x026D"
+            }
+          ]
+        },
+        {
+          "type": "command",
+          "name": "End",
+          "parameters": []
+        }
+      ]
+    }
+  ]
+}
